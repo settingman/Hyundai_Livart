@@ -1,7 +1,0 @@
-INDEX VERSION 1.4+C:\dev64\Hyundai\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-3744298662.index
-522251870.index
-250011820.index
-1464416712.index
-746885727.index
-4028652771.index

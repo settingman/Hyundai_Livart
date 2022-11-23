@@ -1,12 +1,0 @@
-
-`
-java:S3740"/Provide the parametrized type for this generic.(θ‰εόÿÿÿÿH–RMAJORZ
-CODE_SMELL
-~
-java:S1192""JDefine a constant instead of duplicating this literal "</td><td>" 4 times.(Ò§ξϊÿÿÿÿH—RCRITICALZ
-CODE_SMELL
-„
-java:S1989"PHandle the following exception that could be thrown by "getWriter": IOException.(οτ†ϊÿÿÿÿHRMINORZVULNERABILITY
-k
-java:S1161":Add the "@Override" annotation above this method signature(Οϋ©ΦϋÿÿÿÿHRMAJORZ
-CODE_SMELL
