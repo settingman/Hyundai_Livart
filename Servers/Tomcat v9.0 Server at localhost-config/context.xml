@@ -33,7 +33,7 @@
     auth="Container"
     type="javax.sql.DataSource"
     driverClassName="oracle.jdbc.OracleDriver"
-    url="jdbc:oracle:thin:@edudb_high?TNS_ADMIN=C:\\dev64\\sqldeveloper\\wallet"
+    url="jdbc:oracle:thin:@edudb_high"
     username="user01"
     password="xxxxxxAt21cc"
     maxActive="50"
