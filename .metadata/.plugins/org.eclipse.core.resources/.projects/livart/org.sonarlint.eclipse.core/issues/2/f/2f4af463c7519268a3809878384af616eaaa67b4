@@ -1,9 +1,0 @@
-
-
-java:S1192."MDefine a constant instead of duplicating this literal "        <td>" 3 times.(¶­îìøÿÿÿÿH…RCRITICALZ
-CODE_SMELL
-z
-java:S1192."FDefine a constant instead of duplicating this literal "</td>" 3 times.(¶­îìøÿÿÿÿHŠRCRITICALZ
-CODE_SMELL
-‚
-java:S2226"XRemove this misleading mutable servlet instance field or make it "static" and/or "final"(«ùüÿÿÿÿH‰RMAJORZBUG
