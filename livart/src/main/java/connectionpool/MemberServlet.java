@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 //test
 // test 2 main to fork jinhooo테스트~~~~~
+// 싱크테스트
 
 @WebServlet("/member2")
 public class MemberServlet extends HttpServlet {
