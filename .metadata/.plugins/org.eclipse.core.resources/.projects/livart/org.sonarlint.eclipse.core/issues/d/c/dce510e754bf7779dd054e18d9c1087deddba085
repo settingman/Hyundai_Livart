@@ -1,0 +1,10 @@
+
+n
+java:S2095"GUse try-with-resources or close this "Statement" in a "finally" clause.(Κλ‹HµRBLOCKERZBUG
+[
+java:S1197
+"*Move the array designators [] to the type.(™€ζωÿÿÿÿH¶RMINORZ
+CODE_SMELL
+h
+java:S2589!"7Remove this expression which always evaluates to "true"(¬ΖΚΎψÿÿÿÿHΉRMAJORZ
+CODE_SMELL
