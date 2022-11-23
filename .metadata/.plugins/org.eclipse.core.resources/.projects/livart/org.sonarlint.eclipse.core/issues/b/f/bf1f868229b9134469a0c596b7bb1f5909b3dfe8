@@ -1,0 +1,9 @@
+
+‰
+java:S2226"XRemove this misleading mutable servlet instance field or make it "static" and/or "final"(«ùüÿÿÿÿ8Ğø¥‘Ê0H„RMAJORZBUG
+l
+java:S1068"4Remove this unused "memberRepository" private field.(«ùüÿÿÿÿ8Ğø¥‘Ê0H€RMAJORZ
+CODE_SMELL
+e
+java:S1128"-Remove this unused import 'member.MemberDAO'.(†Ë—Ÿüÿÿÿÿ8Ğø¥‘Ê0H‚RMINORZ
+CODE_SMELL

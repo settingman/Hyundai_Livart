@@ -1,0 +1,4 @@
+driver=oracle.jdbc.driver.OracleDriver
+      url=jdbc:oracle:oci8:@edudb_high
+      user=user01
+      password=xxxxxxAt21cc
