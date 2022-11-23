@@ -11,7 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 //test
-// test 2 main to fork
+// test 2 main to fork jinhooo테스트~~~~~
+
 @WebServlet("/member2")
 public class MemberServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request,HttpServletResponse response)  throws ServletException, IOException{
