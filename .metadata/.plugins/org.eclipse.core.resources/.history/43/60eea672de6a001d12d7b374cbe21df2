@@ -1,0 +1,24 @@
+package livart;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter@Setter
+
+public class test {
+	
+	public int a;
+	
+	public test(){
+		
+	}
+	
+	
+	public static void main(String[] args) {
+		
+		
+		test t = new test();
+		t.setA(0);
+	}
+
+}
