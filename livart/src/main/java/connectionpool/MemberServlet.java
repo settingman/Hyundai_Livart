@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
+//test
 
 @WebServlet("/member2")
 public class MemberServlet extends HttpServlet {
