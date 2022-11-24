@@ -1,6 +1,7 @@
-package com.livart.controller.Action;
+package controller.action;
 
 import java.io.IOException;
+
 import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
@@ -8,8 +9,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.livart.dao.ProductDAO;
-import com.livart.dto.ProductVO;
+import dao.ProductDAO;
+import dto.ProductVO;
+
+
 
 public class IndexAction implements Action {
 

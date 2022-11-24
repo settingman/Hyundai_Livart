@@ -237,7 +237,7 @@
 						
 						<ul class="section-category-item__search--list">
 						<c:forEach var="mem" items="${productList }"> 
-						<c:if test="{mem.p_discount eq 0}">
+						
 							<li>
 								<div class="product-item product-item--small ">
 									<input type="hidden" class="criteo-goodsSn" value="P100025656">
@@ -393,7 +393,7 @@
 
 
 							</li>
-							</c:if>
+							
 							
 	</c:forEach>
 						</ul>

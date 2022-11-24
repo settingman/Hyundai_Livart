@@ -1,4 +1,4 @@
-package com.livart.controller;
+package controller;
 
 import java.io.IOException;
 
@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.livart.controller.Action.Action;
+import controller.action.Action;
 
 @WebServlet("/product")
 public class ProductServlet extends HttpServlet{
