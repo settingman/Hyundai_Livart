@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import dao.CartDAO;
 import dto.CartItemVO;
 
+//cartList test
 public class CartListAction implements Action{
 	
 	public void execute(HttpServletRequest request, HttpServletResponse response) 
