@@ -1,27 +1,29 @@
 package livart.cart;
 
+import java.beans.Statement;
+import java.sql.CallableStatement;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
 import java.util.ArrayList;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-public class CartDAO {
+import livart.DBConnection;
+import oracle.jdbc.OracleTypes;
 
-	private Connection con;
-	private PreparedStatement pstmt;
-	private DataSource dataFactory;
+public class CartDAO {
+	
+	Connection conn = null;
 	
 	public CartDAO() {
 		try {
-			Context ctx = new InitialContext();
-			Context envContext = (Context) ctx.lookup("java:/comp/env");
-			dataFactory = (DataSource) envContext.lookup("jdbc/oracle");
+			conn = DBConnection.getConnection();
 			System.out.println("db success");
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -31,16 +33,20 @@ public class CartDAO {
 		ArrayList<CartItemVO> cartItemList =  new ArrayList<>();
 
 		try {
-			con=dataFactory.getConnection();
-			String query ="select quantity, cart_cart_id, product_p_id from cartitem";
-			System.out.println("prepareStatememt: " + query);
-			pstmt = con.prepareStatement(query);
-			ResultSet rs = pstmt.executeQuery();
+		
+			String query = "";
+			CallableStatement callableStatement = conn.prepareCall(query);
+			callableStatement.setInt(1, 1);
+			callableStatement.registerOutParameter(2, OracleTypes.CURSOR);
+			
+			callableStatement.execute();
+			
+			ResultSet rs = (ResultSet)callableStatement.getObject(2);
 			
 			while(rs.next()) {
-				int quantity = rs.getInt("quantity");
-				int cart_id = rs.getInt("cart_cart_id");
-				String p_id = rs.getString("product_p_id");
+				int quantity = rs.getInt(1);
+				int cart_id = rs.getInt(2);
+				String p_id = rs.getString(3);
 				
 				System.out.println(quantity + " " + cart_id + " " + p_id);
 				CartItemVO cartItemVO = new CartItemVO();
@@ -51,10 +57,9 @@ public class CartDAO {
 				cartItemList.add(cartItemVO);
 			}
 			rs.close();
-			pstmt.close();
-			con.close();
 			
 		} catch (SQLException e) {
+			System.out.println("프로시저에서 에러 발생!");
 			e.printStackTrace();
 		}
 		return cartItemList;
