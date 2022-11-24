@@ -1,7 +1,7 @@
-package com.livart.controller;
+package controller;
 
-import com.livart.controller.Action.Action;
-import com.livart.controller.Action.IndexAction;
+import controller.action.Action;
+import controller.action.IndexAction;
 
 public class ActionFactory {
 	private static ActionFactory instance = new ActionFactory();

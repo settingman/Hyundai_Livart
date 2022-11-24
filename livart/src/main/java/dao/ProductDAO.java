@@ -1,13 +1,13 @@
-package com.livart.dao;
+package dao;
 
 import java.sql.CallableStatement;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.livart.dto.ProductVO;
-
+import dto.ProductVO;
 import oracle.jdbc.OracleTypes;
 import util.DBManager;
 
