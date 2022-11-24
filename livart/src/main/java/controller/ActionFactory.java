@@ -1,6 +1,7 @@
 package controller;
 
 import controller.action.Action;
+import controller.action.CartListAction;
 import controller.action.IndexAction;
 
 public class ActionFactory {
@@ -22,6 +23,8 @@ public class ActionFactory {
 			action = new IndexAction();
 		}else if(command.equals("clothes")){
 			action = new IndexAction();
+		}else if(command.equals("CartListAction")) {
+			 action = new CartListAction();
 		}
 		return action;
 	}
