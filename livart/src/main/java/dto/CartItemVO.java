@@ -1,4 +1,4 @@
-package livart.cart;
+package dto;
 
 public class CartItemVO {
 

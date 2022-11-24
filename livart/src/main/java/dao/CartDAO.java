@@ -1,4 +1,4 @@
-package livart.cart;
+package dao;
 
 import java.beans.Statement;
 import java.sql.CallableStatement;
@@ -12,6 +12,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import dto.CartItemVO;
 import livart.DBConnection;
 import oracle.jdbc.OracleTypes;
 
