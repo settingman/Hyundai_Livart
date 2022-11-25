@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" 
 	pageEncoding="UTF-8" isELIgnored="false"%>
-
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="contextPath" value="${pageContext.request.contextPath }"/>
+
 <% request.setCharacterEncoding("UTF-8"); %>
 <% 
 	String color = (String) session.getAttribute("color");
@@ -190,15 +191,12 @@
 
 						<div class="section-category-item__search is-flex tab-block">
 							<div class="left-contents is-flex">
-								<a class="link tab-block-item is-active" data-val="qty"
-									href="javascript:;">추천순</a> <a class="link tab-block-item "
-									data-val="new" href="javascript:;">신상품순</a> <a
-									class="link tab-block-item " data-val="low" href="javascript:;">낮은가격순</a>
-								<a class="link tab-block-item " data-val="high"
-									href="javascript:;">높은가격순</a>
+							<!-- 	<a class="link tab-block-item is-active" data-val="qty" href="javascript:;">추천순</a>  -->
+									<a class="link tab-block-item " data-val="new" href="javascript:;">신상품순</a>
+									 <a class="link tab-block-item " data-val="low" href="javascript:;">낮은가격순</a>
+								<a class="link tab-block-item " data-val="high" href="javascript:;">높은가격순</a>
 								<!--<a class="link tab-block-item "  data-val="review" href="javascript:;">리뷰많은순</a>-->
-								<a class="link tab-block-item " data-val="score"
-									href="javascript:;">평점높은순</a>
+								<!-- <a class="link tab-block-item " data-val="score" href="javascript:;">평점높은순</a> -->
 							</div>
 
 							<div class="right-contents dropdown-wrap">
@@ -258,7 +256,7 @@
 
 
 											<span class="product-item-header__brand">리바트온라인</span> <a
-												href="../product_detail.jsp"
+												href="/livart/productdetail?command=product_detail&p_id=${mem.p_id }"
 												class="product-item-header__name">${mem.p_name }</a>
 
 											<div class="product-item-header__kinds product-item-tag"
