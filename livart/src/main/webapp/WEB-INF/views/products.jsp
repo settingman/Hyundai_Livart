@@ -294,13 +294,13 @@
 
 												<del class="product-item-price__price--del">
 
-													${mem.p_price }<span class="unit">원</span>
+													<fmt:formatNumber value="${mem.p_price }" type="number"/><span class="unit">원</span>
 
 												</del>
 
 
 
-												<span class="product-item-price__price">${ mem.p_price - (mem.p_price * (mem.p_discount / 100))}<span
+												<span class="product-item-price__price"><fmt:formatNumber value="${ mem.p_price - (mem.p_price * (mem.p_discount / 100))}" type="number"/><span
 													class="unit">원</span></span>
 
 
