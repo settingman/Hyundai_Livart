@@ -1,28 +1,29 @@
 package dao;
 
-import java.beans.Statement;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Types;
 import java.util.ArrayList;
-
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.sql.DataSource;
 
 import dto.CartItemVO;
 import livart.DBConnection;
 import oracle.jdbc.OracleTypes;
+import util.DBManager;
 
 public class CartDAO {
+	
+	private static CartDAO instance = new CartDAO();
+
+	public static CartDAO getInstance() {
+		return instance;
+	}
 	
 	Connection conn = null;
 	
 	public CartDAO() {
 		try {
-			conn = DBConnection.getConnection();
+			conn = DBManager.getConnection();
 			System.out.println("db success");
 			
 		} catch (Exception e) {
@@ -35,13 +36,12 @@ public class CartDAO {
 
 		try {
 		
-			String query = "";
+			String query = "{call cart_select_list(?,?)}";
 			CallableStatement callableStatement = conn.prepareCall(query);
 			callableStatement.setInt(1, 1);
 			callableStatement.registerOutParameter(2, OracleTypes.CURSOR);
 			
 			callableStatement.execute();
-			
 			ResultSet rs = (ResultSet)callableStatement.getObject(2);
 			
 			while(rs.next()) {

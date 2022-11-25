@@ -17,8 +17,12 @@ public class CartListAction implements Action{
 	public void execute(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		
-		CartDAO cartDAO = new CartDAO();
+		
+		CartDAO cartDAO = CartDAO.getInstance();
+		
+		System.out.println("cartListaction 들어옴");
 		String nextPage ="./jsp/cart/cart.jsp";
+		System.out.println(nextPage);
 		
 		ArrayList<CartItemVO> cartItemList = cartDAO.selectCartItemList();
 		request.setAttribute("cartItemList", cartItemList);
