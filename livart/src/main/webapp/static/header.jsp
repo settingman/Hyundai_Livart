@@ -722,7 +722,7 @@
                     <li>
                    <!-- 	<form name="frmproduct" method="get" action="products" encType="UTF-8">
                   		 -->
-                    	<a href="${contextPath}/product?command=living">
+                    	<a href="livart/product?command=living">
                     	
                         <span>200cm 이상</span>
                       </a>
