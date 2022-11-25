@@ -3,6 +3,7 @@ package controller;
 import controller.action.Action;
 import controller.action.CartListAction;
 import controller.action.IndexAction;
+import controller.action.ProductDetailAction;
 
 public class ActionFactory {
 	private static ActionFactory instance = new ActionFactory();
@@ -25,6 +26,8 @@ public class ActionFactory {
 			action = new IndexAction();
 		}else if(command.equals("CartListAction")) {
 			 action = new CartListAction();
+		}else if(command.equals("product_detail")) {
+			action = new ProductDetailAction();
 		}
 		return action;
 	}

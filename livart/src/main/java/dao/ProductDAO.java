@@ -60,4 +60,40 @@ public class ProductDAO {
 		return productList;
 		
 	}
+	public ProductVO getProduct(String id){
+			ProductVO product = null;
+		
+		String runSP ="{call product_pack.SP_PRODUCT_SELECT_PID(?,?)}";
+			Connection conn = null;
+			CallableStatement cs = null;
+			ResultSet rs = null;
+		try {
+			 conn = DBManager.getConnection();
+			 cs = conn.prepareCall(runSP);
+			 cs.setString(1, id);
+			 cs.registerOutParameter(2, OracleTypes.CURSOR);
+			 cs.execute();
+			 rs = (ResultSet)cs.getObject(2);
+			 
+			 if(rs.next()) {
+				 product = new ProductVO();
+				 product.setP_id(rs.getString(1));
+				 product.setP_name(rs.getString(2));
+				 product.setP_price(rs.getInt(3));
+				 product.setP_discount(rs.getInt(4));
+				 product.setP_category(rs.getString(5));
+				 product.setP_date(rs.getDate(6));
+				 product.setP_deliveryfee(rs.getInt(7));
+			 }
+			 
+		} catch (SQLException e) {
+			System.out.println("프로시저에서 에러 발생!");
+			System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			
+		}
+		return product;
+	}
 }
