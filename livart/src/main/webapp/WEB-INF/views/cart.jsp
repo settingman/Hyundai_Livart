@@ -10,7 +10,7 @@
 
 
 <body>
-<%@ include file="header.jsp" %>
+<%@ include file="../../static/header.jsp" %>
 
   <div class="container">
     <div class="section-contents-wrap">

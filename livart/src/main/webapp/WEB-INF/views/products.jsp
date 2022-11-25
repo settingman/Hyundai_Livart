@@ -16,7 +16,7 @@
 
 </head>
 <body>
-	<%@ include file="static/header.jsp"%>
+	<%@ include file="../../static/header.jsp"%>
 	
 	<!-- 로케이션 header -->
 
