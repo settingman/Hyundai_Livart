@@ -2,6 +2,7 @@ package controller.action;
 
 import java.io.IOException;
 
+
 import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
@@ -14,12 +15,13 @@ import dto.ProductVO;
 
 
 
-public class IndexAction implements Action {
+
+public class IndexAction implements ControllerLivart {
 
 	@Override
-	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public MyView process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String url = "/products.jsp";
+		
 		ProductDAO productDAO = ProductDAO.getInstance();
 		String c = request.getParameter("command");
 		System.out.println(c);
@@ -27,8 +29,11 @@ public class IndexAction implements Action {
 		
 		request.setAttribute("productList", productList);
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
-		dispatcher.forward(request, response);
+		
+		
+		return new MyView("/WEB-INF/views/products.jsp");
+		
+		
 	}
 
 }
