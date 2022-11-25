@@ -36,24 +36,30 @@ public class CartDAO {
 
 		try {
 		
-			String query = "{call cart_select_list(?,?)}";
+			String query = "{call all_cart_list(?,?)}";
 			CallableStatement callableStatement = conn.prepareCall(query);
-			callableStatement.setInt(1, 1);
+			callableStatement.setString(1, "kibeom5118");
 			callableStatement.registerOutParameter(2, OracleTypes.CURSOR);
 			
 			callableStatement.execute();
 			ResultSet rs = (ResultSet)callableStatement.getObject(2);
 			
 			while(rs.next()) {
-				int quantity = rs.getInt(1);
-				int cart_id = rs.getInt(2);
-				String p_id = rs.getString(3);
+				String img_url = rs.getString(1);
+				String p_name = rs.getString(2);
+				int p_price = rs.getInt(3);
+				int d_price = rs.getInt(4);
+				int p_deliveryfee = rs.getInt(5);
+				int ci_quantity = rs.getInt(6);
 				
-				System.out.println(quantity + " " + cart_id + " " + p_id);
+				System.out.println(img_url);
 				CartItemVO cartItemVO = new CartItemVO();
-				cartItemVO.setQuantity(quantity);
-				cartItemVO.setProduct_p_id(p_id);
-				cartItemVO.setCart_cart_id(cart_id);
+				cartItemVO.setImg_url(img_url);
+				cartItemVO.setP_name(p_name);
+				cartItemVO.setP_price(p_price);
+				cartItemVO.setD_price(d_price);
+				cartItemVO.setP_deliveryfee(p_deliveryfee);
+				cartItemVO.setQuantity(ci_quantity);
 				
 				cartItemList.add(cartItemVO);
 			}

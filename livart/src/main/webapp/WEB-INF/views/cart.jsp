@@ -24,11 +24,10 @@
       <div class="section-contents-table__button--wrap is-liner is-flex">
         <button class="button is-primary is-outlined is-small removeCartAll">전체삭제</button>
         <button class="button is-small removeCartChecked">선택삭제</button>
-        <button class="button is-small removeCartStopSale">구매불가삭제</button>
       </div>
 
       <h4 class="title is-4 is-normal section-contents-table__table--total is-liner">
-				리바트몰 직접 배송 상품 (<span>2</span>)
+				리바트몰 직접 배송 상품
 			</h4>
 
       <table class="section-contents-table__table check__group">
@@ -80,25 +79,23 @@
               </div>
             </td>
 
-            <td align="" class="item-image">
+            <td align="" class="item-image" >
               <!-- 상품이미지 -->
               
               <div class="section-contents-item__image">
                 <a href="#">
-                 <img src= class="mainImg">
+                 <img src="${cart.img_url}" class="mainImg">
                    </a>
               </div>
             </td>
     
-            <td align class="item-option">
+            <td align class="item-option" style="vertical-align: middle">
               <div class="section-contents-item">
-                <!-- 리바트 or 리바트온라인-->
-                <span class="section-contents-item__brand"></span>
-    
+ 
                 <!-- 물품 제목-->
                 <p class="section-contents-item__name">
                   <a href="#">
-                    <span class="section-contents-item__name--text text-ellipsis-2">${cart.cart_cart_id }</span>
+                    <span class="section-contents-item__name--text text-ellipsis-2">${cart.p_name }</span>
                   </a>
                 </p>
     
@@ -108,12 +105,6 @@
                     <li>
                     </li>
                   </ul>
-                  <p class="section-contents-item__options--sub">
-                    "선택항목 예시"
-                  </p>
-                  <button type="button" class="link cartChangeOption" aria-haspopup="true">
-                    "옵션변경"
-                  </button>
                 </div>
               </div>
     
@@ -137,10 +128,10 @@
             <td align>
               <div class="price item-price-discount">
                 <!--del>1,226,000</del-->
-                <del>예시 ** 원가</d/l>
+                <del><fmt:formatNumber value="${cart.p_price }" type="number"/></del>
               <span class="won">원</span></div>
 
-              <div class="price item-price">예시 ** 구매<span class="won">원</span>
+              <div class="price item-price"><fmt:formatNumber value="${cart.d_price }" type="number"/><span class="won">원</span>
               </div>
             </td>
 
@@ -159,7 +150,8 @@
           <td align="">
             <!-- 최종구매가 -->
             <div class="price final-price is-bold">
-              <span id="totPrc_C002935375">총합 *** 예시</span>
+              <span id="totPrc_C002935375"><fmt:formatNumber value="${cart.d_price + cart.p_deliveryfee }" type="number"/>
+             </span>
               <span class="won is-normal">원</span>
             </div>
         </td>
@@ -169,8 +161,8 @@
             <div class="item-delivery">
               <div class="section-contents-item__delivery">
                 <div class="delivery-type free">
-                    <span class="tit">직접 배송</span>
-                    <div class="type freeDlvTag ">(<span>무료</span>)</div>
+                    <span class="tit"><fmt:formatNumber value="${cart.p_deliveryfee }" type="number"/>
+                    </span>
                 </div>
                 <div class="delivery-type pay">
                       <span class="price hidden"><span class="num viewDlvPrc">0</span>원</span>
@@ -197,6 +189,7 @@
             </ul>
           </div>
         </td>
+	</c:forEach>
           </tr>  
         </tbody>
       </table>
@@ -234,7 +227,6 @@
 				</ul>
 			</div>
     </section>
-	</c:forEach>
 
     <!-- 장바구니 총-->
     <section id="totalArea">
