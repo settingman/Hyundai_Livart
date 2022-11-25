@@ -38,7 +38,6 @@ public class FrontController extends HttpServlet{
         String requestURI = request.getRequestURI();
         ControllerLivart controller = controllerMap.get(requestURI);
         
-        
         if (controller == null) {
             response.setStatus(HttpServletResponse.SC_NOT_FOUND);
             return;
