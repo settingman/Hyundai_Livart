@@ -14,6 +14,7 @@ import controller.action.CartListAction;
 import controller.action.ControllerLivart;
 import controller.action.IndexAction;
 import controller.action.MyView;
+import controller.action.ProductDetailAction;
 
 
 
@@ -28,7 +29,7 @@ public class FrontController extends HttpServlet{
 	public FrontController() {
         controllerMap.put("/livart/product", new IndexAction());
         controllerMap.put("/livart/cart", new CartListAction());
-       
+        controllerMap.put("/livart/productdetail", new ProductDetailAction());
     }
 
     @Override
