@@ -12,13 +12,17 @@
 <body>
 <%@ include file="../../static/header.jsp" %>
 
+<c:set var="sum" value="0"/>
+<c:set var="o_sum" value="0"/>
+<c:set var="d_sum" value="0"/>
+<c:set var="dc_sum" value="0"/>
+
   <div class="container">
     <div class="section-contents-wrap">
       <h1 class="title">장바구니</h1>
     </div>
     <c:choose>
 <c:when test="${!empty cartItemList }">
-
     <!-- 장바구니에 상품이 들어있을 경우-->
     <section class="section-contents-table is-interval cartListSection">
       <div class="section-contents-table__button--wrap is-liner is-flex">
@@ -48,7 +52,7 @@
 						<th align="" scope="col">
 							<div class="checkbox checkbox__one">
 								<input type="hidden" class="cartDlvTypeCd" value="10">
-								<input type="checkbox" name="chk-a-all" id="checkCart10" class="check__all">
+								<input type="checkbox" name="chk-a-all" id="checkCart10" checked="" class="check__all">
 								<label for="checkCart10"></label>
 							</div>
 						</th>
@@ -63,7 +67,10 @@
 				</thead>
 
 	<c:forEach var="cart" items="${cartItemList }" varStatus="cartNum">
-
+	 <c:set var="sum" value="${sum + cart.d_price + cart.p_deliveryfee}"/>
+	  <c:set var="o_sum" value="${o_sum + cart.p_price }"/>
+	   <c:set var="d_sum" value="${d_sum + cart.p_deliveryfee }"/>
+	    <c:set var="dc_sum" value="${dc_sum + cart.p_price - cart.d_price }"/>
         <tbody>
           <tr class="bundle-delivery">
             <td align class="item-checkbox">
@@ -200,7 +207,7 @@
 					<li class="order">
 						<span class="tit sr-only">총 주문금액</span>
 						<span class="number">
-							<em class="num viewPrcSum">총 주문금액</em>원
+							<em class="num viewPrcSum"><fmt:formatNumber value="${sum }" type="number"/></em>원
 						</span>
 					</li>
 					<li class="discount hidden">
@@ -220,10 +227,6 @@
 							<em class="num viewPayPrcSum">결제예정금액</em>원
 						</span>
 					</li>
-					<li>
-						<span class="number"></span>
-						<span class="delivery-info">(직접/무료배송)</span>
-					</li>
 				</ul>
 			</div>
     </section>
@@ -235,25 +238,25 @@
           <dl class="order">
             <dt class="tit">총 판매가</dt>
             <dd class="number">
-              <em class="num" id="viewTotPrcSum">판매가 예시</em>원
+              <em class="num" id="viewTotPrcSum"><fmt:formatNumber value="${o_sum }" type="number"/></em>원
             </dd>
           </dl>
           <dl class="discount">
             <dt class="tit">총 할인금액</dt>
             <dd class="number">
-              <em class="num" id="viewTotDscntSum">할인금액 예시</em>원
+              <em class="num" id="viewTotDscntSum"><fmt:formatNumber value="${dc_sum }" type="number"/></em>원
             </dd>
           </dl>
           <dl class="delivery">
             <dt class="tit">총 배송비</dt>
             <dd class="number">
-              <em class="num" id="viewTotDlvPrcSum">배송비 예시</em>원
+              <em class="num" id="viewTotDlvPrcSum"><fmt:formatNumber value="${d_sum }" type="number"/></em>원
             </dd>
           </dl>
           <dl class="pay">
             <dt class="tit">총 결제 예정금액</dt>
             <dd class="number pay_price">
-              <em class="num" id="viewTotPayPrcSum">총 결제 예정금액</em>원
+              <em class="num" id="viewTotPayPrcSum"><fmt:formatNumber value="${sum }" type="number"/></em>원
             </dd>
           </dl>
         </div>
