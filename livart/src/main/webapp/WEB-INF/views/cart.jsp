@@ -12,23 +12,26 @@
 <body>
 <%@ include file="../../static/header.jsp" %>
 
+<c:set var="sum" value="0"/>
+<c:set var="o_sum" value="0"/>
+<c:set var="d_sum" value="0"/>
+<c:set var="dc_sum" value="0"/>
+
   <div class="container">
     <div class="section-contents-wrap">
       <h1 class="title">장바구니</h1>
     </div>
     <c:choose>
 <c:when test="${!empty cartItemList }">
-
     <!-- 장바구니에 상품이 들어있을 경우-->
     <section class="section-contents-table is-interval cartListSection">
       <div class="section-contents-table__button--wrap is-liner is-flex">
         <button class="button is-primary is-outlined is-small removeCartAll">전체삭제</button>
         <button class="button is-small removeCartChecked">선택삭제</button>
-        <button class="button is-small removeCartStopSale">구매불가삭제</button>
       </div>
 
       <h4 class="title is-4 is-normal section-contents-table__table--total is-liner">
-				리바트몰 직접 배송 상품 (<span>2</span>)
+				리바트몰 직접 배송 상품
 			</h4>
 
       <table class="section-contents-table__table check__group">
@@ -49,7 +52,7 @@
 						<th align="" scope="col">
 							<div class="checkbox checkbox__one">
 								<input type="hidden" class="cartDlvTypeCd" value="10">
-								<input type="checkbox" name="chk-a-all" id="checkCart10" class="check__all">
+								<input type="checkbox" name="chk-a-all" id="checkCart10" checked="" class="check__all">
 								<label for="checkCart10"></label>
 							</div>
 						</th>
@@ -64,7 +67,10 @@
 				</thead>
 
 	<c:forEach var="cart" items="${cartItemList }" varStatus="cartNum">
-
+	 <c:set var="sum" value="${sum + cart.d_price + cart.p_deliveryfee}"/>
+	  <c:set var="o_sum" value="${o_sum + cart.p_price }"/>
+	   <c:set var="d_sum" value="${d_sum + cart.p_deliveryfee }"/>
+	    <c:set var="dc_sum" value="${dc_sum + cart.p_price - cart.d_price }"/>
         <tbody>
           <tr class="bundle-delivery">
             <td align class="item-checkbox">
@@ -80,25 +86,23 @@
               </div>
             </td>
 
-            <td align="" class="item-image">
+            <td align="" class="item-image" >
               <!-- 상품이미지 -->
               
               <div class="section-contents-item__image">
                 <a href="#">
-                 <img src= class="mainImg">
+                 <img src="${cart.img_url}" class="mainImg">
                    </a>
               </div>
             </td>
     
-            <td align class="item-option">
+            <td align class="item-option" style="vertical-align: middle">
               <div class="section-contents-item">
-                <!-- 리바트 or 리바트온라인-->
-                <span class="section-contents-item__brand"></span>
-    
+ 
                 <!-- 물품 제목-->
                 <p class="section-contents-item__name">
                   <a href="#">
-                    <span class="section-contents-item__name--text text-ellipsis-2">${cart.cart_cart_id }</span>
+                    <span class="section-contents-item__name--text text-ellipsis-2">${cart.p_name }</span>
                   </a>
                 </p>
     
@@ -108,12 +112,6 @@
                     <li>
                     </li>
                   </ul>
-                  <p class="section-contents-item__options--sub">
-                    "선택항목 예시"
-                  </p>
-                  <button type="button" class="link cartChangeOption" aria-haspopup="true">
-                    "옵션변경"
-                  </button>
                 </div>
               </div>
     
@@ -137,10 +135,10 @@
             <td align>
               <div class="price item-price-discount">
                 <!--del>1,226,000</del-->
-                <del>예시 ** 원가</d/l>
+                <del><fmt:formatNumber value="${cart.p_price }" type="number"/></del>
               <span class="won">원</span></div>
 
-              <div class="price item-price">예시 ** 구매<span class="won">원</span>
+              <div class="price item-price"><fmt:formatNumber value="${cart.d_price }" type="number"/><span class="won">원</span>
               </div>
             </td>
 
@@ -159,7 +157,8 @@
           <td align="">
             <!-- 최종구매가 -->
             <div class="price final-price is-bold">
-              <span id="totPrc_C002935375">총합 *** 예시</span>
+              <span id="totPrc_C002935375"><fmt:formatNumber value="${cart.d_price + cart.p_deliveryfee }" type="number"/>
+             </span>
               <span class="won is-normal">원</span>
             </div>
         </td>
@@ -169,8 +168,8 @@
             <div class="item-delivery">
               <div class="section-contents-item__delivery">
                 <div class="delivery-type free">
-                    <span class="tit">직접 배송</span>
-                    <div class="type freeDlvTag ">(<span>무료</span>)</div>
+                    <span class="tit"><fmt:formatNumber value="${cart.p_deliveryfee }" type="number"/>
+                    </span>
                 </div>
                 <div class="delivery-type pay">
                       <span class="price hidden"><span class="num viewDlvPrc">0</span>원</span>
@@ -197,6 +196,7 @@
             </ul>
           </div>
         </td>
+	</c:forEach>
           </tr>  
         </tbody>
       </table>
@@ -207,7 +207,7 @@
 					<li class="order">
 						<span class="tit sr-only">총 주문금액</span>
 						<span class="number">
-							<em class="num viewPrcSum">총 주문금액</em>원
+							<em class="num viewPrcSum"><fmt:formatNumber value="${sum }" type="number"/></em>원
 						</span>
 					</li>
 					<li class="discount hidden">
@@ -227,14 +227,9 @@
 							<em class="num viewPayPrcSum">결제예정금액</em>원
 						</span>
 					</li>
-					<li>
-						<span class="number"></span>
-						<span class="delivery-info">(직접/무료배송)</span>
-					</li>
 				</ul>
 			</div>
     </section>
-	</c:forEach>
 
     <!-- 장바구니 총-->
     <section id="totalArea">
@@ -243,25 +238,25 @@
           <dl class="order">
             <dt class="tit">총 판매가</dt>
             <dd class="number">
-              <em class="num" id="viewTotPrcSum">판매가 예시</em>원
+              <em class="num" id="viewTotPrcSum"><fmt:formatNumber value="${o_sum }" type="number"/></em>원
             </dd>
           </dl>
           <dl class="discount">
             <dt class="tit">총 할인금액</dt>
             <dd class="number">
-              <em class="num" id="viewTotDscntSum">할인금액 예시</em>원
+              <em class="num" id="viewTotDscntSum"><fmt:formatNumber value="${dc_sum }" type="number"/></em>원
             </dd>
           </dl>
           <dl class="delivery">
             <dt class="tit">총 배송비</dt>
             <dd class="number">
-              <em class="num" id="viewTotDlvPrcSum">배송비 예시</em>원
+              <em class="num" id="viewTotDlvPrcSum"><fmt:formatNumber value="${d_sum }" type="number"/></em>원
             </dd>
           </dl>
           <dl class="pay">
             <dt class="tit">총 결제 예정금액</dt>
             <dd class="number pay_price">
-              <em class="num" id="viewTotPayPrcSum">총 결제 예정금액</em>원
+              <em class="num" id="viewTotPayPrcSum"><fmt:formatNumber value="${sum }" type="number"/></em>원
             </dd>
           </dl>
         </div>
