@@ -1,11 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="contextPath" value="${pageContext.request.contextPath }"/>
 <!DOCTYPE html>
 <html>
 <head>
 
 <meta charset="UTF-8">
 
+ 
   <script language="JavaScript">
      // 변경된 값을 저장
    var sell_price;
@@ -95,7 +99,7 @@
 </head>
 <body>
 
-		<%@ include file="static/header.jsp" %>
+		<%@ include file="../../static/header.jsp" %>
 	
   <div class="contents-items-wrap">
     <div class="container">
@@ -295,35 +299,27 @@
               <div class="slideshow-container">
 
                 <!-- Full-width images with number and caption text -->
+                
+                <c:forEach var="img" items="${imageList }" >
                 <div class="mySlides fade">
-                  <div class="numbertext">1 / 3</div>
-                  <img src="capture.PNG" style="width:100%">
+                  
+                  <img onclick="javascript:location.href='/livart/product?command=${img.review_review_id}';" style="cursor:pointer" src="${img.photo_url }" style="width:100%">
                   <div class="text">Caption Text</div>
+                  <!-- 성환이형페이지로 넘겨야함 나중에 onclick url 을 여기에있는 /livart/review/command=${img.review_review_id} 서블릿으로 변경 예정 -->
                 </div>
-
-                <div class="mySlides fade">
-                  <div class="numbertext">2 / 3</div>
-                  <img src="capture2.PNG" style="width:100%">
-                  <div class="text">Caption Two</div>
-                </div>
-
-                <div class="mySlides fade">
-                  <div class="numbertext">3 / 3</div>
-                  <img src="capture.PNG" style="width:100%">
-                  <div class="text">Caption Three</div>
-                </div>
+				
 
                 <!-- Next and previous buttons -->
                 <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                 <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                </c:forEach>
               </div>
-              <br>
+           
 
               <!-- The dots/circles -->
               <div style="text-align:center">
                 <span class="dot" onclick="currentSlide(1)"></span>
-                <span class="dot" onclick="currentSlide(2)"></span>
-                <span class="dot" onclick="currentSlide(3)"></span>
+               
               </div>
 
             </div>
@@ -351,7 +347,7 @@
 
 
 
-        <section class="pitem-section" id="pitem-detail-4">
+        <!-- <section class="pitem-section" id="pitem-detail-4">
           <div class="container">
             <div class="pitem-section-header">
               <h3 class="pitem-section-header__title">상품Q&amp;A</h3>
@@ -361,13 +357,13 @@
               <h1>게시판 들어와야함</h1>
             </div>
           </div>
-        </section>
+        </section> -->
       </div>
     </section>
 
 
   </div>
-<%@ include file="static/footer.jsp" %>
+<%@ include file="../../static/footer.jsp" %>
 </body>
 
 </html>

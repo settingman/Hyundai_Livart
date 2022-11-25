@@ -256,7 +256,7 @@
 
 
 											<span class="product-item-header__brand">리바트온라인</span> <a
-												href="${contextPath}/product?command=product_detail&p_id=${mem.p_id }"
+												href="/livart/productdetail?command=product_detail&p_id=${mem.p_id }"
 												class="product-item-header__name">${mem.p_name }</a>
 
 											<div class="product-item-header__kinds product-item-tag"
