@@ -8,11 +8,9 @@
 <body>
 성공
 <ul>
- <li>id=${member.user_id}</li>
- <li>username=${member.pwd}</li>
- <li>phone=${member.phone}</li>
- <li>email=${member.email}</li>
- <li>name=${member.name}</li>
+ <li>id=${member.id}</li>
+ <li>username=${member.username}</li>
+ <li>age=${member.age}%></li>
 </ul>
 <a href="/v2/members">메인</a>
 </body>

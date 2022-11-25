@@ -1,16 +1,18 @@
-package member;
+package dto;
 
 
 import java.util.ArrayList;
+
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
 public class MemberRepository {
 
 
-    private static Map<Long,MemberDAO> store = new HashMap<>();
+    private static Map<Long,MemberVO> store = new HashMap<>();
     private static long sequence =0L;
 
 
@@ -23,18 +25,19 @@ public class MemberRepository {
     private MemberRepository(){
 
     }
-
-    public MemberDAO save(MemberDAO member){
-        member.setId(++sequence);
-        store.put(member.getId(),member);
+    
+    public MemberVO save(MemberVO member){
+       
         return member;
     }
 
-    public MemberDAO findById(Long id){
+    
+
+    public MemberVO findById(Long id){
         return store.get(id);
     }
 
-    public List<MemberDAO> findAll(){
+    public List<MemberVO> findAll(){
         return new ArrayList<>(store.values());
     }
 

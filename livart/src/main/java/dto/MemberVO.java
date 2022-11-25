@@ -13,5 +13,20 @@ public class MemberVO {
 	private String name;
 	
 	
+	public MemberVO(){
+
+    }
+
+
+	public MemberVO(String user_id, String pwd, String phone, String email, String name) {
+		this.user_id = user_id;
+		this.pwd = pwd;
+		this.phone = phone;
+		this.email = email;
+		this.name = name;
+	}
+
+    
+	
 
 }
