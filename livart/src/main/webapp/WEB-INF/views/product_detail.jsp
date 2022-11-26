@@ -149,11 +149,11 @@
               <div class="pitem-header-section__price--wrap space-between">
                 <div>
                   <span class="pitem-header-section__price--del">
-                    <del>${productVO.p_price }</del>
+                    <del><fmt:formatNumber value="${productVO.p_price }" type="number"/></del>
                     <span class="unit">원</span>
                   </span>
                   <span class="pitem-header-section__price">
-                    ${ productVO.p_price - (productVO.p_price * (productVO.p_discount / 100))}
+                    <fmt:formatNumber value="${ productVO.p_price - (productVO.p_price * (productVO.p_discount / 100))}" type="number"/>
                     <span class="unit">원</span>
                   </span>
                   <span class="madal-button is-link ml2">
@@ -178,7 +178,7 @@
                 <dd class="pitem-header-section__dd">
                   <p class="row">
                   <div class="inline-flex">
-                    <span class="is-600 color-cyan">${productVO.p_deliveryfee}원</span>
+                    <span class="is-600 color-cyan"><fmt:formatNumber value="${productVO.p_deliveryfee}" type="number"/>원</span>
                   </div>
                   </p>
                 </dd>
@@ -256,7 +256,7 @@
             <div class="pitem-header-sum">
               <div class="pitem-header-sum__price"></div>
               총 합계 금액
-              <strong class-red>${ (productVO.p_price - (productVO.p_price * (productVO.p_discount / 100)))}</strong>
+              <strong class-red><fmt:formatNumber value="${ (productVO.p_price - (productVO.p_price * (productVO.p_discount / 100)))}" type="number"/></strong>
               <span class="unit">원</span>
 
             </div>
@@ -303,7 +303,9 @@
                 <c:forEach var="img" items="${imageList }" >
                 <div class="mySlides fade">
                   
+                  
                   <img onclick="javascript:location.href='/livart/product?command=${img.review_review_id}';" style="cursor:pointer" src="${img.photo_url }" style="width:100%">
+                  
                   <div class="text">Caption Text</div>
                   <!-- 성환이형페이지로 넘겨야함 나중에 onclick url 을 여기에있는 /livart/review/command=${img.review_review_id} 서블릿으로 변경 예정 -->
                 </div>
@@ -314,13 +316,12 @@
                 <a class="next" onclick="plusSlides(1)">&#10095;</a>
                 </c:forEach>
               </div>
+              <script>
+              	currentSlide(1)
+              </script>
            
 
-              <!-- The dots/circles -->
-              <div style="text-align:center">
-                <span class="dot" onclick="currentSlide(1)"></span>
-               
-              </div>
+             
 
             </div>
           </div>
