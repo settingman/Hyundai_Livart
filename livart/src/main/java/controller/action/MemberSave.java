@@ -4,13 +4,16 @@ import java.io.IOException;
 
 
 
+
 import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import dao.MemberDAO;
 import dao.ProductDAO;
 import dto.MemberRepository;
 import dto.MemberVO;
@@ -27,17 +30,33 @@ public class MemberSave implements ControllerLivart {
 
     @Override
     public MyView process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	
+    	// 데이터 넘길때 한글 깨질때 사용
+    	//request.setCharacterEncoding("UTF-8");
+    	
+    	
+    	HttpSession session = request.getSession();
+    	
         String user_id = request.getParameter("user_id");
         String pwd = request.getParameter("pwd");
         String phone = request.getParameter("phone");
         String email = request.getParameter("email");
-        String name = request.getParameter("name");
+        String username = request.getParameter("username");
 
-        MemberVO member = new MemberVO(user_id,pwd,phone,email,name);
+        MemberVO member = new MemberVO(user_id,pwd,phone,email,username);
         memberRepository.save(member);
+        
+        
+        session.setAttribute("user_id",request.getParameter("user_id"));
 
         //Model에 데이터를 보관한다.
         request.setAttribute("member", member);
+        
+        
+        MemberDAO memberDAO = MemberDAO.getInstance();
+        memberDAO.insertMember(member);
+        
+        
 
        return new MyView("/WEB-INF/views/save-result.jsp");
     }

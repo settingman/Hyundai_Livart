@@ -39,6 +39,9 @@ public class FrontController extends HttpServlet{
 
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	
+    	//한글깨짐방지
+    	request.setCharacterEncoding("UTF-8");
         System.out.println("FrontController.service");
 
         String requestURI = request.getRequestURI();
