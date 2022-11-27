@@ -8,6 +8,30 @@
 <title>Insert title here</title>
 </head>
 
+<script>
+var f_sum=0; // 최종 결제 금액
+var o_sum=0; // 할인 전 결제 해야할 금액
+function calc(cBox) {
+	
+	//var total = document.getElementById("total"); // 이런것들 무조건 function안에 쓰기.
+	
+		    if(cBox.checked) {
+	        f_sum += parseInt(cBox.value);
+	        
+	    }
+	    else {
+	        f_sum -= parseInt(cBox.value);
+	    	o_sum -= parseInt(cBox.value)
+	    }
+		document.getElementById("total").innerText = f_sum; //최종 결제 금액 넘기기
+		document.getElementById("o_total").innertText = o_sum;
+		//total.value = sum;
+	    //document.getElementById("sumtext").value = sum;
+
+	
+	}
+
+</script>
 
 <body>
 <%@ include file="../../static/header.jsp" %>
@@ -52,7 +76,7 @@
 						<th align="" scope="col">
 							<div class="checkbox checkbox__one">
 								<input type="hidden" class="cartDlvTypeCd" value="10">
-								<input type="checkbox" name="chk-a-all" id="checkCart10" checked="" class="check__all">
+						<!-- 		<input type="checkbox" name="chk-a-all" id="checkCart10" checked="" class="check__all"> -->
 								<label for="checkCart10"></label>
 							</div>
 						</th>
@@ -80,8 +104,17 @@
 
                 <!-- 위에서 저장한 부분-->
                 <div class="checkbox checkbox__one">
-                  <input type="checkbox" class="checkCart10" id="checkCart_C002935085" value="C002935085" data-salestop="N" checked="" data-polcsn="DP20000632" data-cpnsupigoodsyn="N">
-                  <label for="checkCart_C002935085"></label>
+      <!--             <input type="checkbox" class="checkCart10" name="price"
+                  id=${cart.p_id } value=${cart.d_price + cart.p_deliveryfee }
+                   data-salestop="N" data-polcsn="DP20000632" onclick="calc(this)" data-cpnsupigoodsyn="N">  -->
+                   
+                   
+                    <input type="checkbox" class="checkCart10" name="price"
+                  id=${cart.p_id } value=${cart.p_id }
+                   data-salestop="N" data-polcsn="DP20000632" onclick="calc(this)" data-cpnsupigoodsyn="N">
+                
+                
+                  <label for="${cart.p_id }"></label>
                 </div>
               </div>
             </td>
@@ -207,7 +240,10 @@
 					<li class="order">
 						<span class="tit sr-only">총 주문금액</span>
 						<span class="number">
-							<em class="num viewPrcSum"><fmt:formatNumber value="${sum }" type="number"/></em>원
+							<em class="num viewPrcSum">
+							<span id="total"></span>
+							<!-- <input type="text" id="total" value="0">  -->
+							</em>원
 						</span>
 					</li>
 					<li class="discount hidden">
@@ -238,7 +274,10 @@
           <dl class="order">
             <dt class="tit">총 판매가</dt>
             <dd class="number">
-              <em class="num" id="viewTotPrcSum"><fmt:formatNumber value="${o_sum }" type="number"/></em>원
+              <em class="num" id="viewTotPrcSum">
+          <!--    <fmt:formatNumber value="${o_sum }" type="number"/> -->
+           		<span id="o_total"></span>
+              </em>원
             </dd>
           </dl>
           <dl class="discount">
