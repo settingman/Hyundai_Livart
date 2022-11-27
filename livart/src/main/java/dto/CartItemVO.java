@@ -3,7 +3,8 @@ package dto;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter@Setter
+@Getter
+@Setter
 public class CartItemVO {
 
 	private int cart_cart_id;
