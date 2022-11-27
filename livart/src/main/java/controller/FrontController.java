@@ -14,6 +14,8 @@ import controller.action.CartListAction;
 import controller.action.ControllerLivart;
 import controller.action.IndexAction;
 import controller.action.MemberJoinAction;
+import controller.action.MemberLoginConfrim;
+import controller.action.MemberLoginView;
 import controller.action.MemberSave;
 import controller.action.MyView;
 import controller.action.ProductDetailAction;
@@ -34,6 +36,8 @@ public class FrontController extends HttpServlet{
         controllerMap.put("/livart/memberjoin", new MemberJoinAction());
         controllerMap.put("/livart/membersave", new MemberSave());
         controllerMap.put("/livart/productdetail", new ProductDetailAction());
+        controllerMap.put("/livart/login", new MemberLoginView());
+        controllerMap.put("/livart/loginconfrim", new MemberLoginConfrim());
        
     }
 
