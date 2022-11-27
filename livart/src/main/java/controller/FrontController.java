@@ -14,10 +14,11 @@ import controller.action.CartListAction;
 import controller.action.ControllerLivart;
 import controller.action.IndexAction;
 import controller.action.MemberJoinAction;
+import controller.action.MemberLoginConfrim;
+import controller.action.MemberLoginView;
 import controller.action.MemberSave;
 import controller.action.MyView;
 import controller.action.ProductDetailAction;
-import controller.action.ProductSortAction;
 
 
 
@@ -32,15 +33,19 @@ public class FrontController extends HttpServlet{
 	public FrontController() {
         controllerMap.put("/livart/cart", new CartListAction());
         controllerMap.put("/livart/product", new IndexAction());
-        controllerMap.put("/livart/productdetail", new ProductDetailAction());
         controllerMap.put("/livart/memberjoin", new MemberJoinAction());
         controllerMap.put("/livart/membersave", new MemberSave());
-        controllerMap.put("/livart/sort", new ProductSortAction());
+        controllerMap.put("/livart/productdetail", new ProductDetailAction());
+        controllerMap.put("/livart/login", new MemberLoginView());
+        controllerMap.put("/livart/loginconfrim", new MemberLoginConfrim());
        
     }
 
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	
+    	//한글깨짐방지
+    	request.setCharacterEncoding("UTF-8");
         System.out.println("FrontController.service");
 
         String requestURI = request.getRequestURI();
