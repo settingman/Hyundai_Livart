@@ -44,8 +44,7 @@ public class ProductDAO {
 				 product.setP_price(rs.getInt(3));
 				 product.setP_discount(rs.getInt(4));
 				 product.setP_category(rs.getString(5));
-				 product.setP_date(rs.getDate(6));
-				 product.setP_deliveryfee(rs.getInt(7));
+				 product.setPhoto_url(rs.getString(6));
 				 productList.add(product);
 			 }
 			 
@@ -82,8 +81,9 @@ public class ProductDAO {
 				 product.setP_price(rs.getInt(3));
 				 product.setP_discount(rs.getInt(4));
 				 product.setP_category(rs.getString(5));
-				 product.setP_date(rs.getDate(6));
-				 product.setP_deliveryfee(rs.getInt(7));
+				
+				 product.setP_deliveryfee(rs.getInt(6));
+				 product.setPhoto_url(rs.getString(7));
 			 }
 			 
 		} catch (SQLException e) {
@@ -96,5 +96,108 @@ public class ProductDAO {
 		}
 		return product;
 	}
+	
+	public ArrayList<ProductVO> getProductOrderByDate(String pid){
+		ArrayList<ProductVO> productList = new ArrayList<ProductVO>();
+		
+		String runSP ="{call product_pack.SP_PRODUCT_SELECT_ORDERBY_DATE(?,?)}";
+			Connection conn = null;
+			CallableStatement cs = null;
+			ResultSet rs = null;
+		try {
+			 conn = DBManager.getConnection();
+			 cs = conn.prepareCall(runSP);
+			 cs.setString(1, pid);
+			 cs.registerOutParameter(2, OracleTypes.CURSOR);
+			 cs.execute();
+			 rs = (ResultSet)cs.getObject(2);
+			 
+			 while(rs.next()) {
+				 ProductVO product = new ProductVO();
+				 product.setP_name(rs.getString(1));
+				 product.setP_price(rs.getInt(2));
+				 product.setP_discount(rs.getInt(3));
+				 product.setPhoto_url(rs.getString(4));
+				 productList.add(product);
+			 }
+			 
+		} catch (SQLException e) {
+			System.out.println("프로시저에서 에러 발생!");
+			System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			
+		}
+		return productList;
+	}
+	public ArrayList<ProductVO> getProductOrderByLowPrice(String pid){
+		ArrayList<ProductVO> productList = new ArrayList<ProductVO>();
+		
+		String runSP ="{call product_pack.SP_PRODUCT_SELECT_ORDERBY_LOWPRICE(?,?)}";
+			Connection conn = null;
+			CallableStatement cs = null;
+			ResultSet rs = null;
+		try {
+			 conn = DBManager.getConnection();
+			 cs = conn.prepareCall(runSP);
+			 cs.setString(1, pid);
+			 cs.registerOutParameter(2, OracleTypes.CURSOR);
+			 cs.execute();
+			 rs = (ResultSet)cs.getObject(2);
+			 
+			 while(rs.next()) {
+				 ProductVO product = new ProductVO();
+				 product.setP_name(rs.getString(1));
+				 product.setP_price(rs.getInt(2));
+				 product.setP_discount(rs.getInt(3));
+				 product.setPhoto_url(rs.getString(4));
+				 productList.add(product);
+			 }
+			 
+		} catch (SQLException e) {
+			System.out.println("프로시저에서 에러 발생!");
+			System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			
+		}
+		return productList;
+	}public ArrayList<ProductVO> getProductOrderByHighPrice(String pid){
+		ArrayList<ProductVO> productList = new ArrayList<ProductVO>();
+		
+		String runSP ="{call product_pack.SP_PRODUCT_SELECT_ORDERBY_HIGHPRICE(?,?)}";
+			Connection conn = null;
+			CallableStatement cs = null;
+			ResultSet rs = null;
+		try {
+			 conn = DBManager.getConnection();
+			 cs = conn.prepareCall(runSP);
+			 cs.setString(1, pid);
+			 cs.registerOutParameter(2, OracleTypes.CURSOR);
+			 cs.execute();
+			 rs = (ResultSet)cs.getObject(2);
+			 
+			 while(rs.next()) {
+				 ProductVO product = new ProductVO();
+				 product.setP_name(rs.getString(1));
+				 product.setP_price(rs.getInt(2));
+				 product.setP_discount(rs.getInt(3));
+				 product.setPhoto_url(rs.getString(4));
+				 productList.add(product);
+			 }
+			 
+		} catch (SQLException e) {
+			System.out.println("프로시저에서 에러 발생!");
+			System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			
+		}
+		return productList;
+	}
+	
 	
 }

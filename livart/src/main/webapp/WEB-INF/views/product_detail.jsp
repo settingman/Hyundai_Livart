@@ -118,7 +118,7 @@
             <div class="gallery-photo xzoom-container swiper-container-initialized swiper-container-horizontal">
               <ul class="swiper-wrapper" style="transform:translate3d(0px,0px,0px);">
                 <li class="swiper-slide swiper-slide-active">
-                  <img src="picture.png" class="xzoom" style="width: 100%;">
+                  <img src="${productVO.photo_url }" class="xzoom" style="width: 100%;">
                 </li>
               </ul>
 
@@ -153,7 +153,7 @@
                     <span class="unit">원</span>
                   </span>
                   <span class="pitem-header-section__price">
-                    <fmt:formatNumber value="${ productVO.p_price - (productVO.p_price * (productVO.p_discount / 100))}" type="number"/>
+                  <fmt:formatNumber value="${ productVO.p_price - (productVO.p_price * (productVO.p_discount / 100))}" type="number"/>
                     <span class="unit">원</span>
                   </span>
                   <span class="madal-button is-link ml2">
@@ -178,7 +178,7 @@
                 <dd class="pitem-header-section__dd">
                   <p class="row">
                   <div class="inline-flex">
-                    <span class="is-600 color-cyan"><fmt:formatNumber value="${productVO.p_deliveryfee}" type="number"/>원</span>
+                    <span class="is-600 color-cyan"><fmt:formatNumber value="${productVO.p_deliveryfee}" type="number"/> 원</span>
                   </div>
                   </p>
                 </dd>
@@ -242,25 +242,56 @@
                   </div>
                 </select> -->
               </dl>
-         <form name="form" method="get">
+    <!--      <form name="form" method="get">
   <input type=hidden name="sell_price" value="80000">
-  <input type="text" name="amount" value="1" size="3" onchange="change();">
+  <input type="text" class="asdf" name="amount" value="1" size="3" onchange="change();">
   <input type="button" value=" + " onclick="add();">
   <input type="button" value=" - " onclick="del();"><br>
   <input type="text" name="sum" size="13" readonly>
-  </form>
-              
-		
-
+  </form> -->
+	  
+	 <div class="num">
+	 	<span>수량</span>
+	 	<span class="count">
+	 		<a href="#" class="minus">-</a>
+	 		<span id="result">1</span>
+	 		<a href="#" class="plus">+</a>
+	 	
+	 	</span>
+	 </div>
+	
+	 <h1 class="totalcost2"></h1>
             </div>
             <div class="pitem-header-sum">
               <div class="pitem-header-sum__price"></div>
               총 합계 금액
-              <strong class-red><fmt:formatNumber value="${ (productVO.p_price - (productVO.p_price * (productVO.p_discount / 100)))}" type="number"/></strong>
+              <strong class-red  class="totalcost"><fmt:formatNumber  value="${  ((productVO.p_price - (productVO.p_price * (productVO.p_discount / 100)))) + productVO.p_deliveryfee}"  type="number"/></strong>
               <span class="unit">원</span>
 
             </div>
-
+ <script>
+	 	let plus =document.querySelector(".plus");
+	 	let minus = document.querySelector(".minus");
+	 	let result = document.querySelector("#result");
+	 	let totalcost = document.querySelector(".totalcost")
+	 	let i =1;
+	 	plus.addEventListener("click",() => {
+	 		i++
+	 		result.textContent = i;
+	 		let totalcostNum = i ;
+	 		totalcost.textContent = ((${  (productVO.p_price - (productVO.p_price * (productVO.p_discount / 100)))} * i) + ${productVO.p_deliveryfee} ).toLocaleString() ;
+	 	})
+	 	minus.addEventListener("click", () => {
+	 		if(i>0){
+	 			i--
+	 			result.textContent =i;
+	 			let totalcostNum = i;
+	 			totalcost.textContent = ((${  (productVO.p_price - (productVO.p_price * (productVO.p_discount / 100)))} * i) + ${productVO.p_deliveryfee}).toLocaleString();
+	 		}else{
+	 			total.textContent = 0
+	 		}
+	 	})
+	 </script>
             <div class="pitem-header-floating-wrap">
               <div class="pitem-header-floating" style="position: relative; top: initial;">
                 <header class="pitem-header-card-header">
@@ -303,9 +334,7 @@
                 <c:forEach var="img" items="${imageList }" >
                 <div class="mySlides fade">
                   
-                  
                   <img onclick="javascript:location.href='/livart/product?command=${img.review_review_id}';" style="cursor:pointer" src="${img.photo_url }" style="width:100%">
-                  
                   <div class="text">Caption Text</div>
                   <!-- 성환이형페이지로 넘겨야함 나중에 onclick url 을 여기에있는 /livart/review/command=${img.review_review_id} 서블릿으로 변경 예정 -->
                 </div>
@@ -316,12 +345,13 @@
                 <a class="next" onclick="plusSlides(1)">&#10095;</a>
                 </c:forEach>
               </div>
-              <script>
-              	currentSlide(1)
-              </script>
            
 
-             
+              <!-- The dots/circles -->
+              <div style="text-align:center">
+                <span class="dot" onclick="currentSlide(1)"></span>
+               
+              </div>
 
             </div>
           </div>
