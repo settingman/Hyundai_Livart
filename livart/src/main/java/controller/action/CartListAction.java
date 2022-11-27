@@ -23,7 +23,7 @@ public class CartListAction implements ControllerLivart{
 		
 		
 		
-		return new MyView("/WEB-INF/views/cart.jsp");
+		return new MyView("/WEB-INF/views/cart2.jsp");
 		
 	}
 	

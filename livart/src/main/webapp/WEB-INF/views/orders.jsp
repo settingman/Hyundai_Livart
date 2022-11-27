@@ -166,7 +166,7 @@
                                   <label for="address" class="label required">배송주소</label>
                               </th>
                               <td>
-                                  <div class="address-wrap">
+                               <!--    <div class="address-wrap">
                                       <div class="control is-flex">
                                           <input type="text" class="input width-small" id="postNo" name="postNo" value="" readonly="">
                                           <button type="button" id="address" class="button is-primary modal-button is-outlined b-postBtn" data-target="modal-postcode" aria-haspopup="true">우편번호 확인</button>
@@ -176,7 +176,7 @@
                                       <input type="hidden" class="input width-large" id="addr2" name="addr2" value="">
                                       <input type="text" class="input width-large" id="draddr1" name="draddr1" value="" maxlength="100">
                                       <input type="text" class="input width-large is-block" placeholder="상세 주소 입력" id="draddr2" value="" name="draddr2" maxlength="100">
-                                  </div>
+                                  </div>   -->
                               </td>
                           </tr>
                           <tr>

@@ -29,7 +29,7 @@ public class FrontController extends HttpServlet{
 	
 	
 	public FrontController() {
-        controllerMap.put("/livart/cart", new CartListAction());
+        controllerMap.put("/livart/cart2", new CartListAction());
         controllerMap.put("/livart/product", new IndexAction());
 //        controllerMap.put("/livart/memberjoin", new MemberJoinAction());
 //        controllerMap.put("/livart/membersave", new MemberSave());

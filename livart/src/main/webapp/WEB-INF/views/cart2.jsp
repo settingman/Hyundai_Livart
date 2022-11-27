@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"  %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,38 +9,9 @@
 <title>Insert title here</title>
 </head>
 
-<script>
-var f_sum=0; // 최종 결제 금액
-var o_sum=0; // 할인 전 결제 해야할 금액
-function calc(cBox) {
-	
-	//var total = document.getElementById("total"); // 이런것들 무조건 function안에 쓰기.
-	
-		    if(cBox.checked) {
-	        f_sum += parseInt(cBox.value);
-	        
-	    }
-	    else {
-	        f_sum -= parseInt(cBox.value);
-	    	o_sum -= parseInt(cBox.value)
-	    }
-		document.getElementById("total").innerText = f_sum; //최종 결제 금액 넘기기
-		document.getElementById("o_total").innertText = o_sum;
-		//total.value = sum;
-	    //document.getElementById("sumtext").value = sum;
-
-	
-	}
-
-</script>
-
 <body>
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 <%@ include file="../../static/header.jsp" %>
-
-<c:set var="sum" value="0"/>
-<c:set var="o_sum" value="0"/>
-<c:set var="d_sum" value="0"/>
-<c:set var="dc_sum" value="0"/>
 
   <div class="container">
     <div class="section-contents-wrap">
@@ -91,10 +63,6 @@ function calc(cBox) {
 				</thead>
 
 	<c:forEach var="cart" items="${cartItemList }" varStatus="cartNum">
-	 <c:set var="sum" value="${sum + cart.d_price + cart.p_deliveryfee}"/>
-	  <c:set var="o_sum" value="${o_sum + cart.p_price }"/>
-	   <c:set var="d_sum" value="${d_sum + cart.p_deliveryfee }"/>
-	    <c:set var="dc_sum" value="${dc_sum + cart.p_price - cart.d_price }"/>
         <tbody>
           <tr class="bundle-delivery">
             <td align class="item-checkbox cart_info_td" >
@@ -107,16 +75,12 @@ function calc(cBox) {
               <div class="checkbox-wrap">
                 <!-- 상품에 대한 정보들 들어가는 부분-->
 
-                <!-- 위에서 저장한 부분-->
-                <div class="checkbox checkbox__one">
-      <!--             <input type="checkbox" class="checkCart10" name="price"
-                  id=${cart.p_id } value=${cart.d_price + cart.p_deliveryfee }
-                   data-salestop="N" data-polcsn="DP20000632" onclick="calc(this)" data-cpnsupigoodsyn="N">  -->
+                <!-- 위에서 저장한 부분 -->
+                <div class="checkbox checkbox__one">                   
                    
-                   
-                    <input type="checkbox" class="checkCart10" name="price"
+                  <input type="checkbox" class="checkCart10" name="price"
                   id=${cart.p_id } value=${cart.p_id }
-                   data-salestop="N" data-polcsn="DP20000632" onclick="calc(this)" data-cpnsupigoodsyn="N">
+                  data-salestop="N" data-polcsn="DP20000632" checked onclick="calc(this)" data-cpnsupigoodsyn="N">
                 
                 
                   <label for="${cart.p_id }"></label>
@@ -240,36 +204,41 @@ function calc(cBox) {
       </table>
 
       <!-- 총 주문 금액-->
-      <div class="total-amount">
+     <div class="total-amount">
 				<ul class="is-flex">
 					<li class="order">
 						<span class="tit sr-only">총 주문금액</span>
 						<span class="number">
 							<em class="num viewPrcSum">
-							<span id="total"></span>
-							<!-- <input type="text" id="total" value="0">  -->
+							<span class="original_price"></span>
 							</em>원
 						</span>
 					</li>
-					<li class="discount hidden">
+					<li class="discount">
 						<span class="tit sr-only">할인금액</span>
 						<span class="number">
-							<em class="num viewDscntSum">할인금액</em>원
+							<em class="num viewDscntSum">
+							<span class="discount_price"></span>
+							</em>원
 						</span>
 					</li>
-					<li class="delivery hidden">
+					<li class="delivery">
 						<span class="tit sr-only">배송비</span>
 						<span class="number">
-							<em class="num viewDlvPrcSum">배송비</em>원</span>
+							<em class="num viewDlvPrcSum">
+							<span class="deliveryfee"></span>
+							</em>원</span>
 					</li>
-					<li class="pay hidden">
+					<li class="pay">
 						<span class="tit sr-only">결제예정금액</span>
 						<span class="number pay_price">
-							<em class="num viewPayPrcSum">결제예정금액</em>원
+							<em class="num viewPayPrcSum">
+							<span class="total_price"></span>
+							</em>원
 						</span>
 					</li>
 				</ul>
-			</div>
+			</div> 
     </section>
 
     <!-- 장바구니 총-->
@@ -280,15 +249,13 @@ function calc(cBox) {
             <dt class="tit">총 판매가</dt>
             <dd class="number">
               <em class="num" id="viewTotPrcSum">
-          <!--    <fmt:formatNumber value="${o_sum }" type="number"/> -->
-           		<span id="o_total"></span>
               </em>원
             </dd>
           </dl>
           <dl class="discount">
             <dt class="tit">총 할인금액</dt>
             <dd class="number">
-              <em class="num" id="viewTotDscntSum"><fmt:formatNumber value="${dc_sum }" type="number"/></em>원
+              <em class="num" id="viewTotDscntSum">12134</em>원
             </dd>
           </dl>
           <dl class="delivery">
@@ -348,25 +315,53 @@ function calc(cBox) {
   </div>
   
   <script>
- 
   $(document).ready(function(){
+	  total_price_calc();
+  });
+  
+  
+  $(".checkCart10").on("change", function(){
+	  total_price_calc($(".cart_info_td"));
+  })
+  </script>
+  
+  <script type="text/javascript">
+ 
+  function total_price_calc(){
+	  	  
+	  /* 종합 정보 섹션 정보 삽입 */
 	  let final_price = 0 // 최종적으로 결제해야하는 가격
 	  let og_price = 0; // 상품 정가
 	  let ogdc_price =0; // 할인된 가격
 	  let deliveryfee = 0; // 배송비
 	  let dc_price = 0; // 할인 해준 금액
+		
+		$(".cart_info_td").each(function(index, element){
+			
+			// 총 가격
+			if($(element).find(".checkCart10").is(":checked") === true) {
+			og_price += parseInt($(element).find(".og_price").val());
+			
+			ogdc_price += parseInt($(element).find(".ogdc_price").val())
+			
+			deliveryfee += parseInt($(element).find(".deliveryfee").val());
+			
+			dc_price += parseInt($(element).find(".dc_price").val());
+			}
+		});	
+	  		
+		/* 최종 가격 */
+		final_price = ogdc_price + deliveryfee;
+
+		// 총 가격
+		$(".original_price").text(og_price.toLocaleString());
+		$(".discount_price").text(dc_price.toLocaleString());
+		$(".deliveryfee").text(deliveryfee.toLocaleString());
+		$(".total_price").text(final_price.toLocaleString());
+		
+		console.log(final_price);
 	  
-	  $("cart_info_td").each(function(index, element) {
-		  og_price += parseInt($(element).find(".og_price").val());
-		  ogdc_price += parseInt($(element).find(".ogdc_price").val());
-		  deliveryfee += parseInt($(element).find(".deliveryfee").val());
-		  dc_price += parseInt($(element).find(".dc_price").val());
-	  })
-	  
-	  final_price = ogdc_price + deliveryfee;
-	  
-	  
-  })
+  }
   </script>
 	
 </body>
