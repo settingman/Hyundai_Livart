@@ -21,8 +21,6 @@ public class CartListAction implements ControllerLivart{
 		ArrayList<CartItemVO> cartItemList = cartDAO.selectCartItemList();
 		request.setAttribute("cartItemList", cartItemList);
 		
-		
-		
 		return new MyView("/WEB-INF/views/cart2.jsp");
 		
 	}

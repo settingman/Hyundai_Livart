@@ -80,7 +80,7 @@
                    
                   <input type="checkbox" class="checkCart10" name="price"
                   id=${cart.p_id } value=${cart.p_id }
-                  data-salestop="N" data-polcsn="DP20000632" checked onclick="calc(this)" data-cpnsupigoodsyn="N">
+                  data-salestop="N" data-polcsn="DP20000632" checked data-cpnsupigoodsyn="N">
                 
                 
                   <label for="${cart.p_id }"></label>
@@ -132,6 +132,7 @@
                   <i></i><i></i><span class="sr-only">더하기</span>
                 </button>
               </div>
+                <a class="quantity_change_btn" data-cartId="${cart.cart_id }">변경</a>
             </td>
 
             <td align>
@@ -191,7 +192,7 @@
             <ul class="section-contents-item is-flex simple-button">
               <!-- 삭제하기 버튼 -->
               <li>
-                <button type="button" class="btn removeCartOne">
+                <button type="button" class="btn removeCartOne" data-productid="${cart.p_id }">
                   <i class="icon-delete_item"></i>
                 </button>
               </li>
@@ -314,7 +315,28 @@
       </div>
   </div>
   
+<!-- 수량 조정 form -->
+			<form action="/livart/cart2/update" method="post" class="quantity_update_form">
+				<input type="hidden" name="cartId" class="update_cartId">
+				<input type="hidden" name="productCount" class="update_prduct_quantity">
+			</form>
+			
+<!-- 삭제 form -->
+			<form action="/livart/cart2/delete" method="post" class="quantity_delete_form">
+				<input type="hidden" name="productId" class="delete_productId">
+			</form>
+  
   <script>
+  
+  /* 장바구니 삭제 버튼 */
+  $(".removeCartOne").on("click", function(e){
+	  console.log("hello");
+	  e.preventDefault();
+	  const productId=$(this).data("productid");
+	  $(".delete_productId").val(productId);
+	  $(".quantity_delete_form").submit();
+  });
+  
   $(document).ready(function(){
 	  total_price_calc();
   });
@@ -362,6 +384,29 @@
 		console.log(final_price);
 	  
   }
+  
+  /* 수량버튼 */
+  $(".addQty").on("click", function(){
+  	let quantity = $(this).parent("div").find("input").val();
+  	$(this).parent("div").find("input").val(++quantity);
+  });
+  $(".decQty").on("click", function(){
+  	let quantity = $(this).parent("div").find("input").val();
+  	if(quantity > 1){
+  		$(this).parent("div").find("input").val(--quantity);		
+  	}
+  });
+  
+  
+  /* 수량 변경 작동 */
+  $(".quantity_change_btn").on("click", function(){
+		let cartId = $(this).data("cartid");
+		let productCount = $(this).parent("td").find("input").val();
+		$(".update_cartId").val(cartId);
+		$(".update_prduct_quantity").val(productCount);
+		$(".quantity_update_form").submit();
+		
+	});
   </script>
 	
 </body>
