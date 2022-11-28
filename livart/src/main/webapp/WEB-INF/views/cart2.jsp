@@ -189,6 +189,9 @@
               <div class="section-contents-item__simple--button">
                     <button type="button" class="button is-danger buyCartOne">바로구매</button>
               </div>
+              
+              
+              
             <ul class="section-contents-item is-flex simple-button">
               <!-- 삭제하기 버튼 -->
               <li>
@@ -197,6 +200,9 @@
                 </button>
               </li>
             </ul>
+            
+            
+            
           </div>
         </td>
 	</c:forEach>
@@ -298,6 +304,8 @@
     </section>
 </c:when>
 </c:choose>
+
+
     <!-- 장바구니 이용안내 멘트-->
   <div class="contents-info-wrap mt6"><strong class="title">장바구니 이용안내</strong>
       <ul class="dot-list">
@@ -318,7 +326,7 @@
 <!-- 수량 조정 form -->
 			<form action="/livart/cart2/update" method="post" class="quantity_update_form">
 				<input type="hidden" name="productId" class="update_productId">
-				<input type="hidden" name="productCount" class="update_prduct_quantity">
+				<input type="hidden" name="productCount" class="update_product_quantity">
 			</form>
 			
 <!-- 삭제 form -->
@@ -343,6 +351,8 @@
   	let productId = $(this).data("productid");
   	let productCount = $(this).parent("td").find("input").val();
   	console.log("hihi");
+  	console.log(productId);
+  	console.log(productCount);
 	$(".update_productId").val(productId);
 	$(".update_product_quantity").val(productCount);
 	$(".quantity_update_form").submit();
@@ -374,11 +384,8 @@
 			// 총 가격
 			if($(element).find(".checkCart10").is(":checked") === true) {
 			og_price += parseInt($(element).find(".og_price").val());
-			
 			ogdc_price += parseInt($(element).find(".ogdc_price").val())
-			
 			deliveryfee += parseInt($(element).find(".deliveryfee").val());
-			
 			dc_price += parseInt($(element).find(".dc_price").val());
 			}
 		});	

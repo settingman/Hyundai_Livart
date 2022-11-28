@@ -76,25 +76,28 @@ public class CartDAO {
 		return cartItemList;
 	}
 	
-	public void changeQty(String productId, int quantity) {
+	public ArrayList<CartItemVO> changeQty(String productId, int quantity) {
+		ArrayList<CartItemVO> cartItemList = null;
 		
 		try {
-			String query = "call update_product_quantity(?,?)";
+			String query = "{call update_product_quantity(?,?)}";
 			CallableStatement callableStatement = conn.prepareCall(query);
 			callableStatement.setString(1, productId);
 			callableStatement.setInt(2, quantity);
+			int update_cnt = callableStatement.executeUpdate();
+			
+			cartItemList = selectCartItemList();
 			
 			System.out.println("수정 하러 옴");
 			
 		}  catch(Exception e) {
 			
 		}
+		return cartItemList;
 	}
 	
 	public ArrayList<CartItemVO> deleteProduct(String productId) {
 		ArrayList<CartItemVO> cartItemList = null;
-		
-		System.out.println(productId);
 		
 		try {
 		String query = "{call delete_product(?)}";

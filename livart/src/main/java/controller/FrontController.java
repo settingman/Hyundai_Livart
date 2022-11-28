@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import controller.action.CartDeleteAction;
 import controller.action.CartListAction;
+import controller.action.ChangeQuantityAction;
 import controller.action.ControllerLivart;
 import controller.action.IndexAction;
 import controller.action.MemberJoinAction;
@@ -35,6 +36,7 @@ public class FrontController extends HttpServlet{
 	public FrontController() {
         controllerMap.put("/livart/cart2", new CartListAction());
         controllerMap.put("/livart/cart2/delete", new CartDeleteAction());
+        controllerMap.put("/livart/cart2/update", new ChangeQuantityAction());
         controllerMap.put("/livart/product", new IndexAction());
         controllerMap.put("/livart/memberjoin", new MemberJoinAction());
         controllerMap.put("/livart/membersave", new MemberSave());
@@ -55,6 +57,7 @@ public class FrontController extends HttpServlet{
         String requestURI = request.getRequestURI();
         ControllerLivart controller = controllerMap.get(requestURI);
         
+        System.out.println(requestURI);
         
         if (controller == null) {
             response.setStatus(HttpServletResponse.SC_NOT_FOUND);
