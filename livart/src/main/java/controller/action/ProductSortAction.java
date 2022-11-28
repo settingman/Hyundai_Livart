@@ -28,8 +28,6 @@ public class ProductSortAction implements ControllerLivart {
 		}else if(cmd.equals("high")) {
 			 productList = productDAO.getProductOrderByHighPrice(p_id);
 		}
-		
-		
 		request.setAttribute("productList", productList);
 		
 		

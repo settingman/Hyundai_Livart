@@ -345,13 +345,10 @@
                 <a class="next" onclick="plusSlides(1)">&#10095;</a>
                 </c:forEach>
               </div>
+              <script> showSlides(1)</script>
            
 
-              <!-- The dots/circles -->
-              <div style="text-align:center">
-                <span class="dot" onclick="currentSlide(1)"></span>
-               
-              </div>
+            
 
             </div>
           </div>
