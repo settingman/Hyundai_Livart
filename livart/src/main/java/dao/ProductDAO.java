@@ -5,6 +5,7 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
 import java.util.ArrayList;
 
 import dto.ProductVO;
@@ -21,7 +22,34 @@ public class ProductDAO {
 	public static ProductDAO getInstance() {
 		return instance;
 	}
+	
+	
+	public int countOfProduct(String category) {
+		int count = 0;
+		String runSP ="{call product_pack.SP_PRODUCT_SELECT_COUNT(?,?)}";
+			Connection conn = null;
+			CallableStatement cs = null;
+			ResultSet rs = null;
+			
+			try {
+				 conn = DBManager.getConnection();
+				 cs = conn.prepareCall(runSP);
+				 cs.setString(1, category);
+				 cs.registerOutParameter(2,Types.INTEGER );
+				 cs.execute();
+				 count = cs.getInt(2);
+				 
 
+			} catch (SQLException e) {
+				System.out.println("프로시저에서 에러 발생!");
+				System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+			}catch(Exception e) {
+				e.printStackTrace();
+			}finally {
+				DBManager.close(conn, cs);
+			}
+		return count;
+	}
 	public ArrayList<ProductVO> listKindProduct(String kind){
 		ArrayList<ProductVO> productList = new ArrayList<ProductVO>();
 		
@@ -54,7 +82,7 @@ public class ProductDAO {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
-			
+			DBManager.close(conn, cs,rs);
 		}
 		return productList;
 		
@@ -92,7 +120,7 @@ public class ProductDAO {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
-			
+			DBManager.close(conn, cs,rs);
 		}
 		return product;
 	}
@@ -127,7 +155,7 @@ public class ProductDAO {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
-			
+			DBManager.close(conn, cs,rs);
 		}
 		return productList;
 	}
@@ -161,7 +189,7 @@ public class ProductDAO {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
-			
+			DBManager.close(conn, cs,rs);
 		}
 		return productList;
 	}public ArrayList<ProductVO> getProductOrderByHighPrice(String pid){
@@ -194,7 +222,7 @@ public class ProductDAO {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
-			
+			DBManager.close(conn, cs,rs);
 		}
 		return productList;
 	}

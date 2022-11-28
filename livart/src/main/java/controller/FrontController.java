@@ -34,6 +34,9 @@ public class FrontController extends HttpServlet{
 	
 	
 	public FrontController() {
+
+	     
+
         controllerMap.put("/livart/cart", new CartListAction());
         controllerMap.put("/livart/product", new IndexAction());
         controllerMap.put("/livart/memberjoin", new MemberJoinAction());
@@ -43,6 +46,7 @@ public class FrontController extends HttpServlet{
         controllerMap.put("/livart/login", new MemberLoginView());
         controllerMap.put("/livart/loginconfrim", new MemberLoginConfrim());
         
+
     }
 
     @Override
