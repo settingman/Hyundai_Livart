@@ -19,6 +19,7 @@
     </div>
     <c:choose>
 <c:when test="${!empty cartItemList }">
+<c:set var="userId" value="${cartItemList[0].user_id }"/>
     <!-- 장바구니에 상품이 들어있을 경우-->
     <section class="section-contents-table is-interval cartListSection">
       <div class="section-contents-table__button--wrap is-liner is-flex">
@@ -69,8 +70,11 @@
  			
             <input type="hidden" class="og_price" value="${cart.p_price * cart.quantity }">
             <input type="hidden" class="ogdc_price" value="${cart.d_price * cart.quantity }">
+            <input type="hidden" class="only_price" value="${cart.d_price }">
             <input type="hidden" class="deliveryfee" value="${cart.p_deliveryfee }">
             <input type="hidden" class="dc_price" value="${(cart.p_price * cart.quantity) - (cart.d_price * cart.quantity) }">
+            <input type="hidden" class="product_id" value="${cart.p_id }">
+            <input type="hidden" class="quantity" value="${cart.quantity }">
               <!-- 상품에 대한 정보가 hidden 태그로 체크박스 안에 들어가도록 할 것-->
               <div class="checkbox-wrap">
                 <!-- 상품에 대한 정보들 들어가는 부분-->
@@ -190,8 +194,6 @@
                     <button type="button" class="button is-danger buyCartOne">바로구매</button>
               </div>
               
-              
-              
             <ul class="section-contents-item is-flex simple-button">
               <!-- 삭제하기 버튼 -->
               <li>
@@ -200,8 +202,6 @@
                 </button>
               </li>
             </ul>
-            
-            
             
           </div>
         </td>
@@ -282,7 +282,7 @@
      -->
       <div class="button-area cart-item-button-wrap is-flex">
         <button type="button" class="button is-primary is-large buyCartList">선택상품 주문</button>
-        <button type="button" class="button is-danger is-large buyCartAll">전체상품 주문</button>
+        <button type="button" class="button is-danger is-large buyCartAll" data-userid="${userId }">전체상품 주문</button>
       </div>
     
     </section>
@@ -333,7 +333,12 @@
 			<form action="/livart/cart2/delete" method="post" class="quantity_delete_form">
 				<input type="hidden" name="productId" class="delete_productId">
 			</form>
-  
+			
+<!-- 장바구니 물건 구매내역으로 넘기기 -->
+			<form action="/livart/order" method="post" class="send_product_list">
+				<input type="hidden" name="userId" class="send_user_id">
+			</form>
+	  
   <script>
   
   /* 장바구니 삭제 버튼 */
@@ -350,13 +355,61 @@
   $(".quantity_change_btn").on("click", function(){
   	let productId = $(this).data("productid");
   	let productCount = $(this).parent("td").find("input").val();
-  	console.log("hihi");
-  	console.log(productId);
-  	console.log(productCount);
 	$(".update_productId").val(productId);
 	$(".update_product_quantity").val(productCount);
 	$(".quantity_update_form").submit();
   });
+  
+  /* 장바구니 전체 상품 구매 페이지로 이동  */
+  $(".buyCartAll").on("click", function() {
+	let userId = $(this).data("userid");
+	
+	console.log(userId);
+	$(".send_user_id").val(userId);
+	$(".send_product_list").submit();
+	  
+	  
+//	  let index = 0;
+//	  let transfer_data = "";
+/*	  let buy_product_list = [];
+	  
+	  $(".cart_info_td").each(function(index, element){
+		  
+		  let productId = $(element).find(".product_id").val();
+		  let productPrice = $(element).find(".only_price").val();
+		  let quantity = $(element).find(".quantity").val();
+		  console.log(productId);
+		  console.log(productPrice);
+		  console.log(quantity);
+		  buy_product_list.push({
+			  p_id: productId,
+			  p_price: productPrice,
+			  qty: quantity
+		  });
+	*/
+		  /*
+		  let productIdArr = "<input type='hidden' name='prodcutId[" + index + "]' value='" + productId + "'>";
+		  transfer_data += productIdArr;
+		  
+		  let productPriceArr = "<input type='hidden' name='productPrice[" + index + "]' value='" + productPrice + "'>";
+		  transfer_data += productPriceArr;
+		  
+		  let total_quantity = "<input type='hidden' name='quantity[" + index + "]' value='" + quantity + "'>";
+		  transfer_data += total_quantity;
+		  
+		  console.log(transfer_data);
+		  
+		  index += 1;
+		  */
+//	  })
+	  
+//	  console.log(buy_product_list);
+//	  $(".product_obj_to_order").val(buy_product_list);
+//	  $(".send_product_list").submit();
+		//  $(".send_product_list").html(transfer_data);
+		//  $(".send_product_list").submit();
+  });
+ 
   
   $(document).ready(function(){
 	  total_price_calc();
@@ -366,6 +419,8 @@
   $(".checkCart10").on("change", function(){
 	  total_price_calc($(".cart_info_td"));
   })
+  
+  
   </script>
   
   <script type="text/javascript">

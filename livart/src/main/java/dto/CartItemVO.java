@@ -15,5 +15,5 @@ public class CartItemVO {
 	private int d_price;
 	private int p_deliveryfee;
 	private int quantity;
-	
+	private String user_id;
 }

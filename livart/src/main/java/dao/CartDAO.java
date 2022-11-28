@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import dto.CartItemVO;
+import dto.PreOrdersVO;
 import livart.DBConnection;
 import oracle.jdbc.OracleTypes;
 import util.DBManager;
@@ -53,8 +54,8 @@ public class CartDAO {
 				int d_price = rs.getInt(6);
 				int p_deliveryfee = rs.getInt(7);
 				int ci_quantity = rs.getInt(8);
+				String user_id = rs.getString(9);
 				
-				System.out.println(img_url);
 				CartItemVO cartItemVO = new CartItemVO();
 				cartItemVO.setImg_url(img_url);
 				cartItemVO.setP_id(p_id);
@@ -64,7 +65,8 @@ public class CartDAO {
 				cartItemVO.setD_price(d_price);
 				cartItemVO.setP_deliveryfee(p_deliveryfee);
 				cartItemVO.setQuantity(ci_quantity);
-				
+				cartItemVO.setUser_id(user_id);
+
 				cartItemList.add(cartItemVO);
 			}
 			rs.close();
@@ -115,5 +117,79 @@ public class CartDAO {
 			
 		}
 		return cartItemList;
+	}
+	
+	public ArrayList<CartItemVO> selectCartBuyItemList(String userId) {
+		ArrayList<CartItemVO> cartItemList =  new ArrayList<>();
+
+		System.out.println("userId값 가지고 들어옴");
+		try {
+		
+			String query = "{call all_cart_list(?,?)}";
+			CallableStatement callableStatement = conn.prepareCall(query);
+			callableStatement.setString(1, userId);
+			callableStatement.registerOutParameter(2, OracleTypes.CURSOR);
+			
+			callableStatement.execute();
+			ResultSet rs = (ResultSet)callableStatement.getObject(2);
+			
+			while(rs.next()) {
+				String img_url = rs.getString(1);
+				String p_id = rs.getString(2);
+				String p_name = rs.getString(3);
+				int cart_id = rs.getInt(4);
+				int p_price = rs.getInt(5);
+				int d_price = rs.getInt(6);
+				int p_deliveryfee = rs.getInt(7);
+				int ci_quantity = rs.getInt(8);
+				String user_id = rs.getString(9);
+				
+				System.out.println("p_name: " + p_name);
+				CartItemVO cartItemVO = new CartItemVO();
+				cartItemVO.setImg_url(img_url);
+				cartItemVO.setP_id(p_id);
+				cartItemVO.setP_name(p_name);
+				cartItemVO.setCart_id(cart_id);
+				cartItemVO.setP_price(p_price);
+				cartItemVO.setD_price(d_price);
+				cartItemVO.setP_deliveryfee(p_deliveryfee);
+				cartItemVO.setQuantity(ci_quantity);
+				cartItemVO.setUser_id(user_id);
+				
+				cartItemList.add(cartItemVO);
+			}
+			rs.close();
+			
+		} catch (SQLException e) {
+			System.out.println("프로시저에서 에러 발생!");
+			e.printStackTrace();
+		}
+		return cartItemList;
+	}
+	
+	public PreOrdersVO selectPreOrderInfo() {		
+
+		PreOrdersVO preOrdersInfo = new PreOrdersVO();
+
+		try {
+			
+			String query="call pre_order_info(?,?,?)";
+			CallableStatement callableStatement = conn.prepareCall(query);
+			callableStatement.setString(1, "kibeom5118");
+			callableStatement.registerOutParameter(2, java.sql.Types.VARCHAR);
+			callableStatement.registerOutParameter(3, java.sql.Types.VARCHAR);
+			
+			callableStatement.execute();
+			
+			String name = callableStatement.getString(2);
+			String phone = callableStatement.getString(3);
+			
+			preOrdersInfo.setOrderer(name);
+			preOrdersInfo.setOrderer_phone(phone);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return preOrdersInfo;
 	}
 }
