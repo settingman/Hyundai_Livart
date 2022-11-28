@@ -16,6 +16,6 @@ public class ProductVO {
 	private Date p_date;
 	private int p_deliveryfee;
 	
-	private String photo_url;//join 하기위한 컬럽입니다
+	private String photo_url;//join 하기위한 컬럼입니다
 	
 }

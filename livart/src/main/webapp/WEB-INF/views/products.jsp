@@ -463,7 +463,7 @@
 			success: function(data){
 				/* console.log(data);
 				$('.ajaxex').html(data); */
-				$('.ajaxex').load("/livart/sort?p_id=living&command=high .ajaxex");
+			$('.ajaxex').load("/livart/sort?p_id=living&command=high .ajaxex");
 			},
 			error: function(request, status, error){
 				alert();
@@ -471,6 +471,7 @@
 		});
 	};
 </script>
+
 
 </body>
 </html>
