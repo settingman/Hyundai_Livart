@@ -7,8 +7,13 @@ import lombok.Setter;
 @Setter
 public class CartItemVO {
 
-	private int cart_cart_id;
-	private String product_p_id;
+	private String img_url;
+	private String p_id;
+	private String p_name;
+	private int cart_id;
+	private int p_price;
+	private int d_price;
+	private int p_deliveryfee;
 	private int quantity;
 	
 }

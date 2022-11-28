@@ -8,22 +8,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.CartDAO;
+import dao.PreOrdersDAO;
 import dto.CartItemVO;
+import dto.PreOrdersVO;
 
+public class PreOrdersAction implements ControllerLivart {
 
-//cartList test
-public class CartListAction implements ControllerLivart{
-	
 	public MyView process(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		
-		CartDAO cartDAO = new CartDAO();			
-		ArrayList<CartItemVO> cartItemList = cartDAO.selectCartItemList();
-		request.setAttribute("cartItemList", cartItemList);
+		PreOrdersDAO preOrdersDAO = new PreOrdersDAO();
+		PreOrdersVO preOrderInfo = preOrdersDAO.selectPreOrderInfo();
+		request.setAttribute("preOrderInfo", preOrderInfo);
 		
-		return new MyView("/WEB-INF/views/cart2.jsp");
+		return new MyView("/WEB-INF/views/orders.jsp");
+		
 	}
-	
-	
-
 }

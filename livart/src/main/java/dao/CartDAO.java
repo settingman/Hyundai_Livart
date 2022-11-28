@@ -46,16 +46,20 @@ public class CartDAO {
 			
 			while(rs.next()) {
 				String img_url = rs.getString(1);
-				String p_name = rs.getString(2);
-				int p_price = rs.getInt(3);
-				int d_price = rs.getInt(4);
-				int p_deliveryfee = rs.getInt(5);
-				int ci_quantity = rs.getInt(6);
+				String p_id = rs.getString(2);
+				String p_name = rs.getString(3);
+				int cart_id = rs.getInt(4);
+				int p_price = rs.getInt(5);
+				int d_price = rs.getInt(6);
+				int p_deliveryfee = rs.getInt(7);
+				int ci_quantity = rs.getInt(8);
 				
 				System.out.println(img_url);
 				CartItemVO cartItemVO = new CartItemVO();
 				cartItemVO.setImg_url(img_url);
+				cartItemVO.setP_id(p_id);
 				cartItemVO.setP_name(p_name);
+				cartItemVO.setCart_id(cart_id);
 				cartItemVO.setP_price(p_price);
 				cartItemVO.setD_price(d_price);
 				cartItemVO.setP_deliveryfee(p_deliveryfee);
@@ -70,5 +74,37 @@ public class CartDAO {
 			e.printStackTrace();
 		}
 		return cartItemList;
+	}
+	
+	public void changeQty(String productId, int quantity) {
+		
+		try {
+			String query = "call update_product_quantity(?,?)";
+			CallableStatement callableStatement = conn.prepareCall(query);
+			callableStatement.setString(1, productId);
+			callableStatement.setInt(2, quantity);
+			
+			System.out.println("수정 하러 옴");
+			
+		}  catch(Exception e) {
+			
+		}
+	}
+	
+	public void deleteProduct(String productId) {
+		
+		try {
+		String query = "{call delete_product(?)}";
+		CallableStatement callableStatement = conn.prepareCall(query);
+		callableStatement.setString(1, productId);
+		
+		int delete_cnt = callableStatement.executeUpdate();
+		
+		if(delete_cnt == 1)
+		System.out.println("삭제완료");
+		
+		} catch(Exception e) {
+			
+		}
 	}
 }
