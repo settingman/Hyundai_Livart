@@ -38,6 +38,13 @@
     <link rel="stylesheet" type="text/css" href="chrome-extension://acmihclidpipcalnbhloaedejpimjhbb/css/fonts.css">
 </head>
 
+
+<!-- 회원가입했을때 아이디 바로 나오게 하는 세션 -->
+<%
+	String joinid = (String)session.getAttribute("user_id");
+	joinid = joinid==null?"":joinid;
+%>
+
 <body class="body-responsive">
     <div class="skipnavi">
         <a href="#container">본문 바로가기</a>
@@ -101,8 +108,8 @@
                                     <div class="field">
                                         <div class="control">
                                             <input class="input" type="text" name="login_id" id="username"
-                                                data-valid-engnum="true" placeholder="아이디 입력" value=""
-                                                title="아이디" maxlength="20">
+                                                data-valid-engnum="true" placeholder="아이디 입력" 
+                                                title="아이디" maxlength="20" value=<%=joinid%>>
                                         </div>
                                     </div>
                                     <div class="field">

@@ -25,7 +25,7 @@ public class MemberLoginConfrim implements ControllerLivart {
 	public MyView process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { 
 		
 		
-		String url = "/index.html"; //로그인 실패페이지
+		String url = "/main.jsp"; //로그인 실패페이지
 		HttpSession session = request.getSession();
 		MemberDAO memberDAO = MemberDAO.getInstance();
 		
@@ -43,8 +43,9 @@ public class MemberLoginConfrim implements ControllerLivart {
 		if(memberVO!=null) {
 			if(memberVO.getPwd().equals(login_pwd)) {
 				session.removeAttribute("user_id"); // 잘모르겠음.
-				session.setAttribute("loginUser", memberVO);		
-				url = "/index.html"; // 로그인 성공페이지
+				session.setAttribute("loginUser", memberVO);
+				session.setAttribute("loginUserid", login_id);
+				url = "/main.jsp"; // 로그인 성공페이지
 				System.out.println("로그인성공");
 			}
 			else {

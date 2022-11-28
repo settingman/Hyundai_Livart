@@ -14,11 +14,7 @@ import util.DBManager;
 //성환 : memberDAO
 public class MemberDAO {
 	
-	Connection conn = null;
-	CallableStatement cs = null;
-	ResultSet rs = null;
-	PreparedStatement ps =null;
-
+	
 	private static MemberDAO instance = new MemberDAO();
 
 	public static MemberDAO getInstance() {
@@ -27,6 +23,12 @@ public class MemberDAO {
 
 	// 회원가입
 	public void insertMember(MemberVO memberVO) {
+		
+		Connection conn = null;
+		CallableStatement cs = null;
+		ResultSet rs = null;
+		PreparedStatement ps =null;
+
 
 		String runSP = "{call SP_MEMBER_INSERT(?,?,?,?,?)}";
 		
@@ -85,6 +87,14 @@ public class MemberDAO {
 //	}
 	
 	public MemberVO getMember(String mem_id) {
+		
+		
+		Connection conn = null;
+		CallableStatement cs = null;
+		ResultSet rs = null;
+		PreparedStatement ps =null;
+
+		
 		MemberVO memberVO = null;
 		
 		String runSP = "{call sp_member_get(?,?)}";

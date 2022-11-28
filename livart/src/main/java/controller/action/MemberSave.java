@@ -56,8 +56,10 @@ public class MemberSave implements ControllerLivart {
         MemberDAO memberDAO = MemberDAO.getInstance();
         memberDAO.insertMember(member);
         
+       
+        
         
 
-       return new MyView("/WEB-INF/views/save-result.jsp");
+       return new MyView("/WEB-INF/views/Login.jsp");
     }
 }
