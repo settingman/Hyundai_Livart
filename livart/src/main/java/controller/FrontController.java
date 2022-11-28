@@ -37,6 +37,7 @@ public class FrontController extends HttpServlet{
         controllerMap.put("/livart/cart2", new CartListAction());
         controllerMap.put("/livart/cart2/delete", new CartDeleteAction());
         controllerMap.put("/livart/cart2/update", new ChangeQuantityAction());
+        controllerMap.put("/livart/order", new ChangeQuantityAction());
         controllerMap.put("/livart/product", new IndexAction());
         controllerMap.put("/livart/memberjoin", new MemberJoinAction());
         controllerMap.put("/livart/membersave", new MemberSave());

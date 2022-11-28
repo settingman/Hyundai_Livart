@@ -67,10 +67,10 @@
           <tr class="bundle-delivery">
             <td align class="item-checkbox cart_info_td" >
  			
-            <input type="hidden" class="og_price" value="${cart.p_price }">
-            <input type="hidden" class="ogdc_price" value="${cart.d_price }">
+            <input type="hidden" class="og_price" value="${cart.p_price * cart.quantity }">
+            <input type="hidden" class="ogdc_price" value="${cart.d_price * cart.quantity }">
             <input type="hidden" class="deliveryfee" value="${cart.p_deliveryfee }">
-            <input type="hidden" class="dc_price" value="${cart.p_price - cart.d_price }">
+            <input type="hidden" class="dc_price" value="${(cart.p_price * cart.quantity) - (cart.d_price * cart.quantity) }">
               <!-- 상품에 대한 정보가 hidden 태그로 체크박스 안에 들어가도록 할 것-->
               <div class="checkbox-wrap">
                 <!-- 상품에 대한 정보들 들어가는 부분-->
@@ -160,7 +160,7 @@
           <td align="">
             <!-- 최종구매가 -->
             <div class="price final-price is-bold">
-              <span id="totPrc_C002935375"><fmt:formatNumber value="${cart.d_price + cart.p_deliveryfee }" type="number"/>
+              <span id="totPrc_C002935375"><fmt:formatNumber value="${cart.d_price*cart.quantity + cart.p_deliveryfee }" type="number"/>
              </span>
               <span class="won is-normal">원</span>
             </div>
@@ -248,7 +248,7 @@
 			</div> 
     </section>
 
-    <!-- 장바구니 총-->
+    <!-- 장바구니 총
     <section id="totalArea">
       <div class="total-itam-pay">
         <div class="itam-pay-wrap is-flex">
@@ -279,7 +279,7 @@
           </dl>
         </div>
       </div>
-     
+     -->
       <div class="button-area cart-item-button-wrap is-flex">
         <button type="button" class="button is-primary is-large buyCartList">선택상품 주문</button>
         <button type="button" class="button is-danger is-large buyCartAll">전체상품 주문</button>
