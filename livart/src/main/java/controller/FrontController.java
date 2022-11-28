@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -25,6 +26,7 @@ import controller.action.ProductSortAction;
 
 
 
+
 @WebServlet(name = "frontController", urlPatterns = "/livart/*")
 public class FrontController extends HttpServlet{
 	
@@ -40,7 +42,7 @@ public class FrontController extends HttpServlet{
         controllerMap.put("/livart/sort", new ProductSortAction());
         controllerMap.put("/livart/login", new MemberLoginView());
         controllerMap.put("/livart/loginconfrim", new MemberLoginConfrim());
-        controllerMap.put("/livart/sort", new  ProductSortAction());
+        
     }
 
     @Override
