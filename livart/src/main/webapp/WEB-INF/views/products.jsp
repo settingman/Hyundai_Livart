@@ -175,7 +175,7 @@
 						</button>
 					</div>
 					<p class="section-category-item__search--info">
-						<span class="is-danger">1</span>개의 상품이 있습니다.      <!-- 쿼리 -->
+						<span class="is-danger"> ${count}</span>개의 상품이 있습니다.      <!-- 쿼리 -->
 					</p>
 				</section>
 				<div class="detail-search p-data">
@@ -245,7 +245,7 @@
 								<div class="product-item product-item--small ">
 									<input type="hidden" class="criteo-goodsSn" value="P100025656">
 									<div class="product-item-image">
-										<a href="/livart/productdetail?&p_id=${mem.p_id }"> <!-- 장바구니/바로구매 버튼 --> <img
+										<a href="/livart/productdetail?p_id=${mem.p_id }"> <!-- 장바구니/바로구매 버튼 --> <img
 											class="image" id="P100025656" alt="무드 모던 2400 거실장 (4색)"
 											src="${mem.photo_url }">
 

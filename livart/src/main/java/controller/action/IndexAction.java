@@ -26,9 +26,9 @@ public class IndexAction implements ControllerLivart {
 		String c = request.getParameter("command");
 		System.out.println(c);
 		ArrayList<ProductVO> productList = productDAO.listKindProduct(c);
-		
+		int count = productDAO.countOfProduct(c);
 		request.setAttribute("productList", productList);
-		
+		request.setAttribute("count", count);
 		
 		
 		return new MyView("/WEB-INF/views/products.jsp");

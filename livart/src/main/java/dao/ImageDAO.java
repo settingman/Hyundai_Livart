@@ -55,9 +55,44 @@ public class ImageDAO {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
-			
+			DBManager.close(conn, cs);
 		}
 		return imageList;
 		
 	}
+	
+	/*상품 상세 페이지에서 해당 상품에대한 상품 정보 사진을 불러옵니다*/
+	public ArrayList<ImageVO> listProductDetailImage(String pid){
+		ArrayList<ImageVO> imageList = new ArrayList<ImageVO>();
+		
+		String runSP ="{call product_pack.SP_PRODUCT_SELECT_PRODUCT_DETAIL_IMAGE(?,?)}";
+			Connection conn = null;
+			CallableStatement cs = null;
+			ResultSet rs = null;
+		try {
+			 conn = DBManager.getConnection();
+			 cs = conn.prepareCall(runSP);
+			 cs.setString(1, pid);
+			 cs.registerOutParameter(2, OracleTypes.CURSOR);
+			 cs.execute();
+			 rs = (ResultSet)cs.getObject(2);
+			 
+			 while(rs.next()) {
+				 ImageVO image = new ImageVO();
+				 image.setPhoto_url(rs.getString(1));
+				 imageList.add(image);
+			 }
+			 
+		} catch (SQLException e) {
+			System.out.println("프로시저에서 에러 발생!");
+			System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.close(conn, cs);
+		}
+		return imageList;
+		
+	}
+
 }
