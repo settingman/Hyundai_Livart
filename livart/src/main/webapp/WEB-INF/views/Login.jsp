@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+        <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     
     
 <html lang="ko" xml:lang="ko">
@@ -118,7 +120,12 @@
                                                 placeholder="비밀번호 입력" title="비밀번호" maxlength="30" autocomplete="off">
                                         </div>
                                         <!-- 비밀번호 잘못 입력하는 경우 횟수 안내 : 201026 -->
-                                        <p class="help color-danger text-left" id="pwError"></p>
+                                        
+                                        <script>
+                                        	$('#pwError').html(fail);
+                                        </script>
+                                        
+                                        <p class="help color-danger text-left" id="pwError"> <c:out value=" ${failLogin}"></c:out>  </p>
                                     </div>
                                     <div class="field text-left">
                                         <div class="text-inline-block">
@@ -215,7 +222,7 @@
                         </ul>
                     </div>
                     <div class="section-responsive-inner">
-                        <form id="guestLoginForm" name="guestLoginForm" action="/livart/loginconfrim" method="post">
+                        <form id="guestLoginForm" name="guestLoginForm" action="javascript:pwCheck()"" method="post">
                             <fieldset>
                                 <legend>비회원 주문조회</legend>
                                 <div class="field">
@@ -287,6 +294,33 @@
             </div>
         </div>
     </section>
+    
+    <script>
+    // 성환
+    // 로그인 실패시 비동기 식으로 데이터 뿌려줌
+    function pwCheck() {
+			
+			
+			$.ajax({
+				 type: 'post',
+	               url : '/livart/loginconfrim'
+			    ,
+			    
+			    success :  function(result){
+		               console.log(result);
+		               $("#pwError").html('비밀번호를 잘못 입력하셨습니다.');
+
+		               
+		            },
+			    error : function(error) { 
+			        console.log(error)
+			    }
+			})
+			
+		}
+    </script>
+    
+    
 </body>
 
 </html>

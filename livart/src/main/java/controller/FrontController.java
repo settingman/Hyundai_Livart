@@ -14,9 +14,11 @@ import javax.servlet.http.HttpServletResponse;
 import controller.action.CartListAction;
 import controller.action.ControllerLivart;
 import controller.action.IndexAction;
+import controller.action.MemberIdCheck;
 import controller.action.MemberJoinAction;
 import controller.action.MemberLoginConfrim;
 import controller.action.MemberLoginView;
+import controller.action.MemberLogout;
 import controller.action.MemberSave;
 import controller.action.MyView;
 import controller.action.ProductDetailAction;
@@ -25,6 +27,10 @@ import controller.action.ProductSortAction;
 
 
 
+
+
+//성환
+// 모든 요청 처리 ( fronController, return MyView : my view 에서 랜더링 )
 
 
 @WebServlet(name = "frontController", urlPatterns = "/livart/*")
@@ -45,6 +51,8 @@ public class FrontController extends HttpServlet{
         controllerMap.put("/livart/sort", new ProductSortAction());
         controllerMap.put("/livart/login", new MemberLoginView());
         controllerMap.put("/livart/loginconfrim", new MemberLoginConfrim());
+        controllerMap.put("/livart/logout", new MemberLogout());
+        controllerMap.put("/livart/check", new MemberIdCheck());
         
 
     }
@@ -52,8 +60,10 @@ public class FrontController extends HttpServlet{
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	
-    	//한글깨짐방지
+    	// 한글깨짐방지 
     	request.setCharacterEncoding("UTF-8");
+    	response.setCharacterEncoding("UTF-8");
+    	
         System.out.println("FrontController.service");
 
         String requestURI = request.getRequestURI();

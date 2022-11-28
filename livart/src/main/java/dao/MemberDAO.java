@@ -86,6 +86,8 @@ public class MemberDAO {
 //		
 //	}
 	
+	
+	// 로그인, 회원정보 불러오기.
 	public MemberVO getMember(String mem_id) {
 		
 		
@@ -137,6 +139,38 @@ public class MemberDAO {
 		
 	}
 	
+	
+	public int confirmID(String user_id) {
+		
+		Connection conn = null;
+		CallableStatement cs = null;
+		ResultSet rs = null;
+		PreparedStatement ps =null;
+		
+		int result = 0;
+		
+		String runSP = "{? = call sf_member_idconfirm(?)}";
+		try {
+			
+			conn = DBManager.getConnection();
+			cs = conn.prepareCall(runSP);
+			
+			cs.setString(2, user_id);
+			cs.registerOutParameter(1, java.sql.Types.INTEGER);
+			cs.execute();
+			result = cs.getInt(1);
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return result == 1 ? 1 : 0;
+		
+		
+	}
+	
+
 	
 
 }
