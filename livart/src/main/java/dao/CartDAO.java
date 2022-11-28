@@ -76,7 +76,20 @@ public class CartDAO {
 		return cartItemList;
 	}
 	
-	
+	public void changeQty(String productId, int quantity) {
+		
+		try {
+			String query = "call update_product_quantity(?,?)";
+			CallableStatement callableStatement = conn.prepareCall(query);
+			callableStatement.setString(1, productId);
+			callableStatement.setInt(2, quantity);
+			
+			System.out.println("수정 하러 옴");
+			
+		}  catch(Exception e) {
+			
+		}
+	}
 	
 	public void deleteProduct(String productId) {
 		

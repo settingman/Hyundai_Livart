@@ -22,7 +22,6 @@ public class CartListAction implements ControllerLivart{
 		request.setAttribute("cartItemList", cartItemList);
 		
 		return new MyView("/WEB-INF/views/cart2.jsp");
-		
 	}
 	
 	

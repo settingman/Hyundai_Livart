@@ -14,8 +14,14 @@ public class ChangeQuantityAction implements ControllerLivart {
 	public MyView process(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
+		String product_id = request.getParameter("productId");
+		int quantity = Integer.parseInt(request.getParameter("quantity"));
+		
+		System.out.print("여긴 들어옴");
+		
 		CartDAO cartDAO = new CartDAO();
-//		int changeQuantity = cartDAO.changeQty();
+		cartDAO.changeQty(product_id, quantity);
+		
 		return new MyView("/WEB-INF/views/cart2.jsp");
 	}
 

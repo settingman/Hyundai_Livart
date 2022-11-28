@@ -126,13 +126,13 @@
                   <span class="sr-only">빼기</span>
                 </button>
                 <span class="spinner-box__number">
-                  <input class="cartQty" type="number" maxvalue="30" title="수량 설정" value="1" readonly="">
+                  <input class="cartQty" type="number" maxvalue="30" title="수량 설정" value="${cart.quantity }" readonly="">
                 </span>
                 <button class="spinner-box__plus addQty">
                   <i></i><i></i><span class="sr-only">더하기</span>
                 </button>
               </div>
-                <a class="quantity_change_btn" data-cartId="${cart.cart_id }">변경</a>
+                <a class="quantity_change_btn" data-productid="${cart.p_id }">변경</a>
             </td>
 
             <td align>
@@ -317,7 +317,7 @@
   
 <!-- 수량 조정 form -->
 			<form action="/livart/cart2/update" method="post" class="quantity_update_form">
-				<input type="hidden" name="cartId" class="update_cartId">
+				<input type="hidden" name="productId" class="update_productId">
 				<input type="hidden" name="productCount" class="update_prduct_quantity">
 			</form>
 			
@@ -335,6 +335,17 @@
 	  const productId=$(this).data("productid");
 	  $(".delete_productId").val(productId);
 	  $(".quantity_delete_form").submit();
+  });
+  
+  
+  /* 수량 수정 버튼 */
+  $(".quantity_change_btn").on("click", function(){
+  	let productId = $(this).data("productid");
+  	let productCount = $(this).parent("td").find("input").val();
+  	console.log("hihi");
+	$(".update_productId").val(productId);
+	$(".update_product_quantity").val(productCount);
+	$(".quantity_update_form").submit();
   });
   
   $(document).ready(function(){
@@ -397,16 +408,6 @@
   	}
   });
   
-  
-  /* 수량 변경 작동 */
-  $(".quantity_change_btn").on("click", function(){
-		let cartId = $(this).data("cartid");
-		let productCount = $(this).parent("td").find("input").val();
-		$(".update_cartId").val(cartId);
-		$(".update_prduct_quantity").val(productCount);
-		$(".quantity_update_form").submit();
-		
-	});
   </script>
 	
 </body>
