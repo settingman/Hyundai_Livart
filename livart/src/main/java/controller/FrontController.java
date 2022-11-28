@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import controller.action.CartDeleteAction;
 import controller.action.CartListAction;
 import controller.action.ControllerLivart;
 import controller.action.IndexAction;
@@ -32,7 +33,8 @@ public class FrontController extends HttpServlet{
 	
 	
 	public FrontController() {
-        controllerMap.put("/livart/cart", new CartListAction());
+        controllerMap.put("/livart/cart2", new CartListAction());
+        controllerMap.put("/livart/cart2/delete", new CartDeleteAction());
         controllerMap.put("/livart/product", new IndexAction());
         controllerMap.put("/livart/memberjoin", new MemberJoinAction());
         controllerMap.put("/livart/membersave", new MemberSave());

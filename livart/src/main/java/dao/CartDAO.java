@@ -91,7 +91,10 @@ public class CartDAO {
 		}
 	}
 	
-	public void deleteProduct(String productId) {
+	public ArrayList<CartItemVO> deleteProduct(String productId) {
+		ArrayList<CartItemVO> cartItemList = null;
+		
+		System.out.println(productId);
 		
 		try {
 		String query = "{call delete_product(?)}";
@@ -100,11 +103,14 @@ public class CartDAO {
 		
 		int delete_cnt = callableStatement.executeUpdate();
 		
-		if(delete_cnt == 1)
-		System.out.println("삭제완료");
+		if(delete_cnt == 1) {
 		
+			System.out.println("삭제완료");
+			cartItemList = selectCartItemList();
+		}
 		} catch(Exception e) {
 			
 		}
+		return cartItemList;
 	}
 }
