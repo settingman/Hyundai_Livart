@@ -3,7 +3,10 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath }"/>
-
+<% 
+		  	String cm = request.getParameter("command");
+	
+%> 
 <% request.setCharacterEncoding("UTF-8"); %>
 <% 
 	String color = (String) session.getAttribute("color");
@@ -14,6 +17,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
 
 </head>
 <body>
@@ -188,13 +192,14 @@
 						data-valid-price="true">
 					<section class="section-category-item">
 
-
+					
+ <div class="ajaxex">
 						<div class="section-category-item__search is-flex tab-block">
 							<div class="left-contents is-flex">
 							<!-- 	<a class="link tab-block-item is-active" data-val="qty" href="javascript:;">추천순</a>  -->
-									<a class="link tab-block-item " data-val="new" href="javascript:;">신상품순</a>
-									 <a class="link tab-block-item " data-val="low" href="javascript:;">낮은가격순</a>
-								<a class="link tab-block-item " data-val="high" href="javascript:;">높은가격순</a>
+									<a class="link tab-block-item " data-val="new" href="javascript:newpoductlist();">신상품순</a>
+									 <a class="link tab-block-item " data-val="low" href="javascript:lowpricelist();">낮은가격순</a>
+								<a class="link tab-block-item " data-val="high" href="javascript:highpricelist();">높은가격순</a>
 								<!--<a class="link tab-block-item "  data-val="review" href="javascript:;">리뷰많은순</a>-->
 								<!-- <a class="link tab-block-item " data-val="score" href="javascript:;">평점높은순</a> -->
 							</div>
@@ -232,7 +237,7 @@
 							<c:when test="${!empty productList }">
 								
 						
-						
+						<!-- <div class="ajaxex"> -->
 						<ul class="section-category-item__search--list">
 						<c:forEach var="mem" items="${productList }"> 
 						
@@ -240,9 +245,9 @@
 								<div class="product-item product-item--small ">
 									<input type="hidden" class="criteo-goodsSn" value="P100025656">
 									<div class="product-item-image">
-										<a href="../product_detail.jsp"> <!-- 장바구니/바로구매 버튼 --> <img
+										<a href="/livart/productdetail?&p_id=${mem.p_id }"> <!-- 장바구니/바로구매 버튼 --> <img
 											class="image" id="P100025656" alt="무드 모던 2400 거실장 (4색)"
-											src="https://static.hyundailivart.co.kr/UserFiles/data/image/detail/PRO148/PRO14855/PRO14855_00000000_detail1_ORIGIN.jpg/dims/resize/x250/cropcenter/250x250/autorotate/on/optimize">
+											src="${mem.photo_url }">
 
 
 
@@ -256,7 +261,7 @@
 
 
 											<span class="product-item-header__brand">리바트온라인</span> <a
-												href="/livart/productdetail?command=product_detail&p_id=${mem.p_id }"
+												href="/livart/productdetail?&p_id=${mem.p_id }"
 												class="product-item-header__name">${mem.p_name }</a>
 
 											<div class="product-item-header__kinds product-item-tag"
@@ -265,7 +270,7 @@
 
 												<a class="product-item-tag__kinds" data-cnt="1"> <img
 													src="https://static.hyundailivart.co.kr/upload_mall/goods/P100025656/C100007842_OPT1.jpg/dims/resize/x22/cropcenter/22x22/autorotate/on/optimize">
-												</a> <a class="product-item-tag__kinds" data-cnt="2"> <img
+												</a> <a classf="product-item-tag__kinds" data-cnt="2"> <img
 													src="https://static.hyundailivart.co.kr/upload_mall/goods/P100025656/C100007840_OPT1.jpg/dims/resize/x22/cropcenter/22x22/autorotate/on/optimize">
 												</a> <a class="product-item-tag__kinds" data-cnt="3"> <img
 													src="https://static.hyundailivart.co.kr/upload_mall/goods/P100025656/C100007841_OPT1.jpg/dims/resize/x22/cropcenter/22x22/autorotate/on/optimize">
@@ -395,7 +400,7 @@
 							
 	</c:forEach>
 						</ul>
-						
+						</div>
 				
 						</c:when>
 						</c:choose>
@@ -409,6 +414,63 @@
 		</div>
 
 	</div>
+<script>
+	var newpoductlist = function(url){
+		$.ajax({
+			type: 'get',
+			url: "/livart/sort?p_id=living&command=date",
+			data: "",
+			
+			contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+			success: function(data){
+				/* console.log(data);
+				$('.ajaxex').html(data); */
+				$('.ajaxex').load("/livart/sort?p_id=living&command=date .ajaxex");
+			},
+			error: function(request, status, error){
+				alert();
+			}
+		});
+	};
+</script>
+<script>
+	var lowpricelist = function(url){
+		$.ajax({
+			type: 'get',
+			url: "/livart/sort?p_id=living&command=low",
+			data: "",
+			
+			contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+			success: function(data){
+				/* console.log(data);
+				$('.ajaxex').html(data); */
+				$('.ajaxex').load("/livart/sort?p_id=living&command=low .ajaxex");
+			},
+			error: function(request, status, error){
+				alert();
+			}
+		});
+	};
+</script>
+<script>
+	var highpricelist = function(url){
+		$.ajax({
+			type: 'get',
+			url: "/livart/sort?p_id=living&command=high",
+			data: "",
+		
+			contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+			success: function(data){
+				/* console.log(data);
+				$('.ajaxex').html(data); */
+			$('.ajaxex').load("/livart/sort?p_id=living&command=high .ajaxex");
+			},
+			error: function(request, status, error){
+				alert();
+			}
+		});
+	};
+</script>
 
 
 </body>

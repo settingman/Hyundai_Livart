@@ -17,6 +17,11 @@ public class MyView {
     }
 
     public void render(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	
+    	
+    	//redirect url 확인하고
+    	//response.sendRedirect(viewPath) 하믄대나?
+    	
         RequestDispatcher dispatcher = request.getRequestDispatcher(viewPath);
         dispatcher.forward(request, response);
     }

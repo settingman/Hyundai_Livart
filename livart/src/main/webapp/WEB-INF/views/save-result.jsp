@@ -12,7 +12,7 @@
  <li>username=${member.pwd}</li>
  <li>phone=${member.phone}</li>
  <li>email=${member.email}</li>
- <li>name=${member.name}</li>
+ <li>name=${member.username}</li>
 </ul>
 <a href="/v2/members">메인</a>
 </body>
