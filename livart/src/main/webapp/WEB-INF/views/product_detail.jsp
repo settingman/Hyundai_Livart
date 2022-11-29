@@ -354,25 +354,26 @@
           </div>
 
         </section>
-
+		
         <section class="pitem-section" id="pitem-detail-1">
           <div class="container">
             <div class="pitem-section-header">
               <h3 class="pitem-section-header__title">상품정보</h3>
             </div>
           </div>
+          <c:forEach var="proimg" items="${productDetailImage }"> 
           <div id="pitem-main-info" class="is-active">
             <div class="container"></div>
             <div class="pitem-section-info pitem-section-info__wide">
               <!-- 1단 이미지형 -->
               <div class="row text-center">
-                <img src="picture2.png" alt="상품상세이미지">
+                <img src="${proimg.photo_url }" alt="상품상세이미지">
               </div>
             </div>
           </div>
         </section>
 
-
+		</c:forEach>
 
 
         <!-- <section class="pitem-section" id="pitem-detail-4">

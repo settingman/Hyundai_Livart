@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
 
 
 
@@ -30,6 +31,8 @@
 <style shopback-extension-v7-0-10="" data-styled-version="4.2.0"></style>
 <link rel="stylesheet" type="text/css"
 	href="chrome-extension://acmihclidpipcalnbhloaedejpimjhbb/css/fonts.css">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body class="body-responsive">
@@ -49,7 +52,7 @@
 		<div class="container">
 
 			<form id="joinForm" name="joinForm" action="/livart/membersave"
-				method="post">
+				onsubmit="return validate()"method="post">
 
 				<fieldset>
 					<legend>가입 필수정보 입력</legend>
@@ -74,7 +77,7 @@
 									placeholder="아이디 입력" maxlength="20" data-valid-engnum="true">
 							</div>
 							<div class="buttons">
-								<button type="button"
+								<button type="button" onclick="nameCheck()"
 									class="button is-primary is-outlined is-fullwidth b-idChk">중복
 									체크</button>
 							</div>
@@ -143,6 +146,16 @@
 
 
 	<script>
+	
+	
+		
+		// 성환
+	
+		// 아이디 중복 체크 및 비밀번호 확인
+	
+	
+	
+	
 		var password = document.getElementById("password"), confirm_password = document
 				.getElementById("confirm_password");
 
@@ -159,6 +172,74 @@
 
 		password.onchange = validatePassword;
 		confirm_password.onkeyup = validatePassword;
+		
+		// 비밀번호가 같은지 다른지 확인, 비밀번호 input 값이 달라지면 다시 한번 검증
+		
+	
+		
+		
+		
+		var checkedID =false;
+		
+		
+		var inputID = document.getElementById("mbrId");
+		
+		function changeID() {
+			checkedID=false;
+			
+		}
+		
+		inputID.onchange = changeID;
+		
+		
+		function validate() {
+			if(!checkedID){
+				alert("아이디 중복체크를 해주세요");
+			}
+			
+			return checkedID;
+		}
+		
+		
+		
+		function nameCheck() {
+			
+			var tfUsername = $('input#mbrId').val();
+			
+			console.log(tfUsername);
+			
+			$.ajax({
+				 type: 'get',
+	               url : '/livart/check?checkid='+tfUsername
+			    ,
+			    
+			    success :  function(result){
+		               console.log(result);
+		               console.log('아이디 중복 체크 실행: success')
+		               if(result ==1 ){
+		                  alert('아이디가 중복되었습니다.')
+		               }else if(result==0){
+		                  alert('사용하실 수 있는 아이디 입니다.')
+		                  checkedID=true;
+		               }else if(result==2){
+		                  alert('아이디를 입력해주세요')
+		               }else{
+		                  console.log('develop: 서버오류');
+		               }
+		               
+		            },
+			    error : function(error) { // 결과 에러 콜백함수
+			        console.log(error)
+			    }
+			})
+			
+		}
+		
+		// 아이디 중복 확인 ajax 사용.
+		// 아이디 필드값이 달라지면 다시 한번 검증해야함.
+		
+		
+		
 	</script>
 </body>
 </html>

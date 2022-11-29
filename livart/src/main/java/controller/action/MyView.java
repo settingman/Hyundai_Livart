@@ -19,11 +19,29 @@ public class MyView {
     public void render(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	
     	
-    	//redirect url 확인하고
-    	//response.sendRedirect(viewPath) 하믄대나?
     	
-        RequestDispatcher dispatcher = request.getRequestDispatcher(viewPath);
-        dispatcher.forward(request, response);
+    	System.out.println("my view 접근");
+    	System.out.println(viewPath);
+    	
+    	
+    	
+    	 if(viewPath.equals("ajax")){
+     		System.out.println("ajax 실행입니다.");
+     		
+     	}
+    	else if(!viewPath.contains("redirect::")) {
+    		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPath);
+            dispatcher.forward(request, response);
+    	}
+    	
+    	else {
+    		viewPath=viewPath.replace("redirect::","");
+    		response.sendRedirect(viewPath);
+    	}
+    	
+    	
+    	System.out.println("my view 끝");
+        
     }
 
     public void render(Map<String, Object> model, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
