@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-        <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-	
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 
 
 
@@ -33,8 +33,9 @@
 <style shopback-extension-v7-0-10="" data-styled-version="4.2.0"></style>
 <link rel="stylesheet" type="text/css"
 	href="chrome-extension://acmihclidpipcalnbhloaedejpimjhbb/css/fonts.css">
-	
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 
@@ -43,8 +44,8 @@
 	String joinid = (String)session.getAttribute("loginUserid");
 	joinid = joinid==null?"":joinid;
 %>
-<c:if test="${!empty sessionScope.loginUserid}"> 
-<script type="text/javascript">
+<c:if test="${!empty sessionScope.loginUserid}">
+	<script type="text/javascript">
 window.location.href="/main.jsp";
 </script>
 </c:if>
@@ -67,7 +68,7 @@ window.location.href="/main.jsp";
 		<div class="container">
 
 			<form id="joinForm" name="joinForm" action="/livart/membersave"
-				onsubmit="return validate()"method="post">
+				onsubmit="return validate()" method="post">
 
 				<fieldset>
 					<legend>가입 필수정보 입력</legend>

@@ -1,78 +1,149 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-      <meta name="robots" content="index,follow">
-      <meta name="referrer" contents="always">
-      <meta name="format-detection" content="telephone=no">
-      <meta name="X-CSRF-TOKEN" content="634ed915-883d-4f7e-81e9-28ac78c25acd">
-      <meta name="keywords" content="리바트, 가구, 종합가구, 사무가구, 매장가구, 리모델링, 사무가구, 윌리엄스 소노마, 포터리반 키즈, 포터리반, 웨스트엘름">
-      <meta name="facebook-domain-verification" content="z18rpp6r0bi8jqdc0m6goj1j0eezc2">
-      
-  
-  
-    
-    
-      
-    
-    
-    
-      <meta property="og:type" content="website">
-      <meta property="og:title" content="현대 리바트 통합 쇼핑몰">
-      <meta property="og:description" content="현대 리바트 가구 쇼핑몰, 온라인, 매장가구, 리모델링, 사무가구, 윌리엄스 소노마, 포터리반 키즈, 포터리반, 웨스트엘름 등 종합 브랜드 통합 쇼핑몰">
-      <meta property="og:image" content="https://static.hyundailivart.co.kr/assets/images/common/livart.svg">
-      <meta property="og:site_name" content="리바트몰">
-      <meta property="og:url" content="https://www.hyundailivart.co.kr">
-      <title>리바트몰</title>
-      <meta name="description" content="현대 리바트 가구 쇼핑몰, 온라인, 매장가구, 리모델링, 사무가구, 윌리엄스 소노마, 포터리반 키즈, 포터리반, 웨스트엘름 등 종합 브랜드 통합 쇼핑몰">
-    
-  
-  
-  
-      <link rel="shortcut icon" type="image/x-icon" href="https://static.hyundailivart.co.kr/assets/images/favicon/livart.ico?ver=20221017">
-      <link rel="stylesheet" href="https://static.hyundailivart.co.kr/assets/css/twentytwenty.css?ver=20221017" media="all">
-      <link rel="stylesheet" href="https://static.hyundailivart.co.kr/assets/css/swiper.min.css">
-  <link rel="stylesheet" href="https://static.hyundailivart.co.kr/assets/css/promotion/livart.css?ver=20221017">
-  <link rel="stylesheet" href="https://static.hyundailivart.co.kr/assets/css/promotion/newLivart.css?ver=20221017">
-  <link rel="stylesheet" href="https://static.hyundailivart.co.kr/assets/css/style.css?ver=20221017">
-  
-  <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=AW-859746619&amp;l=dataLayer&amp;cx=c"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=AW-388435060&amp;l=dataLayer&amp;cx=c"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=UA-91366621-1&amp;l=dataLayer&amp;cx=c"></script><script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-W48JVQ5"></script><script src="https://at.artistchai.co.kr/script/at_v14.min.js?0.5027175872391676"></script><script src="https://connect.facebook.net/signals/config/555403818712228?v=2.9.89&amp;r=stable" async=""></script><script src="https://connect.facebook.net/signals/config/865758067551816?v=2.9.89&amp;r=stable" async=""></script><script async="" src="https://connect.facebook.net/en_US/fbevents.js"></script><script async="" defer="" src="https://cdn.megadata.co.kr/dist/prod/enp_tracker_self_hosted.min.js"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=AW-859746619&amp;l=dataLayer&amp;cx=c"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=AW-531184862&amp;l=dataLayer&amp;cx=c"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=AW-388435060&amp;l=dataLayer&amp;cx=c"></script><script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-W48JVQ5"></script><script src="https://at.artistchai.co.kr/script/at_v14.min.js?0.8502573966127505"></script><script src="https://connect.facebook.net/signals/config/555403818712228?v=2.9.89&amp;r=stable" async=""></script><script src="https://connect.facebook.net/signals/config/865758067551816?v=2.9.89&amp;r=stable" async=""></script><script async="" src="https://connect.facebook.net/en_US/fbevents.js"></script><script src="https://static.hyundailivart.co.kr/assets/js/jquery.min.js"></script>
-  <script src="https://static.hyundailivart.co.kr/assets/js/jquery-ui.js?ver=20221017"></script>
-  <script src="https://static.hyundailivart.co.kr/assets/js/anime.min.js"></script>
-  <script src="https://static.hyundailivart.co.kr/assets/js/js.cookie-2.2.1.min.js"></script>
-  <script src="https://static.hyundailivart.co.kr/assets/js/swiper.min.js"></script>
-      <script src="https://static.hyundailivart.co.kr/assets/js/common-load-swiper.js?ver=20221017"></script>
-      <script src="https://static.hyundailivart.co.kr/assets/js/jquery.event.move.js"></script>
-      <script src="https://static.hyundailivart.co.kr/assets/js/jquery.twentytwenty.js"></script>
-      <script src="https://static.hyundailivart.co.kr/assets/js/popper.min.js"></script>
-      <script src="https://static.hyundailivart.co.kr/assets/js/bootstrap-tooltip.js"></script>
-      <script src="https://static.hyundailivart.co.kr/assets/js/grayscale.min.js"></script>
-  <script src="https://static.hyundailivart.co.kr/assets/js/promotion/bbopgi.js"></script>
-  <script src="https://static.hyundailivart.co.kr/assets/js/promotion/countDown.js"></script>
-  <script src="https://static.hyundailivart.co.kr/assets/js/promotion/countVdo.js"></script>
-  <script src="https://static.hyundailivart.co.kr/assets/js/promotion/promotion.js"></script><style type="text/css"></style><style type="text/css"></style>
-  <script src="https://static.hyundailivart.co.kr/assets/js/promotion/scrollsmooth.js"></script>
-      <script src="https://static.hyundailivart.co.kr/assets/js/promotion/closetCalculator.js?ver=20221017"></script>
-      <script src="https://static.hyundailivart.co.kr/assets/js/common-ui.js?ver=20221017"></script>
-    <script src="https://static.hyundailivart.co.kr/assets/js/jquery.scrollbar.min.js"></script>
-      <script src="https://static.hyundailivart.co.kr/assets/js/custom_calendar.js?ver=20221017"></script>
-      <!--  넷스루 로그 -->
-      <script src="https://static.hyundailivart.co.kr/assets/js/nlogger.js"></script>
-      <script src="https://static.hyundailivart.co.kr/assets/js/nlogger_common.js"></script>
-      <!-- S : Facebook Pixel Code -->
-  <script>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="robots" content="index,follow">
+<meta name="referrer" contents="always">
+<meta name="format-detection" content="telephone=no">
+<meta name="X-CSRF-TOKEN" content="634ed915-883d-4f7e-81e9-28ac78c25acd">
+<meta name="keywords"
+	content="리바트, 가구, 종합가구, 사무가구, 매장가구, 리모델링, 사무가구, 윌리엄스 소노마, 포터리반 키즈, 포터리반, 웨스트엘름">
+<meta name="facebook-domain-verification"
+	content="z18rpp6r0bi8jqdc0m6goj1j0eezc2">
+
+
+
+
+
+
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="현대 리바트 통합 쇼핑몰">
+<meta property="og:description"
+	content="현대 리바트 가구 쇼핑몰, 온라인, 매장가구, 리모델링, 사무가구, 윌리엄스 소노마, 포터리반 키즈, 포터리반, 웨스트엘름 등 종합 브랜드 통합 쇼핑몰">
+<meta property="og:image"
+	content="https://static.hyundailivart.co.kr/assets/images/common/livart.svg">
+<meta property="og:site_name" content="리바트몰">
+<meta property="og:url" content="https://www.hyundailivart.co.kr">
+<title>리바트몰</title>
+<meta name="description"
+	content="현대 리바트 가구 쇼핑몰, 온라인, 매장가구, 리모델링, 사무가구, 윌리엄스 소노마, 포터리반 키즈, 포터리반, 웨스트엘름 등 종합 브랜드 통합 쇼핑몰">
+
+
+
+
+<link rel="shortcut icon" type="image/x-icon"
+	href="https://static.hyundailivart.co.kr/assets/images/favicon/livart.ico?ver=20221017">
+<link rel="stylesheet"
+	href="https://static.hyundailivart.co.kr/assets/css/twentytwenty.css?ver=20221017"
+	media="all">
+<link rel="stylesheet"
+	href="https://static.hyundailivart.co.kr/assets/css/swiper.min.css">
+<link rel="stylesheet"
+	href="https://static.hyundailivart.co.kr/assets/css/promotion/livart.css?ver=20221017">
+<link rel="stylesheet"
+	href="https://static.hyundailivart.co.kr/assets/css/promotion/newLivart.css?ver=20221017">
+<link rel="stylesheet"
+	href="https://static.hyundailivart.co.kr/assets/css/style.css?ver=20221017">
+
+<script type="text/javascript" async=""
+	src="https://www.google-analytics.com/analytics.js"></script>
+<script type="text/javascript" async=""
+	src="https://www.googletagmanager.com/gtag/js?id=AW-859746619&amp;l=dataLayer&amp;cx=c"></script>
+<script type="text/javascript" async=""
+	src="https://www.googletagmanager.com/gtag/js?id=AW-388435060&amp;l=dataLayer&amp;cx=c"></script>
+<script type="text/javascript" async=""
+	src="https://www.googletagmanager.com/gtag/js?id=UA-91366621-1&amp;l=dataLayer&amp;cx=c"></script>
+<script async=""
+	src="https://www.googletagmanager.com/gtm.js?id=GTM-W48JVQ5"></script>
+<script
+	src="https://at.artistchai.co.kr/script/at_v14.min.js?0.5027175872391676"></script>
+<script
+	src="https://connect.facebook.net/signals/config/555403818712228?v=2.9.89&amp;r=stable"
+	async=""></script>
+<script
+	src="https://connect.facebook.net/signals/config/865758067551816?v=2.9.89&amp;r=stable"
+	async=""></script>
+<script async="" src="https://connect.facebook.net/en_US/fbevents.js"></script>
+<script async="" defer=""
+	src="https://cdn.megadata.co.kr/dist/prod/enp_tracker_self_hosted.min.js"></script>
+<script type="text/javascript" async=""
+	src="https://www.googletagmanager.com/gtag/js?id=AW-859746619&amp;l=dataLayer&amp;cx=c"></script>
+<script type="text/javascript" async=""
+	src="https://www.googletagmanager.com/gtag/js?id=AW-531184862&amp;l=dataLayer&amp;cx=c"></script>
+<script type="text/javascript" async=""
+	src="https://www.googletagmanager.com/gtag/js?id=AW-388435060&amp;l=dataLayer&amp;cx=c"></script>
+<script type="text/javascript" async=""
+	src="https://www.google-analytics.com/analytics.js"></script>
+<script async=""
+	src="https://www.googletagmanager.com/gtm.js?id=GTM-W48JVQ5"></script>
+<script
+	src="https://at.artistchai.co.kr/script/at_v14.min.js?0.8502573966127505"></script>
+<script
+	src="https://connect.facebook.net/signals/config/555403818712228?v=2.9.89&amp;r=stable"
+	async=""></script>
+<script
+	src="https://connect.facebook.net/signals/config/865758067551816?v=2.9.89&amp;r=stable"
+	async=""></script>
+<script async="" src="https://connect.facebook.net/en_US/fbevents.js"></script>
+<script src="https://static.hyundailivart.co.kr/assets/js/jquery.min.js"></script>
+<script
+	src="https://static.hyundailivart.co.kr/assets/js/jquery-ui.js?ver=20221017"></script>
+<script src="https://static.hyundailivart.co.kr/assets/js/anime.min.js"></script>
+<script
+	src="https://static.hyundailivart.co.kr/assets/js/js.cookie-2.2.1.min.js"></script>
+<script src="https://static.hyundailivart.co.kr/assets/js/swiper.min.js"></script>
+<script
+	src="https://static.hyundailivart.co.kr/assets/js/common-load-swiper.js?ver=20221017"></script>
+<script
+	src="https://static.hyundailivart.co.kr/assets/js/jquery.event.move.js"></script>
+<script
+	src="https://static.hyundailivart.co.kr/assets/js/jquery.twentytwenty.js"></script>
+<script src="https://static.hyundailivart.co.kr/assets/js/popper.min.js"></script>
+<script
+	src="https://static.hyundailivart.co.kr/assets/js/bootstrap-tooltip.js"></script>
+<script
+	src="https://static.hyundailivart.co.kr/assets/js/grayscale.min.js"></script>
+<script
+	src="https://static.hyundailivart.co.kr/assets/js/promotion/bbopgi.js"></script>
+<script
+	src="https://static.hyundailivart.co.kr/assets/js/promotion/countDown.js"></script>
+<script
+	src="https://static.hyundailivart.co.kr/assets/js/promotion/countVdo.js"></script>
+<script
+	src="https://static.hyundailivart.co.kr/assets/js/promotion/promotion.js"></script>
+<style type="text/css"></style>
+<style type="text/css"></style>
+<script
+	src="https://static.hyundailivart.co.kr/assets/js/promotion/scrollsmooth.js"></script>
+<script
+	src="https://static.hyundailivart.co.kr/assets/js/promotion/closetCalculator.js?ver=20221017"></script>
+<script
+	src="https://static.hyundailivart.co.kr/assets/js/common-ui.js?ver=20221017"></script>
+<script
+	src="https://static.hyundailivart.co.kr/assets/js/jquery.scrollbar.min.js"></script>
+<script
+	src="https://static.hyundailivart.co.kr/assets/js/custom_calendar.js?ver=20221017"></script>
+<!--  넷스루 로그 -->
+<script src="https://static.hyundailivart.co.kr/assets/js/nlogger.js"></script>
+<script
+	src="https://static.hyundailivart.co.kr/assets/js/nlogger_common.js"></script>
+<!-- S : Facebook Pixel Code -->
+<script>
     !function(f,b,e,v,n,t,s){
       if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
       if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
@@ -84,24 +155,28 @@
       fbq('track', 'PageView');
       fbq('track', 'ViewContent'); // 차이
   </script>
-  <noscript>
-    <img height="1" width="1" src="https://www.facebook.com/tr?id=865758067551816&ev=PageView&noscript=1"/>
-    <!-- 차이 - End Facebook Pixel Code -->
-    <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=555403818712228&ev=PageView&noscript=1" />
-  </noscript>
-  <!-- E : Facebook Pixel Code -->
-  <!-- S : kakao pixel -->
-  <script type="text/javascript" charset="UTF-8" src="//t1.daumcdn.net/adfit/static/kp.js"></script>
-  <script type="text/javascript">
+<noscript>
+	<img height="1" width="1"
+		src="https://www.facebook.com/tr?id=865758067551816&ev=PageView&noscript=1" />
+	<!-- 차이 - End Facebook Pixel Code -->
+	<img height="1" width="1" style="display: none"
+		src="https://www.facebook.com/tr?id=555403818712228&ev=PageView&noscript=1" />
+</noscript>
+<!-- E : Facebook Pixel Code -->
+<!-- S : kakao pixel -->
+<script type="text/javascript" charset="UTF-8"
+	src="//t1.daumcdn.net/adfit/static/kp.js"></script>
+<script type="text/javascript">
         kakaoPixel('4251330608095577124').pageView();
   </script>
-  <!-- E : kakao pixel -->
-  <!-- S : Criteo -->
-  <script type="text/javascript" src="//dynamic.criteo.com/js/ld/ld.js?a=19435" async="true"></script>
-  <!-- E : Criteo -->
-  <!-- S : 차이 - 네이버 공통 적용 스크립트 , 모든 페이지에 노출되도록 설치. 단 전환페이지 설정값보다 항상 하단에 위치해야함 --> 
-  <script type="text/javascript" src="//wcs.naver.net/wcslog.js"> </script> 
-  <script type="text/javascript"> 
+<!-- E : kakao pixel -->
+<!-- S : Criteo -->
+<script type="text/javascript"
+	src="//dynamic.criteo.com/js/ld/ld.js?a=19435" async="true"></script>
+<!-- E : Criteo -->
+<!-- S : 차이 - 네이버 공통 적용 스크립트 , 모든 페이지에 노출되도록 설치. 단 전환페이지 설정값보다 항상 하단에 위치해야함 -->
+<script type="text/javascript" src="//wcs.naver.net/wcslog.js"> </script>
+<script type="text/javascript"> 
     if (!wcs_add) var wcs_add={};
     wcs_add["wa"] = "s_51fbc413854d";
     if (!_nasa) var _nasa={};
@@ -110,17 +185,18 @@
       wcs_do(_nasa);
     }
   </script>
-  <!-- E : 차이 - 네이버 공통 적용 스크립트 -->
-  <!-- ArtistCHAI CUBE Common Script START v1.4 -->
-  <script>
+<!-- E : 차이 - 네이버 공통 적용 스크립트 -->
+<!-- ArtistCHAI CUBE Common Script START v1.4 -->
+<script>
     // (c) 2022 CHAI Communication
     var ATC="431";!function(t,a,e){t.CHAI_AT=e,t[e]=function(){t[e].dl=t[e].dl||[],t[e].dl.push(arguments)};var r=a.createElement("script");r.src="https://at.artistchai.co.kr/script/at_v14.min.js?"+Math.random();var c=a.getElementsByTagName("script")[0];c.parentNode.insertBefore(r,c),t[e]("create")}(window,document,"chai_at");
   </script>
-  <!-- ArtistCHAI CUBE Common Script END v1.4 -->
-  <!-- S : Google Analytics -->
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-91366621-1"></script>
-  <script>
+<!-- ArtistCHAI CUBE Common Script END v1.4 -->
+<!-- S : Google Analytics -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async=""
+	src="https://www.googletagmanager.com/gtag/js?id=UA-91366621-1"></script>
+<script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
@@ -167,29 +243,29 @@
     gtag('config', 'AW-531184862');		// [차이] 바스 Google Ads
     gtag('config', 'AW-859746619');		// [플레이디] Google Ads
   </script>
-  <!-- E : Google Analytics -->
-  <!-- S : GA - Event snippet for 페이지 조회 conversion page -->
-  <script>
+<!-- E : Google Analytics -->
+<!-- S : GA - Event snippet for 페이지 조회 conversion page -->
+<script>
       gtag('event', 'conversion', {'send_to': 'AW-388435060/ZDghCL7JpI0CEPSYnLkB'});
       gtag('event', 'conversion', {'send_to': 'AW-531184862/wJDlCNGKtuwBEN75pP0B'});
       gtag('event', 'conversion', {'send_to': 'AW-859746619/GavfCMfb5OsBELvi-pkD'});
   </script>
-    <!-- E : GA - Event snippet for 페이지 조회 conversion page -->
-  
-  <script>
+<!-- E : GA - Event snippet for 페이지 조회 conversion page -->
+
+<script>
     window.dataLayer = window.dataLayer || [];
   </script>
-  <!-- Google Tag Manager -->
-  <script>
+<!-- Google Tag Manager -->
+<script>
     (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-W48JVQ5');
   </script>
-  <!-- End Google Tag Manager -->
-  
-  <script type="text/javascript">
+<!-- End Google Tag Manager -->
+
+<script type="text/javascript">
   $(document).ready(function () {
     // 기본값
     //console.log("rollback jsp");
@@ -498,217 +574,326 @@
   
       
   </script>
-  <script>
+<script>
   $(document).on("click", ".product-item-button__button--cart, .product-item-button__button--buy", function(event){
     //상품기능버튼용
     event.stopPropagation();
     event.preventDefault();
   });
   </script>
-  <meta http-equiv="origin-trial" content="A9+ldib+sKhGj2FcIjq5GnvBZFuIiXID0+NkE6k7cEk71MhaHFGqo3wUlUFmZ6d9w0KPwx9UxGiCTYWtRnTGDQkAAACAeyJvcmlnaW4iOiJodHRwczovL2NyaXRlby5uZXQ6NDQzIiwiZmVhdHVyZSI6IlByaXZhY3lTYW5kYm94QWRzQVBJcyIsImV4cGlyeSI6MTY4MDY1Mjc5OSwiaXNTdWJkb21haW4iOnRydWUsImlzVGhpcmRQYXJ0eSI6dHJ1ZX0="><meta http-equiv="origin-trial" content="AzLNuh8GFzfIOcwvhEg7Ymr7YCzlYVTKeD7i2iETABbRf+sL2FAx+r+HlTtxSi1zgUFxBlJVoxgLjuhqiwTjAw4AAACAeyJvcmlnaW4iOiJodHRwczovL2NyaXRlby5jb206NDQzIiwiZmVhdHVyZSI6IlByaXZhY3lTYW5kYm94QWRzQVBJcyIsImV4cGlyeSI6MTY4MDY1Mjc5OSwiaXNTdWJkb21haW4iOnRydWUsImlzVGhpcmRQYXJ0eSI6dHJ1ZX0="><meta http-equiv="origin-trial" content="A751Xsk4ZW3DVQ8WZng2Dk5s3YzAyqncTzgv+VaE6wavgTY0QHkDvUTET1o7HanhuJO8lgv1Vvc88Ij78W1FIAAAAAB7eyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A751Xsk4ZW3DVQ8WZng2Dk5s3YzAyqncTzgv+VaE6wavgTY0QHkDvUTET1o7HanhuJO8lgv1Vvc88Ij78W1FIAAAAAB7eyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1RoaXJkUGFydHkiOnRydWV9"><script type="text/javascript" async="" src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/388435060/?random=1669684194147&amp;cv=11&amp;fst=1669684194147&amp;bg=ffffff&amp;guid=ON&amp;async=1&amp;gtm=2oab90&amp;u_w=1707&amp;u_h=1067&amp;hn=www.googleadservices.com&amp;frm=0&amp;url=https%3A%2F%2Fwww.hyundailivart.co.kr%2Fcommunity&amp;ref=http%3A%2F%2Flocalhost%3A8080%2F&amp;tiba=%EB%A6%AC%EB%B0%94%ED%8A%B8%EB%AA%B0&amp;auid=665728049.1668399911&amp;data=event%3Dgtag.config&amp;rfmt=3&amp;fmt=4"></script><script type="text/javascript" async="" src="https://www.googleadservices.com/pagead/conversion/388435060/?random=1669684194158&amp;cv=11&amp;fst=1669684194158&amp;bg=ffffff&amp;guid=ON&amp;async=1&amp;gtm=2oab90&amp;u_w=1707&amp;u_h=1067&amp;label=ZDghCL7JpI0CEPSYnLkB&amp;hn=www.googleadservices.com&amp;frm=0&amp;url=https%3A%2F%2Fwww.hyundailivart.co.kr%2Fcommunity&amp;ref=http%3A%2F%2Flocalhost%3A8080%2F&amp;tiba=%EB%A6%AC%EB%B0%94%ED%8A%B8%EB%AA%B0&amp;gtm_ee=1&amp;auid=665728049.1668399911&amp;data=event%3Dconversion&amp;rfmt=3&amp;fmt=4"></script><meta http-equiv="origin-trial" content="A751Xsk4ZW3DVQ8WZng2Dk5s3YzAyqncTzgv+VaE6wavgTY0QHkDvUTET1o7HanhuJO8lgv1Vvc88Ij78W1FIAAAAAB7eyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A751Xsk4ZW3DVQ8WZng2Dk5s3YzAyqncTzgv+VaE6wavgTY0QHkDvUTET1o7HanhuJO8lgv1Vvc88Ij78W1FIAAAAAB7eyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1RoaXJkUGFydHkiOnRydWV9"><script type="text/javascript" async="" src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/531184862/?random=1669684194175&amp;cv=11&amp;fst=1669684194175&amp;bg=ffffff&amp;guid=ON&amp;async=1&amp;gtm=2oab90&amp;u_w=1707&amp;u_h=1067&amp;hn=www.googleadservices.com&amp;frm=0&amp;url=https%3A%2F%2Fwww.hyundailivart.co.kr%2Fcommunity&amp;ref=http%3A%2F%2Flocalhost%3A8080%2F&amp;tiba=%EB%A6%AC%EB%B0%94%ED%8A%B8%EB%AA%B0&amp;auid=665728049.1668399911&amp;data=event%3Dgtag.config&amp;rfmt=3&amp;fmt=4"></script><script type="text/javascript" async="" src="https://www.googleadservices.com/pagead/conversion/531184862/?random=1669684194186&amp;cv=11&amp;fst=1669684194186&amp;bg=ffffff&amp;guid=ON&amp;async=1&amp;gtm=2oab90&amp;u_w=1707&amp;u_h=1067&amp;label=wJDlCNGKtuwBEN75pP0B&amp;hn=www.googleadservices.com&amp;frm=0&amp;url=https%3A%2F%2Fwww.hyundailivart.co.kr%2Fcommunity&amp;ref=http%3A%2F%2Flocalhost%3A8080%2F&amp;tiba=%EB%A6%AC%EB%B0%94%ED%8A%B8%EB%AA%B0&amp;gtm_ee=1&amp;auid=665728049.1668399911&amp;data=event%3Dconversion&amp;rfmt=3&amp;fmt=4"></script><meta http-equiv="origin-trial" content="A751Xsk4ZW3DVQ8WZng2Dk5s3YzAyqncTzgv+VaE6wavgTY0QHkDvUTET1o7HanhuJO8lgv1Vvc88Ij78W1FIAAAAAB7eyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A751Xsk4ZW3DVQ8WZng2Dk5s3YzAyqncTzgv+VaE6wavgTY0QHkDvUTET1o7HanhuJO8lgv1Vvc88Ij78W1FIAAAAAB7eyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1RoaXJkUGFydHkiOnRydWV9"><script type="text/javascript" async="" src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/859746619/?random=1669684194205&amp;cv=11&amp;fst=1669684194205&amp;bg=ffffff&amp;guid=ON&amp;async=1&amp;gtm=2oab90&amp;u_w=1707&amp;u_h=1067&amp;hn=www.googleadservices.com&amp;frm=0&amp;url=https%3A%2F%2Fwww.hyundailivart.co.kr%2Fcommunity&amp;ref=http%3A%2F%2Flocalhost%3A8080%2F&amp;tiba=%EB%A6%AC%EB%B0%94%ED%8A%B8%EB%AA%B0&amp;auid=665728049.1668399911&amp;data=event%3Dgtag.config&amp;rfmt=3&amp;fmt=4"></script><script type="text/javascript" async="" src="https://www.googleadservices.com/pagead/conversion/859746619/?random=1669684194214&amp;cv=11&amp;fst=1669684194214&amp;bg=ffffff&amp;guid=ON&amp;async=1&amp;gtm=2oab90&amp;u_w=1707&amp;u_h=1067&amp;label=GavfCMfb5OsBELvi-pkD&amp;hn=www.googleadservices.com&amp;frm=0&amp;url=https%3A%2F%2Fwww.hyundailivart.co.kr%2Fcommunity&amp;ref=http%3A%2F%2Flocalhost%3A8080%2F&amp;tiba=%EB%A6%AC%EB%B0%94%ED%8A%B8%EB%AA%B0&amp;gtm_ee=1&amp;auid=665728049.1668399911&amp;data=event%3Dconversion&amp;rfmt=3&amp;fmt=4"></script><script src="https://cdn.megadata.co.kr/js/socialLink/social_sns_config_min.js" type="text/javascript" defer="" async=""></script><script type="text/javascript" async="" src="//tpc.googlesyndication.com/sodar/1s9mPOHO.js"></script><script src="//rum.beusable.net/script/b190429e104534u830/ffb83efb1f" async="" type="text/javascript"></script><script src="//rum.beusable.net/script/checker/b190429e104534u830/ffb83efb1f?url=https%3A%2F%2Fwww.hyundailivart.co.kr%2Fcommunity" async="" type="text/javascript"></script><script type="text/javascript" async="" src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/859746619/?random=1669684194868&amp;cv=11&amp;fst=1669684194868&amp;bg=ffffff&amp;guid=ON&amp;async=1&amp;gtm=2oab90&amp;u_w=1707&amp;u_h=1067&amp;hn=www.googleadservices.com&amp;frm=0&amp;url=https%3A%2F%2Fwww.hyundailivart.co.kr%2Fcommunity&amp;ref=http%3A%2F%2Flocalhost%3A8080%2F&amp;tiba=%EB%A6%AC%EB%B0%94%ED%8A%B8%EB%AA%B0&amp;auid=665728049.1668399911&amp;uaa=x86&amp;uab=64&amp;uafvl=Google%2520Chrome%3B107.0.5304.121%7CChromium%3B107.0.5304.121%7CNot%253DA%253FBrand%3B24.0.0.0&amp;uap=Windows&amp;uapv=10.0.0&amp;uaw=0&amp;data=event%3Dform_start&amp;rfmt=3&amp;fmt=4"></script><script type="text/javascript" async="" src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/859746619/?random=1669684194875&amp;cv=11&amp;fst=1669684194875&amp;bg=ffffff&amp;guid=ON&amp;async=1&amp;gtm=2oab90&amp;u_w=1707&amp;u_h=1067&amp;hn=www.googleadservices.com&amp;frm=0&amp;url=https%3A%2F%2Fwww.hyundailivart.co.kr%2Fcommunity&amp;ref=http%3A%2F%2Flocalhost%3A8080%2F&amp;tiba=%EB%A6%AC%EB%B0%94%ED%8A%B8%EB%AA%B0&amp;auid=665728049.1668399911&amp;uaa=x86&amp;uab=64&amp;uafvl=Google%2520Chrome%3B107.0.5304.121%7CChromium%3B107.0.5304.121%7CNot%253DA%253FBrand%3B24.0.0.0&amp;uap=Windows&amp;uapv=10.0.0&amp;uaw=0&amp;data=event%3Dform_submit&amp;rfmt=3&amp;fmt=4"></script><script type="text/javascript" async="" src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/859746619/?random=1669684194879&amp;cv=11&amp;fst=1669684194879&amp;bg=ffffff&amp;guid=ON&amp;async=1&amp;gtm=2oab90&amp;u_w=1707&amp;u_h=1067&amp;hn=www.googleadservices.com&amp;frm=0&amp;url=https%3A%2F%2Fwww.hyundailivart.co.kr%2Fcommunity&amp;ref=http%3A%2F%2Flocalhost%3A8080%2F&amp;tiba=%EB%A6%AC%EB%B0%94%ED%8A%B8%EB%AA%B0&amp;auid=665728049.1668399911&amp;uaa=x86&amp;uab=64&amp;uafvl=Google%2520Chrome%3B107.0.5304.121%7CChromium%3B107.0.5304.121%7CNot%253DA%253FBrand%3B24.0.0.0&amp;uap=Windows&amp;uapv=10.0.0&amp;uaw=0&amp;data=event%3Dform_submit&amp;rfmt=3&amp;fmt=4"></script><script src="//rum.beusable.net/script/b190429e104534u830/ffb83efb1f" async="" type="text/javascript"></script><meta http-equiv="origin-trial" content="A751Xsk4ZW3DVQ8WZng2Dk5s3YzAyqncTzgv+VaE6wavgTY0QHkDvUTET1o7HanhuJO8lgv1Vvc88Ij78W1FIAAAAAB7eyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A751Xsk4ZW3DVQ8WZng2Dk5s3YzAyqncTzgv+VaE6wavgTY0QHkDvUTET1o7HanhuJO8lgv1Vvc88Ij78W1FIAAAAAB7eyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1RoaXJkUGFydHkiOnRydWV9"><script type="text/javascript" async="" src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/531184862/?random=1669684306987&amp;cv=11&amp;fst=1669684306987&amp;bg=ffffff&amp;guid=ON&amp;async=1&amp;gtm=2oab90&amp;u_w=1707&amp;u_h=1067&amp;hn=www.googleadservices.com&amp;frm=0&amp;url=http%3A%2F%2F192.168.160.102%3A5500%2Freal_review.html&amp;tiba=Document&amp;auid=406939308.1668493321&amp;data=event%3Dgtag.config&amp;rfmt=3&amp;fmt=4"></script><script type="text/javascript" async="" src="https://www.googleadservices.com/pagead/conversion/531184862/?random=1669684307003&amp;cv=11&amp;fst=1669684307003&amp;bg=ffffff&amp;guid=ON&amp;async=1&amp;gtm=2oab90&amp;u_w=1707&amp;u_h=1067&amp;label=wJDlCNGKtuwBEN75pP0B&amp;hn=www.googleadservices.com&amp;frm=0&amp;url=http%3A%2F%2F192.168.160.102%3A5500%2Freal_review.html&amp;tiba=Document&amp;gtm_ee=1&amp;auid=406939308.1668493321&amp;data=event%3Dconversion&amp;rfmt=3&amp;fmt=4"></script><meta http-equiv="origin-trial" content="A751Xsk4ZW3DVQ8WZng2Dk5s3YzAyqncTzgv+VaE6wavgTY0QHkDvUTET1o7HanhuJO8lgv1Vvc88Ij78W1FIAAAAAB7eyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A751Xsk4ZW3DVQ8WZng2Dk5s3YzAyqncTzgv+VaE6wavgTY0QHkDvUTET1o7HanhuJO8lgv1Vvc88Ij78W1FIAAAAAB7eyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1RoaXJkUGFydHkiOnRydWV9"><script type="text/javascript" async="" src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/859746619/?random=1669684307017&amp;cv=11&amp;fst=1669684307017&amp;bg=ffffff&amp;guid=ON&amp;async=1&amp;gtm=2oab90&amp;u_w=1707&amp;u_h=1067&amp;hn=www.googleadservices.com&amp;frm=0&amp;url=http%3A%2F%2F192.168.160.102%3A5500%2Freal_review.html&amp;tiba=Document&amp;auid=406939308.1668493321&amp;data=event%3Dgtag.config&amp;rfmt=3&amp;fmt=4"></script><script type="text/javascript" async="" src="https://www.googleadservices.com/pagead/conversion/859746619/?random=1669684307033&amp;cv=11&amp;fst=1669684307033&amp;bg=ffffff&amp;guid=ON&amp;async=1&amp;gtm=2oab90&amp;u_w=1707&amp;u_h=1067&amp;label=GavfCMfb5OsBELvi-pkD&amp;hn=www.googleadservices.com&amp;frm=0&amp;url=http%3A%2F%2F192.168.160.102%3A5500%2Freal_review.html&amp;tiba=Document&amp;gtm_ee=1&amp;auid=406939308.1668493321&amp;data=event%3Dconversion&amp;rfmt=3&amp;fmt=4"></script><meta http-equiv="origin-trial" content="A751Xsk4ZW3DVQ8WZng2Dk5s3YzAyqncTzgv+VaE6wavgTY0QHkDvUTET1o7HanhuJO8lgv1Vvc88Ij78W1FIAAAAAB7eyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A751Xsk4ZW3DVQ8WZng2Dk5s3YzAyqncTzgv+VaE6wavgTY0QHkDvUTET1o7HanhuJO8lgv1Vvc88Ij78W1FIAAAAAB7eyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1RoaXJkUGFydHkiOnRydWV9"><script type="text/javascript" async="" src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/388435060/?random=1669684307160&amp;cv=11&amp;fst=1669684307160&amp;bg=ffffff&amp;guid=ON&amp;async=1&amp;gtm=2oab90&amp;u_w=1707&amp;u_h=1067&amp;hn=www.googleadservices.com&amp;frm=0&amp;url=http%3A%2F%2F192.168.160.102%3A5500%2Freal_review.html&amp;tiba=Document&amp;auid=406939308.1668493321&amp;data=event%3Dgtag.config&amp;rfmt=3&amp;fmt=4"></script><script type="text/javascript" async="" src="https://www.googleadservices.com/pagead/conversion/388435060/?random=1669684307174&amp;cv=11&amp;fst=1669684307174&amp;bg=ffffff&amp;guid=ON&amp;async=1&amp;gtm=2oab90&amp;u_w=1707&amp;u_h=1067&amp;label=ZDghCL7JpI0CEPSYnLkB&amp;hn=www.googleadservices.com&amp;frm=0&amp;url=http%3A%2F%2F192.168.160.102%3A5500%2Freal_review.html&amp;tiba=Document&amp;gtm_ee=1&amp;auid=406939308.1668493321&amp;data=event%3Dconversion&amp;rfmt=3&amp;fmt=4"></script><meta http-equiv="origin-trial" content="A9+ldib+sKhGj2FcIjq5GnvBZFuIiXID0+NkE6k7cEk71MhaHFGqo3wUlUFmZ6d9w0KPwx9UxGiCTYWtRnTGDQkAAACAeyJvcmlnaW4iOiJodHRwczovL2NyaXRlby5uZXQ6NDQzIiwiZmVhdHVyZSI6IlByaXZhY3lTYW5kYm94QWRzQVBJcyIsImV4cGlyeSI6MTY4MDY1Mjc5OSwiaXNTdWJkb21haW4iOnRydWUsImlzVGhpcmRQYXJ0eSI6dHJ1ZX0="><meta http-equiv="origin-trial" content="AzLNuh8GFzfIOcwvhEg7Ymr7YCzlYVTKeD7i2iETABbRf+sL2FAx+r+HlTtxSi1zgUFxBlJVoxgLjuhqiwTjAw4AAACAeyJvcmlnaW4iOiJodHRwczovL2NyaXRlby5jb206NDQzIiwiZmVhdHVyZSI6IlByaXZhY3lTYW5kYm94QWRzQVBJcyIsImV4cGlyeSI6MTY4MDY1Mjc5OSwiaXNTdWJkb21haW4iOnRydWUsImlzVGhpcmRQYXJ0eSI6dHJ1ZX0="><script type="text/javascript" async="" src="//tpc.googlesyndication.com/sodar/1s9mPOHO.js"></script><script src="//rum.beusable.net/script/checker/b190429e104534u830/ffb83efb1f?url=http%3A%2F%2F192.168.160.102%3A5500%2Freal_review.html" async="" type="text/javascript"></script><script src="//rum.beusable.net/script/checker/b190429e104534u830/ffb83efb1f?url=http%3A%2F%2F192.168.160.102%3A5500%2Freal_review.html" async="" type="text/javascript"></script><script type="text/javascript" async="" src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/859746619/?random=1669684308208&amp;cv=11&amp;fst=1669684308208&amp;bg=ffffff&amp;guid=ON&amp;async=1&amp;gtm=2oab90&amp;u_w=1707&amp;u_h=1067&amp;hn=www.googleadservices.com&amp;frm=0&amp;url=http%3A%2F%2F192.168.160.102%3A5500%2Freal_review.html&amp;tiba=Document&amp;auid=406939308.1668493321&amp;data=event%3Dform_start&amp;rfmt=3&amp;fmt=4"></script><script type="text/javascript" async="" src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/859746619/?random=1669684308213&amp;cv=11&amp;fst=1669684308213&amp;bg=ffffff&amp;guid=ON&amp;async=1&amp;gtm=2oab90&amp;u_w=1707&amp;u_h=1067&amp;hn=www.googleadservices.com&amp;frm=0&amp;url=http%3A%2F%2F192.168.160.102%3A5500%2Freal_review.html&amp;tiba=Document&amp;auid=406939308.1668493321&amp;data=event%3Dform_submit&amp;rfmt=3&amp;fmt=4"></script><script type="text/javascript" async="" src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/859746619/?random=1669684308216&amp;cv=11&amp;fst=1669684308216&amp;bg=ffffff&amp;guid=ON&amp;async=1&amp;gtm=2oab90&amp;u_w=1707&amp;u_h=1067&amp;hn=www.googleadservices.com&amp;frm=0&amp;url=http%3A%2F%2F192.168.160.102%3A5500%2Freal_review.html&amp;tiba=Document&amp;auid=406939308.1668493321&amp;data=event%3Dform_submit&amp;rfmt=3&amp;fmt=4">
+<meta http-equiv="origin-trial"
+	content="A9+ldib+sKhGj2FcIjq5GnvBZFuIiXID0+NkE6k7cEk71MhaHFGqo3wUlUFmZ6d9w0KPwx9UxGiCTYWtRnTGDQkAAACAeyJvcmlnaW4iOiJodHRwczovL2NyaXRlby5uZXQ6NDQzIiwiZmVhdHVyZSI6IlByaXZhY3lTYW5kYm94QWRzQVBJcyIsImV4cGlyeSI6MTY4MDY1Mjc5OSwiaXNTdWJkb21haW4iOnRydWUsImlzVGhpcmRQYXJ0eSI6dHJ1ZX0=">
+<meta http-equiv="origin-trial"
+	content="AzLNuh8GFzfIOcwvhEg7Ymr7YCzlYVTKeD7i2iETABbRf+sL2FAx+r+HlTtxSi1zgUFxBlJVoxgLjuhqiwTjAw4AAACAeyJvcmlnaW4iOiJodHRwczovL2NyaXRlby5jb206NDQzIiwiZmVhdHVyZSI6IlByaXZhY3lTYW5kYm94QWRzQVBJcyIsImV4cGlyeSI6MTY4MDY1Mjc5OSwiaXNTdWJkb21haW4iOnRydWUsImlzVGhpcmRQYXJ0eSI6dHJ1ZX0=">
+<meta http-equiv="origin-trial"
+	content="A751Xsk4ZW3DVQ8WZng2Dk5s3YzAyqncTzgv+VaE6wavgTY0QHkDvUTET1o7HanhuJO8lgv1Vvc88Ij78W1FIAAAAAB7eyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1RoaXJkUGFydHkiOnRydWV9">
+<meta http-equiv="origin-trial"
+	content="A751Xsk4ZW3DVQ8WZng2Dk5s3YzAyqncTzgv+VaE6wavgTY0QHkDvUTET1o7HanhuJO8lgv1Vvc88Ij78W1FIAAAAAB7eyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1RoaXJkUGFydHkiOnRydWV9">
+<script type="text/javascript" async=""
+	src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/388435060/?random=1669684194147&amp;cv=11&amp;fst=1669684194147&amp;bg=ffffff&amp;guid=ON&amp;async=1&amp;gtm=2oab90&amp;u_w=1707&amp;u_h=1067&amp;hn=www.googleadservices.com&amp;frm=0&amp;url=https%3A%2F%2Fwww.hyundailivart.co.kr%2Fcommunity&amp;ref=http%3A%2F%2Flocalhost%3A8080%2F&amp;tiba=%EB%A6%AC%EB%B0%94%ED%8A%B8%EB%AA%B0&amp;auid=665728049.1668399911&amp;data=event%3Dgtag.config&amp;rfmt=3&amp;fmt=4"></script>
+<script type="text/javascript" async=""
+	src="https://www.googleadservices.com/pagead/conversion/388435060/?random=1669684194158&amp;cv=11&amp;fst=1669684194158&amp;bg=ffffff&amp;guid=ON&amp;async=1&amp;gtm=2oab90&amp;u_w=1707&amp;u_h=1067&amp;label=ZDghCL7JpI0CEPSYnLkB&amp;hn=www.googleadservices.com&amp;frm=0&amp;url=https%3A%2F%2Fwww.hyundailivart.co.kr%2Fcommunity&amp;ref=http%3A%2F%2Flocalhost%3A8080%2F&amp;tiba=%EB%A6%AC%EB%B0%94%ED%8A%B8%EB%AA%B0&amp;gtm_ee=1&amp;auid=665728049.1668399911&amp;data=event%3Dconversion&amp;rfmt=3&amp;fmt=4"></script>
+<meta http-equiv="origin-trial"
+	content="A751Xsk4ZW3DVQ8WZng2Dk5s3YzAyqncTzgv+VaE6wavgTY0QHkDvUTET1o7HanhuJO8lgv1Vvc88Ij78W1FIAAAAAB7eyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1RoaXJkUGFydHkiOnRydWV9">
+<meta http-equiv="origin-trial"
+	content="A751Xsk4ZW3DVQ8WZng2Dk5s3YzAyqncTzgv+VaE6wavgTY0QHkDvUTET1o7HanhuJO8lgv1Vvc88Ij78W1FIAAAAAB7eyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1RoaXJkUGFydHkiOnRydWV9">
+<script type="text/javascript" async=""
+	src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/531184862/?random=1669684194175&amp;cv=11&amp;fst=1669684194175&amp;bg=ffffff&amp;guid=ON&amp;async=1&amp;gtm=2oab90&amp;u_w=1707&amp;u_h=1067&amp;hn=www.googleadservices.com&amp;frm=0&amp;url=https%3A%2F%2Fwww.hyundailivart.co.kr%2Fcommunity&amp;ref=http%3A%2F%2Flocalhost%3A8080%2F&amp;tiba=%EB%A6%AC%EB%B0%94%ED%8A%B8%EB%AA%B0&amp;auid=665728049.1668399911&amp;data=event%3Dgtag.config&amp;rfmt=3&amp;fmt=4"></script>
+<script type="text/javascript" async=""
+	src="https://www.googleadservices.com/pagead/conversion/531184862/?random=1669684194186&amp;cv=11&amp;fst=1669684194186&amp;bg=ffffff&amp;guid=ON&amp;async=1&amp;gtm=2oab90&amp;u_w=1707&amp;u_h=1067&amp;label=wJDlCNGKtuwBEN75pP0B&amp;hn=www.googleadservices.com&amp;frm=0&amp;url=https%3A%2F%2Fwww.hyundailivart.co.kr%2Fcommunity&amp;ref=http%3A%2F%2Flocalhost%3A8080%2F&amp;tiba=%EB%A6%AC%EB%B0%94%ED%8A%B8%EB%AA%B0&amp;gtm_ee=1&amp;auid=665728049.1668399911&amp;data=event%3Dconversion&amp;rfmt=3&amp;fmt=4"></script>
+<meta http-equiv="origin-trial"
+	content="A751Xsk4ZW3DVQ8WZng2Dk5s3YzAyqncTzgv+VaE6wavgTY0QHkDvUTET1o7HanhuJO8lgv1Vvc88Ij78W1FIAAAAAB7eyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1RoaXJkUGFydHkiOnRydWV9">
+<meta http-equiv="origin-trial"
+	content="A751Xsk4ZW3DVQ8WZng2Dk5s3YzAyqncTzgv+VaE6wavgTY0QHkDvUTET1o7HanhuJO8lgv1Vvc88Ij78W1FIAAAAAB7eyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1RoaXJkUGFydHkiOnRydWV9">
+<script type="text/javascript" async=""
+	src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/859746619/?random=1669684194205&amp;cv=11&amp;fst=1669684194205&amp;bg=ffffff&amp;guid=ON&amp;async=1&amp;gtm=2oab90&amp;u_w=1707&amp;u_h=1067&amp;hn=www.googleadservices.com&amp;frm=0&amp;url=https%3A%2F%2Fwww.hyundailivart.co.kr%2Fcommunity&amp;ref=http%3A%2F%2Flocalhost%3A8080%2F&amp;tiba=%EB%A6%AC%EB%B0%94%ED%8A%B8%EB%AA%B0&amp;auid=665728049.1668399911&amp;data=event%3Dgtag.config&amp;rfmt=3&amp;fmt=4"></script>
+<script type="text/javascript" async=""
+	src="https://www.googleadservices.com/pagead/conversion/859746619/?random=1669684194214&amp;cv=11&amp;fst=1669684194214&amp;bg=ffffff&amp;guid=ON&amp;async=1&amp;gtm=2oab90&amp;u_w=1707&amp;u_h=1067&amp;label=GavfCMfb5OsBELvi-pkD&amp;hn=www.googleadservices.com&amp;frm=0&amp;url=https%3A%2F%2Fwww.hyundailivart.co.kr%2Fcommunity&amp;ref=http%3A%2F%2Flocalhost%3A8080%2F&amp;tiba=%EB%A6%AC%EB%B0%94%ED%8A%B8%EB%AA%B0&amp;gtm_ee=1&amp;auid=665728049.1668399911&amp;data=event%3Dconversion&amp;rfmt=3&amp;fmt=4"></script>
+<script
+	src="https://cdn.megadata.co.kr/js/socialLink/social_sns_config_min.js"
+	type="text/javascript" defer="" async=""></script>
+<script type="text/javascript" async=""
+	src="//tpc.googlesyndication.com/sodar/1s9mPOHO.js"></script>
+<script src="//rum.beusable.net/script/b190429e104534u830/ffb83efb1f"
+	async="" type="text/javascript"></script>
+<script
+	src="//rum.beusable.net/script/checker/b190429e104534u830/ffb83efb1f?url=https%3A%2F%2Fwww.hyundailivart.co.kr%2Fcommunity"
+	async="" type="text/javascript"></script>
+<script type="text/javascript" async=""
+	src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/859746619/?random=1669684194868&amp;cv=11&amp;fst=1669684194868&amp;bg=ffffff&amp;guid=ON&amp;async=1&amp;gtm=2oab90&amp;u_w=1707&amp;u_h=1067&amp;hn=www.googleadservices.com&amp;frm=0&amp;url=https%3A%2F%2Fwww.hyundailivart.co.kr%2Fcommunity&amp;ref=http%3A%2F%2Flocalhost%3A8080%2F&amp;tiba=%EB%A6%AC%EB%B0%94%ED%8A%B8%EB%AA%B0&amp;auid=665728049.1668399911&amp;uaa=x86&amp;uab=64&amp;uafvl=Google%2520Chrome%3B107.0.5304.121%7CChromium%3B107.0.5304.121%7CNot%253DA%253FBrand%3B24.0.0.0&amp;uap=Windows&amp;uapv=10.0.0&amp;uaw=0&amp;data=event%3Dform_start&amp;rfmt=3&amp;fmt=4"></script>
+<script type="text/javascript" async=""
+	src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/859746619/?random=1669684194875&amp;cv=11&amp;fst=1669684194875&amp;bg=ffffff&amp;guid=ON&amp;async=1&amp;gtm=2oab90&amp;u_w=1707&amp;u_h=1067&amp;hn=www.googleadservices.com&amp;frm=0&amp;url=https%3A%2F%2Fwww.hyundailivart.co.kr%2Fcommunity&amp;ref=http%3A%2F%2Flocalhost%3A8080%2F&amp;tiba=%EB%A6%AC%EB%B0%94%ED%8A%B8%EB%AA%B0&amp;auid=665728049.1668399911&amp;uaa=x86&amp;uab=64&amp;uafvl=Google%2520Chrome%3B107.0.5304.121%7CChromium%3B107.0.5304.121%7CNot%253DA%253FBrand%3B24.0.0.0&amp;uap=Windows&amp;uapv=10.0.0&amp;uaw=0&amp;data=event%3Dform_submit&amp;rfmt=3&amp;fmt=4"></script>
+<script type="text/javascript" async=""
+	src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/859746619/?random=1669684194879&amp;cv=11&amp;fst=1669684194879&amp;bg=ffffff&amp;guid=ON&amp;async=1&amp;gtm=2oab90&amp;u_w=1707&amp;u_h=1067&amp;hn=www.googleadservices.com&amp;frm=0&amp;url=https%3A%2F%2Fwww.hyundailivart.co.kr%2Fcommunity&amp;ref=http%3A%2F%2Flocalhost%3A8080%2F&amp;tiba=%EB%A6%AC%EB%B0%94%ED%8A%B8%EB%AA%B0&amp;auid=665728049.1668399911&amp;uaa=x86&amp;uab=64&amp;uafvl=Google%2520Chrome%3B107.0.5304.121%7CChromium%3B107.0.5304.121%7CNot%253DA%253FBrand%3B24.0.0.0&amp;uap=Windows&amp;uapv=10.0.0&amp;uaw=0&amp;data=event%3Dform_submit&amp;rfmt=3&amp;fmt=4"></script>
+<script src="//rum.beusable.net/script/b190429e104534u830/ffb83efb1f"
+	async="" type="text/javascript"></script>
+<meta http-equiv="origin-trial"
+	content="A751Xsk4ZW3DVQ8WZng2Dk5s3YzAyqncTzgv+VaE6wavgTY0QHkDvUTET1o7HanhuJO8lgv1Vvc88Ij78W1FIAAAAAB7eyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1RoaXJkUGFydHkiOnRydWV9">
+<meta http-equiv="origin-trial"
+	content="A751Xsk4ZW3DVQ8WZng2Dk5s3YzAyqncTzgv+VaE6wavgTY0QHkDvUTET1o7HanhuJO8lgv1Vvc88Ij78W1FIAAAAAB7eyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1RoaXJkUGFydHkiOnRydWV9">
+<script type="text/javascript" async=""
+	src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/531184862/?random=1669684306987&amp;cv=11&amp;fst=1669684306987&amp;bg=ffffff&amp;guid=ON&amp;async=1&amp;gtm=2oab90&amp;u_w=1707&amp;u_h=1067&amp;hn=www.googleadservices.com&amp;frm=0&amp;url=http%3A%2F%2F192.168.160.102%3A5500%2Freal_review.html&amp;tiba=Document&amp;auid=406939308.1668493321&amp;data=event%3Dgtag.config&amp;rfmt=3&amp;fmt=4"></script>
+<script type="text/javascript" async=""
+	src="https://www.googleadservices.com/pagead/conversion/531184862/?random=1669684307003&amp;cv=11&amp;fst=1669684307003&amp;bg=ffffff&amp;guid=ON&amp;async=1&amp;gtm=2oab90&amp;u_w=1707&amp;u_h=1067&amp;label=wJDlCNGKtuwBEN75pP0B&amp;hn=www.googleadservices.com&amp;frm=0&amp;url=http%3A%2F%2F192.168.160.102%3A5500%2Freal_review.html&amp;tiba=Document&amp;gtm_ee=1&amp;auid=406939308.1668493321&amp;data=event%3Dconversion&amp;rfmt=3&amp;fmt=4"></script>
+<meta http-equiv="origin-trial"
+	content="A751Xsk4ZW3DVQ8WZng2Dk5s3YzAyqncTzgv+VaE6wavgTY0QHkDvUTET1o7HanhuJO8lgv1Vvc88Ij78W1FIAAAAAB7eyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1RoaXJkUGFydHkiOnRydWV9">
+<meta http-equiv="origin-trial"
+	content="A751Xsk4ZW3DVQ8WZng2Dk5s3YzAyqncTzgv+VaE6wavgTY0QHkDvUTET1o7HanhuJO8lgv1Vvc88Ij78W1FIAAAAAB7eyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1RoaXJkUGFydHkiOnRydWV9">
+<script type="text/javascript" async=""
+	src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/859746619/?random=1669684307017&amp;cv=11&amp;fst=1669684307017&amp;bg=ffffff&amp;guid=ON&amp;async=1&amp;gtm=2oab90&amp;u_w=1707&amp;u_h=1067&amp;hn=www.googleadservices.com&amp;frm=0&amp;url=http%3A%2F%2F192.168.160.102%3A5500%2Freal_review.html&amp;tiba=Document&amp;auid=406939308.1668493321&amp;data=event%3Dgtag.config&amp;rfmt=3&amp;fmt=4"></script>
+<script type="text/javascript" async=""
+	src="https://www.googleadservices.com/pagead/conversion/859746619/?random=1669684307033&amp;cv=11&amp;fst=1669684307033&amp;bg=ffffff&amp;guid=ON&amp;async=1&amp;gtm=2oab90&amp;u_w=1707&amp;u_h=1067&amp;label=GavfCMfb5OsBELvi-pkD&amp;hn=www.googleadservices.com&amp;frm=0&amp;url=http%3A%2F%2F192.168.160.102%3A5500%2Freal_review.html&amp;tiba=Document&amp;gtm_ee=1&amp;auid=406939308.1668493321&amp;data=event%3Dconversion&amp;rfmt=3&amp;fmt=4"></script>
+<meta http-equiv="origin-trial"
+	content="A751Xsk4ZW3DVQ8WZng2Dk5s3YzAyqncTzgv+VaE6wavgTY0QHkDvUTET1o7HanhuJO8lgv1Vvc88Ij78W1FIAAAAAB7eyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1RoaXJkUGFydHkiOnRydWV9">
+<meta http-equiv="origin-trial"
+	content="A751Xsk4ZW3DVQ8WZng2Dk5s3YzAyqncTzgv+VaE6wavgTY0QHkDvUTET1o7HanhuJO8lgv1Vvc88Ij78W1FIAAAAAB7eyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjgwNjUyNzk5LCJpc1RoaXJkUGFydHkiOnRydWV9">
+<script type="text/javascript" async=""
+	src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/388435060/?random=1669684307160&amp;cv=11&amp;fst=1669684307160&amp;bg=ffffff&amp;guid=ON&amp;async=1&amp;gtm=2oab90&amp;u_w=1707&amp;u_h=1067&amp;hn=www.googleadservices.com&amp;frm=0&amp;url=http%3A%2F%2F192.168.160.102%3A5500%2Freal_review.html&amp;tiba=Document&amp;auid=406939308.1668493321&amp;data=event%3Dgtag.config&amp;rfmt=3&amp;fmt=4"></script>
+<script type="text/javascript" async=""
+	src="https://www.googleadservices.com/pagead/conversion/388435060/?random=1669684307174&amp;cv=11&amp;fst=1669684307174&amp;bg=ffffff&amp;guid=ON&amp;async=1&amp;gtm=2oab90&amp;u_w=1707&amp;u_h=1067&amp;label=ZDghCL7JpI0CEPSYnLkB&amp;hn=www.googleadservices.com&amp;frm=0&amp;url=http%3A%2F%2F192.168.160.102%3A5500%2Freal_review.html&amp;tiba=Document&amp;gtm_ee=1&amp;auid=406939308.1668493321&amp;data=event%3Dconversion&amp;rfmt=3&amp;fmt=4"></script>
+<meta http-equiv="origin-trial"
+	content="A9+ldib+sKhGj2FcIjq5GnvBZFuIiXID0+NkE6k7cEk71MhaHFGqo3wUlUFmZ6d9w0KPwx9UxGiCTYWtRnTGDQkAAACAeyJvcmlnaW4iOiJodHRwczovL2NyaXRlby5uZXQ6NDQzIiwiZmVhdHVyZSI6IlByaXZhY3lTYW5kYm94QWRzQVBJcyIsImV4cGlyeSI6MTY4MDY1Mjc5OSwiaXNTdWJkb21haW4iOnRydWUsImlzVGhpcmRQYXJ0eSI6dHJ1ZX0=">
+<meta http-equiv="origin-trial"
+	content="AzLNuh8GFzfIOcwvhEg7Ymr7YCzlYVTKeD7i2iETABbRf+sL2FAx+r+HlTtxSi1zgUFxBlJVoxgLjuhqiwTjAw4AAACAeyJvcmlnaW4iOiJodHRwczovL2NyaXRlby5jb206NDQzIiwiZmVhdHVyZSI6IlByaXZhY3lTYW5kYm94QWRzQVBJcyIsImV4cGlyeSI6MTY4MDY1Mjc5OSwiaXNTdWJkb21haW4iOnRydWUsImlzVGhpcmRQYXJ0eSI6dHJ1ZX0=">
+<script type="text/javascript" async=""
+	src="//tpc.googlesyndication.com/sodar/1s9mPOHO.js"></script>
+<script
+	src="//rum.beusable.net/script/checker/b190429e104534u830/ffb83efb1f?url=http%3A%2F%2F192.168.160.102%3A5500%2Freal_review.html"
+	async="" type="text/javascript"></script>
+<script
+	src="//rum.beusable.net/script/checker/b190429e104534u830/ffb83efb1f?url=http%3A%2F%2F192.168.160.102%3A5500%2Freal_review.html"
+	async="" type="text/javascript"></script>
+<script type="text/javascript" async=""
+	src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/859746619/?random=1669684308208&amp;cv=11&amp;fst=1669684308208&amp;bg=ffffff&amp;guid=ON&amp;async=1&amp;gtm=2oab90&amp;u_w=1707&amp;u_h=1067&amp;hn=www.googleadservices.com&amp;frm=0&amp;url=http%3A%2F%2F192.168.160.102%3A5500%2Freal_review.html&amp;tiba=Document&amp;auid=406939308.1668493321&amp;data=event%3Dform_start&amp;rfmt=3&amp;fmt=4"></script>
+<script type="text/javascript" async=""
+	src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/859746619/?random=1669684308213&amp;cv=11&amp;fst=1669684308213&amp;bg=ffffff&amp;guid=ON&amp;async=1&amp;gtm=2oab90&amp;u_w=1707&amp;u_h=1067&amp;hn=www.googleadservices.com&amp;frm=0&amp;url=http%3A%2F%2F192.168.160.102%3A5500%2Freal_review.html&amp;tiba=Document&amp;auid=406939308.1668493321&amp;data=event%3Dform_submit&amp;rfmt=3&amp;fmt=4"></script>
+<script type="text/javascript" async=""
+	src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/859746619/?random=1669684308216&amp;cv=11&amp;fst=1669684308216&amp;bg=ffffff&amp;guid=ON&amp;async=1&amp;gtm=2oab90&amp;u_w=1707&amp;u_h=1067&amp;hn=www.googleadservices.com&amp;frm=0&amp;url=http%3A%2F%2F192.168.160.102%3A5500%2Freal_review.html&amp;tiba=Document&amp;auid=406939308.1668493321&amp;data=event%3Dform_submit&amp;rfmt=3&amp;fmt=4">
     
-  </script></head>
- <body class="main-page" oncontextmenu="return false">
-    <div class="skipnavi">
-      <a href="#container">본문 바로가기(www.hyundailivart.co.kr)</a>
-      <a href="#gnb">주메뉴 바로가기</a>
-    </div>
-  
- 
-  
-    
-      <header class="header header-style-www" id="header">
-        <div class="header-logo">
-          <div class="container">
-            
-            <a href="https://www.hyundailivart.co.kr/community" class="header-logo__community"><h1>LIVART</h1></a>
-            <a href="https://www.hyundailivart.co.kr/community" class="header-logo__community-sub"><h1>커뮤니티</h1></a>
-            
-            
-            <ul class="header-member-menu">
-            
-              <li>
-                <a href="https://www.hyundailivart.co.kr/login" id="loginBtn" class="header-member-menu__btn icon i-gnb_mem1"><i class="icon-gnb_mem1"></i><span>로그인</span></a>
-                <input type="hidden" name="loginYn" value="N">
-              </li>
-              <li>
-                <a href="https://www.hyundailivart.co.kr/member/memberJoin" class="header-member-menu__btn icon i-gnb_mem2"><i class="icon-gnb_mem2"></i><span>회원가입</span></a>
-              </li>
-            
-            
-              <li>
-                <a href="https://www.hyundailivart.co.kr/cart" class="header-member-menu__btn icon i-gnb_mem3"><i class="icon-gnb_mem3"></i><span>장바구니</span></a>
-              </li>
-              <li>
-                <a href="https://www.hyundailivart.co.kr/csCenter/shopMgmt" class="header-member-menu__btn icon i-gnb_mem4"><i class="icon-gnb_mem4"></i><span>매장찾기</span></a>
-              </li>
-              <li>
-                <a href="https://www.hyundailivart.co.kr/csCenter/shopResev" class="header-member-menu__btn icon i-gnb_mem7"><i class="icon-gnb_mem7"></i><span>방문상담예약</span></a>
-              </li>
-              <li>
-                <a href="https://www.hyundailivart.co.kr/csCenter/main" class="header-member-menu__btn icon i-gnb_mem5"><i class="icon-gnb_mem5"></i><span>고객센터</span></a>
-              </li>
-            </ul>
-    
-            <div class="header-search-wrap">
-              <form action="/search/search" name="searchForm">
-                <input type="hidden" id="recommUrl">
-                <input type="hidden" id="linkedUrl">
-                <fieldset>
-                  <legend>통합검색</legend>
-                  <div class="header-search">
-                    <div class="header-search__input-wrap">
-                      <input type="text" id="searchKeyword" name="kwd" autocomplete="off" class="header-search__input" placeholder="검색어를 입력하세요" title="검색어">
-                    </div>
-                    <button type="submit" class="header-search__submit icon" id="searchKwdBtn"><i class="ico-search"></i><span class="sr-only">검색</span></button>
-                  </div>
-                </fieldset>
-              </form>
-    
-              <!-- S : 최근검색어/인기검색어 -->
-              <div class="header-search-content" id="headerSearchContent" style="display: none;">
-                <div class="header-search-content__header">
-                  <ul>
-                    <li class="is-active">
-                      <button id="tab-search1" class="tab" role="tab" aria-controls="tabpanel-search1">
-                        <span>최근 검색어</span>
-                      </button>
-                    </li>
-                    <li>
-                      <button id="tab-search2" class="tab" role="tab" aria-controls="tabpanel-search2">
-                        <span>인기 검색어</span>
-                      </button>
-                    </li>
-                  </ul>
-                </div>
-                <!-- 최근 검색어 -->
-                <div id="tabpanel-search1" class="tabpanel is-active" role="tabpanel" aria-labelledby="tab-search1">
-                  <div class="header-search-content__body lately-complete">
-                    <ul>
-                    </ul>
-                  </div>
-                  <div class="header-search-content__footer clear">
-                    <div class="fl">
-                      <button class="button-search-all__del">검색기록 전체삭제</button>
-                    </div>
-                    <div class="fr">
-                      <button class="button-search-content__close">닫기 <i class="icon-del-small"></i></button>
-                    </div>
-                  </div>
-                </div>
-                <!-- //최근 검색어 -->
-                <!-- 인기검색어 -->
-                <div id="tabpanel-search2" class="tabpanel is-active" role="tabpanel" aria-labelledby="tab-search2" hidden="">
-                  <div class="header-search-content__body">
-                    <ol class="header-search-content__popular">
-                    </ol>
-                  </div>
-                  <div class="header-search-content__footer">
-                    <div class="fl">
-                    </div>
-                    <div class="fr">
-                      <button class="button-search-content__close">닫기 <i class="icon-del-small"></i></button>
-                    </div>
-                  </div>
-                </div>
-                <!-- //인기검색어 -->
-              </div>
-              <!-- E : 최근검색어/인기검색어 -->
-    
-              <!-- S : 자동완성 -->
-              <div class="header-search-content" id="headerSearchKeyword" style="display: none;">
-                <div class="header-search-content__header" id="cateKwdAuto">
-                </div>
-                <div class="header-search-content__body">
-                  <ul id="goodsKwdAuto">
-                    <li>
-                    </li>
-                  </ul>
-                </div>
-                <div class="header-search-content__footer">
-                  <ul class="header-search-content__footer--hash" id="evtKwdAuto">
-                  </ul>
-                </div>
-              </div>
-              <!-- E : 자동완성 -->
-            </div>
-          </div>
-        </div>
-        <!-- //header logo -->
-        
-        
-        <div id="gnb">
-          <!-- gnb category -->
-          <div class="gnb-category-wrap">
-            <div class="fullmenu-bar">
-              <div class="container clear">
-                <!-- <button type="button" class="fullmenu__btn icon"><i class="icon-fullmenu"></i><span class="hidden">풀메뉴 열기</span></button> -->
-                <!-- anime.js : svg line animation 처리 -->
-                <nav class="gnb-category">
-                  <h2 class="hidden">카테고리 메뉴</h2>
-                  <ul class="gnb-category__menu gnb-category__menu-comm">
-                    
-                                    <li class=""><a href="/community/lan">랜선집들이</a></li>
-                                
-                                    <li class=""><a href="/community/export">고수의 집들이</a></li>
-                                
-                                    <li class=""><a href="/community/magazineHinge">매거진</a></li>
-                                
-                                    <li class=""><a href="/community/event">이벤트</a></li>
-                                
-                                    <li class=""><a href="/community/eventDetail/E200000082">커뮤니티 스토리</a></li>
-                                
-                  </ul>
-                </nav>
-        
-                <a href="javascript:" class="button button-comm-write"><i class="ico-comm_content"></i>콘텐츠 등록</a>
-              </div>
-            </div>
-            <div class="fullmenu-wrap">
-              <div class="container"></div>
-            </div>
-          </div>
-          <!-- //gnb category -->
-        </div>
-        
-        
-        <div id="modal-comm-selectcontent" class="modal" style="display: none">
-          <div class="container">
-            <!-- S : 글등록 선택 -->
-            <div class="comm-contents-seltop">
-              <p class="comm-contents-seltop__desc">All New 리바트 커뮤니티 콘텐츠의 주역이 되어보세요</p>
-              <strong class="comm-contents-seltop__title">
-                콘텐츠 등록하면<br>
-                H포인트와 상품이 우르르!
-              </strong>
-            </div>
-            <ul class="comm-contents-select">
-              <li>
-                <a href="javascript:;" ;="" data-url="/community/lan/form" onclick="$.eshopfront.cmm.doLogin(&quot;/community/lan/form&quot;)">
-                  <div class="inner">
-                    <i class="comm-contents-select__img">
-                      <img src="https://static.hyundailivart.co.kr/assets/images/community/comm-c1.png" alt="">
-                    </i>
-                    <h4 class="comm-contents-select__title">랜선 집들이</h4>
-                    <p class="comm-contents-select__desc">집들이 콘텐츠 등록 시</p>
-                    <p class="comm-contents-select__point">2,000P</p>
-                    <p class="comm-contents-select__point_desc">(최초 등록시 5,000P)</p>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a href="javascript:;" ;="" data-url="/community/export/form" onclick="$.eshopfront.cmm.doLogin(&quot;/community/export/form&quot;)">
-                  <div class="inner">
-                    <i class="comm-contents-select__img">
-                      <img src="https://static.hyundailivart.co.kr/assets/images/community/comm-c2.png" alt="">
-                    </i>
-                    <h4 class="comm-contents-select__title">고수의 집들이</h4>
-                    <p class="comm-contents-select__desc">전문시공사례 등록 시</p>
-                    <p class="comm-contents-select__point">최대 12,000P</p>
-                  </div>
-                </a>
-              </li>
-              <!--  
+  </script>
+</head>
+<body class="main-page" oncontextmenu="return false">
+	<div class="skipnavi">
+		<a href="#container">본문 바로가기(www.hyundailivart.co.kr)</a> <a
+			href="#gnb">주메뉴 바로가기</a>
+	</div>
+
+
+
+
+	<header class="header header-style-www" id="header">
+		<div class="header-logo">
+			<div class="container">
+
+				<a href="https://www.hyundailivart.co.kr/community"
+					class="header-logo__community"><h1>LIVART</h1></a> <a
+					href="https://www.hyundailivart.co.kr/community"
+					class="header-logo__community-sub"><h1>커뮤니티</h1></a>
+
+
+				<ul class="header-member-menu">
+
+					<li><a href="https://www.hyundailivart.co.kr/login"
+						id="loginBtn" class="header-member-menu__btn icon i-gnb_mem1"><i
+							class="icon-gnb_mem1"></i><span>로그인</span></a> <input type="hidden"
+						name="loginYn" value="N"></li>
+					<li><a
+						href="https://www.hyundailivart.co.kr/member/memberJoin"
+						class="header-member-menu__btn icon i-gnb_mem2"><i
+							class="icon-gnb_mem2"></i><span>회원가입</span></a></li>
+
+
+					<li><a href="https://www.hyundailivart.co.kr/cart"
+						class="header-member-menu__btn icon i-gnb_mem3"><i
+							class="icon-gnb_mem3"></i><span>장바구니</span></a></li>
+					<li><a
+						href="https://www.hyundailivart.co.kr/csCenter/shopMgmt"
+						class="header-member-menu__btn icon i-gnb_mem4"><i
+							class="icon-gnb_mem4"></i><span>매장찾기</span></a></li>
+					<li><a
+						href="https://www.hyundailivart.co.kr/csCenter/shopResev"
+						class="header-member-menu__btn icon i-gnb_mem7"><i
+							class="icon-gnb_mem7"></i><span>방문상담예약</span></a></li>
+					<li><a href="https://www.hyundailivart.co.kr/csCenter/main"
+						class="header-member-menu__btn icon i-gnb_mem5"><i
+							class="icon-gnb_mem5"></i><span>고객센터</span></a></li>
+				</ul>
+
+				<div class="header-search-wrap">
+					<form action="/search/search" name="searchForm">
+						<input type="hidden" id="recommUrl"> <input type="hidden"
+							id="linkedUrl">
+						<fieldset>
+							<legend>통합검색</legend>
+							<div class="header-search">
+								<div class="header-search__input-wrap">
+									<input type="text" id="searchKeyword" name="kwd"
+										autocomplete="off" class="header-search__input"
+										placeholder="검색어를 입력하세요" title="검색어">
+								</div>
+								<button type="submit" class="header-search__submit icon"
+									id="searchKwdBtn">
+									<i class="ico-search"></i><span class="sr-only">검색</span>
+								</button>
+							</div>
+						</fieldset>
+					</form>
+
+					<!-- S : 최근검색어/인기검색어 -->
+					<div class="header-search-content" id="headerSearchContent"
+						style="display: none;">
+						<div class="header-search-content__header">
+							<ul>
+								<li class="is-active">
+									<button id="tab-search1" class="tab" role="tab"
+										aria-controls="tabpanel-search1">
+										<span>최근 검색어</span>
+									</button>
+								</li>
+								<li>
+									<button id="tab-search2" class="tab" role="tab"
+										aria-controls="tabpanel-search2">
+										<span>인기 검색어</span>
+									</button>
+								</li>
+							</ul>
+						</div>
+						<!-- 최근 검색어 -->
+						<div id="tabpanel-search1" class="tabpanel is-active"
+							role="tabpanel" aria-labelledby="tab-search1">
+							<div class="header-search-content__body lately-complete">
+								<ul>
+								</ul>
+							</div>
+							<div class="header-search-content__footer clear">
+								<div class="fl">
+									<button class="button-search-all__del">검색기록 전체삭제</button>
+								</div>
+								<div class="fr">
+									<button class="button-search-content__close">
+										닫기 <i class="icon-del-small"></i>
+									</button>
+								</div>
+							</div>
+						</div>
+						<!-- //최근 검색어 -->
+						<!-- 인기검색어 -->
+						<div id="tabpanel-search2" class="tabpanel is-active"
+							role="tabpanel" aria-labelledby="tab-search2" hidden="">
+							<div class="header-search-content__body">
+								<ol class="header-search-content__popular">
+								</ol>
+							</div>
+							<div class="header-search-content__footer">
+								<div class="fl"></div>
+								<div class="fr">
+									<button class="button-search-content__close">
+										닫기 <i class="icon-del-small"></i>
+									</button>
+								</div>
+							</div>
+						</div>
+						<!-- //인기검색어 -->
+					</div>
+					<!-- E : 최근검색어/인기검색어 -->
+
+					<!-- S : 자동완성 -->
+					<div class="header-search-content" id="headerSearchKeyword"
+						style="display: none;">
+						<div class="header-search-content__header" id="cateKwdAuto">
+						</div>
+						<div class="header-search-content__body">
+							<ul id="goodsKwdAuto">
+								<li></li>
+							</ul>
+						</div>
+						<div class="header-search-content__footer">
+							<ul class="header-search-content__footer--hash" id="evtKwdAuto">
+							</ul>
+						</div>
+					</div>
+					<!-- E : 자동완성 -->
+				</div>
+			</div>
+		</div>
+		<!-- //header logo -->
+
+
+		<div id="gnb">
+			<!-- gnb category -->
+			<div class="gnb-category-wrap">
+				<div class="fullmenu-bar">
+					<div class="container clear">
+						<!-- <button type="button" class="fullmenu__btn icon"><i class="icon-fullmenu"></i><span class="hidden">풀메뉴 열기</span></button> -->
+						<!-- anime.js : svg line animation 처리 -->
+						<nav class="gnb-category">
+							<h2 class="hidden">카테고리 메뉴</h2>
+							<ul class="gnb-category__menu gnb-category__menu-comm">
+
+								<li class=""><a href="/community/lan">랜선집들이</a></li>
+
+								<li class=""><a href="/community/export">고수의 집들이</a></li>
+
+								<li class=""><a href="/community/magazineHinge">매거진</a></li>
+
+								<li class=""><a href="/community/event">이벤트</a></li>
+
+								<li class=""><a href="/community/eventDetail/E200000082">커뮤니티
+										스토리</a></li>
+
+							</ul>
+						</nav>
+
+						<a href="javascript:" class="button button-comm-write"><i
+							class="ico-comm_content"></i>콘텐츠 등록</a>
+					</div>
+				</div>
+				<div class="fullmenu-wrap">
+					<div class="container"></div>
+				</div>
+			</div>
+			<!-- //gnb category -->
+		</div>
+
+
+		<div id="modal-comm-selectcontent" class="modal" style="display: none">
+			<div class="container">
+				<!-- S : 글등록 선택 -->
+				<div class="comm-contents-seltop">
+					<p class="comm-contents-seltop__desc">All New 리바트 커뮤니티 콘텐츠의 주역이
+						되어보세요</p>
+					<strong class="comm-contents-seltop__title"> 콘텐츠 등록하면<br>
+						H포인트와 상품이 우르르!
+					</strong>
+				</div>
+				<ul class="comm-contents-select">
+					<li><a href="javascript:;" ;="" data-url="/community/lan/form"
+						onclick="$.eshopfront.cmm.doLogin(&quot;/community/lan/form&quot;)">
+							<div class="inner">
+								<i class="comm-contents-select__img"> <img
+									src="https://static.hyundailivart.co.kr/assets/images/community/comm-c1.png"
+									alt="">
+								</i>
+								<h4 class="comm-contents-select__title">랜선 집들이</h4>
+								<p class="comm-contents-select__desc">집들이 콘텐츠 등록 시</p>
+								<p class="comm-contents-select__point">2,000P</p>
+								<p class="comm-contents-select__point_desc">(최초 등록시 5,000P)</p>
+							</div>
+					</a></li>
+					<li><a href="javascript:;"
+						;="" data-url="/community/export/form"
+						onclick="$.eshopfront.cmm.doLogin(&quot;/community/export/form&quot;)">
+							<div class="inner">
+								<i class="comm-contents-select__img"> <img
+									src="https://static.hyundailivart.co.kr/assets/images/community/comm-c2.png"
+									alt="">
+								</i>
+								<h4 class="comm-contents-select__title">고수의 집들이</h4>
+								<p class="comm-contents-select__desc">전문시공사례 등록 시</p>
+								<p class="comm-contents-select__point">최대 12,000P</p>
+							</div>
+					</a></li>
+					<!--  
               <li>
                 <a href='javascript:;'; data-url='/community/knowhow/form' onclick='$.eshopfront.cmm.doLogin("/community/knowhow/form")'>
                   <div class="inner">
@@ -721,29 +906,28 @@
                   </div>
                 </a>
               </li>-->
-            </ul>
-            <ul class="comm-contents-select__guide">
-              <li>
-                <a href="https://www.hyundailivart.co.kr/eventDetail/E200000057">
-                  <p>
-                    작성가이드 보기 &nbsp;&nbsp;<span>〉</span>
-                  </p>
-                </a>
-              </li>
-              <li>
-                <a href="https://www.hyundailivart.co.kr/eventDetail/E200000090">
-                  <p>
-                    작성가이드 보기 &nbsp;&nbsp;<span>〉</span>
-                  </p>
-                </a>
-              </li>
-            </ul>
-            <!-- E : 글등록 선택 -->
-          </div>
-        </div>
-        
-        </header><div id="criteo-tags-div" style="display: none;"></div>
-        <script type="text/javascript">
+				</ul>
+				<ul class="comm-contents-select__guide">
+					<li><a
+						href="https://www.hyundailivart.co.kr/eventDetail/E200000057">
+							<p>
+								작성가이드 보기 &nbsp;&nbsp;<span>〉</span>
+							</p>
+					</a></li>
+					<li><a
+						href="https://www.hyundailivart.co.kr/eventDetail/E200000090">
+							<p>
+								작성가이드 보기 &nbsp;&nbsp;<span>〉</span>
+							</p>
+					</a></li>
+				</ul>
+				<!-- E : 글등록 선택 -->
+			</div>
+		</div>
+
+	</header>
+	<div id="criteo-tags-div" style="display: none;"></div>
+	<script type="text/javascript">
         $(document).ready(function(){
           
           $(document)
@@ -934,138 +1118,140 @@
             });
         }
         </script>
-    
-  
-  
-      <!-- s : #container -->
-      <main id="container" role="main">
-        
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-      
-  
-  
-  
-  
-      
-          
-          
-              
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-      
-  
-  
-  
-  
-  
-  <section id="main-keyvisualD100000293" class="section-main section-wide-banner section-wide-banner__bullets section-wide-banner__220" data-keyvisual="">
-      <div class="swiper-container">
-          
-          
-          <div class="swiper-pagination"></div>
-      </div>
-  </section>
-  <script type="text/javascript">
+
+
+
+	<!-- s : #container -->
+	<main id="container" role="main">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<section id="main-keyvisualD100000293"
+			class="section-main section-wide-banner section-wide-banner__bullets section-wide-banner__220"
+			data-keyvisual="">
+			<div class="swiper-container">
+
+
+				<div class="swiper-pagination"></div>
+			</div>
+		</section>
+		<script type="text/javascript">
   $(document).ready(function() {
       loadSwiperWideBanner04('#main-keyvisualD100000293');
   });
   </script>
-  
-          
-      
-          
-          
-              
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-      
-  
-  
-  
-  
-  
-  <!-- S : 통합몰 MD 추천상품 모듈 - 4단 상품 유닛 -->
-  
-  <script type="text/javascript">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<!-- S : 통합몰 MD 추천상품 모듈 - 4단 상품 유닛 -->
+
+		<script type="text/javascript">
       $(document).ready(function(){
         
         /*히스토리 탭 이동
@@ -1091,89 +1277,89 @@
       });
       
   </script>
-  
-          
-      
-          
-          
-              
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-      
-  
-  
-  
-  
-  
-  
-  
-          
-      
-          
-          
-              
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-      
-  
-  
-  
-  
-  
-  
-  <script type="text/javascript">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<script type="text/javascript">
   var $grid;
   var ophusIntv;
   var onLoadCnt = 0;
@@ -1210,9 +1396,9 @@
     $("#ophusCnt").data("loaded", ++onLoadCnt); //이미지 호출완료 횟수
   }
   </script>
-  <!-- S : 오픈하우스 - 아이콘 카테고리 + 리뷰형 컨텐츠 모듈 -->
-  
-  <script type="text/javascript">
+		<!-- S : 오픈하우스 - 아이콘 카테고리 + 리뷰형 컨텐츠 모듈 -->
+
+		<script type="text/javascript">
   //S : 스와이퍼 슬라이드
   $(document).ready(function () {
     
@@ -1473,129 +1659,141 @@
     return;
   }
   </script>
-  
-          
-      
-          
-          
-              
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-      
-  
-  
-  
-  
-  
-  
-  <!-- S : 메인고수의집들이PC1 -->
-  <section class="section-main section-house-warming" id="mnmoduleD000000475">
-  
-    <input type="hidden" name="totalCnt" value="489">
-  
-    <div class="section-title-wrap">
-      <h3 class="section-title">고수의 집들이</h3>
-      
-      <a href="https://www.hyundailivart.co.kr/community/export?pagecode=D000000475" class="section-title__more"></a>
-      
-    </div>
-   
-    <div class="container">
-      <div class="grid-item-lists grid-item-lists__420">
-        
-    
-    <c:forEach var="reviewval" items="${realReviewList }">
-  <div class="product-item">
-    <a href="/livart/realreview?command=${reviewval.review_id }">
-      <div class="item-tag">
-        <div class="item-tag">
-          
-        </div>
-      </div>
-    
-      <div class="product-item-image ">
-               <img onclick="javascript:location.href='/livart/realreview?command=${reviewval.review_id }';"  class="image" alt="목록이미지" src="${reviewval.photo_url }">
-      </div>
-      </a><div class="product-item-content"><a href="/livart/realreview?command=${reviewval.review_id }">
-        <h1 class="product-item-header">
-          <span class="product-item-header__name">${reviewval.review_title }</span>
-        </h1>
-        </a><div class="product-item-body"><a href="/livart/realreview?command=${reviewval.review_id }">
-         
-          </a><div class="product-review-stats-area"><a href="/livart/realreview?command=${reviewval.review_id }">
-            <div class="fl">
-              <div class="product-item-body__writer">
-                <div class="product-item-body__writer--level flower"></div>
-                <span>${reviewval.user_user_id }</span>
-              </div>
-            </div>
-            </a><div class="fr"><a href="/livart/realreview?command=${reviewval.review_id }">
-              <div class="product-item-comm-wrap">
-                <span class="product-item-comm">
-                  <i class="ico-talkblank"></i>
-                  <span class="product-item-comm__num">0</span>
-                </span>
-              </div>
-              </a><div class="product-item-heart-wrap"><a href="/community/export/B200054418?pagecode=D000000475">
-                </a><a href="javascript:void(0);" onclick="heart(this,'B200054418');"> 
-                  
-                  
-                    <span class="product-item-heart">
-                  
-                    <i class="ico-like" id="likeBtn"></i>
-                    <span class="product-item-heart__num">1</span>
-                  </span>
-                </a>
-              </div>
-            </div>
-            
-          </div>
-        </div>
-      </div>
-    
-  </div>
-  </c:forEach>
-  
-  
-  
-      </div>
-      <div class="button-area text-center button-more">
-        <input type="hidden" value="1" class="" name="pageNo">	
-        <button class="button is-primary is-outlined button-mainmodule-more" data-addmore="true" onclick="getMasterHouseList()">더보기</button>
-      </div>
-      <!-- <div class="button-area text-center button-more">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<!-- S : 메인고수의집들이PC1 -->
+		<section class="section-main section-house-warming"
+			id="mnmoduleD000000475">
+
+			<input type="hidden" name="totalCnt" value="489">
+
+			<div class="section-title-wrap">
+				<h3 class="section-title">고수의 집들이</h3>
+
+				<a
+					href="https://www.hyundailivart.co.kr/community/export?pagecode=D000000475"
+					class="section-title__more"></a>
+
+			</div>
+
+			<div class="container">
+				<div class="grid-item-lists grid-item-lists__420">
+
+
+					<c:forEach var="reviewval" items="${realReviewList }">
+						<div class="product-item">
+							<a href="/livart/realreview?command=${reviewval.review_id }">
+								<div class="item-tag">
+									<div class="item-tag"></div>
+								</div>
+
+								<div class="product-item-image ">
+									<img
+										onclick="javascript:location.href='/livart/realreview?command=${reviewval.review_id }';"
+										class="image" alt="목록이미지" src="${reviewval.photo_url }">
+								</div>
+							</a>
+							<div class="product-item-content">
+								<a href="/livart/realreview?command=${reviewval.review_id }">
+									<h1 class="product-item-header">
+										<span class="product-item-header__name">${reviewval.review_title }</span>
+									</h1>
+								</a>
+								<div class="product-item-body">
+									<a href="/livart/realreview?command=${reviewval.review_id }">
+
+									</a>
+									<div class="product-review-stats-area">
+										<a href="/livart/realreview?command=${reviewval.review_id }">
+											<div class="fl">
+												<div class="product-item-body__writer">
+													<div class="product-item-body__writer--level flower"></div>
+													<span>${reviewval.user_user_id }</span>
+												</div>
+											</div>
+										</a>
+										<div class="fr">
+											<a href="/livart/realreview?command=${reviewval.review_id }">
+												<div class="product-item-comm-wrap">
+													<span class="product-item-comm"> <i
+														class="ico-talkblank"></i> <span
+														class="product-item-comm__num">0</span>
+													</span>
+												</div>
+											</a>
+											<div class="product-item-heart-wrap">
+												<a href="/community/export/B200054418?pagecode=D000000475">
+												</a><a href="javascript:void(0);"
+													onclick="heart(this,'B200054418');"> <span
+													class="product-item-heart"> <i class="ico-like"
+														id="likeBtn"></i> <span class="product-item-heart__num">1</span>
+												</span>
+												</a>
+											</div>
+										</div>
+
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</c:forEach>
+
+
+
+				</div>
+				<div class="button-area text-center button-more">
+					<input type="hidden" value="1" class="" name="pageNo">
+					<button
+						class="button is-primary is-outlined button-mainmodule-more"
+						data-addmore="true" onclick="getMasterHouseList()">더보기</button>
+				</div>
+				<!-- <div class="button-area text-center button-more">
         <a href="#" class="button is-primary is-outlined">더보기</a>
       </div> -->
-    </div>
-  </section>
-  <!-- E : 메인고수의집들이PC1 -->
-  <script>
+			</div>
+		</section>
+		<!-- E : 메인고수의집들이PC1 -->
+		<script>
   $(document).ready(function(){
   
   });
@@ -1630,57 +1828,60 @@
   }
   
   </script>
-  
-          
-      
-          
-          
-              
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-      
-  
-  
-  
-  
-  
-  <section id="main-keyvisualD100000000" class="section-main section-wide-banner section-wide-banner__bullets section-wide-banner__320" data-keyvisual="">
-      <div class="swiper-container">
-          
-          <div class="swiper-controls-wrap swiper-controls--black" style="display: none;">
-              <div class="swiper-button-next"></div>
-              <div class="swiper-button-prev"></div>
-          </div>
-          <div class="swiper-pagination"></div>
-      </div>
-  </section>
-  <script type="text/javascript">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<section id="main-keyvisualD100000000"
+			class="section-main section-wide-banner section-wide-banner__bullets section-wide-banner__320"
+			data-keyvisual="">
+			<div class="swiper-container">
+
+				<div class="swiper-controls-wrap swiper-controls--black"
+					style="display: none;">
+					<div class="swiper-button-next"></div>
+					<div class="swiper-button-prev"></div>
+				</div>
+				<div class="swiper-pagination"></div>
+			</div>
+		</section>
+		<script type="text/javascript">
   $(document).ready(function() {
     //shuffleNode("#d-keyvisualD100000000", ".swiper-slide");
     
@@ -1692,108 +1893,110 @@
   }
   
   </script>
-  
-          
-      
-          
-          
-              
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-      
-  
-  
-  
-  
-  
-  <!-- S : VR TOUR - 다이나믹 컨텐츠 배너 -->
-  
-  
-  
-  
-          
-      
-  
-  
-      </main>
-      <!-- e : #container -->
-      
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-      
-  
-  
-  
-  
-  
-    
-    
-      <footer id="footer"><!-- footer-top -->
-  
-  <!-- //footer-top --><!-- footer-bottom -->
-  
-  
-  </footer>
-  
-    
-  
-  <div id="modal_easyLayer"></div>
-  
-  
-  <!-- main 영역의 비주얼 UI 관련 -->
-  <script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<!-- S : VR TOUR - 다이나믹 컨텐츠 배너 -->
+
+
+
+
+
+
+
+
+	</main>
+	<!-- e : #container -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<footer id="footer">
+		<!-- footer-top -->
+
+		<!-- //footer-top -->
+		<!-- footer-bottom -->
+
+
+	</footer>
+
+
+
+	<div id="modal_easyLayer"></div>
+
+
+	<!-- main 영역의 비주얼 UI 관련 -->
+	<script>
     $(document).ready(function(){
       if( $.eshopfront.cmm.isEmpty( $.eshopfront.cmm.getCookie("mbrSn") ) ){
         $.eshopfront.cmm.setCookie("avalPoint", '', 1,".hyundailivart.co.kr");
@@ -1810,8 +2013,8 @@
           });
     });
   </script>
-  <!-- Criteo 홈페이지 태그 -->
-  <script type="text/javascript">
+	<!-- Criteo 홈페이지 태그 -->
+	<script type="text/javascript">
   if((location.href.indexOf("/index")) > 0){
     window.criteo_q = window.criteo_q || [];
     var deviceType = /iPad/.test(navigator.userAgent) ? "t" : /Mobile|iP(hone|od)|Android|BlackBerry|IEMobile|Silk/.test(navigator.userAgent) ? "m" : "d";
@@ -1823,17 +2026,18 @@
      { event: "viewHome"});
   }
   </script>
-  <!-- Enliple Tracker Start -->
-  <script type="text/javascript">
+	<!-- Enliple Tracker Start -->
+	<script type="text/javascript">
       (function(a,g,e,n,t){a.enp=a.enp||function(){(a.enp.q=a.enp.q||[]).push(arguments)};n=g.createElement(e);n.async=!0;n.defer=!0;n.src="https://cdn.megadata.co.kr/dist/prod/enp_tracker_self_hosted.min.js";t=g.getElementsByTagName(e)[0];t.parentNode.insertBefore(n,t)})(window,document,"script");
       enp('create', 'common', 'livart', { device: 'W' });    
       enp('send', 'common', 'livart');
   </script>
-  <!-- Enliple Tracker End -->
-      
-  <!-- ACE TRADER visit -->
-  <script type="text/javascript" src="//static.tagmanager.toast.com/tag/view/1831"></script>
-  <script type="text/javascript">
+	<!-- Enliple Tracker End -->
+
+	<!-- ACE TRADER visit -->
+	<script type="text/javascript"
+		src="//static.tagmanager.toast.com/tag/view/1831"></script>
+	<script type="text/javascript">
    window.ne_tgm_q = window.ne_tgm_q || [];
    window.ne_tgm_q.push(
    {
@@ -1843,18 +2047,25 @@
      pageEncoding:'utf-8'
    });
    </script>
-  
-  
-   
-  <!-- 넷스루 로깅 start -->
-  <script type="text/javascript">
+
+
+
+	<!-- 넷스루 로깅 start -->
+	<script type="text/javascript">
     nLogger.log();
   </script>
-  <!-- 넷스루 로깅 end -->
-  
-  <!-- WIDERPLANET  SCRIPT START 2022.4.4 -->
-  <div id="wp_tg_cts" style="display:none;"><script id="wp_tag_script_1669684194433" charset="UTF-8" src="https://astg.widerplanet.com/delivery/wpc.php?v=1&amp;ver=4.0&amp;r=1&amp;md=bs&amp;ga=1hn3gp7-1niektc-3-1&amp;wp_uid=2-3120c68d2d0f105761451de2be99d06f-s1665106983.390000%7Cwindows_10%7Cchrome-svz9lk&amp;ty=Home&amp;ti=53204&amp;device=web&amp;charset=UTF-8&amp;tc=1669684194433&amp;ref=http%3A%2F%2Flocalhost%3A8080%2F&amp;loc=https%3A%2F%2Fwww.hyundailivart.co.kr%2Fcommunity"></script><script id="wp_onsite_script" charset="UTF-8" src="https://cdn-aitg.widerplanet.com/onsite/onsite.js"></script><script id="wp_tag_script_1669684307792" charset="UTF-8" src="https://astg.widerplanet.com/delivery/wpc.php?v=1&amp;ver=4.0&amp;r=1&amp;md=bs&amp;ga=1hn6c09-1dil8p4-1-1&amp;wp_uid=2-3120c68d2d0f105761451de2be99d06f-s1665106983.390000%7Cwindows_10%7Cchrome-svz9lk&amp;ty=Home&amp;ti=53204&amp;device=web&amp;charset=UTF-8&amp;tc=1669684307792&amp;loc=http%3A%2F%2F192.168.160.102%3A5500%2Freal_review.html"></script></div>
-  <script type="text/javascript">
+	<!-- 넷스루 로깅 end -->
+
+	<!-- WIDERPLANET  SCRIPT START 2022.4.4 -->
+	<div id="wp_tg_cts" style="display: none;">
+		<script id="wp_tag_script_1669684194433" charset="UTF-8"
+			src="https://astg.widerplanet.com/delivery/wpc.php?v=1&amp;ver=4.0&amp;r=1&amp;md=bs&amp;ga=1hn3gp7-1niektc-3-1&amp;wp_uid=2-3120c68d2d0f105761451de2be99d06f-s1665106983.390000%7Cwindows_10%7Cchrome-svz9lk&amp;ty=Home&amp;ti=53204&amp;device=web&amp;charset=UTF-8&amp;tc=1669684194433&amp;ref=http%3A%2F%2Flocalhost%3A8080%2F&amp;loc=https%3A%2F%2Fwww.hyundailivart.co.kr%2Fcommunity"></script>
+		<script id="wp_onsite_script" charset="UTF-8"
+			src="https://cdn-aitg.widerplanet.com/onsite/onsite.js"></script>
+		<script id="wp_tag_script_1669684307792" charset="UTF-8"
+			src="https://astg.widerplanet.com/delivery/wpc.php?v=1&amp;ver=4.0&amp;r=1&amp;md=bs&amp;ga=1hn6c09-1dil8p4-1-1&amp;wp_uid=2-3120c68d2d0f105761451de2be99d06f-s1665106983.390000%7Cwindows_10%7Cchrome-svz9lk&amp;ty=Home&amp;ti=53204&amp;device=web&amp;charset=UTF-8&amp;tc=1669684307792&amp;loc=http%3A%2F%2F192.168.160.102%3A5500%2Freal_review.html"></script>
+	</div>
+	<script type="text/javascript">
   var wptg_tagscript_vars = wptg_tagscript_vars || [];
   var wp_id = "";
   
@@ -1870,175 +2081,190 @@
     };
   }));
   </script>
-  <script type="text/javascript" async="" src="//cdn-aitg.widerplanet.com/js/wp_astg_4.0.js"></script>
-  <!-- // WIDERPLANET  SCRIPT END 2022.4.4 -->
-  
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W48JVQ5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
-  
-  
-    
-  <form id="movieUploadForm" name="movieUploadForm" method="post" style="display: none" enctype="multipart/form-data" target="hiddenIframe">
-  upload url : <span id="uploadurl"></span><br>
-  gid : <input type="text" name="gid" id="gid"><br>
-  token : <input type="text" name="token" id="token"><br>
-  cid : <input type="text" name="cid" id="cid"><br>
-  callback : <input type="text" name="callback" id="callback" value="https://www.hyundailivart.co.kr/api/movie/uploadCallback"><br>
-  folder : <input type="text" name="folder" id="folder" value="2012081"><br>
-  
-  
-  <br>
-  pkg : <input type="text" name="pkg" id="pkg"><br>
-  <br>
-  title : <input type="text" name="title" id="title"><br>
-  series : <input type="text" name="series" id="series"><br>
-  author : <input type="text" name="author" id="author"><br>
-  copyright : <input type="text" name="copyright" id="copyright"><br>
-  rate : <input type="text" name="rate" id="rate"><br>
-  content : <input type="text" name="content" id="content"><br>
-  etc : <input type="text" name="etc" id="etc"><br>
-  tag : <input type="text" name="tag" id="tag"><br>
-  <br>
-  
-  </form>
-  <iframe id="hiddenIframe" name="hiddenIframe" width="600px" height="200px" style="display: none"></iframe>
-  <div class="loading-container main-loading-container">
-    <div class="modal-background"></div>
-    <div class="loading"></div>
-    <div class="loading-text">0%</div>
-  </div>
-  
-      
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-      
-  
-  
-  
-  <input type="hidden" name="cookieDomain" id="cookieDomain" value=".hyundailivart.co.kr">
-  <input type="hidden" name="domain" id="domain" value="https://www.hyundailivart.co.kr">
-  <input type="hidden" name="hostDomain" id="hostDomain" value="www.hyundailivart.co.kr">
-  <input type="hidden" name="hpntRestUrl" id="hpntRestUrl" value="https://www.h-point.co.kr">
-  <input type="hidden" name="hpntSsoUrl" id="hpntSsoUrl" value="https://sso.h-point.co.kr:29865">
-  <input type="hidden" name="hpntChnnlId" id="hpntChnnlId" value="1602">
-  <input type="hidden" name="hpntSsoYn" id="hpntSsoYn" value="Y">
-  <input type="hidden" name="prefix" id="prefix" value="prd">
-  
-  <!-- 휴먼회원 복원 레이어 팝업 -->
-  <div id="modal_drmcMember" class="modal">
-    <div class="modal-background"></div>
-    <div class="modal-card">
-        <header class="modal-card-head">
-            <p class="modal-card-title">휴면 해제 확인</p>
-            <button class="delete is-large" aria-label="close"></button>
-        </header>
-        <section class="modal-card-body">
-            <div class="content">
-                <div class="msg-box msg-box-blue mb3">
-                    <p class="msg-box-title"> 회원님, 다시 방문해 주셔서 감사합니다.</p>
-                    <p class="msg-box-desc">회원님의 계정 휴면 해제가 처리되었습니다.</p>
-                </div>
-                <p class="section-responsive-text__info is-center">
-                    회원님의 계정이 최근 1년간 서비스에 로그인한 기록이 없어 휴면 상태로 전환되었으나 재 로그인으로 인해 휴면 해제가 처리 되었습니다.
-                </p>
-                <div class="table-box">
-                    <table class="table is-fullwidth">
-                        <caption class="sr-only">항목, 내용이 있는 휴면 처리 기준 표</caption>
-                        <colgroup>
-                            <col style="width: 12rem;">
-                                <col>
-                        </colgroup>
-                        <thead class="sr-only">
-                              <tr>
-                                  <th scope="col">항목</th>
-                                  <th scope="col">내용</th>
-                              </tr>
-                          </thead>
-                          <tbody>
-                              <tr>
-                                  <th align="" scope="row" class="bold">휴면 처리기준</th>
-                                  <td class="bold">1년간 방문 기록이 없는 고객</td>
-                              </tr>
-                              <tr>
-                                  <th align="" scope="row" class="td-color">휴면 해제 처리</th>
-                                  <td>로그인 시 자동 휴면 해제 처리</td>
-                              </tr>
-                          </tbody>
-                      </table>
-                  </div>
-                  <div class="section-responsive-inner">
-                      <div class="buttons mt3 mb1">
-                          <a href="javascript:" class="button is-primary is-fullwidth restCancelBtn">휴면 해제 확인</a>
-                      </div>
-                  </div>
-              </div>
-          </section>
-      </div>
-  </div>
-  <div id="modal-guestOrder" class="modal modal">
-      <div class="modal-background"></div>
-      <div class="modal-card">
-          <header class="modal-card-head">
-              <p class="modal-card-title">바로구매</p>
-              <button type="button" class="delete is-large" aria-label="close"></button>
-          </header>
-          <section class="modal-card-body">
-              <div class="content mb2">
-                  <div class="msg-box msg-box-blue">
-                      <p class="msg-box-title">회원님은 현재 비로그인 상태 입니다.</p>
-                      <p class="msg-box-desc">로그인 후 구매 하시면 H.Point 적립 및 쿠폰 적용 등 다양한 혜택을 누리실 수 있습니다.</p>
-                  </div>
-                  <div class="section-responsive-inner">
-                      <p class="section-responsive-loginform__desc section-responsive-loginform__desc--full has-text-centered">
-                          비회원 주문 시에는 리바트 몰에서 드리는 할인 및 적립 혜택을 받을 수 없습니다. <br>
-                          세금계산서 발행을 원하시는 고객께서는 “사업자회원” 가입 후 구매하셔야 세금계산서가 발급됩니다.
-                      </p>
-  
-                      <div class="field mt2 mb1">
-                          <a href="https://www.hyundailivart.co.kr/login" class="button is-primary is-fullwidth guestOrderLogin">로그인</a>
-                      </div>
-  
-                      <div class="field is-grouped is-grouped--fixed">
-                          <p class="control">
-                              <a href="javascript:;" class="button is-light guestOrderLink">비회원구매</a>
-                          </p>
-                          <p class="control">
-                              <a href="https://www.hyundailivart.co.kr/member/memberJoin" class="button">회원가입</a>
-                          </p>
-                      </div>
-                  </div>
-              </div>
-          </section>
-      </div>
-  </div>
-  <script type="text/javascript">
+	<script type="text/javascript" async=""
+		src="//cdn-aitg.widerplanet.com/js/wp_astg_4.0.js"></script>
+	<!-- // WIDERPLANET  SCRIPT END 2022.4.4 -->
+
+	<!-- Google Tag Manager (noscript) -->
+	<noscript>
+		<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W48JVQ5"
+			height="0" width="0" style="display: none; visibility: hidden"></iframe>
+	</noscript>
+	<!-- End Google Tag Manager (noscript) -->
+
+
+
+	<form id="movieUploadForm" name="movieUploadForm" method="post"
+		style="display: none" enctype="multipart/form-data"
+		target="hiddenIframe">
+		upload url : <span id="uploadurl"></span><br> gid : <input
+			type="text" name="gid" id="gid"><br> token : <input
+			type="text" name="token" id="token"><br> cid : <input
+			type="text" name="cid" id="cid"><br> callback : <input
+			type="text" name="callback" id="callback"
+			value="https://www.hyundailivart.co.kr/api/movie/uploadCallback"><br>
+		folder : <input type="text" name="folder" id="folder" value="2012081"><br>
+
+
+		<br> pkg : <input type="text" name="pkg" id="pkg"><br>
+		<br> title : <input type="text" name="title" id="title"><br>
+		series : <input type="text" name="series" id="series"><br>
+		author : <input type="text" name="author" id="author"><br>
+		copyright : <input type="text" name="copyright" id="copyright"><br>
+		rate : <input type="text" name="rate" id="rate"><br>
+		content : <input type="text" name="content" id="content"><br>
+		etc : <input type="text" name="etc" id="etc"><br> tag : <input
+			type="text" name="tag" id="tag"><br> <br>
+
+	</form>
+	<iframe id="hiddenIframe" name="hiddenIframe" width="600px"
+		height="200px" style="display: none"></iframe>
+	<div class="loading-container main-loading-container">
+		<div class="modal-background"></div>
+		<div class="loading"></div>
+		<div class="loading-text">0%</div>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<input type="hidden" name="cookieDomain" id="cookieDomain"
+		value=".hyundailivart.co.kr">
+	<input type="hidden" name="domain" id="domain"
+		value="https://www.hyundailivart.co.kr">
+	<input type="hidden" name="hostDomain" id="hostDomain"
+		value="www.hyundailivart.co.kr">
+	<input type="hidden" name="hpntRestUrl" id="hpntRestUrl"
+		value="https://www.h-point.co.kr">
+	<input type="hidden" name="hpntSsoUrl" id="hpntSsoUrl"
+		value="https://sso.h-point.co.kr:29865">
+	<input type="hidden" name="hpntChnnlId" id="hpntChnnlId" value="1602">
+	<input type="hidden" name="hpntSsoYn" id="hpntSsoYn" value="Y">
+	<input type="hidden" name="prefix" id="prefix" value="prd">
+
+	<!-- 휴먼회원 복원 레이어 팝업 -->
+	<div id="modal_drmcMember" class="modal">
+		<div class="modal-background"></div>
+		<div class="modal-card">
+			<header class="modal-card-head">
+				<p class="modal-card-title">휴면 해제 확인</p>
+				<button class="delete is-large" aria-label="close"></button>
+			</header>
+			<section class="modal-card-body">
+				<div class="content">
+					<div class="msg-box msg-box-blue mb3">
+						<p class="msg-box-title">회원님, 다시 방문해 주셔서 감사합니다.</p>
+						<p class="msg-box-desc">회원님의 계정 휴면 해제가 처리되었습니다.</p>
+					</div>
+					<p class="section-responsive-text__info is-center">회원님의 계정이 최근
+						1년간 서비스에 로그인한 기록이 없어 휴면 상태로 전환되었으나 재 로그인으로 인해 휴면 해제가 처리 되었습니다.</p>
+					<div class="table-box">
+						<table class="table is-fullwidth">
+							<caption class="sr-only">항목, 내용이 있는 휴면 처리 기준 표</caption>
+							<colgroup>
+								<col style="width: 12rem;">
+								<col>
+							</colgroup>
+							<thead class="sr-only">
+								<tr>
+									<th scope="col">항목</th>
+									<th scope="col">내용</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th align="" scope="row" class="bold">휴면 처리기준</th>
+									<td class="bold">1년간 방문 기록이 없는 고객</td>
+								</tr>
+								<tr>
+									<th align="" scope="row" class="td-color">휴면 해제 처리</th>
+									<td>로그인 시 자동 휴면 해제 처리</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="section-responsive-inner">
+						<div class="buttons mt3 mb1">
+							<a href="javascript:"
+								class="button is-primary is-fullwidth restCancelBtn">휴면 해제
+								확인</a>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</div>
+	<div id="modal-guestOrder" class="modal modal">
+		<div class="modal-background"></div>
+		<div class="modal-card">
+			<header class="modal-card-head">
+				<p class="modal-card-title">바로구매</p>
+				<button type="button" class="delete is-large" aria-label="close"></button>
+			</header>
+			<section class="modal-card-body">
+				<div class="content mb2">
+					<div class="msg-box msg-box-blue">
+						<p class="msg-box-title">회원님은 현재 비로그인 상태 입니다.</p>
+						<p class="msg-box-desc">로그인 후 구매 하시면 H.Point 적립 및 쿠폰 적용 등 다양한
+							혜택을 누리실 수 있습니다.</p>
+					</div>
+					<div class="section-responsive-inner">
+						<p
+							class="section-responsive-loginform__desc section-responsive-loginform__desc--full has-text-centered">
+							비회원 주문 시에는 리바트 몰에서 드리는 할인 및 적립 혜택을 받을 수 없습니다. <br> 세금계산서 발행을
+							원하시는 고객께서는 “사업자회원” 가입 후 구매하셔야 세금계산서가 발급됩니다.
+						</p>
+
+						<div class="field mt2 mb1">
+							<a href="https://www.hyundailivart.co.kr/login"
+								class="button is-primary is-fullwidth guestOrderLogin">로그인</a>
+						</div>
+
+						<div class="field is-grouped is-grouped--fixed">
+							<p class="control">
+								<a href="javascript:;" class="button is-light guestOrderLink">비회원구매</a>
+							</p>
+							<p class="control">
+								<a href="https://www.hyundailivart.co.kr/member/memberJoin"
+									class="button">회원가입</a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</div>
+	<script type="text/javascript">
     $(document).ready(function(){
       //휴먼회원 해제 팝업 조건
       if($.eshopfront.cmm.getCookie("CO_IS_HUMAN") =="Y"){
@@ -2051,240 +2277,251 @@
       });
     });
   </script>
-  
-  
-          
-          <!-- quick menu -->
-         
-         <section class="quick is-community" style="left: 0px; right: inherit;">
-      <!-- s :  Top버튼 -->
-      <div class="quick-top">
-        <a href="#gnb" class="button-quick-top"><i class="ico-arrow-up"></i><span class="sr-only">맨 위로 이동</span></a>
-      </div>
-      <!-- e :  Top버튼 -->
-      <div class="quick-inner">
-        <!-- s : quick -->
-        <h2 class="hidden">퀵메뉴</h2>
-        <button type="button" class="button-switch-quick" id="button-quick-community" style="display: none">
-          <span class="button-switch-quick__default">
-            <strong class="button-switch-quick__title">커뮤니티</strong>
-            <span class="button-switch-quick__icon">
-              <i class="ico-chevron-left-thin"></i>
-            </span>
-          </span>
-          <span class="button-switch-quick__on">
-            <i class="button-switch-quick__logo"></i>
-            <strong class="button-switch-quick__title">커뮤니티</strong>
-            <span class="button-switch-quick__icon">
-              <i class="ico-chevron-left-thin"></i>
-            </span>
-          </span>
-        </button>
-        <button type="button" class="button-switch-quick" id="button-quick-mall">
-          <span class="button-switch-quick__default">
-            <strong class="button-switch-quick__title">리바트몰</strong>
-            <span class="button-switch-quick__icon">
-              <i class="ico-chevron-left-thin"></i>
-            </span>
-          </span>
-          <span class="button-switch-quick__on">
-            <i class="button-switch-quick__logo"></i>
-            <strong class="button-switch-quick__title">리바트몰</strong>
-            <span class="button-switch-quick__icon">
-              <i class="ico-chevron-left-thin"></i>
-            </span>
-          </span>
-        </button>
-        <ul class="quick-menu">
-          <li>
-            <a href="https://www.hyundailivart.co.kr/cart" class="quick-menu-item icon" id="quickmenu1">
-              <span class="quick-menu-item__icon"> <i class="icon-quick1"></i><em class="quick-menu__num viewCartCnt"></em> </span>
-              <span class="quick-menu-item__txt">장바구니</span>
-            </a>
-          </li>
-          <li>
-          
-            <a class="quick-menu-item icon" id="button-quick-menu-recent">
-              <span class="quick-menu-item__icon">
-                <i class="icon-quick2"></i>
-                <em class="quick-menu__num">10</em>
-              </span>
-              <span class="quick-menu-item__txt">최근 본 상품</span>
-            </a>
-            <!-- s : quick-content -->
-            <div class="quick-content quick-item-recent-list">
-            
-              <div class="swiper-container">
-                <ul class="swiper-wrapper">
-                  
-                  <li class="swiper-slide">
-                    <a href="/p/P100025656">
-                      <img src="https://static.hyundailivart.co.kr/UserFiles/data/image/detail/PRO148/PRO14855/PRO14855_00000000_detail1_ORIGIN.jpg/dims/resize/x100/cropcenter/100x100/autorotate/on/optimize" alt="무드 모던 2400 거실장 (4색)"> 
-                    </a>
-                    <button type="button" data-val="P100025656" class="btn-del"><span class="sr-only">삭제</span></button>
-                  </li>
-                  
-                  <li class="swiper-slide">
-                    <a href="/p/A200119365">
-                      <img src="https://static.hyundailivart.co.kr/upload_mall/goods/A200119365/GM42381620_img.jpg/dims/resize/x100/cropcenter/100x100/autorotate/on/optimize" alt="아이앤 아덴 2000 도어 거실수납장 세트 MU"> 
-                    </a>
-                    <button type="button" data-val="A200119365" class="btn-del"><span class="sr-only">삭제</span></button>
-                  </li>
-                  
-                  <li class="swiper-slide">
-                    <a href="/p/P100000178">
-                      <img src="https://static.hyundailivart.co.kr/UserFiles/data/goodsPkg/PKG00178_1_ORIGIN.jpg/dims/resize/x100/cropcenter/100x100/autorotate/on/optimize" alt="[패키지]뉴 레가토 4인 양면홈바형 리클라이너 소파 패키지"> 
-                    </a>
-                    <button type="button" data-val="P100000178" class="btn-del"><span class="sr-only">삭제</span></button>
-                  </li>
-                  
-                  <li class="swiper-slide">
-                    <a href="/p/P100025025">
-                      <img src="https://static.hyundailivart.co.kr/UserFiles/data/image/detail/PRO147/PRO14754/PRO14754_00000000_detail1_ORIGIN.jpg/dims/resize/x100/cropcenter/100x100/autorotate/on/optimize" alt="뉴타이드 화이트 확장형 거실장 (3색)"> 
-                    </a>
-                    <button type="button" data-val="P100025025" class="btn-del"><span class="sr-only">삭제</span></button>
-                  </li>
-                  
-                  <li class="swiper-slide">
-                    <a href="/p/P100028131">
-                      <img src="https://static.hyundailivart.co.kr/upload_mall/goods/P100028131/GM41437901_img.jpg/dims/resize/x100/cropcenter/100x100/autorotate/on/optimize" alt="프레임 드레스룸 단독장(16종)"> 
-                    </a>
-                    <button type="button" data-val="P100028131" class="btn-del"><span class="sr-only">삭제</span></button>
-                  </li>
-                  
-                  <li class="swiper-slide">
-                    <a href="/p/P100026707">
-                      <img src="https://static.hyundailivart.co.kr/UserFiles/data/image/detail/PRO151/PRO15107/PRO15107_00000000_detail1_ORIGIN.jpg/dims/resize/x100/cropcenter/100x100/autorotate/on/optimize" alt="크로켓 2000 거실장 (2색)"> 
-                    </a>
-                    <button type="button" data-val="P100026707" class="btn-del"><span class="sr-only">삭제</span></button>
-                  </li>
-                  
-                  <li class="swiper-slide">
-                    <a href="/p/A200062093">
-                      <img src="https://static.hyundailivart.co.kr/upload_mall/goods/A200062093/GM41182086_img.jpg/dims/resize/x100/cropcenter/100x100/autorotate/on/optimize" alt="RF 빈센트 아쿠아 패브릭 3인소파 (스툴선택)"> 
-                    </a>
-                    <button type="button" data-val="A200062093" class="btn-del"><span class="sr-only">삭제</span></button>
-                  </li>
-                  
-                  <li class="swiper-slide">
-                    <a href="/p/P200060818">
-                      <img src="https://static.hyundailivart.co.kr/upload_mall/goods/P200060818/GM41349333_img.jpg/dims/resize/x100/cropcenter/100x100/autorotate/on/optimize" alt="린느 슬라이딩 3000 붙박이장 화이트"> 
-                    </a>
-                    <button type="button" data-val="P200060818" class="btn-del"><span class="sr-only">삭제</span></button>
-                  </li>
-                  
-                  <li class="swiper-slide">
-                    <a href="/p/P200100765">
-                      <img src="https://static.hyundailivart.co.kr/upload_mall/goods/P200100765/GM42042260_img.jpg/dims/resize/x100/cropcenter/100x100/autorotate/on/optimize" alt="에스테틱 호텔침대 프레임 (8종)"> 
-                    </a>
-                    <button type="button" data-val="P200100765" class="btn-del"><span class="sr-only">삭제</span></button>
-                  </li>
-                  
-                  <li class="swiper-slide">
-                    <a href="/p/P200106872">
-                      <img src="https://static.hyundailivart.co.kr/upload_mall/goods/P200106872/GM42291819_img.jpg/dims/resize/x100/cropcenter/100x100/autorotate/on/optimize" alt="모인 포근소파 4인 카우치형"> 
-                    </a>
-                    <button type="button" data-val="P200106872" class="btn-del"><span class="sr-only">삭제</span></button>
-                  </li>
-                  
-                </ul>
-              </div>
-              <div class="swiper-controls-wrap">
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-              </div>
-            </div>
-            <!-- s :quick-content -->
-          </li>
-          <li>
-            <a href="https://www.hyundailivart.co.kr/coupon/couponzone" class="quick-menu-item icon">
-              <span class="quick-menu-item__icon">
-                <i class="icon-quick3"></i>
-              </span>
-              <span class="quick-menu-item__txt">쿠폰함</span>
-            </a>
-          </li>
-          <li>
-            <a href="https://www.hyundailivart.co.kr/csCenter/shopMgmt" class="quick-menu-item icon">
-              <span class="quick-menu-item__icon">
-                <i class="icon-quick4"></i>
-              </span>
-              <span class="quick-menu-item__txt">매장찾기</span>
-            </a>
-          </li>
-          <li>
-            <a href="https://plus.kakao.com/talk/bot/@%ED%98%84%EB%8C%80%EB%A6%AC%EB%B0%94%ED%8A%B8/%EC%B1%97%EB%B4%87%EC%8B%9C%EC%9E%91" class="quick-menu-item icon" target="_blank" rel="noopener noreferrer">
-              <span class="quick-menu-item__icon">
-                <i class="icon-quick5"></i>
-              </span>
-              <span class="quick-menu-item__txt">카카오톡 문의</span>
-            </a>
-          </li>
-          <li>
-            <a href="#gnb" class="quick-menu-item icon button-quick-top">
-              <span class="quick-menu-item__icon">
-                <i class="icon-top"></i>
-              </span>
-              <span class="quick-menu-item__txt">맨 위로 이동</span>
-            </a>
-          </li>
-        </ul>
-        <!-- s : quick -->
-      </div>
-      </section><iframe id="ne_tgmiframe_0" width="0" height="0" style="position:absolute;width:0px;height:0px;display:none;" src="about:blank"></iframe>
-      
-      <!-- //quick menu -->
-  
-          <script src="https://static.hyundailivart.co.kr/assets/js/masonry.pkgd.min.js"></script>
-          <script src="https://static.hyundailivart.co.kr/assets/js/clipboard.min.js"></script>
-          <script src="https://static.hyundailivart.co.kr/assets/js/imagesloaded.pkgd.min.js"></script>
-  
-          <script src="https://static.hyundailivart.co.kr/assets/duijs/eshopfront.js?ver=20221017" domain="https://www.hyundailivart.co.kr"></script>
-        <script src="https://static.hyundailivart.co.kr/assets/duijs/eshopfrontCommon.js?ver=20221017"></script>
-        <script src="https://static.hyundailivart.co.kr/assets/duijs/eshopfrontGoods.js?ver=20221017"></script>
-          <script src="https://static.hyundailivart.co.kr/assets/duijs/eshopfrontOrder.js"></script>
-        <script src="https://static.hyundailivart.co.kr/assets/duijs/storage/jquery.storageapi.min.js"></script>
-          <script src="https://static.hyundailivart.co.kr/assets/duijs/eshopfrontHpntinf.js?ver=20221017"></script>
-          <script src="https://static.hyundailivart.co.kr/assets/duijs/eshopfrontCategory.js"></script>
-          <script src="https://static.hyundailivart.co.kr/assets/duijs/eshopfrontSearch.js"></script>
-  
-          <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-          
-        
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-      
-  
-  
-  
-  
-  <script>
+
+
+
+	<!-- quick menu -->
+
+	<section class="quick is-community" style="left: 0px; right: inherit;">
+		<!-- s :  Top버튼 -->
+		<div class="quick-top">
+			<a href="#gnb" class="button-quick-top"><i class="ico-arrow-up"></i><span
+				class="sr-only">맨 위로 이동</span></a>
+		</div>
+		<!-- e :  Top버튼 -->
+		<div class="quick-inner">
+			<!-- s : quick -->
+			<h2 class="hidden">퀵메뉴</h2>
+			<button type="button" class="button-switch-quick"
+				id="button-quick-community" style="display: none">
+				<span class="button-switch-quick__default"> <strong
+					class="button-switch-quick__title">커뮤니티</strong> <span
+					class="button-switch-quick__icon"> <i
+						class="ico-chevron-left-thin"></i>
+				</span>
+				</span> <span class="button-switch-quick__on"> <i
+					class="button-switch-quick__logo"></i> <strong
+					class="button-switch-quick__title">커뮤니티</strong> <span
+					class="button-switch-quick__icon"> <i
+						class="ico-chevron-left-thin"></i>
+				</span>
+				</span>
+			</button>
+			<button type="button" class="button-switch-quick"
+				id="button-quick-mall">
+				<span class="button-switch-quick__default"> <strong
+					class="button-switch-quick__title">리바트몰</strong> <span
+					class="button-switch-quick__icon"> <i
+						class="ico-chevron-left-thin"></i>
+				</span>
+				</span> <span class="button-switch-quick__on"> <i
+					class="button-switch-quick__logo"></i> <strong
+					class="button-switch-quick__title">리바트몰</strong> <span
+					class="button-switch-quick__icon"> <i
+						class="ico-chevron-left-thin"></i>
+				</span>
+				</span>
+			</button>
+			<ul class="quick-menu">
+				<li><a href="https://www.hyundailivart.co.kr/cart"
+					class="quick-menu-item icon" id="quickmenu1"> <span
+						class="quick-menu-item__icon"> <i class="icon-quick1"></i><em
+							class="quick-menu__num viewCartCnt"></em>
+					</span> <span class="quick-menu-item__txt">장바구니</span>
+				</a></li>
+				<li><a class="quick-menu-item icon"
+					id="button-quick-menu-recent"> <span
+						class="quick-menu-item__icon"> <i class="icon-quick2"></i>
+							<em class="quick-menu__num">10</em>
+					</span> <span class="quick-menu-item__txt">최근 본 상품</span>
+				</a> <!-- s : quick-content -->
+					<div class="quick-content quick-item-recent-list">
+
+						<div class="swiper-container">
+							<ul class="swiper-wrapper">
+
+								<li class="swiper-slide"><a href="/p/P100025656"> <img
+										src="https://static.hyundailivart.co.kr/UserFiles/data/image/detail/PRO148/PRO14855/PRO14855_00000000_detail1_ORIGIN.jpg/dims/resize/x100/cropcenter/100x100/autorotate/on/optimize"
+										alt="무드 모던 2400 거실장 (4색)">
+								</a>
+									<button type="button" data-val="P100025656" class="btn-del">
+										<span class="sr-only">삭제</span>
+									</button></li>
+
+								<li class="swiper-slide"><a href="/p/A200119365"> <img
+										src="https://static.hyundailivart.co.kr/upload_mall/goods/A200119365/GM42381620_img.jpg/dims/resize/x100/cropcenter/100x100/autorotate/on/optimize"
+										alt="아이앤 아덴 2000 도어 거실수납장 세트 MU">
+								</a>
+									<button type="button" data-val="A200119365" class="btn-del">
+										<span class="sr-only">삭제</span>
+									</button></li>
+
+								<li class="swiper-slide"><a href="/p/P100000178"> <img
+										src="https://static.hyundailivart.co.kr/UserFiles/data/goodsPkg/PKG00178_1_ORIGIN.jpg/dims/resize/x100/cropcenter/100x100/autorotate/on/optimize"
+										alt="[패키지]뉴 레가토 4인 양면홈바형 리클라이너 소파 패키지">
+								</a>
+									<button type="button" data-val="P100000178" class="btn-del">
+										<span class="sr-only">삭제</span>
+									</button></li>
+
+								<li class="swiper-slide"><a href="/p/P100025025"> <img
+										src="https://static.hyundailivart.co.kr/UserFiles/data/image/detail/PRO147/PRO14754/PRO14754_00000000_detail1_ORIGIN.jpg/dims/resize/x100/cropcenter/100x100/autorotate/on/optimize"
+										alt="뉴타이드 화이트 확장형 거실장 (3색)">
+								</a>
+									<button type="button" data-val="P100025025" class="btn-del">
+										<span class="sr-only">삭제</span>
+									</button></li>
+
+								<li class="swiper-slide"><a href="/p/P100028131"> <img
+										src="https://static.hyundailivart.co.kr/upload_mall/goods/P100028131/GM41437901_img.jpg/dims/resize/x100/cropcenter/100x100/autorotate/on/optimize"
+										alt="프레임 드레스룸 단독장(16종)">
+								</a>
+									<button type="button" data-val="P100028131" class="btn-del">
+										<span class="sr-only">삭제</span>
+									</button></li>
+
+								<li class="swiper-slide"><a href="/p/P100026707"> <img
+										src="https://static.hyundailivart.co.kr/UserFiles/data/image/detail/PRO151/PRO15107/PRO15107_00000000_detail1_ORIGIN.jpg/dims/resize/x100/cropcenter/100x100/autorotate/on/optimize"
+										alt="크로켓 2000 거실장 (2색)">
+								</a>
+									<button type="button" data-val="P100026707" class="btn-del">
+										<span class="sr-only">삭제</span>
+									</button></li>
+
+								<li class="swiper-slide"><a href="/p/A200062093"> <img
+										src="https://static.hyundailivart.co.kr/upload_mall/goods/A200062093/GM41182086_img.jpg/dims/resize/x100/cropcenter/100x100/autorotate/on/optimize"
+										alt="RF 빈센트 아쿠아 패브릭 3인소파 (스툴선택)">
+								</a>
+									<button type="button" data-val="A200062093" class="btn-del">
+										<span class="sr-only">삭제</span>
+									</button></li>
+
+								<li class="swiper-slide"><a href="/p/P200060818"> <img
+										src="https://static.hyundailivart.co.kr/upload_mall/goods/P200060818/GM41349333_img.jpg/dims/resize/x100/cropcenter/100x100/autorotate/on/optimize"
+										alt="린느 슬라이딩 3000 붙박이장 화이트">
+								</a>
+									<button type="button" data-val="P200060818" class="btn-del">
+										<span class="sr-only">삭제</span>
+									</button></li>
+
+								<li class="swiper-slide"><a href="/p/P200100765"> <img
+										src="https://static.hyundailivart.co.kr/upload_mall/goods/P200100765/GM42042260_img.jpg/dims/resize/x100/cropcenter/100x100/autorotate/on/optimize"
+										alt="에스테틱 호텔침대 프레임 (8종)">
+								</a>
+									<button type="button" data-val="P200100765" class="btn-del">
+										<span class="sr-only">삭제</span>
+									</button></li>
+
+								<li class="swiper-slide"><a href="/p/P200106872"> <img
+										src="https://static.hyundailivart.co.kr/upload_mall/goods/P200106872/GM42291819_img.jpg/dims/resize/x100/cropcenter/100x100/autorotate/on/optimize"
+										alt="모인 포근소파 4인 카우치형">
+								</a>
+									<button type="button" data-val="P200106872" class="btn-del">
+										<span class="sr-only">삭제</span>
+									</button></li>
+
+							</ul>
+						</div>
+						<div class="swiper-controls-wrap">
+							<div class="swiper-button-next"></div>
+							<div class="swiper-button-prev"></div>
+						</div>
+					</div> <!-- s :quick-content --></li>
+				<li><a href="https://www.hyundailivart.co.kr/coupon/couponzone"
+					class="quick-menu-item icon"> <span
+						class="quick-menu-item__icon"> <i class="icon-quick3"></i>
+					</span> <span class="quick-menu-item__txt">쿠폰함</span>
+				</a></li>
+				<li><a href="https://www.hyundailivart.co.kr/csCenter/shopMgmt"
+					class="quick-menu-item icon"> <span
+						class="quick-menu-item__icon"> <i class="icon-quick4"></i>
+					</span> <span class="quick-menu-item__txt">매장찾기</span>
+				</a></li>
+				<li><a
+					href="https://plus.kakao.com/talk/bot/@%ED%98%84%EB%8C%80%EB%A6%AC%EB%B0%94%ED%8A%B8/%EC%B1%97%EB%B4%87%EC%8B%9C%EC%9E%91"
+					class="quick-menu-item icon" target="_blank"
+					rel="noopener noreferrer"> <span class="quick-menu-item__icon">
+							<i class="icon-quick5"></i>
+					</span> <span class="quick-menu-item__txt">카카오톡 문의</span>
+				</a></li>
+				<li><a href="#gnb"
+					class="quick-menu-item icon button-quick-top"> <span
+						class="quick-menu-item__icon"> <i class="icon-top"></i>
+					</span> <span class="quick-menu-item__txt">맨 위로 이동</span>
+				</a></li>
+			</ul>
+			<!-- s : quick -->
+		</div>
+	</section>
+	<iframe id="ne_tgmiframe_0" width="0" height="0"
+		style="position: absolute; width: 0px; height: 0px; display: none;"
+		src="about:blank"></iframe>
+
+	<!-- //quick menu -->
+
+	<script
+		src="https://static.hyundailivart.co.kr/assets/js/masonry.pkgd.min.js"></script>
+	<script
+		src="https://static.hyundailivart.co.kr/assets/js/clipboard.min.js"></script>
+	<script
+		src="https://static.hyundailivart.co.kr/assets/js/imagesloaded.pkgd.min.js"></script>
+
+	<script
+		src="https://static.hyundailivart.co.kr/assets/duijs/eshopfront.js?ver=20221017"
+		domain="https://www.hyundailivart.co.kr"></script>
+	<script
+		src="https://static.hyundailivart.co.kr/assets/duijs/eshopfrontCommon.js?ver=20221017"></script>
+	<script
+		src="https://static.hyundailivart.co.kr/assets/duijs/eshopfrontGoods.js?ver=20221017"></script>
+	<script
+		src="https://static.hyundailivart.co.kr/assets/duijs/eshopfrontOrder.js"></script>
+	<script
+		src="https://static.hyundailivart.co.kr/assets/duijs/storage/jquery.storageapi.min.js"></script>
+	<script
+		src="https://static.hyundailivart.co.kr/assets/duijs/eshopfrontHpntinf.js?ver=20221017"></script>
+	<script
+		src="https://static.hyundailivart.co.kr/assets/duijs/eshopfrontCategory.js"></script>
+	<script
+		src="https://static.hyundailivart.co.kr/assets/duijs/eshopfrontSearch.js"></script>
+
+	<script
+		src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<script>
   function loadSwiperPopup(el) {
     var swiperList = $(el + ' .swiper-slide');
   
@@ -2337,44 +2574,11 @@
     });
   });
   </script>
-  <div id="popupWrap">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-      
-  
-  
-  
-  </div>
-          
-          <script src="https://static.hyundailivart.co.kr/assets/js/openevent.js"></script>
-          <!-- S: 뷰저블 코드 -->
-      <script type="text/javascript">
+	<div id="popupWrap"></div>
+
+	<script src="https://static.hyundailivart.co.kr/assets/js/openevent.js"></script>
+	<!-- S: 뷰저블 코드 -->
+	<script type="text/javascript">
       (function(w, d, a){
           w.__beusablerumclient__ = {
             load : function(src){
@@ -2385,11 +2589,13 @@
           };w.__beusablerumclient__.load(a);
       })(window, document, "//rum.beusable.net/script/b190429e104534u830/ffb83efb1f");
       </script>
-      <!-- E: 뷰저블 코드 -->
-      
-  
-  <iframe src="//tpc.googlesyndication.com/sodar/Beq5YUTp.html" width="0" height="0" style="display: none;"></iframe><!-- Code injected by live-server -->
-  <script>
+	<!-- E: 뷰저블 코드 -->
+
+
+	<iframe src="//tpc.googlesyndication.com/sodar/Beq5YUTp.html" width="0"
+		height="0" style="display: none;"></iframe>
+	<!-- Code injected by live-server -->
+	<script>
     // <![CDATA[  <-- For SVG support
     if ('WebSocket' in window) {
       (function () {
@@ -2426,6 +2632,12 @@
     }
     // ]]>
   </script>
-  
-  <iframe id="ne_tgmiframe_0" width="0" height="0" style="position:absolute;width:0px;height:0px;display:none;" src="about:blank"></iframe><div id="criteo-tags-div" style="display: none;"></div><iframe src="//tpc.googlesyndication.com/sodar/Beq5YUTp.html" width="0" height="0" style="display: none;"></iframe></body>
+
+	<iframe id="ne_tgmiframe_0" width="0" height="0"
+		style="position: absolute; width: 0px; height: 0px; display: none;"
+		src="about:blank"></iframe>
+	<div id="criteo-tags-div" style="display: none;"></div>
+	<iframe src="//tpc.googlesyndication.com/sodar/Beq5YUTp.html" width="0"
+		height="0" style="display: none;"></iframe>
+</body>
 </html>

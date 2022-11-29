@@ -93,7 +93,7 @@
    //-->
  
    </script>
-   
+   	
 
 <title>Insert title here</title>
 </head>
@@ -185,7 +185,25 @@
               </dl>
 
             </div>
-            
+            <div class="pitem-header-section pitem-header-section--freegift">
+              <dl class="pitem-header-section__dl">
+                <dt class="pitem-header-section__dt">사은품</dt>
+                <dd class="pitem-header-section__dd">
+                  <div class="pitem-photo is-flex">
+                    <ul class="images-list is-flex">
+                      <li>
+                        <span class="modal-button">
+                          <img
+                            src="https://static.hyundailivart.co.kr/upload_mall/goods/P200028467/GM40428196_img.jpg/dims/resize/x150/cropcenter/150x150/autorotate/on/optimize"
+                            alt="코너캡 (좌,우 각 1EA)">
+                          <span class="freegift__name">코너캡 (좌,우 각 1EA)</span>
+                        </span>
+                      </li>
+                    </ul>
+                  </div>
+                </dd>
+              </dl>
+            </div>
 
           </div>
 
@@ -306,7 +324,7 @@
         <section class="pitem-section" id="pitem-detail-1">
           <div class="container">
             <div class="pitem-section-header">
-              <h3 class="pitem-section-header__title">상세리뷰(${count })</h3>
+              <h3 class="pitem-section-header__title">상세리뷰</h3>
             </div>
             <div class="swiper mySwiper">
               <div class="slideshow-container">
@@ -316,7 +334,7 @@
                 <c:forEach var="img" items="${imageList }" >
                 <div class="mySlides fade">
                   
-                  <img onclick="javascript:location.href='/livart/realreview?command=${img.review_review_id}';" style="cursor:pointer" src="${img.photo_url }" style="width:100%">
+                  <img onclick="javascript:location.href='/livart/product?command=${img.review_review_id}';" style="cursor:pointer" src="${img.photo_url }" style="width:100%">
                   <div class="text">Caption Text</div>
                   <!-- 성환이형페이지로 넘겨야함 나중에 onclick url 을 여기에있는 /livart/review/command=${img.review_review_id} 서블릿으로 변경 예정 -->
                 </div>
@@ -356,6 +374,21 @@
         </section>
 
 		</c:forEach>
+
+
+        <!-- <section class="pitem-section" id="pitem-detail-4">
+          <div class="container">
+            <div class="pitem-section-header">
+              <h3 class="pitem-section-header__title">상품Q&amp;A</h3>
+            </div>
+
+            <div>
+              <h1>게시판 들어와야함</h1>
+            </div>
+          </div>
+        </section> -->
+      </div>
+    </section>
 
 
   </div>
