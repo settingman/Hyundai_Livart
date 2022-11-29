@@ -17,7 +17,8 @@ public class CartListAction implements ControllerLivart{
 	public MyView process(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		
-		CartDAO cartDAO = new CartDAO();			
+		CartDAO cartDAO = new CartDAO();		
+		
 		ArrayList<CartItemVO> cartItemList = cartDAO.selectCartItemList();
 		request.setAttribute("cartItemList", cartItemList);
 		

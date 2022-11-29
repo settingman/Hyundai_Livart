@@ -12,6 +12,11 @@
 <body>
 <%@ include file="../../static/header.jsp" %>
 
+<c:set var="total_price" value="0" />
+<c:forEach var="cartItem" items="${buyCartItemList }" varStatus="buyCartNum">
+	<c:set var="total_price" value="${total_price + (cartItem.d_price*cartItem.quantity) + cartItem.p_deliveryfee}"/>
+</c:forEach>
+
 <div class="container">
 <div class="section-contents-wrap order-payment">
   <h3 class="title is-3 is-normal">주문결제</h3>
@@ -290,14 +295,14 @@
   <div class="item-dl-layout">
       <dl class="total">
           <dt class="title">총 판매가</dt>
-          <dd class="price"><span class="num" id="pawSellPrc">2,055,000</span>원</dd>
+          <dd class="price"><span class="num" id="pawSellPrc"><fmt:formatNumber value="${total_price }" type="number"/></span>원</dd>
       </dl>
       <div class="dl-group">
           <dl>
               <dt class="title">판매가</dt>
-              <dd class="price"><span class="num" id="pawDscntPrc">2,055,000</span>원</dd>
+              <dd class="price"><span class="num" id="pawDscntPrc"><fmt:formatNumber value="${total_price }" type="number"/></span>원</dd>
           </dl>
-          <dl class="" style="display: none;">
+ <!--         <dl class="" style="display: none;">
               <dt class="title">내림서비스</dt>
               <dd class="price"><span class="num" id="addInslAmt">0</span>원</dd>
           </dl>
@@ -308,9 +313,10 @@
           <dl class="" style="display: none;">
               <dt class="title">웨딩회원 할인</dt>
               <dd class="price"><span class="num" id="pawWeddDcAmt">0</span>원</dd>
-          </dl>
+          </dl> -->
       </div>
   </div>
+  <!--  
   <div class="item-dl-layout" style="display: none;">
       <dl class="total">
           <dt class="title">총 할인금액</dt>
@@ -359,30 +365,15 @@
                   <span class="num" id="pawTotDlexDscntAmt">0</span>원</dd>
           </dl>
       </div>
-  </div>
+  </div> -->
   <!-- 최종결제금액 -->
   <div class="total-price-wrap">
       <dl class="total">
           <dt class="title">최종결제금액</dt>
           <dd class="price">
-              <span class="num" id="pawTotPayPrc">2,055,000</span>원</dd>
+              <span class="num" id="pawTotPayPrc"><fmt:formatNumber value="${total_price }" type="number"/></span>원</dd>
       </dl>
       <div class="dl-group ">
-         
-<dl class="" id="dlClamDscntAmt0" style="display: none;">
-              <dt class="title" id="crcmNm0"> 하나카드 즉시할인 예상금액</dt>
-              <dd class="price"><span class="num" id="pawCardDscntAmt0">10,000</span>원</dd>
-          </dl>
-         
-<dl class="" id="dlClamDscntAmt1">
-              <dt class="title" id="crcmNm1"> 하나카드 즉시할인 예상금액</dt>
-              <dd class="price"><span class="num" id="pawCardDscntAmt1">20,000</span>원</dd>
-          </dl>
-            
-          <dl class="">
-              <dt class="title">적립예정 H.Point</dt>
-              <dd class="price"><span class="num" id="pawAddHp">2,055</span>P</dd>
-          </dl>
       </div>
   </div>
 
