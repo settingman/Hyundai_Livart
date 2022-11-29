@@ -21,7 +21,6 @@ public class MyView {
     	
     	//redirect url 확인하고
     	//response.sendRedirect(viewPath) 하믄대나?
-    	
         RequestDispatcher dispatcher = request.getRequestDispatcher(viewPath);
         dispatcher.forward(request, response);
     }

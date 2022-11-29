@@ -17,5 +17,6 @@ public class ProductVO {
 	private int p_deliveryfee;
 	
 	private String photo_url;//join 하기위한 컬럼입니다
+	private int realprice;// 할인된가격으로 필터링하기 위한 변수입니다
 	
 }

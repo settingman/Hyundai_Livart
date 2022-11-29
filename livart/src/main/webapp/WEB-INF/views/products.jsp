@@ -398,6 +398,7 @@
 							</li>
 							
 							
+							
 	</c:forEach>
 						</ul>
 						</div>
@@ -445,6 +446,7 @@
 				/* console.log(data);
 				$('.ajaxex').html(data); */
 				$('.ajaxex').load("/livart/sort?p_id=living&command=low .ajaxex");
+				
 			},
 			error: function(request, status, error){
 				alert();
@@ -471,7 +473,6 @@
 		});
 	};
 </script>
-
 
 </body>
 </html>

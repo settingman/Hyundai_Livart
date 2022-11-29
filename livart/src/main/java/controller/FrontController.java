@@ -21,6 +21,8 @@ import controller.action.MemberSave;
 import controller.action.MyView;
 import controller.action.ProductDetailAction;
 import controller.action.ProductSortAction;
+import controller.action.RealReviewAction;
+import controller.action.RealReviewListAction;
 
 
 
@@ -34,9 +36,6 @@ public class FrontController extends HttpServlet{
 	
 	
 	public FrontController() {
-
-	     
-
         controllerMap.put("/livart/cart", new CartListAction());
         controllerMap.put("/livart/product", new IndexAction());
         controllerMap.put("/livart/memberjoin", new MemberJoinAction());
@@ -45,8 +44,8 @@ public class FrontController extends HttpServlet{
         controllerMap.put("/livart/sort", new ProductSortAction());
         controllerMap.put("/livart/login", new MemberLoginView());
         controllerMap.put("/livart/loginconfrim", new MemberLoginConfrim());
-        
-
+        controllerMap.put("/livart/realreview", new RealReviewAction());
+        controllerMap.put("/livart/review", new RealReviewListAction());
     }
 
     @Override

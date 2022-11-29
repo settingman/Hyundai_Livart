@@ -719,11 +719,9 @@ to {
 										<li><a> <span>130~180cm</span>
 										</a></li>
 										<li>
-											<!-- 	<form name="frmproduct" method="get" action="products" encType="UTF-8">
-                  		 --> <a href="/livart/product?command=living"> <span>200cm
-													이상</span>
-										</a> <!--   	</form>
-                       -->
+										 <a href="/livart/product?command=living"> <span>200cm이상</span>
+										</a> 
+                
 										</li>
 									</ul>
 								</div>
