@@ -18,9 +18,6 @@ public class CartDeleteAction implements ControllerLivart{
 		
 	String productId = request.getParameter("productId");
 		
-	//    	 JSONObject json = (JSONObject) parser.parse(body);
-//	     String productId = json.get("productId").toString();
-		
 		System.out.println("삭제에 필요한 productId: " + productId);
 		
 		System.out.println("여길 들어와야함");

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 import dto.CartItemVO;
 import dto.PreOrdersVO;
-import livart.DBConnection;
+//import livart.DBConnection;
 import oracle.jdbc.OracleTypes;
 import util.DBManager;
 
@@ -34,11 +34,12 @@ public class CartDAO {
 
 	public ArrayList<CartItemVO> selectCartItemList() {
 		ArrayList<CartItemVO> cartItemList =  new ArrayList<>();
-
+		CallableStatement callableStatement = null;
+		
 		try {
 		
 			String query = "{call all_cart_list(?,?)}";
-			CallableStatement callableStatement = conn.prepareCall(query);
+			callableStatement = conn.prepareCall(query);
 			callableStatement.setString(1, "kibeom5118");
 			callableStatement.registerOutParameter(2, OracleTypes.CURSOR);
 			
@@ -55,6 +56,8 @@ public class CartDAO {
 				int p_deliveryfee = rs.getInt(7);
 				int ci_quantity = rs.getInt(8);
 				String user_id = rs.getString(9);
+				
+				System.out.println(p_name);
 				
 				CartItemVO cartItemVO = new CartItemVO();
 				cartItemVO.setImg_url(img_url);
@@ -74,6 +77,8 @@ public class CartDAO {
 		} catch (SQLException e) {
 			System.out.println("프로시저에서 에러 발생!");
 			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, callableStatement);
 		}
 		return cartItemList;
 	}

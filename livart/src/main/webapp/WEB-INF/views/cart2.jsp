@@ -19,7 +19,7 @@
     </div>
   
   
-<div class="ajaxpart">  
+<!-- <div class="ajaxpart">  -->  
     <c:choose>
 <c:when test="${!empty cartItemList }">
 <c:set var="userId" value="${cartItemList[0].user_id }"/>
@@ -68,7 +68,7 @@
 
 	<c:forEach var="cart" items="${cartItemList }" varStatus="cartNum">
         <tbody>
-          <tr class="bundle-delivery">
+          <tr class="bundle-delivery" id="${cart.p_id }">
             <td align class="item-checkbox cart_info_td" >
  			
             <input type="hidden" class="og_price" value="${cart.p_price * cart.quantity }">
@@ -250,7 +250,6 @@
 				</ul>
 			</div> 
     </section>
-</div>
 
     <!-- 장바구니 총
     <section id="totalArea">
@@ -288,10 +287,10 @@
         <button type="button" class="button is-primary is-large buyCartList">선택상품 주문</button>
         <button type="button" class="button is-danger is-large buyCartAll" data-userid="${userId }">전체상품 주문</button>
       </div>
-    
+       
     </section>
 	</c:when>
-    
+
     <c:when test="${empty cartList }">
     <!-- 장바구니가 비어있을 경우-->
     <section>
@@ -365,7 +364,14 @@
 		  data: {productId : p_id},
 		  contentType: "application/x-www-form-urlencoded; charset=UTF-8",
 		  success:function(data) {
-			  $('.ajaxpart').load("/livart/cart2/delete .ajaxpart")
+			  console.log("ajax 실행");
+			  
+			 /*  $(this).parent('tr').fadeOut(); */
+			  $('body').load("/livart/cart2");
+			
+			  
+//			  window.location.href="/livart/cart2";
+			  console.log("ajax 실행");
 			 
 		  },
 		  error: function(request, status, error){
@@ -374,8 +380,10 @@
 	  });
   });
   
+</script>
 
-  
+
+      <script>
   
   /* 수량 수정 버튼 */
   $(".quantity_change_btn").on("click", function(){
@@ -497,6 +505,7 @@
   });
   
   </script>
+      
 	
 </body>
 </html>

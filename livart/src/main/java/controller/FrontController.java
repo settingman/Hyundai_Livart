@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import controller.action.CartDeleteAction;
 import controller.action.CartListAction;
+import controller.action.ChangeQuantityAction;
 import controller.action.ControllerLivart;
 import controller.action.IndexAction;
 import controller.action.MemberIdCheck;
@@ -21,6 +23,7 @@ import controller.action.MemberLoginView;
 import controller.action.MemberLogout;
 import controller.action.MemberSave;
 import controller.action.MyView;
+import controller.action.PreOrdersAction;
 import controller.action.ProductDetailAction;
 import controller.action.ProductSortAction;
 
@@ -41,9 +44,6 @@ public class FrontController extends HttpServlet{
 	
 	public FrontController() {
 
-	     
-
-        controllerMap.put("/livart/cart", new CartListAction());
         controllerMap.put("/livart/product", new IndexAction());
         controllerMap.put("/livart/memberjoin", new MemberJoinAction());
         controllerMap.put("/livart/membersave", new MemberSave());
@@ -53,6 +53,10 @@ public class FrontController extends HttpServlet{
         controllerMap.put("/livart/loginconfrim", new MemberLoginConfrim());
         controllerMap.put("/livart/logout", new MemberLogout());
         controllerMap.put("/livart/check", new MemberIdCheck());
+        controllerMap.put("/livart/cart2", new CartListAction());
+        controllerMap.put("/livart/cart2/delete", new CartDeleteAction());
+        controllerMap.put("/livart/cart2/update", new ChangeQuantityAction());
+        controllerMap.put("/livart/order", new PreOrdersAction());
         
 
     }
