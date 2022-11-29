@@ -17,6 +17,9 @@
     <div class="section-contents-wrap">
       <h1 class="title">장바구니</h1>
     </div>
+  
+  
+<div class="ajaxpart">  
     <c:choose>
 <c:when test="${!empty cartItemList }">
 <c:set var="userId" value="${cartItemList[0].user_id }"/>
@@ -247,6 +250,7 @@
 				</ul>
 			</div> 
     </section>
+</div>
 
     <!-- 장바구니 총
     <section id="totalArea">
@@ -330,9 +334,10 @@
 			</form>
 			
 <!-- 삭제 form -->
-			<form action="/livart/cart2/delete" method="post" class="quantity_delete_form">
+<!-- 			<form action="/livart/cart2/delete" method="post" class="quantity_delete_form">
 				<input type="hidden" name="productId" class="delete_productId">
 			</form>
+ -->
 			
 <!-- 장바구니 물건 구매내역으로 넘기기 -->
 			<form action="/livart/order" method="post" class="send_product_list">
@@ -342,13 +347,34 @@
   <script>
   
   /* 장바구니 삭제 버튼 */
-  $(".removeCartOne").on("click", function(e){
-	  console.log("hello");
+/*  $(".removeCartOne").on("click", function(e){
 	  e.preventDefault();
 	  const productId=$(this).data("productid");
 	  $(".delete_productId").val(productId);
 	  $(".quantity_delete_form").submit();
+  }); */
+  
+  $(".removeCartOne").click(function(){
+	  const p_id=$(this).data("productid");
+	  
+	  console.log(p_id);
+	  
+	  $.ajax({
+		  type:"GET",
+		  url:"/livart/cart2/delete",
+		  data: {productId : p_id},
+		  contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+		  success:function(data) {
+			  $('.ajaxpart').load("/livart/cart2/delete .ajaxpart")
+			 
+		  },
+		  error: function(request, status, error){
+			  alert();
+		  }
+	  });
   });
+  
+
   
   
   /* 수량 수정 버튼 */

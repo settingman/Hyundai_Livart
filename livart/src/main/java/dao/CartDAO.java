@@ -100,10 +100,11 @@ public class CartDAO {
 	
 	public ArrayList<CartItemVO> deleteProduct(String productId) {
 		ArrayList<CartItemVO> cartItemList = null;
+		CallableStatement callableStatement = null;
 		
 		try {
 		String query = "{call delete_product(?)}";
-		CallableStatement callableStatement = conn.prepareCall(query);
+		callableStatement = conn.prepareCall(query);
 		callableStatement.setString(1, productId);
 		
 		int delete_cnt = callableStatement.executeUpdate();
@@ -115,9 +116,13 @@ public class CartDAO {
 		}
 		} catch(Exception e) {
 			
+		} finally {
+			DBManager.close(conn, callableStatement);
 		}
 		return cartItemList;
 	}
+	
+	
 	
 	public ArrayList<CartItemVO> selectCartBuyItemList(String userId) {
 		ArrayList<CartItemVO> cartItemList =  new ArrayList<>();
