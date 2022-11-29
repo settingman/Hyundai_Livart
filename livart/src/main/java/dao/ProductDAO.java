@@ -1,3 +1,4 @@
+
 package dao;
 
 import java.sql.CallableStatement;
@@ -146,6 +147,7 @@ public class ProductDAO {
 				 product.setP_price(rs.getInt(2));
 				 product.setP_discount(rs.getInt(3));
 				 product.setPhoto_url(rs.getString(4));
+				 product.setP_id(rs.getString(5));
 				 productList.add(product);
 			 }
 			 
@@ -180,6 +182,8 @@ public class ProductDAO {
 				 product.setP_price(rs.getInt(2));
 				 product.setP_discount(rs.getInt(3));
 				 product.setPhoto_url(rs.getString(4));
+				 product.setP_id(rs.getString(5));
+				 
 				 productList.add(product);
 			 }
 			 
@@ -192,7 +196,10 @@ public class ProductDAO {
 			DBManager.close(conn, cs,rs);
 		}
 		return productList;
-	}public ArrayList<ProductVO> getProductOrderByHighPrice(String pid){
+		
+	}
+	
+	public ArrayList<ProductVO> getProductOrderByHighPrice(String pid){
 		ArrayList<ProductVO> productList = new ArrayList<ProductVO>();
 		
 		String runSP ="{call product_pack.SP_PRODUCT_SELECT_ORDERBY_HIGHPRICE(?,?)}";
@@ -213,6 +220,8 @@ public class ProductDAO {
 				 product.setP_price(rs.getInt(2));
 				 product.setP_discount(rs.getInt(3));
 				 product.setPhoto_url(rs.getString(4));
+				 product.setP_id(rs.getString(5));
+				 
 				 productList.add(product);
 			 }
 			 

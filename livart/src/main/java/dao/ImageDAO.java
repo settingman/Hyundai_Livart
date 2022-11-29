@@ -4,6 +4,7 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
 import java.util.ArrayList;
 
 import dto.ImageVO;
@@ -92,7 +93,58 @@ public class ImageDAO {
 			DBManager.close(conn, cs);
 		}
 		return imageList;
-		
 	}
+	/*리뷰 이미지 썸네일 부분에서, 상품의 리얼리뷰 개수를 반환*/
+	public int countOfReviewImage(String category) {
+		int count = 0;
+		String runSP ="{call product_pack.SP_REVIEW_IMAGE_SELECT_COUNT(?,?)}";
+			Connection conn = null;
+			CallableStatement cs = null;
+			ResultSet rs = null;
+			
+			try {
+				 conn = DBManager.getConnection();
+				 cs = conn.prepareCall(runSP);
+				 cs.setString(1, category);
+				 cs.registerOutParameter(2,Types.INTEGER );
+				 cs.execute();
+				 count = cs.getInt(2);
+				 
 
+			} catch (SQLException e) {
+				System.out.println("프로시저에서 에러 발생!");
+				System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+			}catch(Exception e) {
+				e.printStackTrace();
+			}finally {
+				DBManager.close(conn, cs);
+			}
+		return count;
+	}
+	/*리뷰썸네일에서 해당 리뷰로 넘어갈 때, 대표사진을 리얼리뷰에서 출력*/
+	public String ReviewImage(String reviewID){
+		String image = "";
+		
+		String runSP ="{call realreview_pack.SP_REAL_REVIEW_IMAGE(?,?)}";
+			Connection conn = null;
+			CallableStatement cs = null;
+			ResultSet rs = null;
+		try {
+			 conn = DBManager.getConnection();
+			 cs = conn.prepareCall(runSP);
+			 cs.setString(1, reviewID);
+			 cs.registerOutParameter(2, Types.VARCHAR);
+			 cs.execute();
+			 image = cs.getString(2);
+			 
+		} catch (SQLException e) {
+			System.out.println("프로시저에서 에러 발생!");
+			System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.close(conn, cs);
+		}
+		return image;
+	}
 }
