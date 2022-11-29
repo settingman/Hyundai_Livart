@@ -17,8 +17,12 @@
     <div class="section-contents-wrap">
       <h1 class="title">장바구니</h1>
     </div>
+  
+  
+<!-- <div class="ajaxpart">  -->  
     <c:choose>
 <c:when test="${!empty cartItemList }">
+<c:set var="userId" value="${cartItemList[0].user_id }"/>
     <!-- 장바구니에 상품이 들어있을 경우-->
     <section class="section-contents-table is-interval cartListSection">
       <div class="section-contents-table__button--wrap is-liner is-flex">
@@ -64,13 +68,16 @@
 
 	<c:forEach var="cart" items="${cartItemList }" varStatus="cartNum">
         <tbody>
-          <tr class="bundle-delivery">
+          <tr class="bundle-delivery" id="${cart.p_id }">
             <td align class="item-checkbox cart_info_td" >
  			
-            <input type="hidden" class="og_price" value="${cart.p_price }">
-            <input type="hidden" class="ogdc_price" value="${cart.d_price }">
+            <input type="hidden" class="og_price" value="${cart.p_price * cart.quantity }">
+            <input type="hidden" class="ogdc_price" value="${cart.d_price * cart.quantity }">
+            <input type="hidden" class="only_price" value="${cart.d_price }">
             <input type="hidden" class="deliveryfee" value="${cart.p_deliveryfee }">
-            <input type="hidden" class="dc_price" value="${cart.p_price - cart.d_price }">
+            <input type="hidden" class="dc_price" value="${(cart.p_price * cart.quantity) - (cart.d_price * cart.quantity) }">
+            <input type="hidden" class="product_id" value="${cart.p_id }">
+            <input type="hidden" class="quantity" value="${cart.quantity }">
               <!-- 상품에 대한 정보가 hidden 태그로 체크박스 안에 들어가도록 할 것-->
               <div class="checkbox-wrap">
                 <!-- 상품에 대한 정보들 들어가는 부분-->
@@ -160,7 +167,7 @@
           <td align="">
             <!-- 최종구매가 -->
             <div class="price final-price is-bold">
-              <span id="totPrc_C002935375"><fmt:formatNumber value="${cart.d_price + cart.p_deliveryfee }" type="number"/>
+              <span id="totPrc_C002935375"><fmt:formatNumber value="${cart.d_price*cart.quantity + cart.p_deliveryfee }" type="number"/>
              </span>
               <span class="won is-normal">원</span>
             </div>
@@ -189,6 +196,7 @@
               <div class="section-contents-item__simple--button">
                     <button type="button" class="button is-danger buyCartOne">바로구매</button>
               </div>
+              
             <ul class="section-contents-item is-flex simple-button">
               <!-- 삭제하기 버튼 -->
               <li>
@@ -197,6 +205,7 @@
                 </button>
               </li>
             </ul>
+            
           </div>
         </td>
 	</c:forEach>
@@ -242,7 +251,7 @@
 			</div> 
     </section>
 
-    <!-- 장바구니 총-->
+    <!-- 장바구니 총
     <section id="totalArea">
       <div class="total-itam-pay">
         <div class="itam-pay-wrap is-flex">
@@ -273,15 +282,15 @@
           </dl>
         </div>
       </div>
-     
+     -->
       <div class="button-area cart-item-button-wrap is-flex">
         <button type="button" class="button is-primary is-large buyCartList">선택상품 주문</button>
-        <button type="button" class="button is-danger is-large buyCartAll">전체상품 주문</button>
+        <button type="button" class="button is-danger is-large buyCartAll" data-userid="${userId }">전체상품 주문</button>
       </div>
-    
+       
     </section>
 	</c:when>
-    
+
     <c:when test="${empty cartList }">
     <!-- 장바구니가 비어있을 경우-->
     <section>
@@ -298,6 +307,8 @@
     </section>
 </c:when>
 </c:choose>
+
+
     <!-- 장바구니 이용안내 멘트-->
   <div class="contents-info-wrap mt6"><strong class="title">장바구니 이용안내</strong>
       <ul class="dot-list">
@@ -318,35 +329,121 @@
 <!-- 수량 조정 form -->
 			<form action="/livart/cart2/update" method="post" class="quantity_update_form">
 				<input type="hidden" name="productId" class="update_productId">
-				<input type="hidden" name="productCount" class="update_prduct_quantity">
+				<input type="hidden" name="productCount" class="update_product_quantity">
 			</form>
 			
 <!-- 삭제 form -->
-			<form action="/livart/cart2/delete" method="post" class="quantity_delete_form">
+<!-- 			<form action="/livart/cart2/delete" method="post" class="quantity_delete_form">
 				<input type="hidden" name="productId" class="delete_productId">
 			</form>
-  
+ -->
+			
+<!-- 장바구니 물건 구매내역으로 넘기기 -->
+			<form action="/livart/order" method="post" class="send_product_list">
+				<input type="hidden" name="userId" class="send_user_id">
+			</form>
+	  
   <script>
   
   /* 장바구니 삭제 버튼 */
-  $(".removeCartOne").on("click", function(e){
-	  console.log("hello");
+/*  $(".removeCartOne").on("click", function(e){
 	  e.preventDefault();
 	  const productId=$(this).data("productid");
 	  $(".delete_productId").val(productId);
 	  $(".quantity_delete_form").submit();
+  }); */
+  
+  $(".removeCartOne").click(function(){
+	  const p_id=$(this).data("productid");
+	  
+	  console.log(p_id);
+	  
+	  $.ajax({
+		  type:"GET",
+		  url:"/livart/cart2/delete",
+		  data: {productId : p_id},
+		  contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+		  success:function(data) {
+			  console.log("ajax 실행");
+			  
+			 /*  $(this).parent('tr').fadeOut(); */
+			  $('body').load("/livart/cart2");
+			
+			  
+//			  window.location.href="/livart/cart2";
+			  console.log("ajax 실행");
+			 
+		  },
+		  error: function(request, status, error){
+			  alert();
+		  }
+	  });
   });
   
+</script>
+
+
+      <script>
   
   /* 수량 수정 버튼 */
   $(".quantity_change_btn").on("click", function(){
   	let productId = $(this).data("productid");
   	let productCount = $(this).parent("td").find("input").val();
-  	console.log("hihi");
 	$(".update_productId").val(productId);
 	$(".update_product_quantity").val(productCount);
 	$(".quantity_update_form").submit();
   });
+  
+  /* 장바구니 전체 상품 구매 페이지로 이동  */
+  $(".buyCartAll").on("click", function() {
+	let userId = $(this).data("userid");
+	
+	console.log(userId);
+	$(".send_user_id").val(userId);
+	$(".send_product_list").submit();
+	  
+	  
+//	  let index = 0;
+//	  let transfer_data = "";
+/*	  let buy_product_list = [];
+	  
+	  $(".cart_info_td").each(function(index, element){
+		  
+		  let productId = $(element).find(".product_id").val();
+		  let productPrice = $(element).find(".only_price").val();
+		  let quantity = $(element).find(".quantity").val();
+		  console.log(productId);
+		  console.log(productPrice);
+		  console.log(quantity);
+		  buy_product_list.push({
+			  p_id: productId,
+			  p_price: productPrice,
+			  qty: quantity
+		  });
+	*/
+		  /*
+		  let productIdArr = "<input type='hidden' name='prodcutId[" + index + "]' value='" + productId + "'>";
+		  transfer_data += productIdArr;
+		  
+		  let productPriceArr = "<input type='hidden' name='productPrice[" + index + "]' value='" + productPrice + "'>";
+		  transfer_data += productPriceArr;
+		  
+		  let total_quantity = "<input type='hidden' name='quantity[" + index + "]' value='" + quantity + "'>";
+		  transfer_data += total_quantity;
+		  
+		  console.log(transfer_data);
+		  
+		  index += 1;
+		  */
+//	  })
+	  
+//	  console.log(buy_product_list);
+//	  $(".product_obj_to_order").val(buy_product_list);
+//	  $(".send_product_list").submit();
+		//  $(".send_product_list").html(transfer_data);
+		//  $(".send_product_list").submit();
+  });
+ 
   
   $(document).ready(function(){
 	  total_price_calc();
@@ -356,6 +453,8 @@
   $(".checkCart10").on("change", function(){
 	  total_price_calc($(".cart_info_td"));
   })
+  
+  
   </script>
   
   <script type="text/javascript">
@@ -374,11 +473,8 @@
 			// 총 가격
 			if($(element).find(".checkCart10").is(":checked") === true) {
 			og_price += parseInt($(element).find(".og_price").val());
-			
 			ogdc_price += parseInt($(element).find(".ogdc_price").val())
-			
 			deliveryfee += parseInt($(element).find(".deliveryfee").val());
-			
 			dc_price += parseInt($(element).find(".dc_price").val());
 			}
 		});	
@@ -409,6 +505,7 @@
   });
   
   </script>
+      
 	
 </body>
 </html>

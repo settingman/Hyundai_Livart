@@ -289,10 +289,9 @@ to {
 							<li>
 								<form id="logoutForm" name="logoutForm"
 									action="https://www.hyundailivart.co.kr/logout" method="post">
-									<a href="/main.jsp"
-										class="header-member-menu__btn icon i-gnb_mem6" onclick="deleteSession()"><i
+									<a href="/livart/logout"
+										class="header-member-menu__btn icon i-gnb_mem6" ><i
 										class="icon-gnb_mem6"></i><span>로그아웃</span></a>
-										<button onclick="deleteSession()">123</button>
 									<div>
 										<input type="hidden" name="_csrf"
 											value="b4a3a42e-5c05-4391-8454-fe5979cf46e8">
