@@ -26,7 +26,7 @@ public class MemberLoginConfrim implements ControllerLivart {
 		
 		
 		
-		String url = "/main.jsp"; //로그인 실패페이지
+		
 		HttpSession session = request.getSession();
 		MemberDAO memberDAO = MemberDAO.getInstance();
 		
@@ -37,39 +37,39 @@ public class MemberLoginConfrim implements ControllerLivart {
 		String login_id = request.getParameter("login_id");
 		String login_pwd = request.getParameter("login_pwd");
 		
-		System.out.println("id" + login_id+", pwd: "+login_pwd);
+		System.out.println("id: " + login_id+", pwd: "+login_pwd);
 		
 		MemberVO memberVO = memberDAO.getMember(login_id);
 		
+		System.out.println(memberVO.getPwd());
 		
-		String failLogin = "비밀번호를 잘못 입력하셨습니다.";
 		
+				
 		System.out.println("로그인 시도.");
 		
 		
 		if(memberVO!=null) {
 			if(memberVO.getPwd().equals(login_pwd)) {
+				System.out.println("로그인 성공");
 				session.removeAttribute("user_id"); // 잘모르겠음.
 				session.setAttribute("loginUser", memberVO);
 				session.setAttribute("loginUserid", login_id);
-				url = "redirect::/main.jsp"; // 로그인 성공페이지
-				System.out.println("로그인성공");
+				out.print(1);
+				return new MyView("ajax"); // 로그인 성공페이지
+				
 			}
 			else {
-				System.out.println("로그인 실패");
-				request.setAttribute("failLogin", failLogin);
-				out.print(true);
+				System.out.println("로그인 실패1");
+				out.print(2);
 				return new MyView("ajax");
 			}
 			
 		}else {
-			System.out.println("로그인 실패");
-			request.setAttribute("failLogin", failLogin);
-			return new MyView("/WEB-INF/views/Login.jsp");
+			System.out.println("로그인 실패2");
+			return new MyView("ajax");
 		}
 		
-		//redirect 로 바꾸기.
-		return new MyView(url);
+	
 		
 	}
 

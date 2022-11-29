@@ -24,7 +24,7 @@ public class MemberIdCheck implements ControllerLivart {
 		
 		if(check.equals("")) {
 			out.print(2);
-			return new MyView(null);
+			return new MyView("ajax");
 		}
 		
 		

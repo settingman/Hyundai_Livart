@@ -38,6 +38,7 @@
 
     <style shopback-extension-v7-0-9="" data-styled-version="4.2.0"></style>
     <link rel="stylesheet" type="text/css" href="chrome-extension://acmihclidpipcalnbhloaedejpimjhbb/css/fonts.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 
@@ -89,6 +90,7 @@
                     </li>
                 </ul>
             </div>
+            
             <!-- //탭 -->
             <div class="section-responsive-loginform">
                 <!-- 회원 로그인 -->
@@ -97,7 +99,8 @@
                         <!-- 아이디/비밀번호 로그인 -->
                         <section id="section-responsive__show-idpw" class="showpanel mt3" aria-hidden="false">
                             <h3 class="sr-only">아이디/비밀번호 로그인</h3>
-                            <form id="loginForm" name="loginForm" action="/livart/loginconfrim" method="post">
+                            
+                            <form id="loginForm" name="loginForm" action="javascript:pwCheck()" method="post">
                                 <fieldset>
                                     <legend>아이디/비밀번호 로그인</legend>
                                     <input type="hidden" name="esntlId" id="esntlId">
@@ -121,10 +124,6 @@
                                         </div>
                                         <!-- 비밀번호 잘못 입력하는 경우 횟수 안내 : 201026 -->
                                         
-                                        <script>
-                                        	$('#pwError').html(fail);
-                                        </script>
-                                        
                                         <p class="help color-danger text-left" id="pwError"> <c:out value=" ${failLogin}"></c:out>  </p>
                                     </div>
                                     <div class="field text-left">
@@ -144,6 +143,7 @@
                                         </div>
                                     </div>
                                     <div class="field mt2">
+                                    
                                         <input type="submit" class="button is-fullwidth mbr-btn-blue b-loginBtn"
                                             value="로그인" >
 
@@ -222,7 +222,7 @@
                         </ul>
                     </div>
                     <div class="section-responsive-inner">
-                        <form id="guestLoginForm" name="guestLoginForm" action="javascript:pwCheck()"" method="post">
+                        <form id="guestLoginForm" name="guestLoginForm" action="" method="post">
                             <fieldset>
                                 <legend>비회원 주문조회</legend>
                                 <div class="field">
@@ -285,6 +285,7 @@
                             <div>
                                 <input type="hidden" name="_csrf" value="0b2c59c7-bf19-4b1c-a723-0cdc0ad6f109">
                             </div>
+                        
                         </form>
 
 
@@ -299,16 +300,38 @@
     // 성환
     // 로그인 실패시 비동기 식으로 데이터 뿌려줌
     function pwCheck() {
+    	
+    	//ajax로 보내면 request에서 뽑을수없음
+    	// 데이터를 담아 보내줘야함
+    	
+    	var checkId = $('input#username').val();
+    	var checkPw = $('input#password').val();
 			
 			
 			$.ajax({
 				 type: 'post',
 	               url : '/livart/loginconfrim'
 			    ,
-			    
+			    // ajax 데이터 받기
+				data:{"login_id" : checkId,
+					"login_pwd" : checkPw },			    
 			    success :  function(result){
-		               console.log(result);
-		               $("#pwError").html('비밀번호를 잘못 입력하셨습니다.');
+			    	
+			    	console.log(result);
+			    	
+			    		if(result==1){
+			    			
+			    			//성공했을때 메인 페이지로 redirect 해줌.
+			    			window.location.href="/main.jsp"
+			    			
+			    		}else{
+			    			// 로그인 실패시 pwerror 필드 값 변경
+			    			$("#pwError").html('비밀번호를 잘못 입력하셨습니다.');	
+			    		}
+			    	
+			    		
+			    		 
+		               	            
 
 		               
 		            },

@@ -215,6 +215,7 @@
 			    
 			    success :  function(result){
 		               console.log(result);
+		               console.log('아이디 중복 체크 실행: success')
 		               if(result ==1 ){
 		                  alert('아이디가 중복되었습니다.')
 		               }else if(result==0){
