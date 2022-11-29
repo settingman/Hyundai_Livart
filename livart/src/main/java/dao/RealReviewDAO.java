@@ -1,11 +1,16 @@
 package dao;
 
 import java.sql.CallableStatement;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import dto.MemberVO;
 import dto.ProductVO;
 import dto.RealReviewVO;
 import oracle.jdbc.OracleTypes;
@@ -101,5 +106,52 @@ public class RealReviewDAO {
 			DBManager.close(conn, cs, rs);
 		}
 		return realReviewList;
+	}
+
+	public void saveReview(RealReviewVO realReviewVO ) {
+		
+		Connection conn = null;
+		CallableStatement cs = null;
+		ResultSet rs = null;
+		PreparedStatement ps =null;
+
+
+		String runSP = "{call SP_REVIEW_SAVE(?,?,?,?,?,?,?,?,?,?,?,?,?)}";
+		
+		LocalDate now = LocalDate.now();
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");		 
+        String formatedNow = now.format(formatter);
+        
+        
+
+		try {
+			conn = DBManager.getConnection();
+
+			cs = conn.prepareCall(runSP);
+			
+			cs.setString(1, realReviewVO.getReview_title());
+			cs.setString(2, realReviewVO.getReview_content());
+			cs.setString(3, realReviewVO.getReview_date());
+			cs.setString(4, realReviewVO.getInterest());
+			cs.setString(5, realReviewVO.getReview_order());
+			cs.setString(6, realReviewVO.getDwelling());
+			cs.setString(7, realReviewVO.getPlace());
+			cs.setString(8, realReviewVO.getReview_size());
+			cs.setString(9, realReviewVO. getBudget());
+			cs.setString(10, realReviewVO.getReview_style());
+			cs.setString(11, realReviewVO.getTogether());
+			cs.setString(12, realReviewVO.getUser_user_id());
+			cs.setString(13, realReviewVO.getProduct_p_id());
+			
+			cs.execute();
+		} catch (SQLException e) {
+			System.out.println("프로시저에서 에러 발생!");
+			System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, cs);
+		}
+
 	}
 }

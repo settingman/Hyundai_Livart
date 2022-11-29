@@ -26,6 +26,9 @@ import controller.action.MyView;
 import controller.action.PreOrdersAction;
 import controller.action.ProductDetailAction;
 import controller.action.ProductSortAction;
+import controller.action.RealReviewAction;
+import controller.action.RealReviewListAction;
+import controller.action.RealReviewSave;
 
 
 
@@ -57,6 +60,9 @@ public class FrontController extends HttpServlet{
         controllerMap.put("/livart/cart2/delete", new CartDeleteAction());
         controllerMap.put("/livart/cart2/update", new ChangeQuantityAction());
         controllerMap.put("/livart/order", new PreOrdersAction());
+        controllerMap.put("/livart/realreview", new RealReviewAction());
+        controllerMap.put("/livart/review", new RealReviewListAction());
+        controllerMap.put("/livart/reviewsave", new RealReviewSave());
         
 
     }
