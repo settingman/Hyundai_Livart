@@ -48,6 +48,7 @@
 	joinid = joinid==null?"":joinid;
 %>
 
+
 <body class="body-responsive">
     <div class="skipnavi">
         <a href="#container">본문 바로가기</a>
@@ -301,6 +302,8 @@
     // 로그인 실패시 비동기 식으로 데이터 뿌려줌
     function pwCheck() {
     	
+    	
+    	
     	//ajax로 보내면 request에서 뽑을수없음
     	// 데이터를 담아 보내줘야함
     	
@@ -320,6 +323,7 @@
 			    	console.log(result);
 			    	
 			    		if(result==1){
+			    			console.log(result);
 			    			
 			    			//성공했을때 메인 페이지로 redirect 해줌.
 			    			window.location.href="/main.jsp"
