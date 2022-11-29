@@ -34,7 +34,4 @@ public class ProductDetailAction implements ControllerLivart{
 		request.setAttribute("count", count); //상품 리뷰 이미지 개수
 		return new MyView("/WEB-INF/views/product_detail.jsp");
 	}
-
-	
-	
 }
