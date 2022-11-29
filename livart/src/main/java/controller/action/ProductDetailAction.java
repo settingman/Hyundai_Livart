@@ -35,7 +35,4 @@ public class ProductDetailAction implements ControllerLivart{
 		
 		return new MyView("/WEB-INF/views/product_detail.jsp");
 	}
-
-	
-	
 }

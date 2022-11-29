@@ -297,10 +297,10 @@
                 <header class="pitem-header-card-header">
                   <div class="pitem-header-btns">
                     <div class="pitem-header-btns__full">
-                      <button type="button" class="button is-primary is-large">
+                      <button type="button" class="button is-primary is-large" onclick="location.href='/WEB-INF/views/cart2.jsp' ">
                         장바구니
                       </button>
-                      <button type="button" class="button is-danger is-large">구매하기</button>
+                      <button type="button" class="button is-danger is-large" >구매하기</button>
 
                     </div>
 
