@@ -254,7 +254,9 @@
 	 	<span>수량</span>
 	 	<span class="count">
 	 		<a href="#" class="minus">-</a>
-	 		<span id="result">1</span>
+	 		
+	 		<input type="text" id="result2" value="1"/>
+	 		<span id="result" value="1">1</span>
 	 		<a href="#" class="plus">+</a>
 	 	
 	 	</span>
@@ -272,19 +274,20 @@
  <script>
 	 	let plus =document.querySelector(".plus");
 	 	let minus = document.querySelector(".minus");
-	 	let result = document.querySelector("#result");
+	 	//let result = document.querySelector("#result2");
+	 	let result = $("#result2");
 	 	let totalcost = document.querySelector(".totalcost")
 	 	let i =1;
 	 	plus.addEventListener("click",() => {
 	 		i++
-	 		result.textContent = i;
+	 		result.val(i);
 	 		let totalcostNum = i ;
 	 		totalcost.textContent = ((${  (productVO.p_price - (productVO.p_price * (productVO.p_discount / 100)))} * i) + ${productVO.p_deliveryfee} ).toLocaleString() ;
 	 	})
 	 	minus.addEventListener("click", () => {
 	 		if(i>0){
 	 			i--
-	 			result.textContent =i;
+	 			result.val(i);
 	 			let totalcostNum = i;
 	 			totalcost.textContent = ((${  (productVO.p_price - (productVO.p_price * (productVO.p_discount / 100)))} * i) + ${productVO.p_deliveryfee}).toLocaleString();
 	 		}else{
@@ -297,7 +300,7 @@
                 <header class="pitem-header-card-header">
                   <div class="pitem-header-btns">
                     <div class="pitem-header-btns__full">
-                      <button type="button" class="button is-primary is-large" onclick="location.href='/WEB-INF/views/cart2.jsp' ">
+                      <button type="button" class="button is-primary is-large" id="btn_cart">
                         장바구니
                       </button>
                       <button type="button" class="button is-danger is-large" >구매하기</button>
@@ -324,7 +327,7 @@
         <section class="pitem-section" id="pitem-detail-1">
           <div class="container">
             <div class="pitem-section-header">
-              <h3 class="pitem-section-header__title">상세리뷰</h3>
+              <h3 class="pitem-section-header__title">Real리뷰(${count }개 리뷰)</h3>
             </div>
             <div class="swiper mySwiper">
               <div class="slideshow-container">
@@ -334,7 +337,7 @@
                 <c:forEach var="img" items="${imageList }" >
                 <div class="mySlides fade">
                   
-                  <img onclick="javascript:location.href='/livart/product?command=${img.review_review_id}';" style="cursor:pointer" src="${img.photo_url }" style="width:100%">
+                  <img onclick="javascript:location.href='/livart/realreview?command=${img.review_review_id}';" style="cursor:pointer" src="${img.photo_url }" style="width:100%">
                   <div class="text">Caption Text</div>
                   <!-- 성환이형페이지로 넘겨야함 나중에 onclick url 을 여기에있는 /livart/review/command=${img.review_review_id} 서블릿으로 변경 예정 -->
                 </div>
@@ -354,7 +357,19 @@
           </div>
 
         </section>
+		<script>
+					//진후
+		$(function(){// 상품상세 -> 장바구니에 필요한 정보 넘기기 위해 function 생성하였습니다
+			$("#btn_cart").click(function(){ 
+			          var result = $("#result2").val();
+			          alert("장바구니에 해당 상품이 담겼습니다");
+			          location.href='/livart/cart2?pid=${productVO.p_id}&uid=<%=joinid%>&qty='+result;
+			       
+			})
+		})  
 		
+		
+		</script>
         <section class="pitem-section" id="pitem-detail-1">
           <div class="container">
             <div class="pitem-section-header">
