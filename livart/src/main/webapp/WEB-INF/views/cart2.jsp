@@ -371,7 +371,7 @@
 									success : function(data) {
 
 										console.log("ajax 실행");
-										delete_btn.closest('tr').fadeOut();
+//										delete_btn.closest('tr').fadeOut();
 //										total_price_calc();
 //										$('.total-amount').load("livart/cart2 .total-amount");
 //										$('.new_data').load("livart/cart2 .new_data", total_price_calc());

@@ -21,9 +21,11 @@
 <div class="section-contents-wrap order-payment">
   <h3 class="title is-3 is-normal">주문결제</h3>
 
-  <form name="order_form" data-gtm-form-interact-id="0">
+  <form name="order_form" data-gtm-form-interact-id="0" action="/livart/order/save" method="post">
+    
+    <input type="hidden" name="cartId" value="${buyCartItemList[0].cart_id }">
     <!-- 주문자 정보-->
-    <fieldset action="#">
+    <fieldset >
       <legend>주문자 정보 등록</legend>
       <section>
         <div class="section-contents-item">
@@ -191,11 +193,11 @@
                               <td>
                                   <!-- 직접입력 선택시 input text 노출 -->
                                   <div id="deliveryDirect" class="select delivery-direct">
-                                      <select id="delivery-request" data-gtm-form-interact-field-id="1">
+                                      <select id="delivery-request" name="delivery-request" data-gtm-form-interact-field-id="1">
                                           
-                                              <option value="direct">직접 입력</option>
+                                        <!--  <option value="direct">직접 입력</option> -->
                                           
-                                              <option value="배송 전에 연락주세요.">배송 전에 연락주세요.</option>
+                                              <option value="배송 전에 연락주세요." selected>배송 전에 연락주세요.</option>
                                           
                                               <option value="부재시 경비실에 맡겨주세요.">부재시 경비실에 맡겨주세요.</option>
                                           
@@ -207,8 +209,9 @@
                                           
                                       </select>
                                   </div>
+                                  <!-- 
                                   <input class="input input-delivery-direct" type="text" id="deliveryDirectManual" placeholder="직접입력 (설치 기사님에게 전할 말씀을 50자 이내로 남겨주세요)" maxlength="50" style="display: inline-block;">
-                                  <input type="hidden" id="dlvMemo" name="dlvMemo">
+                                  <input type="hidden" id="dlvMemo" name="dlvMemo">  -->
                               </td>
                           </tr>
                       </tbody>
@@ -223,7 +226,7 @@
     <div class="section-contents-item">
         <div class="content-title-wrap">
             <h3 class="content-title is-liner top-line">직접배송 상품주문</h3>
-            <span class="direct-delivery-info right-position">직접배송 상품(가구 등)의 배송 및 설치를 위해 아래 사항을 선택해주세요. 선택하신 사항에 따라 배송 전 등록된 연락처로 안내를 드릴 예정입니다.</span>
+            <span class="direct-F right-position">직접배송 상품(가구 등)의 배송 및 설치를 위해 아래 사항을 선택해주세요. 선택하신 사항에 따라 배송 전 등록된 연락처로 안내를 드릴 예정입니다.</span>
         </div>
 
         <div class="table-box table-box-form">
@@ -433,7 +436,7 @@
       </div>
   
   <!-- 결제하기 버튼 -->
-  <input type="button" class="button is-danger is-large is-fullwidth" id="payTran" value="결제하기">
+  <input type="submit" class="button is-danger is-large is-fullwidth" id="payTran" value="결제하기">
 </section>
 
   </form>
@@ -441,5 +444,7 @@
 </div>
 
 <div id="criteo-tags-div" style="display: none;"></div><iframe height="0" width="0" title="Criteo DIS iframe" style="display: none;"></iframe></body>
+
+
 </body>
 </html>

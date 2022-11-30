@@ -93,25 +93,25 @@
    //-->
  
    </script>
-   	
+      
 
 <title>Insert title here</title>
 </head>
 <body>
 
-		<%@ include file="../../static/header.jsp" %>
-	
+      <%@ include file="../../static/header.jsp" %>
+   
   <div class="contents-items-wrap">
     <div class="container">
     <c:choose>
-    	<c:when test="${empty productVO }">
-    		<tr>
-								<td colspan=5>
-									<b>등록된 회원 없음</b>
-							</td>
-							</tr>
-    	</c:when>
-    	<c:when test="${!empty productVO }">
+       <c:when test="${empty productVO }">
+          <tr>
+                        <td colspan=5>
+                           <b>등록된 회원 없음</b>
+                     </td>
+                     </tr>
+       </c:when>
+       <c:when test="${!empty productVO }">
       <section class="pitem-header clear">
         <div class="fl">
           <div class="pitem-header-photo">
@@ -249,20 +249,20 @@
   <input type="button" value=" - " onclick="del();"><br>
   <input type="text" name="sum" size="13" readonly>
   </form> -->
-	  
-	 <div class="num">
-	 	<span>수량</span>
-	 	<span class="count">
-	 		<a href="#" class="minus">-</a>
-	 		
-	 		<input type="text" id="result2" value="1"/>
-	 		<span id="result" value="1">1</span>
-	 		<a href="#" class="plus">+</a>
-	 	
-	 	</span>
-	 </div>
-	
-	 <h1 class="totalcost2"></h1>
+     
+    <div class="num">
+       <span>수량</span>
+       <span class="count">
+          <a href="#" class="minus">-</a>
+          
+          <input type="text" id="result2" value="1"/>
+          <span id="result" value="1">1</span>
+          <a href="#" class="plus">+</a>
+       
+       </span>
+    </div>
+   
+    <h1 class="totalcost2"></h1>
             </div>
             <div class="pitem-header-sum">
               <div class="pitem-header-sum__price"></div>
@@ -272,29 +272,29 @@
 
             </div>
  <script>
-	 	let plus =document.querySelector(".plus");
-	 	let minus = document.querySelector(".minus");
-	 	//let result = document.querySelector("#result2");
-	 	let result = $("#result2");
-	 	let totalcost = document.querySelector(".totalcost")
-	 	let i =1;
-	 	plus.addEventListener("click",() => {
-	 		i++
-	 		result.val(i);
-	 		let totalcostNum = i ;
-	 		totalcost.textContent = ((${  (productVO.p_price - (productVO.p_price * (productVO.p_discount / 100)))} * i) + ${productVO.p_deliveryfee} ).toLocaleString() ;
-	 	})
-	 	minus.addEventListener("click", () => {
-	 		if(i>0){
-	 			i--
-	 			result.val(i);
-	 			let totalcostNum = i;
-	 			totalcost.textContent = ((${  (productVO.p_price - (productVO.p_price * (productVO.p_discount / 100)))} * i) + ${productVO.p_deliveryfee}).toLocaleString();
-	 		}else{
-	 			total.textContent = 0
-	 		}
-	 	})
-	 </script>
+       let plus =document.querySelector(".plus");
+       let minus = document.querySelector(".minus");
+       //let result = document.querySelector("#result2");
+       let result = $("#result2");
+       let totalcost = document.querySelector(".totalcost")
+       let i =1;
+       plus.addEventListener("click",() => {
+          i++
+          result.val(i);
+          let totalcostNum = i ;
+          totalcost.textContent = ((${  (productVO.p_price - (productVO.p_price * (productVO.p_discount / 100)))} * i) + ${productVO.p_deliveryfee} ).toLocaleString() ;
+       })
+       minus.addEventListener("click", () => {
+          if(i>0){
+             i--
+             result.val(i);
+             let totalcostNum = i;
+             totalcost.textContent = ((${  (productVO.p_price - (productVO.p_price * (productVO.p_discount / 100)))} * i) + ${productVO.p_deliveryfee}).toLocaleString();
+          }else{
+             total.textContent = 0
+          }
+       })
+    </script>
             <div class="pitem-header-floating-wrap">
               <div class="pitem-header-floating" style="position: relative; top: initial;">
                 <header class="pitem-header-card-header">
@@ -341,7 +341,7 @@
                   <div class="text">Caption Text</div>
                   <!-- 성환이형페이지로 넘겨야함 나중에 onclick url 을 여기에있는 /livart/review/command=${img.review_review_id} 서블릿으로 변경 예정 -->
                 </div>
-				
+            
 
                 <!-- Next and previous buttons -->
                 <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
@@ -357,19 +357,19 @@
           </div>
 
         </section>
-		<script>
-					//진후
-		$(function(){// 상품상세 -> 장바구니에 필요한 정보 넘기기 위해 function 생성하였습니다
-			$("#btn_cart").click(function(){ 
-			          var result = $("#result2").val();
-			          alert("장바구니에 해당 상품이 담겼습니다");
-			          location.href='/livart/cart2?pid=${productVO.p_id}&uid=<%=joinid%>&qty='+result;
-			       
-			})
-		})  
-		
-		
-		</script>
+      <script>
+               //진후
+      $(function(){// 상품상세 -> 장바구니에 필요한 정보 넘기기 위해 function 생성하였습니다
+         $("#btn_cart").click(function(){ 
+                   var result = $("#result2").val();
+                   alert("장바구니에 해당 상품이 담겼습니다");
+                   location.href='/livart/cart2?pid=${productVO.p_id}&uid=<%=userid%>&qty='+result;
+                
+         })
+      })  
+      
+      
+      </script>
         <section class="pitem-section" id="pitem-detail-1">
           <div class="container">
             <div class="pitem-section-header">
@@ -388,7 +388,7 @@
           </div>
         </section>
 
-		</c:forEach>
+      </c:forEach>
 
 
         <!-- <section class="pitem-section" id="pitem-detail-4">
