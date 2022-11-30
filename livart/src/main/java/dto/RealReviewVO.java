@@ -22,7 +22,10 @@ public class RealReviewVO {
 	private String product_p_id;
 	
 	private String photo_url;//join 위한 변수
-
+ 
+	public RealReviewVO() {
+		
+	}
 	public RealReviewVO(int review_id, String review_title, String review_content, String review_date, String interest,
 			String review_order, String dwelling, String place, String review_size, String budget, String review_style,
 			String together, String user_user_id, String product_p_id, String photo_url) {

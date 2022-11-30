@@ -1660,46 +1660,6 @@
   }
   </script>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 		<!-- S : 메인고수의집들이PC1 -->
 		<section class="section-main section-house-warming"
 			id="mnmoduleD000000475">
@@ -1707,7 +1667,7 @@
 			<input type="hidden" name="totalCnt" value="489">
 
 			<div class="section-title-wrap">
-				<h3 class="section-title">고수의 집들이</h3>
+				<h3 class="section-title">형님들의 집들이</h3>
 
 				<a
 					href="https://www.hyundailivart.co.kr/community/export?pagecode=D000000475"
