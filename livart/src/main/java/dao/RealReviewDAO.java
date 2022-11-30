@@ -118,9 +118,7 @@ public class RealReviewDAO {
 
 		String runSP = "{call SP_REVIEW_SAVE(?,?,?,?,?,?,?,?,?,?,?,?,?)}";
 		
-		LocalDate now = LocalDate.now();
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");		 
-        String formatedNow = now.format(formatter);
+		
         
         
 

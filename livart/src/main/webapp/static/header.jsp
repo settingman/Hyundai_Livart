@@ -197,13 +197,15 @@ to {
 <body>
 
 	<%
-	String joinid = (String) session.getAttribute("loginUserid");
-	joinid = joinid == null ? "" : joinid;
+	String userid = (String) session.getAttribute("loginUserid");
+	userid = userid == null ? "" : userid;
 	%>
-
-
-
-
+	
+	<%-- <c:out value="${sessionScope.loginUserid}"/>
+	<%=userid %> --%>
+	
+	
+	
 	<!--header------------------------------------------------------------------------------->
 	<div class="header-top">
 		<div class="container">

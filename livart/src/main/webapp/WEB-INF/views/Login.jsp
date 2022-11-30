@@ -138,6 +138,8 @@
 
 										<p class="help color-danger text-left" id="pwError">
 											<c:out value=" ${failLogin}"></c:out>
+											<!-- 동기식으로 할때 failLogin을 리턴함
+											ajax랑 상관 x -->
 										</p>
 									</div>
 									<div class="field text-left">

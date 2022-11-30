@@ -29,6 +29,7 @@ import controller.action.ProductSortAction;
 import controller.action.RealReviewAction;
 import controller.action.RealReviewListAction;
 import controller.action.RealReviewSave;
+import controller.action.ReviewForm;
 
 
 
@@ -63,6 +64,7 @@ public class FrontController extends HttpServlet{
         controllerMap.put("/livart/realreview", new RealReviewAction());
         controllerMap.put("/livart/review", new RealReviewListAction());
         controllerMap.put("/livart/reviewsave", new RealReviewSave());
+        controllerMap.put("/livart/reviewform", new ReviewForm());
         
 
     }

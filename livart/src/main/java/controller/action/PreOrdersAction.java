@@ -16,7 +16,7 @@ public class PreOrdersAction implements ControllerLivart {
 
 	public MyView process(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
-		/* ver 1
+	
 		String userId = request.getParameter("userId");
 		
 		CartDAO cartDAO = new CartDAO();
@@ -27,19 +27,19 @@ public class PreOrdersAction implements ControllerLivart {
 		request.setAttribute("buyCartItemList", buyCartItemList);
 		request.setAttribute("preOrderInfo", preOrderInfo);
 		
-		return new MyView("/WEB-INF/views/orders.jsp"); */
-		System.out.println("preordersaction에 들어옴");
+		return new MyView("/WEB-INF/views/orders.jsp"); 
+//		System.out.println("preordersaction에 들어옴");
+//		
+//		int index =0;
+//		String pid = "productId[";
+//		String price = "productPrice[";
+//		String qua = "quantity[";
+//		while(request.getParameter(pid+index+"]")!=null) {
+//			System.out.println(pid+index+"]");
+//			index++;
+//		}
 		
-		int index =0;
-		String pid = "productId[";
-		String price = "productPrice[";
-		String qua = "quantity[";
-		while(request.getParameter(pid+index+"]")!=null) {
-			System.out.println(pid+index+"]");
-			index++;
-		}
-		
-		return null;
+//		return null;
 		
 	}
 }
