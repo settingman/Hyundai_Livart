@@ -44,7 +44,7 @@ public class OrdersAction implements ControllerLivart{
 
 			
 			for(int i=0; i < cartItemList.size(); i++) {
-				cartDAO.insertOrderItem(order_id, cartItemList.get(i).getP_id(), cartItemList.get(i).getQuantity());
+				cartDAO.insertOrderItem(order_id, cartItemList.get(i).getP_id(), cartItemList.get(i).getQuantity(),cart_id);
 			}
 			
 			return new MyView("/WEB-INF/views/cart2.jsp"); 

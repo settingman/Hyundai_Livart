@@ -264,18 +264,20 @@ public class CartDAO {
 		return order_id;
 	}
 	
-	public void insertOrderItem(int order_id, String p_id, int quantity) {
+	public void insertOrderItem(int order_id, String p_id, int quantity, int cart_id) {
 		
 		CallableStatement callableStatement = null;
 		
 		try {
 			conn = DBManager.getConnection();
-			String query = "{call insert_order_list_item(?,?,?)}";
+			String query = "{call insert_order_list_item(?,?,?,?)}";
 			callableStatement = conn.prepareCall(query);
+			System.out.println("아이템 넣을것");
 			
 			callableStatement.setInt(1, order_id);
 			callableStatement.setString(2, p_id);
 			callableStatement.setInt(3, quantity);
+			callableStatement.setInt(4, cart_id);
 			
 			callableStatement.executeUpdate();
 			
