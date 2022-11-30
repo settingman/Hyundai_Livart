@@ -11,9 +11,15 @@
 
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="write3.css">
 
 </head>
+
+
+<%
+	String userid = (String) session.getAttribute("loginUserid");
+	userid = userid == null ? "nologin" : userid;
+%>
+
 
 <body>
 	<header class="comm-editor-header">
@@ -22,13 +28,13 @@
 
 			<div class="header-left">
 				<a class="comm-editor-header__logo--main" href="#default"
-					class="logo"><img src="../image/new_logo.png">커뮤니티</a>
+					class="logo"><img src="https://static.hyundailivart.co.kr/assets/images/common/new_logo.png">리얼리뷰</a>
 			</div>
 
 			<div class="header-right">
 				<button href="#home">미리보기</button>
-				<button href="#contact">임시저장</button>
-				<button href="#about">발행 신청</button>
+				<button href="/main.jsp">임시저장</button>
+				<button onclick="ReviewSave()"">발행 신청</button>
 			</div>
 		</div>
 	</header>
@@ -143,47 +149,7 @@
 							<option value="F0007">3천만원 이상</option>
 						</select>
 					</div>
-					<div class="form_f">
-						<label for="location">지역</label> <select id="location"
-							name="location">
-							<option value="">시,도 선택</option>
-							<option value="ALL">전체</option>
-
-							<option value="S0001">서울특별시</option>
-
-							<option value="S0002">경기도</option>
-
-							<option value="S0003">인천광역시</option>
-
-							<option value="S0004">강원도</option>
-
-							<option value="S0005">충청북도</option>
-
-							<option value="S0006">세종특별자치시</option>
-
-							<option value="S0007">충청남도</option>
-
-							<option value="S0008">대전광역시</option>
-
-							<option value="S0009">경상북도</option>
-
-							<option value="S0010">대구광역시</option>
-
-							<option value="S0011">울산광역시</option>
-
-							<option value="S0012">부산광역시</option>
-
-							<option value="S0013">경상남도</option>
-
-							<option value="S0014">전라북도</option>
-
-							<option value="S0015">전라남도</option>
-
-							<option value="S0016">광주광역시</option>
-
-							<option value="S0017">제주특별자치도</option>
-						</select>
-					</div>
+					
 					<div class="form_f">
 						<label for="family">함께</label> <select id="family" name="family">
 							<option value="">선택해주세요.</option>
@@ -311,36 +277,78 @@
 	<script>
 		// 성환
 		// 리뷰데이터 보내기.
-		function pwCheck() {
+		function ReviewSave() {
+			
+			console.log('리뷰진입')
 
 			//ajax로 보내면 request에서 뽑을수없음
 			// 데이터를 담아 보내줘야함
-
+			
+		
+			
+		
+			var x2 = document.getElementById("contents");
+			var x3 = document.getElementById("interest");
+			
+			var x4 = document.getElementById("?");
+			
+			var x5 = document.getElementById("housing");
+			var x6 = document.getElementById("place");
+			var x7 = document.getElementById("space");
+			var x8 = document.getElementById("price");
+			var x9 = document.getElementById("style");
+			var x10 = document.getElementById("family");
+			
+			var x11 = document.getElementById("?");
+			var x12 = document.getElementById("?");
+			var x13 = document.getElementById("?");
+			
+			
+		
+			
 			var String
-			review_title = $('#titl').val();
+			review_title =  $('input#commtitle').val();
+			console.log(review_title);
+			
 			var String
-			review_content = $('#contents').val();
+			review_content =  $('textarea#contents').val();
+			console.log(review_content);
+			
 			var String
-			interest = $('#interest').val();
+			interest = (x3.options[x3.selectedIndex].text);
+			console.log(interest)
 
 			var String
 			review_order = $('input#username').val();
 
 			var String
-			dwelling = $('#housing').val();
+			dwelling = (x5.options[x5.selectedIndex].text);
+			
+			console.log(dwelling)
+			
 			var String
-			place = $('#place').val();
+			place = (x6.options[x6.selectedIndex].text);
+			
+			console.log(place)
+			
 			var String
-			review_size = $('#space').val();
+			review_size = (x7.options[x7.selectedIndex].text);
 			var String
-			budget = $('#price').val();
+			budget = (x8.options[x8.selectedIndex].text);
 			var String
-			review_style = $('#style').val();
+			review_style = (x9.options[x9.selectedIndex].text);
 			var String
-			together = $('#family').val();
+			together = (x10.options[x10.selectedIndex].text);
 
 			var String
-			user_user_id = $('input#username').val();  // 서버에서 받아야하나?
+			user_user_id = '<%=userid %>';  // 서버에서 받아야하나?
+			
+			console.log(user_user_id);
+			
+			if(user_user_id=="nologin"){
+				alert('로그인 해주세요')
+			}
+			
 			var String
 			product_p_id = $('input#username').val();
 
@@ -349,7 +357,7 @@
 
 			$.ajax({
 				type : 'post',
-				url : '/livart/loginconfrim',
+				url : '/livart/reviewsave',
 				// ajax 데이터 받기
 				data : {
 
@@ -380,7 +388,7 @@
 						console.log(result);
 
 						//성공했을때 메인 페이지로 redirect 해줌.
-						window.location.href = "/main.jsp"
+						window.location.href = "/livart/review"
 
 					} else {
 						// 로그인 실패시 pwerror 필드 값 변경
@@ -398,5 +406,383 @@
 
 
 </body>
+<style>* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+label {
+  width: 30%;
+}
+
+.img_div {
+  margin: 0px;
+  height: auto;
+  background: white;
+}
+
+.center {
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.form-input {
+  width: 720px;
+  ;
+  min-height: 400px;
+  padding: 20px;
+  background: #f9f9f9;
+  box-shadow: -3px -3px 7px rgba(94, 104, 121, 0.377),
+    3px 3px 7px rgba(94, 104, 121, 0.377);
+}
+
+.img_p {
+  text-align: center;
+}
+
+.form-input input {
+  display: none;
+
+}
+
+.form-input label {
+  display: block;
+  width: 45%;
+  height: 45px;
+  margin-left: 25%;
+  line-height: 50px;
+  text-align: center;
+  background: #777;
+
+  color: #fff;
+  font-size: 15px;
+  font-family: "Open Sans", sans-serif;
+  text-transform: Uppercase;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form-input img {
+  width: 100%;
+  max-height: 800px;
+  height: auto;
+  display: none;
+
+  margin-bottom: 30px;
+}
+
+.comm-editor-body__title .input {
+  height: auto;
+  padding-top: 0;
+  padding-right: 50px;
+  padding-bottom: 10px;
+  padding-left: 0;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  font-size: 30px;
+}
+
+.comm-editor-body__title .count-txt {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  margin-top: -15px;
+  color: #ccc;
+  font-size: 14px;
+}
+
+.comm-editor-body__title {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  width: 50%;
+  margin: 55px 0 40px;
+}
+
+.txt {
+  width: 720px;
+  min-height: 450px;
+  height: auto;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #777
+}
+
+.header {
+  overflow: hidden;
+  background-color: #fff;
+  padding: 20px 10px;
+  border-bottom: 1px solid gray;
+}
+
+.comm-editor-header__logo--title {
+  margin-top: 10px;
+}
+
+.header a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 25px;
+  border-radius: 4px;
+}
+
+.header button {
+  border: solid red thin;
+  color: red;
+  margin-top: 0px;
+  width: 145px;
+  height: 65px;
+  margin-left: 20px;
+  float: left;
+  text-align: center;
+  padding: 12px;
+  font-size: 18px;
+  padding: 10px;
+  border-radius: 5px;
+  background: white;
+  font-weight: 500;
+}
+
+.header a.logo {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.header button:hover {
+  background-color: rgb(245, 54, 54);
+  color: white;
+
+}
+
+.header button.active {
+  background-color: rgb(245, 54, 54);
+  color: rgb(245, 54, 54);
+}
+
+.header-right {
+  float: right;
+}
+
+@media screen and (max-width: 500px) {
+  .header a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+
+  .header-right {
+    float: none;
+  }
+}
+
+div {
+  align-items: center;
+}
+
+.is-danger {
+  color: #ed2650;
+  font-weight: normal;
+}
+
+.coll_h3 {
+  display: block;
+  margin-bottom: 13px;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.1;
+  color: #333;
+}
+
+.collapsible {
+  border: 1px solid #ccc;
+  text-align: center;
+  background-color: white;
+  color: black;
+  cursor: pointer;
+  padding: 18px;
+  width: 50%;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  position: relative;
+  margin-bottom: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+
+
+
+.arrow {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+.up {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+.content {
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color: #f1f1f1;
+  align-items: right;
+  text-align: center;
+}
+
+.hi {
+  display: inline-block;
+  background-color: white;
+}
+
+input[type=text],
+select,
+textarea {
+  width: 100%;
+  /* Full width */
+  padding: 12px;
+  /* Some padding */
+  border: 1px solid #ccc;
+  /* Gray border */
+  border-radius: 4px;
+  /* Rounded borders */
+  box-sizing: border-box;
+  /* Make sure that padding and width stays in place */
+  margin-top: 6px;
+  /* Add a top margin */
+  margin-bottom: 16px;
+  /* Bottom margin */
+  resize: vertical
+    /* Allow the user to vertically resize the textarea (not horizontally) */
+}
+
+/* Style the submit button with a specific background color etc */
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* When moving the mouse over the submit button, add a darker green color */
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+/* Add a background color and some padding around the form */
+.container {
+  width: 50%;
+  border-radius: 5px;
+  background-color: white;
+  padding: 20px;
+}
+
+
+input,
+select {
+  padding: 5px;
+  margin-bottom: 20px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #eee;
+}
+
+input::placeholder {
+  color: #eee;
+}
+
+option {
+  background: white;
+  border: none;
+}
+
+.metod {
+  display: flex;
+}
+
+input[type=radio] {
+  display: none;
+}
+
+label.radio {
+  position: relative;
+  display: inline-block;
+  margin-right: 20px;
+  text-indent: 32px;
+  cursor: pointer;
+}
+
+label.radio:before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  border: 2px solid #1c87c9;
+}
+
+label.radio:after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 4px;
+  top: 5px;
+  left: 5px;
+  border-bottom: 3px solid #1c87c9;
+  border-left: 3px solid #1c87c9;
+  transform: rotate(-45deg);
+  opacity: 0;
+}
+
+input[type=radio]:checked+label:after {
+  opacity: 1;
+}
+
+button {
+  display: block;
+  width: 200px;
+  padding: 10px;
+  margin: 20px auto 0;
+  border: none;
+  border-radius: 5px;
+  background: #1c87c9;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.hi {
+  display: flex;
+  flex-direction: column;
+}
+
+.form_f {
+  display: flex;
+}
+
+
+
+</style>
 
 </html>

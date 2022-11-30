@@ -20,8 +20,11 @@ public class RealReviewVO {
 	private String together;
 	private String user_user_id;
 	private String product_p_id;
-	
-	private String photo_url;//join 위한 변수
+
+	private String photo_url;// join 위한 변수
+
+	public RealReviewVO() {
+	}
 
 	public RealReviewVO(int review_id, String review_title, String review_content, String review_date, String interest,
 			String review_order, String dwelling, String place, String review_size, String budget, String review_style,
@@ -42,6 +45,16 @@ public class RealReviewVO {
 		this.product_p_id = product_p_id;
 		this.photo_url = photo_url;
 	}
+
+	@Override
+	public String toString() {
+		return "RealReviewVO [review_id=" + review_id + ", review_title=" + review_title + ", review_content="
+				+ review_content + ", review_date=" + review_date + ", interest=" + interest + ", review_order="
+				+ review_order + ", dwelling=" + dwelling + ", place=" + place + ", review_size=" + review_size
+				+ ", budget=" + budget + ", review_style=" + review_style + ", together=" + together + ", user_user_id="
+				+ user_user_id + ", product_p_id=" + product_p_id + ", photo_url=" + photo_url + "]";
+	}
 	
 	
+
 }
