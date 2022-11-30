@@ -30,6 +30,7 @@ public class MyView {
      		
      	}
     	else if(!viewPath.contains("redirect::")) {
+    		System.out.println("redirect!!");
     		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPath);
             dispatcher.forward(request, response);
     	}
