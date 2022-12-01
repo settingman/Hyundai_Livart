@@ -88,7 +88,7 @@ public class RealReviewDAO {
 			rs = (ResultSet) cs.getObject(1);
 
 			while (rs.next()) {
-			
+
 				RealReviewVO realReviewVO = new RealReviewVO();
 				realReviewVO.setReview_id(rs.getInt(1));
 				realReviewVO.setReview_title(rs.getString(2));
@@ -108,25 +108,21 @@ public class RealReviewDAO {
 		return realReviewList;
 	}
 
-	public void saveReview(RealReviewVO realReviewVO ) {
-		
+	public int saveReview(RealReviewVO realReviewVO) {
+
 		Connection conn = null;
 		CallableStatement cs = null;
 		ResultSet rs = null;
-		PreparedStatement ps =null;
+		PreparedStatement ps = null;
 
-
-		String runSP = "{call SP_REVIEW_SAVE(?,?,?,?,?,?,?,?,?,?,?,?,?)}";
-		
-		
-        
-        
+		String runSP = "{call SP_REVIEW_SAVE(?,?,?,?,?,?,?,?,?,?,?,?,?,?)}";
+		int review_id = 0;
 
 		try {
 			conn = DBManager.getConnection();
 
 			cs = conn.prepareCall(runSP);
-			
+
 			cs.setString(1, realReviewVO.getReview_title());
 			cs.setString(2, realReviewVO.getReview_content());
 			cs.setString(3, realReviewVO.getReview_date());
@@ -135,13 +131,16 @@ public class RealReviewDAO {
 			cs.setString(6, realReviewVO.getDwelling());
 			cs.setString(7, realReviewVO.getPlace());
 			cs.setString(8, realReviewVO.getReview_size());
-			cs.setString(9, realReviewVO. getBudget());
+			cs.setString(9, realReviewVO.getBudget());
 			cs.setString(10, realReviewVO.getReview_style());
 			cs.setString(11, realReviewVO.getTogether());
 			cs.setString(12, realReviewVO.getUser_user_id());
 			cs.setString(13, realReviewVO.getProduct_p_id());
-			
-			cs.execute();
+			cs.registerOutParameter(14, OracleTypes.NUMBER);
+
+			cs.executeUpdate();
+			review_id = cs.getInt(14);
+
 		} catch (SQLException e) {
 			System.out.println("프로시저에서 에러 발생!");
 			System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
@@ -150,6 +149,8 @@ public class RealReviewDAO {
 		} finally {
 			DBManager.close(conn, cs);
 		}
+		
+		return review_id;
 
 	}
 }

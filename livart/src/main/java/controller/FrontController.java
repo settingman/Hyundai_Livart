@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -30,6 +31,7 @@ import controller.action.RealReviewAction;
 import controller.action.RealReviewListAction;
 import controller.action.RealReviewSave;
 import controller.action.ReviewForm;
+import controller.action.mainPage;
 
 
 
@@ -65,6 +67,8 @@ public class FrontController extends HttpServlet{
         controllerMap.put("/livart/review", new RealReviewListAction());
         controllerMap.put("/livart/reviewsave", new RealReviewSave());
         controllerMap.put("/livart/reviewform", new ReviewForm());
+        controllerMap.put("/livart/main", new mainPage());
+        
         
 
     }
