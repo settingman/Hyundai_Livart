@@ -24,6 +24,7 @@ import controller.action.MemberLoginView;
 import controller.action.MemberLogout;
 import controller.action.MemberSave;
 import controller.action.MyView;
+import controller.action.OrdersAction;
 import controller.action.PreOrdersAction;
 import controller.action.ProductDetailAction;
 import controller.action.ProductSortAction;
@@ -68,6 +69,7 @@ public class FrontController extends HttpServlet{
         controllerMap.put("/livart/reviewsave", new RealReviewSave());
         controllerMap.put("/livart/reviewform", new ReviewForm());
         controllerMap.put("/livart/main", new mainPage());
+        controllerMap.put("/livart/order/save", new OrdersAction());
         
         
 
