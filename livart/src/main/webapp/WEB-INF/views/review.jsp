@@ -679,253 +679,10 @@
 	</div>
 
 
+<%@ include file="../../static/header.jsp" %>
 
-
-	<header class="header header-style-www" id="header">
-		<div class="header-logo">
-			<div class="container">
-
-				<a href="https://www.hyundailivart.co.kr/community"
-					class="header-logo__community"><h1>LIVART</h1></a> <a
-					href="https://www.hyundailivart.co.kr/community"
-					class="header-logo__community-sub"><h1>커뮤니티</h1></a>
-
-
-				<ul class="header-member-menu">
-
-					<li><a href="https://www.hyundailivart.co.kr/login"
-						id="loginBtn" class="header-member-menu__btn icon i-gnb_mem1"><i
-							class="icon-gnb_mem1"></i><span>로그인</span></a> <input type="hidden"
-						name="loginYn" value="N"></li>
-					<li><a
-						href="https://www.hyundailivart.co.kr/member/memberJoin"
-						class="header-member-menu__btn icon i-gnb_mem2"><i
-							class="icon-gnb_mem2"></i><span>회원가입</span></a></li>
-
-
-					<li><a href="https://www.hyundailivart.co.kr/cart"
-						class="header-member-menu__btn icon i-gnb_mem3"><i
-							class="icon-gnb_mem3"></i><span>장바구니</span></a></li>
-					<li><a
-						href="https://www.hyundailivart.co.kr/csCenter/shopMgmt"
-						class="header-member-menu__btn icon i-gnb_mem4"><i
-							class="icon-gnb_mem4"></i><span>매장찾기</span></a></li>
-					<li><a
-						href="https://www.hyundailivart.co.kr/csCenter/shopResev"
-						class="header-member-menu__btn icon i-gnb_mem7"><i
-							class="icon-gnb_mem7"></i><span>방문상담예약</span></a></li>
-					<li><a href="https://www.hyundailivart.co.kr/csCenter/main"
-						class="header-member-menu__btn icon i-gnb_mem5"><i
-							class="icon-gnb_mem5"></i><span>고객센터</span></a></li>
-				</ul>
-
-				<div class="header-search-wrap">
-					<form action="/search/search" name="searchForm">
-						<input type="hidden" id="recommUrl"> <input type="hidden"
-							id="linkedUrl">
-						<fieldset>
-							<legend>통합검색</legend>
-							<div class="header-search">
-								<div class="header-search__input-wrap">
-									<input type="text" id="searchKeyword" name="kwd"
-										autocomplete="off" class="header-search__input"
-										placeholder="검색어를 입력하세요" title="검색어">
-								</div>
-								<button type="submit" class="header-search__submit icon"
-									id="searchKwdBtn">
-									<i class="ico-search"></i><span class="sr-only">검색</span>
-								</button>
-							</div>
-						</fieldset>
-					</form>
-
-					<!-- S : 최근검색어/인기검색어 -->
-					<div class="header-search-content" id="headerSearchContent"
-						style="display: none;">
-						<div class="header-search-content__header">
-							<ul>
-								<li class="is-active">
-									<button id="tab-search1" class="tab" role="tab"
-										aria-controls="tabpanel-search1">
-										<span>최근 검색어</span>
-									</button>
-								</li>
-								<li>
-									<button id="tab-search2" class="tab" role="tab"
-										aria-controls="tabpanel-search2">
-										<span>인기 검색어</span>
-									</button>
-								</li>
-							</ul>
-						</div>
-						<!-- 최근 검색어 -->
-						<div id="tabpanel-search1" class="tabpanel is-active"
-							role="tabpanel" aria-labelledby="tab-search1">
-							<div class="header-search-content__body lately-complete">
-								<ul>
-								</ul>
-							</div>
-							<div class="header-search-content__footer clear">
-								<div class="fl">
-									<button class="button-search-all__del">검색기록 전체삭제</button>
-								</div>
-								<div class="fr">
-									<button class="button-search-content__close">
-										닫기 <i class="icon-del-small"></i>
-									</button>
-								</div>
-							</div>
-						</div>
-						<!-- //최근 검색어 -->
-						<!-- 인기검색어 -->
-						<div id="tabpanel-search2" class="tabpanel is-active"
-							role="tabpanel" aria-labelledby="tab-search2" hidden="">
-							<div class="header-search-content__body">
-								<ol class="header-search-content__popular">
-								</ol>
-							</div>
-							<div class="header-search-content__footer">
-								<div class="fl"></div>
-								<div class="fr">
-									<button class="button-search-content__close">
-										닫기 <i class="icon-del-small"></i>
-									</button>
-								</div>
-							</div>
-						</div>
-						<!-- //인기검색어 -->
-					</div>
-					<!-- E : 최근검색어/인기검색어 -->
-
-					<!-- S : 자동완성 -->
-					<div class="header-search-content" id="headerSearchKeyword"
-						style="display: none;">
-						<div class="header-search-content__header" id="cateKwdAuto">
-						</div>
-						<div class="header-search-content__body">
-							<ul id="goodsKwdAuto">
-								<li></li>
-							</ul>
-						</div>
-						<div class="header-search-content__footer">
-							<ul class="header-search-content__footer--hash" id="evtKwdAuto">
-							</ul>
-						</div>
-					</div>
-					<!-- E : 자동완성 -->
-				</div>
-			</div>
-		</div>
-		<!-- //header logo -->
-
-
-		<div id="gnb">
-			<!-- gnb category -->
-			<div class="gnb-category-wrap">
-				<div class="fullmenu-bar">
-					<div class="container clear">
-						<!-- <button type="button" class="fullmenu__btn icon"><i class="icon-fullmenu"></i><span class="hidden">풀메뉴 열기</span></button> -->
-						<!-- anime.js : svg line animation 처리 -->
-						<nav class="gnb-category">
-							<h2 class="hidden">카테고리 메뉴</h2>
-							<ul class="gnb-category__menu gnb-category__menu-comm">
-
-								<li class=""><a href="/community/lan">랜선집들이</a></li>
-
-								<li class=""><a href="/livart/rebuy">고수의 집들이</a></li>
-
-								<li class=""><a href="/community/magazineHinge">매거진</a></li>
-
-								<li class=""><a href="/community/event">이벤트</a></li>
-
-								<li class=""><a href="/community/eventDetail/E200000082">커뮤니티
-										스토리</a></li>
-
-							</ul>
-						</nav>
-
-						<a href="javascript:" class="button button-comm-write"><i
-							class="ico-comm_content"></i>콘텐츠 등록</a>
-					</div>
-				</div>
-				<div class="fullmenu-wrap">
-					<div class="container"></div>
-				</div>
-			</div>
-			<!-- //gnb category -->
-		</div>
-
-
-		<div id="modal-comm-selectcontent" class="modal" style="display: none">
-			<div class="container">
-				<!-- S : 글등록 선택 -->
-				<div class="comm-contents-seltop">
-					<p class="comm-contents-seltop__desc">All New 리바트 커뮤니티 콘텐츠의 주역이
-						되어보세요</p>
-					<strong class="comm-contents-seltop__title"> 콘텐츠 등록하면<br>
-						H포인트와 상품이 우르르!
-					</strong>
-				</div>
-				<ul class="comm-contents-select">
-					<li><a href="javascript:;" ;="" data-url="/community/lan/form"
-						onclick="$.eshopfront.cmm.doLogin(&quot;/community/lan/form&quot;)">
-							<div class="inner">
-								<i class="comm-contents-select__img"> <img
-									src="https://static.hyundailivart.co.kr/assets/images/community/comm-c1.png"
-									alt="">
-								</i>
-								<h4 class="comm-contents-select__title">랜선 집들이</h4>
-								<p class="comm-contents-select__desc">집들이 콘텐츠 등록 시</p>
-								<p class="comm-contents-select__point">2,000P</p>
-								<p class="comm-contents-select__point_desc">(최초 등록시 5,000P)</p>
-							</div>
-					</a></li>
-					<li><a href="javascript:;"
-						;="" data-url="/community/export/form"
-						onclick="$.eshopfront.cmm.doLogin(&quot;/community/export/form&quot;)">
-							<div class="inner">
-								<i class="comm-contents-select__img"> <img
-									src="https://static.hyundailivart.co.kr/assets/images/community/comm-c2.png"
-									alt="">
-								</i>
-								<h4 class="comm-contents-select__title">고수의 집들이</h4>
-								<p class="comm-contents-select__desc">전문시공사례 등록 시</p>
-								<p class="comm-contents-select__point">최대 12,000P</p>
-							</div>
-					</a></li>
-					<!--  
-              <li>
-                <a href='javascript:;'; data-url='/community/knowhow/form' onclick='$.eshopfront.cmm.doLogin("/community/knowhow/form")'>
-                  <div class="inner">
-                    <i class="comm-contents-select__img">
-                      <img src="https://static.hyundailivart.co.kr/assets/images/community/comm-c3.png" alt="" />
-                    </i>
-                    <h4 class="comm-contents-select__title">노하우</h4>
-                    <p class="comm-contents-select__desc">노하우 기고 시</p>
-                    <p class="comm-contents-select__point">3,000P</p>
-                  </div>
-                </a>
-              </li>-->
-				</ul>
-				<ul class="comm-contents-select__guide">
-					<li><a
-						href="https://www.hyundailivart.co.kr/eventDetail/E200000057">
-							<p>
-								작성가이드 보기 &nbsp;&nbsp;<span>〉</span>
-							</p>
-					</a></li>
-					<li><a
-						href="https://www.hyundailivart.co.kr/eventDetail/E200000090">
-							<p>
-								작성가이드 보기 &nbsp;&nbsp;<span>〉</span>
-							</p>
-					</a></li>
-				</ul>
-				<!-- E : 글등록 선택 -->
-			</div>
-		</div>
-
-	</header>
+	
+	
 	<div id="criteo-tags-div" style="display: none;"></div>
 	<script type="text/javascript">
         $(document).ready(function(){
@@ -1685,6 +1442,12 @@
 								<div class="item-tag">
 									<div class="item-tag"></div>
 								</div>
+								
+								
+					<!-- 				realReviewVO.setReview_id(rs.getInt(1));
+				realReviewVO.setReview_title(rs.getString(2));
+				realReviewVO.setUser_user_id(rs.getString(3));
+				realReviewVO.setPhoto_url(rs.getString(4)); -->
 
 								<div class="product-item-image ">
 									<img
@@ -1695,7 +1458,7 @@
 							<div class="product-item-content">
 								<a href="/livart/realreview?command=${reviewval.review_id }">
 									<h1 class="product-item-header">
-										<span class="product-item-header__name">${reviewval.review_title }</span>
+										<span class="product-item-header__name"> ${reviewval.review_title }</span>
 									</h1>
 								</a>
 								<div class="product-item-body">

@@ -209,7 +209,7 @@ to {
 	<!--header------------------------------------------------------------------------------->
 	<div class="header-top">
 		<div class="container">
-			<a href="https://www.hyundailivart.co.kr/index"
+			<a href="/livart/main"
 				class="gnb-brand-menu__home"><i class="ico-home"></i><span
 				class="sr-only">홈으로</span></a>
 			<ul class="gnb-brand-menu">
@@ -270,7 +270,7 @@ to {
 	<header class="header header-style-www" id="header">
 		<div class="header-logo">
 			<div class="container">
-				<a href="https://www.hyundailivart.co.kr/index"
+				<a href="/livart/main"
 					class="header-logo__title">
 					<h1>LIVART</h1>
 				</a>
