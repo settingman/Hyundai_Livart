@@ -27,7 +27,7 @@
     <section class="section-contents-table is-interval cartListSection">
       <div class="section-contents-table__button--wrap is-liner is-flex">
         <button class="button is-primary is-outlined is-small removeCartAll">전체삭제</button>
-        <button class="button is-small removeCartChecked">선택삭제</button>
+ <!--       <button class="button is-small removeCartChecked">선택삭제</button>   -->
       </div>
 
       <h4 class="title is-4 is-normal section-contents-table__table--total is-liner">
@@ -83,10 +83,13 @@
 
                 <!-- 위에서 저장한 부분 -->
                 <div class="checkbox checkbox__one">                   
-                   
+<!--                    
                   <input type="checkbox" class="checkCart10" name="price"
                   id=${cart.p_id } value=${cart.p_id }
-                  data-salestop="N" data-polcsn="DP20000632" checked data-cpnsupigoodsyn="N">
+                  data-salestop="N" data-polcsn="DP20000632" checked data-cpnsupigoodsyn="N"> -->
+                  
+                  <input type="checkbox" class="checkCart10 " name="price"
+                  id="${cart.p_id }" value="${cart.p_id }" checked>
                 
                 
                   <label for="${cart.p_id }"></label>
@@ -415,7 +418,7 @@
 											</tr>
 										</thead>`;
 										
-										console.log(row);
+								
 										for(var i = 0; i<obj.length;i++){
 											let p_price = obj[i].p_price;
 											let d_price = obj[i].d_price;
@@ -424,13 +427,13 @@
 											
 											row += `
 												<tbody><tr class="bundle-delivery" id='\${obj[i].p_id}'><td align="" class="item-checkbox cart_info_td">
-											    <input type="hidden" class="og_price" value="${obj[i].p_price * obj[i].quantity}">
-											    <input type="hidden" class="ogdc_price" value="${obj[i].d_price * obj[i].quantity}">  <!-- 최종 구매가 -->
-											    <input type="hidden" class="only_price" value="${obj[i].d_price}">
-											    <input type="hidden" class="deliveryfee" value="$(obj[i].p_deliveryfee)">
-											    <input type="hidden" class="dc_price" value="$(obj[i].p_price * obj[i].quantity) - $(obj[i].d_price * obj[i].quantity)">
-											    <input type="hidden" class="product_id" value="${obj[i].p_id}">
-											    <input type="hidden" class="quantity" value="${obj[i].quantity}">
+											    <input type="hidden" class="og_price" value='\${obj[i].p_price * obj[i].quantity}'>
+											    <input type="hidden" class="ogdc_price" value='\${obj[i].d_price * obj[i].quantity}'>  <!-- 최종 구매가 -->
+											    <input type="hidden" class="only_price" value='\${obj[i].d_price}'>
+											    <input type="hidden" class="deliveryfee" value='\${obj[i].p_deliveryfee}'>
+											    <input type="hidden" class="dc_price" value='\${obj[i].p_price * obj[i].quantity} - ${obj[i].d_price * obj[i].quantity}'>
+											    <input type="hidden" class="product_id" value='\${obj[i].p_id}'>
+											    <input type="hidden" class="quantity" value='\${obj[i].quantity}'>
 											      <!-- 상품에 대한 정보가 hidden 태그로 체크박스 안에 들어가도록 할 것-->
 											      <div class="checkbox-wrap">
 											        <!-- 상품에 대한 정보들 들어가는 부분-->
@@ -718,8 +721,7 @@
   $(".decQty").on("click", function(){
   	let quantity = $(this).parent("div").find("input").val();
   	if(quantity > 1){
-  		$(this).parent("div").find("input").val(--quantity);	
-  		
+  		$(this).parent("div").find("input").val(--quantity);
   	  	let productId = $(this).data("productid");
   	  	$(".update_productId").val(productId);
   		$(".update_product_quantity").val(quantity);
@@ -727,7 +729,6 @@
   	}
   });
   
-  /* 수량 수정 버튼 */
 
   
   </script>
