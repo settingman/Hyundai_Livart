@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.CartDAO;
 import dto.CartItemVO;
@@ -23,7 +24,10 @@ public class CartListAction implements ControllerLivart{
 		int qty = Integer.parseInt(request.getParameter("qty").trim());
 		cartDAO.insertCartItem(qty, pid, uid);
 		
-		ArrayList<CartItemVO> cartItemList = cartDAO.selectCartItemList();
+		HttpSession session = request.getSession();
+	    String user_id = (String) session.getAttribute("loginUserid");
+		
+		ArrayList<CartItemVO> cartItemList = cartDAO.selectCartBuyItemList(user_id);
 		request.setAttribute("cartItemList", cartItemList);
 		
 		return new MyView("/WEB-INF/views/cart2.jsp");

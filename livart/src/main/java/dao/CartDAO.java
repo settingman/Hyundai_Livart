@@ -86,10 +86,10 @@ public class CartDAO {
 
 	public ArrayList<CartItemVO> changeQty(String productId, int quantity) {
 		ArrayList<CartItemVO> cartItemList = null;
-
+		CallableStatement callableStatement = null;
 		try {
 			String query = "{call update_product_quantity(?,?)}";
-			CallableStatement callableStatement = conn.prepareCall(query);
+			callableStatement = conn.prepareCall(query);
 			callableStatement.setString(1, productId);
 			callableStatement.setInt(2, quantity);
 			int update_cnt = callableStatement.executeUpdate();
@@ -100,6 +100,8 @@ public class CartDAO {
 
 		} catch (Exception e) {
 
+		}finally {
+			DBManager.close(conn, callableStatement);
 		}
 		return cartItemList;
 	}
@@ -130,12 +132,12 @@ public class CartDAO {
 
 	public ArrayList<CartItemVO> selectCartBuyItemList(String userId) {
 		ArrayList<CartItemVO> cartItemList = new ArrayList<>();
-
+		CallableStatement callableStatement = null;
 		System.out.println("userId값 가지고 들어옴");
 		try {
 
 			String query = "{call all_cart_list(?,?)}";
-			CallableStatement callableStatement = conn.prepareCall(query);
+			callableStatement = conn.prepareCall(query);
 			callableStatement.setString(1, userId);
 			callableStatement.registerOutParameter(2, OracleTypes.CURSOR);
 
@@ -172,6 +174,8 @@ public class CartDAO {
 		} catch (SQLException e) {
 			System.out.println("프로시저에서 에러 발생!");
 			e.printStackTrace();
+		}finally {
+			DBManager.close(conn, callableStatement);
 		}
 		return cartItemList;
 	}
@@ -179,11 +183,11 @@ public class CartDAO {
 	public PreOrdersVO selectPreOrderInfo() {
 
 		PreOrdersVO preOrdersInfo = new PreOrdersVO();
-
+		CallableStatement callableStatement = null;
 		try {
 
 			String query = "call pre_order_info(?,?,?)";
-			CallableStatement callableStatement = conn.prepareCall(query);
+			callableStatement = conn.prepareCall(query);
 			callableStatement.setString(1, "kibeom5118");
 			callableStatement.registerOutParameter(2, java.sql.Types.VARCHAR);
 			callableStatement.registerOutParameter(3, java.sql.Types.VARCHAR);
@@ -198,6 +202,8 @@ public class CartDAO {
 
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, callableStatement);
 		}
 		return preOrdersInfo;
 	}
@@ -258,7 +264,7 @@ public class CartDAO {
 			System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
 			e.printStackTrace();
 		} finally {
-			//DBManager.close(conn, callableStatement);
+			DBManager.close(conn, callableStatement);
 		}
 		
 		return order_id;
@@ -286,7 +292,7 @@ public class CartDAO {
 			System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
 			e.printStackTrace();
 		} finally {
-			//DBManager.close(conn, callableStatement);
+			DBManager.close(conn, callableStatement);
 		}
 	}
 	
