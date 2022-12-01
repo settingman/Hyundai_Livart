@@ -40,7 +40,7 @@ import controller.action.mainPage;
 
 
 //성환
-// 모든 요청 처리 ( fronController, return MyView : my view 에서 랜더링 )
+// 모든 요청 처리 (fronController, return MyView : my view 에서 랜더링)
 
 
 @WebServlet(name = "frontController", urlPatterns = "/livart/*")
