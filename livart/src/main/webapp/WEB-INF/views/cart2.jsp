@@ -127,6 +127,22 @@
 
             <td align>
               <div class="spinner-box spinner-box__not">
+                <button class="spinner-box__minus disabled decQty" data-productid="${cart.p_id }">
+                  <i></i>
+                  <span class="sr-only">빼기</span>
+                </button>
+                <span class="spinner-box__number">
+                  <input class="cartQty" type="number" maxvalue="30" title="수량 설정" value="${cart.quantity }" readonly="">
+                </span>
+                <button class="spinner-box__plus addQty" data-productid="${cart.p_id }">
+                  <i></i><i></i><span class="sr-only">더하기</span>
+                </button>
+              </div>
+            
+            </td>
+            <!-- 
+                      <td align>
+              <div class="spinner-box spinner-box__not">
                 <button class="spinner-box__minus disabled decQty">
                   <i></i>
                   <span class="sr-only">빼기</span>
@@ -140,7 +156,7 @@
               </div>
                 <a class="quantity_change_btn" data-productid="${cart.p_id }">변경</a>
             </td>
-
+ -->
             <td align>
               <div class="price item-price-discount">
                 <!--del>1,226,000</del-->
@@ -208,8 +224,7 @@
           </div>
         </td>
         </tbody>
-	</c:forEach>
-  </div>        
+	</c:forEach>   
          
       </table>
 
@@ -369,9 +384,38 @@
 									contentType : "application/x-www-form-urlencoded; charset=UTF-8",
 									success : function(data) {
 										var obj = JSON.parse(data);
-										var row = "";
+										var row = `<caption> 리바트몰 직접 배송 상품</caption>
+									        <colgroup>
+											<col style="width: 50px">
+											<col style="width: 160px">
+											<col>
+											<col style="width: 140px">
+											<col style="width: 135px">
+											<col style="width: 160px">
+											<col style="width: 160px">
+											<col style="width: 130px">
+											<col style="width: 150px">
+										</colgroup>
+						        <thead>
+											<tr>
+												<th align="" scope="col">
+													<div class="checkbox checkbox__one">
+														<input type="hidden" class="cartDlvTypeCd" value="10">
+												<!-- 		<input type="checkbox" name="chk-a-all" id="checkCart10" checked="" class="check__all"> -->
+														<label for="checkCart10"></label>
+													</div>
+												</th>
+												<th align="" scope="col" colspan="2">상품명/옵션정보</th>
+												<th align="" scope="col">수량</th>
+												<th align="" scope="col">판매가</th>
+												<th align="" scope="col">할인금액</th>
+												<th align="" scope="col">최종구매가</th>
+												<th align="" scope="col">배송비</th>
+												<th align="" scope="col">주문관리</th>
+											</tr>
+										</thead>`;
 										
-										console.log(obj);
+										console.log(row);
 										for(var i = 0; i<obj.length;i++){
 											let p_price = obj[i].p_price;
 											let d_price = obj[i].d_price;
@@ -379,7 +423,7 @@
 											
 											
 											row += `
-												<tbody><tr class="bundle-delivery" id="${obj[i].p_id}"><td align="" class="item-checkbox cart_info_td">
+												<tbody><tr class="bundle-delivery" id='\${obj[i].p_id}'><td align="" class="item-checkbox cart_info_td">
 											    <input type="hidden" class="og_price" value="${obj[i].p_price * obj[i].quantity}">
 											    <input type="hidden" class="ogdc_price" value="${obj[i].d_price * obj[i].quantity}">  <!-- 최종 구매가 -->
 											    <input type="hidden" class="only_price" value="${obj[i].d_price}">
@@ -512,16 +556,13 @@
 											    
 											  </div>
 											</td>
-											</tr></tbody>
-											
-									
-											`
+											</tr></tbody>`;
 											
 										}
 										
-										$(".cart_list_items").html(obj);
-										alert(obj.length);
-										console.log(obj);
+										$(".section-contents-table__table check__group").html(row);
+										alert(row.length);
+										console.log(row);
 										
 										
 										console.log("ajax 실행");
@@ -564,15 +605,7 @@
 
 
       <script>
-  
-  /* 수량 수정 버튼 */
-  $(".quantity_change_btn").on("click", function(){
-  	let productId = $(this).data("productid");
-  	let productCount = $(this).parent("td").find("input").val();
-	$(".update_productId").val(productId);
-	$(".update_product_quantity").val(productCount);
-	$(".quantity_update_form").submit();
-  });
+ 
   
   /* 장바구니 전체 상품 구매 페이지로 이동  */
   $(".buyCartAll").on("click", function() {
@@ -676,13 +709,26 @@
   $(".addQty").on("click", function(){
   	let quantity = $(this).parent("div").find("input").val();
   	$(this).parent("div").find("input").val(++quantity);
+  	
+  	let productId = $(this).data("productid");
+  	$(".update_productId").val(productId);
+	$(".update_product_quantity").val(quantity);
+	$(".quantity_update_form").submit();
   });
   $(".decQty").on("click", function(){
   	let quantity = $(this).parent("div").find("input").val();
   	if(quantity > 1){
-  		$(this).parent("div").find("input").val(--quantity);		
+  		$(this).parent("div").find("input").val(--quantity);	
+  		
+  	  	let productId = $(this).data("productid");
+  	  	$(".update_productId").val(productId);
+  		$(".update_product_quantity").val(quantity);
+  		$(".quantity_update_form").submit();
   	}
   });
+  
+  /* 수량 수정 버튼 */
+
   
   </script>
       

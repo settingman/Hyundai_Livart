@@ -54,7 +54,7 @@ public class OrdersAction implements ControllerLivart{
 			
 //			orderCompleteVO = cartDAO.findOrderInfo(order_id);
 //			request.setAttribute("orderCompleteVO", orderCompleteVO);
-			request.setAttribute("Addrsss", addr);
+			request.setAttribute("Address", addr);
 			
 			return new MyView("/WEB-INF/views/order_complete.jsp"); 
 	}
