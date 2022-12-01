@@ -149,19 +149,13 @@ String color = (String) session.getAttribute("color");
 			</aside>
 			<!-- 상품 메인 부분------------------------------------------------------------------- -->
 			<div class="section-category-right contents-items-wrap float-right">
-				<h3 class="section-contents-item__title">200cm 이상</h3>
+				
 				<section class="section-category-item section-category-item-filter">
 					<input id="cateMallType" type="hidden" value="">
 				</section>
 
 				<section class="section-category-item section-category-item-search">
-					<div class="section-category-item__relation is-flex">
-						<ul id="categoryChkList">
-						</ul>
-						<button class="btn-reset-list">
-							초기화<i class="ico-reset"></i>
-						</button>
-					</div>
+					
 					<p class="section-category-item__search--info">
 						<span class="is-danger"> ${count}</span>개의 상품이 있습니다.
 						<!-- 쿼리 -->

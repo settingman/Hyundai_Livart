@@ -303,66 +303,10 @@
 			</div>
 			<!-- //콘텐츠 필터 리스트 -->
 
-			<div class="comm-contents-hmenu-wrap">
-				<!-- 조회수 -->
-				<div class="comm-contents-hmenu__item">
-					<span class="comm-contents-hmenu__item-icon"> <i
-						class="ico-search"></i>
-					</span> <span class="comm-contents-hmenu__item-text"> <strong>조회수</strong>
-						<span>1</span>
-					</span>
-				</div>
-
-				<!-- //조회수 -->
-				<!-- 좋아요 -->
-				<button type="button"
-					class="comm-contents-hmenu__item button-comm-hmenu-like ">
-					<span class="comm-contents-hmenu__item-icon"> <i
-						class="ico-like"></i>
-					</span> <span class="comm-contents-hmenu__item-text"> <strong
-						class="comm-contents-hmenu__item-text__title">좋아요</strong> <span
-						class="comm-contents-hmenu__item-text__num">0</span>
-					</span>
-				</button>
-				<!-- //좋아요 -->
-				<!-- //좋아요 -->
-			</div>
 			<div class="product-item product-item--small __layout02">
-				<div class="product-item-image">
-					해당 제품 사진 불러오기, 해당 제품으로 이동 앵커 <img class="image"
-						alt="[HM] 칸토나 소파 패브릭 일반형 6인 코너형 고스트샤크그레이"
-						src="https://static.hyundailivart.co.kr/upload_mall/goods/P200106979/GM42158498_img.jpg/dims/resize/x250/cropcenter/250x250/autorotate/on/optimize">
-				</div>
+				
 				<a href="/p/P200106979">
-					<div class="product-item-content">
-						<div class="product-item-header">
-							<span class="product-item-header__brand">제품 브랜드 불러오기</span> <span
-								class="product-item-header__name text-ellipsis-2">제품명
-								불러오기</span>
-						</div>
-						<div class="product-item-price">
-							<div class="product-item-price__discount">
-
-								할인률 불러오기<span class="unit">%</span>
-
-
-							</div>
-							<div class="product-item-price__price--wrap">
-
-
-
-								<span class="product-item-price__price">할인된 가격불러오기<span
-									class="unit">원</span></span>
-
-
-
-								<del class="product-item-price__price--del">
-									할인전 가격 불러오기<span class="unit">원</span>
-								</del>
-
-							</div>
-						</div>
-					</div>
+					
 				</a>
 			</div>
 			<!-- S : 콘텐츠 헤더 -->

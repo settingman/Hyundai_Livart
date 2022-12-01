@@ -1688,7 +1688,7 @@
 
 								<div class="product-item-image ">
 									<img
-										onclick="javascript:location.href='/livart/realreview?command=${reviewval.review_id }';"
+										onclick="javascript:location.href='/livart/realreview?cmd=${reviewval.review_id }';"
 										class="image" alt="목록이미지" src="${reviewval.photo_url }">
 								</div>
 							</a>

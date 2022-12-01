@@ -18,10 +18,10 @@ public class CartListAction implements ControllerLivart{
 			throws ServletException, IOException {
 		
 		CartDAO cartDAO = new CartDAO();		
-//		String pid = request.getParameter("pid").trim();
-//		String uid = request.getParameter("uid").trim();
-//		int qty = Integer.parseInt(request.getParameter("qty").trim());
-//		cartDAO.insertCartItem(qty, pid, uid);
+		String pid = request.getParameter("pid").trim();
+		String uid = request.getParameter("uid").trim();
+		int qty = Integer.parseInt(request.getParameter("qty").trim());
+		cartDAO.insertCartItem(qty, pid, uid);
 		
 		ArrayList<CartItemVO> cartItemList = cartDAO.selectCartItemList();
 		request.setAttribute("cartItemList", cartItemList);
