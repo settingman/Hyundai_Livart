@@ -329,7 +329,7 @@
 			    			console.log(result);
 			    			
 			    			//성공했을때 메인 페이지로 redirect 해줌.
-			    			window.location.href="/main.jsp"
+			    			window.location.href="/livart/main"
 			    			
 			    		}else{
 			    			// 로그인 실패시 pwerror 필드 값 변경
