@@ -14,19 +14,20 @@ import dao.RealReviewDAO;
 import dto.MemberVO;
 import dto.RealReviewVO;
 
-public class ReviewForm implements ControllerLivart {
+
+// 성환
+// 메인페이지 이동
+
+public class mainPage implements ControllerLivart {
 
 	@Override
 	public MyView process(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		String p_id = request.getParameter("p_id").trim();
-		
-		System.out.println("프로덕트 디테일은" + p_id);
-		request.setAttribute("p_id",p_id);
+	
 		
 		
-		return new MyView("/WEB-INF/views/review_write.jsp");
+		return new MyView("/WEB-INF/views/main.jsp");
 	}
 
 }

@@ -213,7 +213,7 @@
 						</ul>
 					</nav>
 
-					<a href="javascript:" class="button button-comm-write"><i
+					<a href="/livart/reviewform?p_id=${p_id}" class="button button-comm-write"><i
 						class="ico-comm_content"></i>콘텐츠 등록</a>
 				</div>
 			</div>

@@ -32,6 +32,13 @@ public class ProductDetailAction implements ControllerLivart{
 		request.setAttribute("imageList", imageList); //상품 리뷰 이미지
 		request.setAttribute("productDetailImage", productDetailImage); //상품 상세 정보 이미지
 		request.setAttribute("count", count); //상품 리뷰 이미지 개수
+		request.setAttribute("p_id", p_id); //상품 리뷰 이미지 개수
+		
+		
+		// 테스트
+		System.out.println("프로덕트디테일"+ p_id);
+				
+		
 		
 		return new MyView("/WEB-INF/views/product_detail.jsp");
 	}
