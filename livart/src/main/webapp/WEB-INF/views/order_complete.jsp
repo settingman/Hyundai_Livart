@@ -10,6 +10,7 @@
 <body class="main-page" oncontextmenu="return false">
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
 <%@ include file="../../static/header.jsp" %>
+
 	<div class="skipnavi">
 		<a href="#container">본문 바로가기(www.hyundailivart.co.kr)</a>
 		<a href="#gnb">주메뉴 바로가기</a>
@@ -20,74 +21,6 @@
 		<!-- s : #container -->
 		<main id="container" role="main">
 			
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-    
-        
-        
-            
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
 
 
 
