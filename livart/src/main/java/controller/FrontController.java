@@ -33,15 +33,15 @@ import controller.action.RealReviewAction;
 import controller.action.RealReviewListAction;
 import controller.action.RealReviewSave;
 import controller.action.ReviewForm;
+
 import controller.action.mainPage;
 
 
 
 
 
-
 //성환
-// 모든 요청 처리 ( fronController, return MyView : my view 에서 랜더링 )
+// 모든 요청 처리 (fronController, return MyView : my view 에서 랜더링)
 
 
 @WebServlet(name = "frontController", urlPatterns = "/livart/*")
@@ -69,6 +69,8 @@ public class FrontController extends HttpServlet{
         controllerMap.put("/livart/review", new RealReviewListAction());
         controllerMap.put("/livart/reviewsave", new RealReviewSave());
         controllerMap.put("/livart/reviewform", new ReviewForm());
+        
+        controllerMap.put("/livart/rebuy", new ReBuyAction());
         controllerMap.put("/livart/main", new mainPage());
         controllerMap.put("/livart/order/save", new OrdersAction());
         controllerMap.put("/livart/rebuy", new ReBuyAction());
