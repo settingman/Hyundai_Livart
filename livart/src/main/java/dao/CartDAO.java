@@ -203,7 +203,7 @@ public class CartDAO {
 	}
 
 	public void insertCartItem(int qty, String pid, String joinid) {
-		String runSP = "{call cart_insert_product(?, ?, ?)}";
+		String runSP = "{call insertInCart(?, ?, ?)}";
 		conn = null;
 		CallableStatement cs = null;
 		ResultSet rs = null;
