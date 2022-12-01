@@ -4,6 +4,7 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
 import java.util.ArrayList;
 
 import dto.CartItemVO;
@@ -224,5 +225,98 @@ public class CartDAO {
 			DBManager.close(conn, cs, rs);
 		}
 	}
+	
+	public int insertOrder(int cart_id, String odr, String odr_phone, String adr, String rcv, String rcv_phone, String msg, String user_id) {
+		
+		CallableStatement callableStatement = null;
+		int order_id = 0;
+		
+		try {
+			conn = DBManager.getConnection();
+			
+//			String query = "{? = call f_insert_orders(?,?,?,?,?,?,?,?)}";
+			String query = "{call insert_orders2(?, ?, ?, ?, ?, ?, ?, ?, ?)}";
+			callableStatement = conn.prepareCall(query);
+			
+//			callableStatement.registerOutParameter(1, Types.INTEGER);
+			callableStatement.setInt(1, cart_id);
+	
+			callableStatement.setString(2,rcv);
+			callableStatement.setString(3,rcv_phone);
+			callableStatement.setString(4,adr);
+			callableStatement.setString(5,msg);
+			callableStatement.setString(6,user_id);
+			callableStatement.setString(7,odr);
+			callableStatement.setString(8,odr_phone);
+			callableStatement.registerOutParameter(9, OracleTypes.NUMBER);
+//			order_id = callableStatement.getInt(1);
+			callableStatement.executeUpdate();
+			order_id = callableStatement.getInt(9);
+
+		} catch (SQLException e) {
+			System.out.println("프로시저에서 에러 발생!");
+			System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+			e.printStackTrace();
+		} finally {
+			//DBManager.close(conn, callableStatement);
+		}
+		
+		return order_id;
+	}
+	
+	public void insertOrderItem(int order_id, String p_id, int quantity, int cart_id) {
+		
+		CallableStatement callableStatement = null;
+		
+		try {
+			conn = DBManager.getConnection();
+			String query = "{call insert_order_list_item(?,?,?,?)}";
+			callableStatement = conn.prepareCall(query);
+			System.out.println("아이템 넣을것");
+			
+			callableStatement.setInt(1, order_id);
+			callableStatement.setString(2, p_id);
+			callableStatement.setInt(3, quantity);
+			callableStatement.setInt(4, cart_id);
+			
+			callableStatement.executeUpdate();
+			
+		} catch (SQLException e) {
+			System.out.println("프로시저에서 에러 발생!");
+			System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+			e.printStackTrace();
+		} finally {
+			//DBManager.close(conn, callableStatement);
+		}
+	}
+	
+//	public OrderCompleteVO findOrderInfo(int order_id) {
+//		CallableStatement callableStatement = null;
+//		
+//		OrderCompleteVO orderCompleteVO = new OrderCompleteVO();
+//		
+//		try {
+//			conn = DBManager.getConnection();
+//			String query = "{call insert_order_list_item(?,?,?,?)}";
+//			callableStatement = conn.prepareCall(query);
+//	
+//			
+//			callableStatement.setInt(1, order_id);
+//			callableStatement.setString(2, p_id);
+//			callableStatement.setInt(3, quantity);
+//			callableStatement.setInt(4, cart_id);
+//			
+//			callableStatement.executeUpdate();
+//			
+//		} catch (SQLException e) {
+//			System.out.println("프로시저에서 에러 발생!");
+//			System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+//			e.printStackTrace();
+//		} finally {
+//			//DBManager.close(conn, callableStatement);
+//		}
+//		
+//		return orderCompleteVO;
+//	}
 
 }

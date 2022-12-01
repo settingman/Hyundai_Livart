@@ -1,11 +1,14 @@
 package controller.action;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.google.gson.Gson;
 
 import dao.CartDAO;
 import dto.CartItemVO;
@@ -26,7 +29,12 @@ public class CartDeleteAction implements ControllerLivart{
 		
 		request.setAttribute("cartItemList", cartItemList);
 		
-		return new MyView("/WEB-INF/views/cart2.jsp");
+		Gson gson = new Gson();
+		String result = gson.toJson(cartItemList);
+		PrintWriter out = response.getWriter();
+		out.print(result);
+		return new MyView("ajax");
+		//return new MyView("/WEB-INF/views/cart2.jsp");
 	}
 
 }

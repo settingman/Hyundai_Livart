@@ -7,6 +7,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+<!-- 주소 API -->
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </head>
 
 <body>
@@ -21,9 +24,11 @@
 <div class="section-contents-wrap order-payment">
   <h3 class="title is-3 is-normal">주문결제</h3>
 
-  <form name="order_form" data-gtm-form-interact-id="0">
+  <form name="order_form" data-gtm-form-interact-id="0" action="/livart/order/save" method="post">
+    
+    <input type="hidden" name="cartId" value="${buyCartItemList[0].cart_id }">
     <!-- 주문자 정보-->
-    <fieldset action="#">
+    <fieldset >
       <legend>주문자 정보 등록</legend>
       <section>
         <div class="section-contents-item">
@@ -171,17 +176,19 @@
                                   <label for="address" class="label required">배송주소</label>
                               </th>
                               <td>
-                               <!--    <div class="address-wrap">
+                                  <div class="address-wrap">
                                       <div class="control is-flex">
-                                          <input type="text" class="input width-small" id="postNo" name="postNo" value="" readonly="">
-                                          <button type="button" id="address" class="button is-primary modal-button is-outlined b-postBtn" data-target="modal-postcode" aria-haspopup="true">우편번호 확인</button>
+                                       <input type="text" class="input width-small postNo" id="postNo" name="postNo" value="" readonly=""> 
+                 
+                                          <button type="button" id="address" class="button is-primary modal-button is-outlined b-postBtn" data-target="modal-postcode" aria-haspopup="true"
+                                          onclick="execute_address_api()">우편번호 확인</button>
                                       </div>
                                       <input type="hidden" class="input width-large" id="draddrBldgNm" name="draddrBldgNm" value="">
                                       <input type="hidden" class="input width-large" id="addr1" name="addr1" value="">
                                       <input type="hidden" class="input width-large" id="addr2" name="addr2" value="">
-                                      <input type="text" class="input width-large" id="draddr1" name="draddr1" value="" maxlength="100">
-                                      <input type="text" class="input width-large is-block" placeholder="상세 주소 입력" id="draddr2" value="" name="draddr2" maxlength="100">
-                                  </div>   -->
+                                      <input type="text" class="input width-large draddr1" id="draddr1" name="draddr1" value="" maxlength="100"> 
+                                 <input type="text" class="input width-large is-block draddr2" placeholder="상세 주소 입력" id="draddr2" value="" name="draddr2" maxlength="100"> 
+                                  </div>   
                               </td>
                           </tr>
                           <tr>
@@ -191,11 +198,11 @@
                               <td>
                                   <!-- 직접입력 선택시 input text 노출 -->
                                   <div id="deliveryDirect" class="select delivery-direct">
-                                      <select id="delivery-request" data-gtm-form-interact-field-id="1">
+                                      <select id="delivery-request" name="delivery-request" data-gtm-form-interact-field-id="1">
                                           
-                                              <option value="direct">직접 입력</option>
+                                        <!--  <option value="direct">직접 입력</option> -->
                                           
-                                              <option value="배송 전에 연락주세요.">배송 전에 연락주세요.</option>
+                                              <option value="배송 전에 연락주세요." selected>배송 전에 연락주세요.</option>
                                           
                                               <option value="부재시 경비실에 맡겨주세요.">부재시 경비실에 맡겨주세요.</option>
                                           
@@ -207,8 +214,9 @@
                                           
                                       </select>
                                   </div>
+                                  <!-- 
                                   <input class="input input-delivery-direct" type="text" id="deliveryDirectManual" placeholder="직접입력 (설치 기사님에게 전할 말씀을 50자 이내로 남겨주세요)" maxlength="50" style="display: inline-block;">
-                                  <input type="hidden" id="dlvMemo" name="dlvMemo">
+                                  <input type="hidden" id="dlvMemo" name="dlvMemo">  -->
                               </td>
                           </tr>
                       </tbody>
@@ -223,7 +231,7 @@
     <div class="section-contents-item">
         <div class="content-title-wrap">
             <h3 class="content-title is-liner top-line">직접배송 상품주문</h3>
-            <span class="direct-delivery-info right-position">직접배송 상품(가구 등)의 배송 및 설치를 위해 아래 사항을 선택해주세요. 선택하신 사항에 따라 배송 전 등록된 연락처로 안내를 드릴 예정입니다.</span>
+            <span class="direct-F right-position">직접배송 상품(가구 등)의 배송 및 설치를 위해 아래 사항을 선택해주세요. 선택하신 사항에 따라 배송 전 등록된 연락처로 안내를 드릴 예정입니다.</span>
         </div>
 
         <div class="table-box table-box-form">
@@ -433,7 +441,7 @@
       </div>
   
   <!-- 결제하기 버튼 -->
-  <input type="button" class="button is-danger is-large is-fullwidth" id="payTran" value="결제하기">
+  <input type="submit" class="button is-danger is-large is-fullwidth" id="payTran" value="결제하기">
 </section>
 
   </form>
@@ -441,5 +449,70 @@
 </div>
 
 <div id="criteo-tags-div" style="display: none;"></div><iframe height="0" width="0" title="Criteo DIS iframe" style="display: none;"></iframe></body>
+
+
+
+
+
+<script>
+function execute_address_api(){
+	 new daum.Postcode({
+	        oncomplete: function(data) {
+	            // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분입니다.
+	            
+	        	var addr = ''; // 주소 변수
+                var extraAddr = ''; // 참고항목 변수
+ 
+                //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+                if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                    addr = data.roadAddress;
+                } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                    addr = data.jibunAddress;
+                }
+ 
+                // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
+                if(data.userSelectedType === 'R'){
+                    // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+                    // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+                    if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+                        extraAddr += data.bname;
+                    }
+                    // 건물명이 있고, 공동주택일 경우 추가한다.
+                    if(data.buildingName !== '' && data.apartment === 'Y'){
+                        extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                    }
+                    // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+                    if(extraAddr !== ''){
+                        extraAddr = ' (' + extraAddr + ')';
+                    }
+                    
+                    addr += extraAddr;
+                    // 조합된 참고항목을 해당 필드에 넣는다.
+                    //document.getElementById("sample6_extraAddress").value = extraAddr;
+                
+                } else {
+                    //document.getElementById("sample6_extraAddress").value = '';
+                    addr += ' ';
+                }
+ 
+                // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                $(".postNo").val(data.zonecode);
+                $(".draddr1").val(addr);
+                // 커서를 상세주소 필드로 이동한다.
+                $(".draddr2").attr("readonly", false);
+                $(".draddr2").focus();
+	            
+	 
+	        }
+	    }).open();    
+	
+}
+
+
+</script>
+
+
+
+
 </body>
 </html>
