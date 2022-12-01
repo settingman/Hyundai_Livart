@@ -52,7 +52,11 @@ public class OrdersAction implements ControllerLivart{
 				cartDAO.insertOrderItem(order_id, cartItemList.get(i).getP_id(), cartItemList.get(i).getQuantity(),cart_id);
 			}
 			
-			return new MyView("/WEB-INF/views/cart2.jsp"); 
+//			orderCompleteVO = cartDAO.findOrderInfo(order_id);
+//			request.setAttribute("orderCompleteVO", orderCompleteVO);
+			request.setAttribute("Addrsss", addr);
+			
+			return new MyView("/WEB-INF/views/order_complete.jsp"); 
 	}
 
 }

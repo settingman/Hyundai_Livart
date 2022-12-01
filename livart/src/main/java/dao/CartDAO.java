@@ -289,5 +289,34 @@ public class CartDAO {
 			//DBManager.close(conn, callableStatement);
 		}
 	}
+	
+//	public OrderCompleteVO findOrderInfo(int order_id) {
+//		CallableStatement callableStatement = null;
+//		
+//		OrderCompleteVO orderCompleteVO = new OrderCompleteVO();
+//		
+//		try {
+//			conn = DBManager.getConnection();
+//			String query = "{call insert_order_list_item(?,?,?,?)}";
+//			callableStatement = conn.prepareCall(query);
+//	
+//			
+//			callableStatement.setInt(1, order_id);
+//			callableStatement.setString(2, p_id);
+//			callableStatement.setInt(3, quantity);
+//			callableStatement.setInt(4, cart_id);
+//			
+//			callableStatement.executeUpdate();
+//			
+//		} catch (SQLException e) {
+//			System.out.println("프로시저에서 에러 발생!");
+//			System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+//			e.printStackTrace();
+//		} finally {
+//			//DBManager.close(conn, callableStatement);
+//		}
+//		
+//		return orderCompleteVO;
+//	}
 
 }
