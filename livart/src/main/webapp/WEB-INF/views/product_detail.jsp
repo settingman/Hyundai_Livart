@@ -289,70 +289,72 @@
           }
        })
     </script>
-                      <c:choose>
-                      <c:when test="${empty sessionScope.loginUserid}">
-                      
-                        <div class="pitem-header-floating-wrap">
-                           <div class="pitem-header-floating"
-                              style="position: relative; top: initial;">
-                              <header class="pitem-header-card-header">
-                                 <div class="pitem-header-btns">
-                                    <div class="pitem-header-btns__full">
-                                       <button type="button" class="button is-primary is-large"
-                                           onclick="location.href='/livart/login';">장바구니(로그인 필요)</button>
-                                       <button type="button" class="button is-danger is-large">구매하기(로그인 필요)</button>
 
-                                    </div>
+    						<c:choose>
+    						<c:when test="${empty sessionScope.loginUserid}">
+    						
+								<div class="pitem-header-floating-wrap">
+									<div class="pitem-header-floating"
+										style="position: relative; top: initial;">
+										<header class="pitem-header-card-header">
+											<div class="pitem-header-btns">
+												<div class="pitem-header-btns__full">
+													<button type="button" class="button is-primary is-large"
+														 onclick="location.href='/livart/login';">장바구니(로그인 필요)</button>
+													<button type="button" class="button is-danger is-large">구매하기(로그인 필요)</button>
 
-                                 </div>
-                              </header>
+												</div>
 
-                           </div>
-                        </div>
-                        </c:when>
-                         <c:otherwise>
-                         
-                        <div class="pitem-header-floating-wrap">
-                           <div class="pitem-header-floating"
-                              style="position: relative; top: initial;">
-                              <header class="pitem-header-card-header">
-                                 <div class="pitem-header-btns">
-                                    <div class="pitem-header-btns__full">
-                                       <button type="button" class="button is-primary is-large"
-                                          id="btn_cart" >장바구니</button>
-                                       <button type="button" class="button is-danger is-large">구매하기</button>
+											</div>
+										</header>
 
-                                    </div>
+									</div>
+								</div>
+								</c:when>
+    							<c:otherwise>
+    							
+								<div class="pitem-header-floating-wrap">
+									<div class="pitem-header-floating"
+										style="position: relative; top: initial;">
+										<header class="pitem-header-card-header">
+											<div class="pitem-header-btns">
+												<div class="pitem-header-btns__full">
+													<button type="button" class="button is-primary is-large"
+														id="btn_cart" >장바구니</button>
+													<button type="button" class="button is-danger is-large">구매하기</button>
 
-                                 </div>
-                              </header>
+												</div>
 
-                           </div>
-                        </div>
-                         
-                         
-                         </c:otherwise>
-                      </c:choose>
-                     </div>
+											</div>
+										</header>
 
-                  </div>
-               </section>
-            </c:when>
-         </c:choose>
+									</div>
+								</div>
+    							
+    							
+    							</c:otherwise>
+    						</c:choose>
+							</div>
 
-      </div>
-      <!--아래상품정보 s-->
-      <section class="pitem-section pt0">
-         <div class="container">
+						</div>
+					</section>
+				</c:when>
+			</c:choose>
 
-            <section class="pitem-section" id="pitem-detail-1">
-               <div class="container">
-                  <div class="pitem-section-header">
-                     <h3 class="pitem-section-header__title">Real리뷰(${count }개
-                        리뷰)</h3>
-                  </div>
-                  <div class="swiper mySwiper">
-                     <div class="slideshow-container">
+		</div>
+		<!--아래상품정보 s-->
+		<section class="pitem-section pt0">
+			<div class="container">
+
+				<section class="pitem-section" id="pitem-detail-1">
+					<div class="container">
+						<div class="pitem-section-header">
+							<h3 class="pitem-section-header__title">Real리뷰(${count }개
+								리뷰)</h3>
+						</div>
+						<div class="swiper mySwiper">
+							<div class="slideshow-container">
+
 
                         <!-- Full-width images with number and caption text -->
 
