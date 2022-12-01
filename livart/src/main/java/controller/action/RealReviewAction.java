@@ -16,7 +16,7 @@ public class RealReviewAction implements ControllerLivart {
 	@Override
 	public MyView process(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String pid = request.getParameter("pid").trim();
+
 		String cmd = request.getParameter("command").trim();
 		RealReviewDAO realReviewDAO = RealReviewDAO.getInstance();
 		ImageDAO imageDAO = ImageDAO.getInstance();
@@ -26,8 +26,15 @@ public class RealReviewAction implements ControllerLivart {
 		imageURL = imageDAO.ReviewImage(cmd);
 		request.setAttribute("realReviewVO", realReviewVO);
 		request.setAttribute("imageURL", imageURL);
-		request.setAttribute("pid",pid);
-		return new MyView("/WEB-INF/views/real_review.jsp") ;
+
+		String p_id = request.getParameter("p_id").trim();
+		request.setAttribute("p_id", p_id);
+		
+		
+		// 테스트
+		System.out.println("리얼리뷰액션" + p_id);
+
+		return new MyView("/WEB-INF/views/real_review.jsp");
 	}
 
 }

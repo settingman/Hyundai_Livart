@@ -8,12 +8,12 @@
 </head>
 <body>
 	<!-- header, footer 모듈화입니다. 수정은 static파일 내부에서 진행 -->
-	<%@ include file="static/header.jsp" %>
+	<%@ include file="../../static/header.jsp" %>
 	
-	<jsp:include page="static/homemain.html" flush="true" />
+	<jsp:include page="../../static/homemain.html" flush="true" />
 	
 	
-	<%@ include file="static/footer.jsp" %>
+	<%@ include file="../../static/footer.jsp" %>
 	
 	
 </body>

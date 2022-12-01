@@ -2,12 +2,14 @@ package dao;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Types;
 import java.util.ArrayList;
 
 import dto.ImageVO;
+import dto.MemberVO;
 import dto.ProductVO;
 import oracle.jdbc.OracleTypes;
 import util.DBManager;
@@ -22,6 +24,46 @@ public class ImageDAO {
 	public static ImageDAO getInstance() {
 		return instance;
 	}
+	
+	
+	
+public void insertImage(ImageVO imageVO) {
+		
+		Connection conn = null;
+		CallableStatement cs = null;
+		ResultSet rs = null;
+		PreparedStatement ps =null;
+
+
+		String runSP = "{call SP_IMAGE_INSERT(?,?,?,?)}";
+		
+		
+
+		try {
+			conn = DBManager.getConnection();
+
+			cs = conn.prepareCall(runSP);
+			
+			cs.setString(1, imageVO.getClassification());
+			cs.setString(2, imageVO.getProduct_p_id());
+			cs.setInt(3, imageVO.getReview_review_id());
+			cs.setString(4, imageVO.getPhoto_url());
+
+			cs.execute();
+			
+		} catch (SQLException e) {
+			System.out.println("프로시저에서 에러 발생!");
+			System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, cs);
+
+		}
+
+	}
+
+
 	
 	/*상품 상세 페이지에서 리얼리뷰로넘어가기 전 보여지는 사진가져오는 메소드*/
 	public ArrayList<ImageVO> listProductReviewImage(String pid){

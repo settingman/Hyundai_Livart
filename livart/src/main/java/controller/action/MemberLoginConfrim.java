@@ -39,8 +39,9 @@ public class MemberLoginConfrim implements ControllerLivart {
 		
 		System.out.println("id: " + login_id+", pwd: "+login_pwd);
 		
+		System.out.println("123");
 		MemberVO memberVO = memberDAO.getMember(login_id);
-		
+		System.out.println("123");
 		System.out.println(memberVO.getPwd());
 		
 		

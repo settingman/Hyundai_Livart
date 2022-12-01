@@ -41,13 +41,13 @@
 
 <!-- 로그인 되어있을시 회원가입 페이지 접근시 메인페이지로 이동 -->
 <%
-	String joinid = (String)session.getAttribute("loginUserid");
-	joinid = joinid==null?"":joinid;
+String joinid = (String) session.getAttribute("loginUserid");
+joinid = joinid == null ? "" : joinid;
 %>
 <c:if test="${!empty sessionScope.loginUserid}">
 	<script type="text/javascript">
-window.location.href="/main.jsp";
-</script>
+		window.location.href = "/main.jsp";
+	</script>
 </c:if>
 
 
@@ -162,16 +162,10 @@ window.location.href="/main.jsp";
 
 
 	<script>
-	
-	
-		
 		// 성환
-	
+
 		// 아이디 중복 체크 및 비밀번호 확인
-	
-	
-	
-	
+
 		var password = document.getElementById("password"), confirm_password = document
 				.getElementById("confirm_password");
 
@@ -188,74 +182,62 @@ window.location.href="/main.jsp";
 
 		password.onchange = validatePassword;
 		confirm_password.onkeyup = validatePassword;
-		
+
 		// 비밀번호가 같은지 다른지 확인, 비밀번호 input 값이 달라지면 다시 한번 검증
-		
-	
-		
-		
-		
-		var checkedID =false;
-		
-		
+
+		var checkedID = false;
+
 		var inputID = document.getElementById("mbrId");
-		
+
 		function changeID() {
-			checkedID=false;
-			
+			checkedID = false;
+
 		}
-		
+
 		inputID.onchange = changeID;
-		
-		
+
 		function validate() {
-			if(!checkedID){
+			if (!checkedID) {
 				alert("아이디 중복체크를 해주세요");
 			}
-			
+
 			return checkedID;
 		}
-		
-		
-		
+
 		function nameCheck() {
-			
+
 			var tfUsername = $('input#mbrId').val();
-			
+
 			console.log(tfUsername);
-			
+
 			$.ajax({
-				 type: 'get',
-	               url : '/livart/check?checkid='+tfUsername
-			    ,
-			    
-			    success :  function(result){
-		               console.log(result);
-		               console.log('아이디 중복 체크 실행: success')
-		               if(result ==1 ){
-		                  alert('아이디가 중복되었습니다.')
-		               }else if(result==0){
-		                  alert('사용하실 수 있는 아이디 입니다.')
-		                  checkedID=true;
-		               }else if(result==2){
-		                  alert('아이디를 입력해주세요')
-		               }else{
-		                  console.log('develop: 서버오류');
-		               }
-		               
-		            },
-			    error : function(error) { // 결과 에러 콜백함수
-			        console.log(error)
-			    }
+				type : 'get',
+				url : '/livart/check?checkid=' + tfUsername,
+
+				success : function(result) {
+					console.log(result);
+					console.log('아이디 중복 체크 실행: success')
+					if (result == 1) {
+						alert('아이디가 중복되었습니다.')
+					} else if (result == 0) {
+						alert('사용하실 수 있는 아이디 입니다.')
+						checkedID = true;
+					} else if (result == 2) {
+						alert('아이디를 입력해주세요')
+					} else {
+						console.log('develop: 서버오류');
+					}
+
+				},
+				error : function(error) { // 결과 에러 콜백함수
+					console.log(error)
+				}
 			})
-			
+
 		}
-		
+
 		// 아이디 중복 확인 ajax 사용.
 		// 아이디 필드값이 달라지면 다시 한번 검증해야함.
-		
-		
-		
 	</script>
 </body>
 </html>
