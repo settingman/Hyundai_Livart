@@ -26,6 +26,7 @@ import controller.action.MyView;
 import controller.action.PreOrdersAction;
 import controller.action.ProductDetailAction;
 import controller.action.ProductSortAction;
+import controller.action.ReBuyAction;
 import controller.action.RealReviewAction;
 import controller.action.RealReviewListAction;
 import controller.action.RealReviewSave;
@@ -65,7 +66,7 @@ public class FrontController extends HttpServlet{
         controllerMap.put("/livart/review", new RealReviewListAction());
         controllerMap.put("/livart/reviewsave", new RealReviewSave());
         controllerMap.put("/livart/reviewform", new ReviewForm());
-        
+        controllerMap.put("/livart/rebuy", new ReBuyAction());
 
     }
 

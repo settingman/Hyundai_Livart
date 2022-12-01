@@ -10,89 +10,7 @@
 <meta charset="UTF-8">
 
  
-  <script language="JavaScript">
-     // 변경된 값을 저장
-   var sell_price;
-   var amount;
  
- 
-   // init 초기값을 지정할 수 있다.
-   function init () {
-     sell_price = document.form.sell_price.value;
-     amount = document.form.amount.value;
-     document.form.sum.value = sell_price;
-     change();
-   }
- 
- 
-     // add
-   // howmany 값을 1 증가 시키고, 합계를 계산.
- function add () {
-     hm = document.form.amount;
-     sum = document.form.sum;
-   hm.value ++ ;
- 
-     sum.value = parseInt(hm.value) * sell_price;
- 
-     }
- 
-    
- 
-    
- 
-     // del
- 
-     // howmany 값을 1 감소 시키고, 합계를 계산.
- 
-     function del () {
- 
-     hm = document.form.amount;
- 
-     sum = document.form.sum;
- 
-    
- 
-     // 에러 처리 : 음수 값
- 
-     if (hm.value > 1) {
- 
-       hm.value -- ;
- 
-       sum.value = parseInt(hm.value) * sell_price;
- 
-     }
- 
-     }
- 
- 
- 
- 
- 
-     function change () {
- 
- 
- 
-     hm = document.form.amount;
- 
-     sum = document.form.sum;
- 
-    
- 
-     if (hm.value < 0) {
- 
-       hm.value = 0;
- 
-     }
- 
-     sum.value = parseInt(hm.value) * sell_price;
- 
-     } 
- 
- 
- 
-   //-->
- 
-   </script>
    	
 
 <title>Insert title here</title>
@@ -161,6 +79,7 @@
                   </span>
                 </div>
 
+
               </div>
             </div>
             <div class="pitem-header-section pitem-header-section--code">
@@ -185,25 +104,7 @@
               </dl>
 
             </div>
-            <div class="pitem-header-section pitem-header-section--freegift">
-              <dl class="pitem-header-section__dl">
-                <dt class="pitem-header-section__dt">사은품</dt>
-                <dd class="pitem-header-section__dd">
-                  <div class="pitem-photo is-flex">
-                    <ul class="images-list is-flex">
-                      <li>
-                        <span class="modal-button">
-                          <img
-                            src="https://static.hyundailivart.co.kr/upload_mall/goods/P200028467/GM40428196_img.jpg/dims/resize/x150/cropcenter/150x150/autorotate/on/optimize"
-                            alt="코너캡 (좌,우 각 1EA)">
-                          <span class="freegift__name">코너캡 (좌,우 각 1EA)</span>
-                        </span>
-                      </li>
-                    </ul>
-                  </div>
-                </dd>
-              </dl>
-            </div>
+           
 
           </div>
 
@@ -256,7 +157,7 @@
 	 		<a href="#" class="minus">-</a>
 	 		
 	 		<input type="text" id="result2" value="1"/>
-	 		<span id="result" value="1">1</span>
+	 		<span id="result" value="1"></span>
 	 		<a href="#" class="plus">+</a>
 	 	
 	 	</span>
@@ -295,16 +196,40 @@
 	 		}
 	 	})
 	 </script>
+	 <c:choose>
+           <c:when test="${empty sessionScope.loginUserid }">
             <div class="pitem-header-floating-wrap">
               <div class="pitem-header-floating" style="position: relative; top: initial;">
                 <header class="pitem-header-card-header">
                   <div class="pitem-header-btns">
                     <div class="pitem-header-btns__full">
+                    
+                      <button type="button" class="button is-primary is-large" onclick="location.href='/livart/login'">
+                        장바구니(로그인 필요)
+                      </button>
+                      <button type="button" class="button is-danger is-large"  onclick="location.href='/livart/login'" >
+                      구매하기(로그인 필요)</button>
+					
+                    </div>	
+
+                  </div>
+                </header>
+
+              </div>
+            </div>
+            </c:when>
+            <c:otherwise>
+             <div class="pitem-header-floating-wrap">
+              <div class="pitem-header-floating" style="position: relative; top: initial;">
+                <header class="pitem-header-card-header">
+                  <div class="pitem-header-btns">
+                    <div class="pitem-header-btns__full">
+                    
                       <button type="button" class="button is-primary is-large" id="btn_cart">
                         장바구니
                       </button>
                       <button type="button" class="button is-danger is-large" >구매하기</button>
-
+					
                     </div>
 
                   </div>
@@ -312,6 +237,8 @@
 
               </div>
             </div>
+            </c:otherwise>
+            </c:choose>
           </div>
 
         </div>
@@ -337,7 +264,7 @@
                 <c:forEach var="img" items="${imageList }" >
                 <div class="mySlides fade">
                   
-                  <img onclick="javascript:location.href='/livart/realreview?command=${img.review_review_id}';" style="cursor:pointer" src="${img.photo_url }" style="width:100%">
+                  <img onclick="javascript:location.href='/livart/realreview?command=${img.review_review_id}&pid=${productVO.p_id }';" style="cursor:pointer" src="${img.photo_url }" style="width:100%">
                   <div class="text">Caption Text</div>
                   <!-- 성환이형페이지로 넘겨야함 나중에 onclick url 을 여기에있는 /livart/review/command=${img.review_review_id} 서블릿으로 변경 예정 -->
                 </div>
@@ -363,7 +290,7 @@
 			$("#btn_cart").click(function(){ 
 			          var result = $("#result2").val();
 			          alert("장바구니에 해당 상품이 담겼습니다");
-			          location.href='/livart/cart2?pid=${productVO.p_id}&uid=<%=joinid%>&qty='+result;
+			          location.href='/livart/cart2?pid=${productVO.p_id}&uid=<%=userid%>&qty='+result;
 			       
 			})
 		})  

@@ -255,20 +255,7 @@ String color = (String) session.getAttribute("color");
 																href="/livart/productdetail?&p_id=${mem.p_id }"
 																class="product-item-header__name">${mem.p_name }</a>
 
-															<div class="product-item-header__kinds product-item-tag"
-																data-cmposn="" data-sn="P100025656">
-
-
-																<a class="product-item-tag__kinds" data-cnt="1"> <img
-																	src="https://static.hyundailivart.co.kr/upload_mall/goods/P100025656/C100007842_OPT1.jpg/dims/resize/x22/cropcenter/22x22/autorotate/on/optimize">
-																</a> <a classf="product-item-tag__kinds" data-cnt="2"> <img
-																	src="https://static.hyundailivart.co.kr/upload_mall/goods/P100025656/C100007840_OPT1.jpg/dims/resize/x22/cropcenter/22x22/autorotate/on/optimize">
-																</a> <a class="product-item-tag__kinds" data-cnt="3"> <img
-																	src="https://static.hyundailivart.co.kr/upload_mall/goods/P100025656/C100007841_OPT1.jpg/dims/resize/x22/cropcenter/22x22/autorotate/on/optimize">
-																</a> <span class="product-item-tag__kinds--amount">+<span
-																	class="number">1</span></span>
-
-															</div>
+															
 
 
 														</div>
@@ -282,7 +269,9 @@ String color = (String) session.getAttribute("color");
 
 
 															</div>
-															<div class="product-item-price__price--wrap">
+												
+															
+																									<div class="product-item-price__price--wrap">
 
 
 
@@ -301,41 +290,9 @@ String color = (String) session.getAttribute("color");
 
 
 
-
-
-
 															</div>
 														</span>
-														<div class="product-item-category clear">
-															<div class="product-item-tag fl">
-
-
-
-
-
-																<span
-																	class="product-item-tag__item product-item-tag__item--orange">사은품</span>
-
-
-
-																<span
-																	class="product-item-tag__item product-item-tag__item--red">BEST</span>
-
-
-
-
-															</div>
-															<div class="product-review-stats-area fr">
-
-
-																<!-- 별점 -->
-																<span class="stats-rate-wrap"> <span
-																	class="icon-star1"></span> <span
-																	class="stats-rate__num">4.8</span>
-
-																</span>
-															</div>
-														</div>
+														
 
 													</div>
 												</div> <script type="text/javascript">

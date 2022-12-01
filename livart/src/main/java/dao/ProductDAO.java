@@ -67,6 +67,7 @@ public class ProductDAO {
 			 rs = (ResultSet)cs.getObject(2);
 			 
 			 while(rs.next()) {
+				 
 				 ProductVO product = new ProductVO();
 				 product.setP_id(rs.getString(1));
 				 product.setP_name(rs.getString(2));

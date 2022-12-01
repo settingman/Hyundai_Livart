@@ -832,7 +832,7 @@
 
 								<li class=""><a href="/community/lan">랜선집들이</a></li>
 
-								<li class=""><a href="/community/export">고수의 집들이</a></li>
+								<li class=""><a href="/livart/rebuy">고수의 집들이</a></li>
 
 								<li class=""><a href="/community/magazineHinge">매거진</a></li>
 
