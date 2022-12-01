@@ -18,7 +18,7 @@
       <h1 class="title">장바구니</h1>
     </div>
   
-  
+ 
 <!-- <div class="ajaxpart">  -->  
     <c:choose>
 <c:when test="${!empty cartItemList }">
@@ -34,6 +34,7 @@
 				리바트몰 직접 배송 상품
 			</h4>
 
+<div>
       <table class="section-contents-table__table check__group">
         <caption> 리바트몰 직접 배송 상품</caption>
         <colgroup>
@@ -65,10 +66,8 @@
 						<th align="" scope="col">주문관리</th>
 					</tr>
 				</thead>
-
- 			<div class="new_data">
 	<c:forEach var="cart" items="${cartItemList }" varStatus="cartNum">
-        <tbody>
+        <tbody class="cart_list_items">
           <tr class="bundle-delivery" id="${cart.p_id }">
             <td align class="item-checkbox cart_info_td" >
             <input type="hidden" class="og_price" value="${cart.p_price * cart.quantity }">
@@ -208,10 +207,10 @@
             
           </div>
         </td>
-	</c:forEach>
-            </div>
-          </tr>  
         </tbody>
+	</c:forEach>
+  </div>        
+         
       </table>
 
       <!-- 총 주문 금액-->
@@ -289,7 +288,7 @@
         <button type="button" class="button is-danger is-large buyCartAll" data-userid="${userId }">전체상품 주문</button>
       </div>
        
-    </section>
+ 
 	</c:when>
 
     <c:when test="${empty cartList }">
@@ -325,7 +324,7 @@
         <li>배송시간은 택배사 사정에 의해 특정시간으로 지정하실 수 없습니다.</li>
       </ul>
       </div>
-  </div>
+ 
   
 <!-- 수량 조정 form -->
 			<form action="/livart/cart2/update" method="post" class="quantity_update_form">
@@ -369,15 +368,185 @@
 									},
 									contentType : "application/x-www-form-urlencoded; charset=UTF-8",
 									success : function(data) {
+										var obj = JSON.parse(data);
+										var row = "";
+										
+										console.log(obj);
+										for(var i = 0; i<obj.length;i++){
+											let p_price = obj[i].p_price;
+											let d_price = obj[i].d_price;
+											let p_deliveryfee = obj[i].p_deliveryfee;
+											
+											
+											row += `
+												<tbody><tr class="bundle-delivery" id="${obj[i].p_id}"><td align="" class="item-checkbox cart_info_td">
+											    <input type="hidden" class="og_price" value="${obj[i].p_price * obj[i].quantity}">
+											    <input type="hidden" class="ogdc_price" value="${obj[i].d_price * obj[i].quantity}">  <!-- 최종 구매가 -->
+											    <input type="hidden" class="only_price" value="${obj[i].d_price}">
+											    <input type="hidden" class="deliveryfee" value="$(obj[i].p_deliveryfee)">
+											    <input type="hidden" class="dc_price" value="$(obj[i].p_price * obj[i].quantity) - $(obj[i].d_price * obj[i].quantity)">
+											    <input type="hidden" class="product_id" value="${obj[i].p_id}">
+											    <input type="hidden" class="quantity" value="${obj[i].quantity}">
+											      <!-- 상품에 대한 정보가 hidden 태그로 체크박스 안에 들어가도록 할 것-->
+											      <div class="checkbox-wrap">
+											        <!-- 상품에 대한 정보들 들어가는 부분-->
 
+											        <!-- 위에서 저장한 부분 -->
+											        <div class="checkbox checkbox__one">                   
+											           
+											          <input type="checkbox" class="checkCart10" name="price" id="${obj[i].p_id}" value="${obj[i].p_id}" data-salestop="N" data-polcsn="DP20000632" checked="" data-cpnsupigoodsyn="N">
+											        
+											        
+											          <label for="${obj[i].p_id}"></label>
+											        </div>
+											      </div>
+											    </td>
+
+											    <td align="" class="item-image">
+											      <!-- 상품이미지 -->
+											      
+											      <div class="section-contents-item__image">
+											        <a href="#">
+											         <img src="${obj[i].img_url}" class="mainImg">
+											           </a>
+											      </div>
+											    </td>
+
+											    <td align="" class="item-option" style="vertical-align: middle">
+											      <div class="section-contents-item">
+
+											        <!-- 물품 제목-->
+											        <p class="section-contents-item__name">
+											          <a href="#">
+											            <span class="section-contents-item__name--text text-ellipsis-2">${obj[i].p_name}</span>
+											          </a>
+											        </p>
+
+											        <!--선택 항목-->
+											        <div class="section-contents-item__options--titwrap is-fullwidth">
+											          <ul>
+											            <li>
+											            </li>
+											          </ul>
+											        </div>
+											      </div>
+
+											    </td>
+
+											    <td align="">
+											      <div class="spinner-box spinner-box__not">
+											        <button class="spinner-box__minus disabled decQty">
+											          <i></i>
+											          <span class="sr-only">빼기</span>
+											        </button>
+											        <span class="spinner-box__number">
+											          <input class="cartQty" type="number" maxvalue="30" title="수량 설정" value="${obj[i].quantity}" readonly="">
+											        </span>
+											        <button class="spinner-box__plus addQty">
+											          <i></i><i></i><span class="sr-only">더하기</span>
+											        </button>
+											      </div>
+											        <a class="quantity_change_btn" data-productid="${obj[i].p_id}">변경</a>
+											    </td>
+
+											    <td align="">
+											      <div class="price item-price-discount">
+											        <!--del>1,226,000</del-->
+											        <del><fmt:formatNumber value="${obj[i].p_price }" type="number"/></del>
+											      <span class="won">원</span></div>
+
+											      <div class="price item-price"><fmt:formatNumber value="${obj[i].d_price }" type="number"/><span class="won">원</span>
+											      </div>
+											    </td>
+
+											    <!-- 쓸지 안쓸지 아직 미정-->
+											    <td align="">
+											      <!-- 할인금액 -->
+											      <div class="product-item-price__button--wrap">
+											          <button class="button is-small is-light modal-button btnClamDscnt" aria-haspopup="true" data-target="clam_dscnt_C002935375" data-sitesn="S000000028" data-sitenm="가구" data-img="https://static.hyundailivart.co.kr/upload_mall/goods/P200106872/GM42291819_img.jpg/dims/resize/x640/cropcenter/640x640/autorotate/on/optimize" data-goodsnm="모인 포근소파 4인 카우치형" data-cartsn="C002935375">카드할인</button>
+											      </div>
+											    
+											  </td>
+
+											  <td align="">
+											    <!-- 최종구매가 -->
+											    <div class="price final-price is-bold">
+											      <span id="totPrc_C002935375"><fmt:formatNumber value="${obj[i].d_price*obj[i].quantity + obj[i].p_deliveryfee }" type="number"/>
+											     </span>
+											      <span class="won is-normal">원</span>
+											    </div>
+											</td>
+
+											  <td align="" class="" rowspan="1">
+											    <!-- 배송 -->
+											    <div class="item-delivery">
+											      <div class="section-contents-item__delivery">
+											        <div class="delivery-type free">
+											            <span class="tit"><fmt:formatNumber value="${obj[i].p_deliveryfee }" type="number"/>
+											            </span>
+											        </div>
+											        <div class="delivery-type pay">
+											              <span class="price hidden"><span class="num viewDlvPrc">0</span>원</span>
+											          <i class="ico-popup dlexPolcInfo hidden" aria-haspopup="true" data-cpnusable="N" data-dlvtypecd="10" data-dlvlevytypecd="30" data-polcsn="DP20000632" data-stdamt="30000" data-stdqty="0" data-dlexamt="3000" data-finalamt="0" data-cpndscntamt="0" data-addamt="0" data-sofaamt="0" data-frntramt="0"></i>
+											        </div>
+											        <button class="button btn-delivery-coupon is-small is-light
+											            showDlexCouponPop hidden" id="btnShowCpnPop_DP20000632" data-dlexpolcsn="DP20000632">배송비 쿠폰</button>
+											      </div>
+											    </div>
+											</td>
+
+											<td align="">
+											  <div class="section-contents-item__simple">
+											      <div class="section-contents-item__simple--button">
+											            <button type="button" class="button is-danger buyCartOne">바로구매</button>
+											      </div>
+											      
+											    <ul class="section-contents-item is-flex simple-button">
+											      <!-- 삭제하기 버튼 -->
+											      <li>
+											        <button type="button" class="btn removeCartOne" data-productid="${obj[i].p_id}">
+											          <i class="icon-delete_item"></i>
+											        </button>
+											      </li>
+											    </ul>
+											    
+											  </div>
+											</td>
+											</tr></tbody>
+											
+									
+											`
+											
+										}
+										
+										$(".cart_list_items").html(obj);
+										alert(obj.length);
+										console.log(obj);
+										
+										
 										console.log("ajax 실행");
+										
+										
+										
+										
+										
+										
+										
+										
+			
+										
+										
+										
 //										delete_btn.closest('tr').fadeOut();
 //										total_price_calc();
 //										$('.total-amount').load("livart/cart2 .total-amount");
 //										$('.new_data').load("livart/cart2 .new_data", total_price_calc());
 										console.log("두번째 ajax 실행");
 
-										$('body').load("/livart/cart2");
+										/* 성환이형 버전
+										$('body').load("/livart/cart2"); */
+					
+										
 										/*  $(this).parent('tr').fadeOut(); */
 
 

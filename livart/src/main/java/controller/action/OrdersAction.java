@@ -27,7 +27,12 @@ public class OrdersAction implements ControllerLivart{
 			ordersVO.setOrderer(request.getParameter("ordManNm"));
 			String o_phn = request.getParameter("ordManHp1") + request.getParameter("ordManHp2") + request.getParameter("ordManHp3");
 			ordersVO.setOrderer_phone(o_phn);
-			ordersVO.setAddress("경기도");
+			String addr = request.getParameter("postNo");
+			addr += " ";
+			addr += request.getParameter("draddr1");
+			addr += " ";
+			addr += request.getParameter("draddr2");
+			ordersVO.setAddress(addr);
 			ordersVO.setReceiver(request.getParameter("rcvManNm"));
 			String r_phn = request.getParameter("rcvManHp1") + request.getParameter("rcvManHp2") + request.getParameter("rcvManHp3");
 			ordersVO.setReceiver_phone(r_phn);
