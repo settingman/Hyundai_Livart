@@ -289,6 +289,9 @@
           }
        })
     </script>
+    						<c:choose>
+    						<c:when test="${empty sessionScope.loginUserid}">
+    						
 								<div class="pitem-header-floating-wrap">
 									<div class="pitem-header-floating"
 										style="position: relative; top: initial;">
@@ -296,7 +299,27 @@
 											<div class="pitem-header-btns">
 												<div class="pitem-header-btns__full">
 													<button type="button" class="button is-primary is-large"
-														id="btn_cart">장바구니</button>
+														 onclick="location.href='/livart/login';">장바구니(로그인 필요)</button>
+													<button type="button" class="button is-danger is-large">구매하기(로그인 필요)</button>
+
+												</div>
+
+											</div>
+										</header>
+
+									</div>
+								</div>
+								</c:when>
+    							<c:otherwise>
+    							
+								<div class="pitem-header-floating-wrap">
+									<div class="pitem-header-floating"
+										style="position: relative; top: initial;">
+										<header class="pitem-header-card-header">
+											<div class="pitem-header-btns">
+												<div class="pitem-header-btns__full">
+													<button type="button" class="button is-primary is-large"
+														id="btn_cart" >장바구니</button>
 													<button type="button" class="button is-danger is-large">구매하기</button>
 
 												</div>
@@ -306,6 +329,10 @@
 
 									</div>
 								</div>
+    							
+    							
+    							</c:otherwise>
+    						</c:choose>
 							</div>
 
 						</div>

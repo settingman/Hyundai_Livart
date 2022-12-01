@@ -14,4 +14,5 @@ public class ReBuyVO {
 	private String p_category;
 	private int p_deliveryfee;
 	private String photo_url;
+	private int rebuycount;
 }

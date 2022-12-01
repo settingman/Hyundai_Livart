@@ -48,6 +48,7 @@ public class ReBuyDAO {
 				ReBuyVO rebuyVO = new ReBuyVO();
 				System.out.println(rs.getString(8));
 				rebuyVO.setP_id(rs.getString(1));
+				rebuyVO.setRebuycount(rs.getInt(2));
 				rebuyVO.setP_name(rs.getString(3));
 				rebuyVO.setP_price(rs.getInt(4));
 				rebuyVO.setP_discount(rs.getInt(5));

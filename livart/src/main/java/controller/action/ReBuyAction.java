@@ -27,7 +27,7 @@ public class ReBuyAction implements ControllerLivart{
 		request.setAttribute("rebuyRankList", rebuyRankList);
 		
 		
-		return new MyView("/WEB-INF/views/rank_rebuyitems.jsp");
+		return new MyView("/WEB-INF/views/rank_rebuyitem.jsp");
 	}
 
 }
