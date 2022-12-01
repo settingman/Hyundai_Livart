@@ -351,10 +351,10 @@
 			</form>
 			
 <!-- 삭제 form -->
-<!-- 			<form action="/livart/cart2/delete" method="post" class="quantity_delete_form">
+			<form action="/livart/cart2/delete" method="post" class="quantity_delete_form">
 				<input type="hidden" name="productId" class="delete_productId">
 			</form>
- -->
+ 
 			
 <!-- 장바구니 물건 구매내역으로 넘기기 -->
 			<form action="/livart/order" method="post" class="send_product_list">
@@ -364,245 +364,15 @@
   <script>
   
   /* 장바구니 삭제 버튼 */
-	/*  $(".removeCartOne").on("click", function(e){
+	  $(".removeCartOne").on("click", function(e){
 	 e.preventDefault();
 	 const productId=$(this).data("productid");
 	 $(".delete_productId").val(productId);
 	 $(".quantity_delete_form").submit();
-	 }); */
+	 }); 
 
-	$(".removeCartOne")
-			.click(
-					function() {
-						const p_id = $(this).data("productid");
-						var delete_btn = $(this);
-						console.log(p_id);
-
-						$.ajax({
-									type : "GET",
-									url : "/livart/cart2/delete",
-									data : {
-										productId : p_id
-									},
-									contentType : "application/x-www-form-urlencoded; charset=UTF-8",
-									success : function(data) {
-										var obj = JSON.parse(data);
-										var row = `<caption> 리바트몰 직접 배송 상품</caption>
-									        <colgroup>
-											<col style="width: 50px">
-											<col style="width: 160px">
-											<col>
-											<col style="width: 140px">
-											<col style="width: 135px">
-											<col style="width: 160px">
-											<col style="width: 160px">
-											<col style="width: 130px">
-											<col style="width: 150px">
-										</colgroup>
-						        <thead>
-											<tr>
-												<th align="" scope="col">
-													<div class="checkbox checkbox__one">
-														<input type="hidden" class="cartDlvTypeCd" value="10">
-												<!-- 		<input type="checkbox" name="chk-a-all" id="checkCart10" checked="" class="check__all"> -->
-														<label for="checkCart10"></label>
-													</div>
-												</th>
-												<th align="" scope="col" colspan="2">상품명/옵션정보</th>
-												<th align="" scope="col">수량</th>
-												<th align="" scope="col">판매가</th>
-												<th align="" scope="col">할인금액</th>
-												<th align="" scope="col">최종구매가</th>
-												<th align="" scope="col">배송비</th>
-												<th align="" scope="col">주문관리</th>
-											</tr>
-										</thead>`;
+	
 										
-								
-										for(var i = 0; i<obj.length;i++){
-											let p_price = obj[i].p_price;
-											let d_price = obj[i].d_price;
-											let p_deliveryfee = obj[i].p_deliveryfee;
-											
-											
-											row += `
-												<tbody><tr class="bundle-delivery" id='\${obj[i].p_id}'><td align="" class="item-checkbox cart_info_td">
-											    <input type="hidden" class="og_price" value='\${obj[i].p_price * obj[i].quantity}'>
-											    <input type="hidden" class="ogdc_price" value='\${obj[i].d_price * obj[i].quantity}'>  <!-- 최종 구매가 -->
-											    <input type="hidden" class="only_price" value='\${obj[i].d_price}'>
-											    <input type="hidden" class="deliveryfee" value='\${obj[i].p_deliveryfee}'>
-											    <input type="hidden" class="dc_price" value='\${obj[i].p_price * obj[i].quantity} - ${obj[i].d_price * obj[i].quantity}'>
-											    <input type="hidden" class="product_id" value='\${obj[i].p_id}'>
-											    <input type="hidden" class="quantity" value='\${obj[i].quantity}'>
-											      <!-- 상품에 대한 정보가 hidden 태그로 체크박스 안에 들어가도록 할 것-->
-											      <div class="checkbox-wrap">
-											        <!-- 상품에 대한 정보들 들어가는 부분-->
-
-											        <!-- 위에서 저장한 부분 -->
-											        <div class="checkbox checkbox__one">                   
-											           
-											          <input type="checkbox" class="checkCart10" name="price" id="${obj[i].p_id}" value="${obj[i].p_id}" data-salestop="N" data-polcsn="DP20000632" checked="" data-cpnsupigoodsyn="N">
-											        
-											        
-											          <label for="${obj[i].p_id}"></label>
-											        </div>
-											      </div>
-											    </td>
-
-											    <td align="" class="item-image">
-											      <!-- 상품이미지 -->
-											      
-											      <div class="section-contents-item__image">
-											        <a href="#">
-											         <img src="${obj[i].img_url}" class="mainImg">
-											           </a>
-											      </div>
-											    </td>
-
-											    <td align="" class="item-option" style="vertical-align: middle">
-											      <div class="section-contents-item">
-
-											        <!-- 물품 제목-->
-											        <p class="section-contents-item__name">
-											          <a href="#">
-											            <span class="section-contents-item__name--text text-ellipsis-2">${obj[i].p_name}</span>
-											          </a>
-											        </p>
-
-											        <!--선택 항목-->
-											        <div class="section-contents-item__options--titwrap is-fullwidth">
-											          <ul>
-											            <li>
-											            </li>
-											          </ul>
-											        </div>
-											      </div>
-
-											    </td>
-
-											    <td align="">
-											      <div class="spinner-box spinner-box__not">
-											        <button class="spinner-box__minus disabled decQty">
-											          <i></i>
-											          <span class="sr-only">빼기</span>
-											        </button>
-											        <span class="spinner-box__number">
-											          <input class="cartQty" type="number" maxvalue="30" title="수량 설정" value="${obj[i].quantity}" readonly="">
-											        </span>
-											        <button class="spinner-box__plus addQty">
-											          <i></i><i></i><span class="sr-only">더하기</span>
-											        </button>
-											      </div>
-											        <a class="quantity_change_btn" data-productid="${obj[i].p_id}">변경</a>
-											    </td>
-
-											    <td align="">
-											      <div class="price item-price-discount">
-											        <!--del>1,226,000</del-->
-											        <del><fmt:formatNumber value="${obj[i].p_price }" type="number"/></del>
-											      <span class="won">원</span></div>
-
-											      <div class="price item-price"><fmt:formatNumber value="${obj[i].d_price }" type="number"/><span class="won">원</span>
-											      </div>
-											    </td>
-
-											    <!-- 쓸지 안쓸지 아직 미정-->
-											    <td align="">
-											      <!-- 할인금액 -->
-											      <div class="product-item-price__button--wrap">
-											          <button class="button is-small is-light modal-button btnClamDscnt" aria-haspopup="true" data-target="clam_dscnt_C002935375" data-sitesn="S000000028" data-sitenm="가구" data-img="https://static.hyundailivart.co.kr/upload_mall/goods/P200106872/GM42291819_img.jpg/dims/resize/x640/cropcenter/640x640/autorotate/on/optimize" data-goodsnm="모인 포근소파 4인 카우치형" data-cartsn="C002935375">카드할인</button>
-											      </div>
-											    
-											  </td>
-
-											  <td align="">
-											    <!-- 최종구매가 -->
-											    <div class="price final-price is-bold">
-											      <span id="totPrc_C002935375"><fmt:formatNumber value="${obj[i].d_price*obj[i].quantity + obj[i].p_deliveryfee }" type="number"/>
-											     </span>
-											      <span class="won is-normal">원</span>
-											    </div>
-											</td>
-
-											  <td align="" class="" rowspan="1">
-											    <!-- 배송 -->
-											    <div class="item-delivery">
-											      <div class="section-contents-item__delivery">
-											        <div class="delivery-type free">
-											            <span class="tit"><fmt:formatNumber value="${obj[i].p_deliveryfee }" type="number"/>
-											            </span>
-											        </div>
-											        <div class="delivery-type pay">
-											              <span class="price hidden"><span class="num viewDlvPrc">0</span>원</span>
-											          <i class="ico-popup dlexPolcInfo hidden" aria-haspopup="true" data-cpnusable="N" data-dlvtypecd="10" data-dlvlevytypecd="30" data-polcsn="DP20000632" data-stdamt="30000" data-stdqty="0" data-dlexamt="3000" data-finalamt="0" data-cpndscntamt="0" data-addamt="0" data-sofaamt="0" data-frntramt="0"></i>
-											        </div>
-											        <button class="button btn-delivery-coupon is-small is-light
-											            showDlexCouponPop hidden" id="btnShowCpnPop_DP20000632" data-dlexpolcsn="DP20000632">배송비 쿠폰</button>
-											      </div>
-											    </div>
-											</td>
-
-											<td align="">
-											  <div class="section-contents-item__simple">
-											      <div class="section-contents-item__simple--button">
-											            <button type="button" class="button is-danger buyCartOne">바로구매</button>
-											      </div>
-											      
-											    <ul class="section-contents-item is-flex simple-button">
-											      <!-- 삭제하기 버튼 -->
-											      <li>
-											        <button type="button" class="btn removeCartOne" data-productid="${obj[i].p_id}">
-											          <i class="icon-delete_item"></i>
-											        </button>
-											      </li>
-											    </ul>
-											    
-											  </div>
-											</td>
-											</tr></tbody>`;
-											
-										}
-										
-										$(".section-contents-table__table check__group").html(row);
-										alert(row.length);
-										console.log(row);
-										
-										
-										console.log("ajax 실행");
-										
-										
-										
-										
-										
-										
-										
-										
-			
-										
-										
-										
-//										delete_btn.closest('tr').fadeOut();
-//										total_price_calc();
-//										$('.total-amount').load("livart/cart2 .total-amount");
-//										$('.new_data').load("livart/cart2 .new_data", total_price_calc());
-										console.log("두번째 ajax 실행");
-
-										/* 성환이형 버전
-										$('body').load("/livart/cart2"); */
-					
-										
-										/*  $(this).parent('tr').fadeOut(); */
-
-
-										//			  window.location.href="/livart/cart2";
-										//console.log("ajax 실행");
-
-									},
-									error : function(request, status, error) {
-										alert();
-									}
-								});
-					});
   
 </script>
 

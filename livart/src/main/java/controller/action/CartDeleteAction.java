@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.google.gson.Gson;
 
@@ -20,7 +21,7 @@ public class CartDeleteAction implements ControllerLivart{
 			throws ServletException, IOException {
 		
 	String productId = request.getParameter("productId");
-		
+	
 		System.out.println("삭제에 필요한 productId: " + productId);
 		
 		System.out.println("여길 들어와야함");
@@ -33,8 +34,8 @@ public class CartDeleteAction implements ControllerLivart{
 		String result = gson.toJson(cartItemList);
 		PrintWriter out = response.getWriter();
 		out.print(result);
-		return new MyView("ajax");
-		//return new MyView("/WEB-INF/views/cart2.jsp");
+		//return new MyView("ajax");
+		return new MyView("/WEB-INF/views/cart2.jsp");
 	}
 
 }
