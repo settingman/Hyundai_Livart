@@ -126,7 +126,7 @@ public class RealReviewSave implements ControllerLivart {
 		
 		out.print(1);
 
-		return new MyView("ajax");
+		return new MyView("redirect::/livart/review"); // 리뷰페이지로이동.
 
 	}
 

@@ -228,7 +228,7 @@ public class CartDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			DBManager.close(conn, cs, rs);
+			DBManager.close(conn, cs);
 		}
 	}
 	

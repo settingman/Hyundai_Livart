@@ -28,7 +28,7 @@ public class MemberLogout implements ControllerLivart {
 	public MyView process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { 
 		
 		
-		String url = "redirect::/main.jsp"; // 메인페이지로 리턴
+		String url = "redirect::/livart/main"; // 메인페이지로 리턴
 		
 		HttpSession session = request.getSession();
 		
