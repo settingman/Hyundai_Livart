@@ -18,7 +18,7 @@ public class CartListAction implements ControllerLivart{
 	public MyView process(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		
-		CartDAO cartDAO = new CartDAO();		
+		CartDAO cartDAO =       CartDAO.getInstance();
 		String pid = request.getParameter("pid").trim();
 		String uid = request.getParameter("uid").trim();
 		int qty = Integer.parseInt(request.getParameter("qty").trim());

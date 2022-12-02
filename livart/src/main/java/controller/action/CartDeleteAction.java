@@ -16,26 +16,29 @@ import dto.CartItemVO;
 
 public class CartDeleteAction implements ControllerLivart{
 
-	@Override
-	public MyView process(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		
-	String productId = request.getParameter("productId");
-	
-		System.out.println("삭제에 필요한 productId: " + productId);
-		
-		System.out.println("여길 들어와야함");
-		CartDAO cartDAO = new CartDAO();
-		ArrayList<CartItemVO> cartItemList = cartDAO.deleteProduct(productId);
-		
-		request.setAttribute("cartItemList", cartItemList);
-		
-		Gson gson = new Gson();
-		String result = gson.toJson(cartItemList);
-		PrintWriter out = response.getWriter();
-		out.print(result);
-		//return new MyView("ajax");
-		return new MyView("/WEB-INF/views/cart2.jsp");
-	}
+   @Override
+   public MyView process(HttpServletRequest request, HttpServletResponse response)
+         throws ServletException, IOException {
+      
+   String productId = request.getParameter("productId");
+   
+   HttpSession session = request.getSession();
+    String user_id = (String) session.getAttribute("loginUserid");
+   
+      System.out.println("삭제에 필요한 productId: " + productId);
+      
+      System.out.println("여길 들어와야함");
+      CartDAO cartDAO =       CartDAO.getInstance();
+      ArrayList<CartItemVO> cartItemList = cartDAO.deleteProduct(productId, user_id);
+      
+      request.setAttribute("cartItemList", cartItemList);
+      
+      Gson gson = new Gson();
+      String result = gson.toJson(cartItemList);
+      PrintWriter out = response.getWriter();
+      out.print(result);
+      //return new MyView("ajax");
+      return new MyView("/WEB-INF/views/cart2.jsp");
+   }
 
 }

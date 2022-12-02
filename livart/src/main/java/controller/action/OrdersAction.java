@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.CartDAO;
 import dto.CartItemVO;
@@ -18,10 +19,14 @@ public class OrdersAction implements ControllerLivart{
 			throws ServletException, IOException {
 		
 			request.setCharacterEncoding("utf-8");
+			
+			
+			HttpSession session = request.getSession();
+		    String user_id = (String) session.getAttribute("loginUserid");
 		
 			OrderVO ordersVO = new OrderVO();
-			CartDAO cartDAO = new CartDAO();
-			ArrayList<CartItemVO> cartItemList = cartDAO.selectCartItemList();
+			CartDAO cartDAO =       CartDAO.getInstance();
+			ArrayList<CartItemVO> cartItemList = cartDAO.selectCartBuyItemList(user_id);
 			
 			int cart_id = Integer.parseInt(request.getParameter("cartId"));
 			ordersVO.setOrderer(request.getParameter("ordManNm"));
@@ -39,8 +44,10 @@ public class OrdersAction implements ControllerLivart{
 			ordersVO.setMessage(request.getParameter("delivery-request"));
 			
 			
-			//로그인 세션 추후에 받아야 하는 값
-			ordersVO.setUser_id("kibeom5118");
+			
+			
+			
+			ordersVO.setUser_id(user_id);
 	
 			int order_id = cartDAO.insertOrder(cart_id, ordersVO.getOrderer(), ordersVO.getOrderer_phone(),
 								ordersVO.getAddress(), ordersVO.getReceiver(), ordersVO.getReceiver_phone(),
