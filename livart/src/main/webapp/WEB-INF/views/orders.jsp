@@ -17,7 +17,7 @@
 
 <c:set var="total_price" value="0" />
 <c:forEach var="cartItem" items="${buyCartItemList }" varStatus="buyCartNum">
-	<c:set var="total_price" value="${total_price + (cartItem.d_price*cartItem.quantity) + cartItem.p_deliveryfee}"/>
+   <c:set var="total_price" value="${total_price + (cartItem.d_price*cartItem.quantity) + cartItem.p_deliveryfee}"/>
 </c:forEach>
 
 <div class="container">
@@ -104,20 +104,20 @@
                   <h3 class="content-title is-liner top-line">
                       배송지 정보
                       <i class="ico-popup modal-button" data-target="modal-delivery-destination" aria-haspopup="true"></i>
-                      
+                      <!-- 
                           <button type="button" class="btn-address-list modal-button" id="btnShowDlvpList" data-target="modal-delivery-destination-list" aria-haspopup="true">배송지 목록<i class="ico-angle-right"></i>
-                          </button>
+                          </button>   -->
                       
                   </h3>
                   <div class="control right-position">
-                      <div class="radio">
+                   <!--    <div class="radio">
                           <input type="radio" name="radio-a" value="10" id="addrSetOrderer" class="addrSetRadio" data-gtm-form-interact-field-id="0">
                           <label for="addrSetOrderer">주문자와 동일</label>
                       </div>
                       <div class="radio">
                           <input type="radio" name="radio-a" value="20" id="addrSetDirect" class="addrSetRadio">
                           <label for="addrSetDirect">직접입력</label>
-                      </div>
+                      </div>  -->
                   </div>
               </div>
               <div class="table-box table-box-form">
@@ -141,7 +141,7 @@
                                   <label for="rcvManNm" class="label required">받는사람</label>
                               </th>
                               <td>
-                                  <input id="rcvManNm" name="rcvManNm" class="input width-middle" type="text" value="" maxlength="13">
+                                  <input id="rcvManNm" name="rcvManNm" class="input width-middle" type="text" value="${preOrderInfo.orderer }" maxlength="13">
                               </td>
                           </tr>
                           <tr>
@@ -166,8 +166,8 @@
                                           
                                       </select>
                                   </div>
-                                  <input class="input width-small" type="text" id="rcvManHp2" name="rcvManHp2" maxlength="4" value="${fn:substring(preOrderInfo.orderer_phone,4,8)}" data-valid-number="true">
-                                  <input class="input width-small" type="text" id="rcvManHp3" name="rcvManHp3" maxlength="4" value="" data-valid-number="true">
+                                  <input class="input width-small" type="text" id="rcvManHp2" name="rcvManHp2" maxlength="4" value="${fn:substring(preOrderInfo.orderer_phone,3,7)}" data-valid-number="true">
+                                  <input class="input width-small" type="text" id="rcvManHp3" name="rcvManHp3" maxlength="4" value="${fn:substring(preOrderInfo.orderer_phone,7,11)}" data-valid-number="true">
                               </td>
                           </tr>
                           
@@ -229,10 +229,10 @@
   <!-- 배송 날짜 선택-->
   <section>
     <div class="section-contents-item">
-        <div class="content-title-wrap">
+   <!--      <div class="content-title-wrap">
             <h3 class="content-title is-liner top-line">직접배송 상품주문</h3>
             <span class="direct-F right-position">직접배송 상품(가구 등)의 배송 및 설치를 위해 아래 사항을 선택해주세요. 선택하신 사항에 따라 배송 전 등록된 연락처로 안내를 드릴 예정입니다.</span>
-        </div>
+        </div>   -->
 
         <div class="table-box table-box-form">
             <table class="table is-fullwidth">
@@ -251,11 +251,11 @@
                 </thead>
                 <tbody>
                     
-                    
+                    <!--
                         <tr>
-                            <th scope="row">
+                             <th scope="row">
                                 <label for="dateSelect" class="label required">희망 배송일</label>
-                            </th>
+                            </th>   
                             <td>
                                 <div class="date-select-box">
                                   
@@ -287,7 +287,7 @@
                             </td>
                         </tr>
                         
-                        
+                         -->
                     
                 </tbody>
             </table>
@@ -456,11 +456,11 @@
 
 <script>
 function execute_address_api(){
-	 new daum.Postcode({
-	        oncomplete: function(data) {
-	            // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분입니다.
-	            
-	        	var addr = ''; // 주소 변수
+    new daum.Postcode({
+           oncomplete: function(data) {
+               // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분입니다.
+               
+              var addr = ''; // 주소 변수
                 var extraAddr = ''; // 참고항목 변수
  
                 //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
@@ -501,11 +501,11 @@ function execute_address_api(){
                 // 커서를 상세주소 필드로 이동한다.
                 $(".draddr2").attr("readonly", false);
                 $(".draddr2").focus();
-	            
-	 
-	        }
-	    }).open();    
-	
+               
+    
+           }
+       }).open();    
+   
 }
 
 

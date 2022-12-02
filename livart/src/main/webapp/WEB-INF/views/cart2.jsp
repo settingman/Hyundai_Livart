@@ -26,47 +26,47 @@
     <!-- 장바구니에 상품이 들어있을 경우-->
     <section class="section-contents-table is-interval cartListSection">
       <div class="section-contents-table__button--wrap is-liner is-flex">
-        <button class="button is-primary is-outlined is-small removeCartAll">전체삭제</button>
+<!--         <button class="button is-primary is-outlined is-small removeCartAll">전체삭제</button>  -->
  <!--       <button class="button is-small removeCartChecked">선택삭제</button>   -->
       </div>
 
       <h4 class="title is-4 is-normal section-contents-table__table--total is-liner">
-				리바트몰 직접 배송 상품
-			</h4>
+            리바트몰 직접 배송 상품
+         </h4>
 
 <div>
       <table class="section-contents-table__table check__group">
         <caption> 리바트몰 직접 배송 상품</caption>
         <colgroup>
-					<col style="width: 50px">
-					<col style="width: 160px">
-					<col>
-					<col style="width: 140px">
-					<col style="width: 135px">
-					<col style="width: 160px">
-					<col style="width: 160px">
-					<col style="width: 130px">
-					<col style="width: 150px">
-				</colgroup>
+               <col style="width: 50px">
+               <col style="width: 160px">
+               <col>
+               <col style="width: 140px">
+               <col style="width: 135px">
+               <col style="width: 160px">
+               <col style="width: 160px">
+               <col style="width: 130px">
+               <col style="width: 150px">
+            </colgroup>
         <thead>
-					<tr>
-						<th align="" scope="col">
-							<div class="checkbox checkbox__one">
-								<input type="hidden" class="cartDlvTypeCd" value="10">
-						<!-- 		<input type="checkbox" name="chk-a-all" id="checkCart10" checked="" class="check__all"> -->
-								<label for="checkCart10"></label>
-							</div>
-						</th>
-						<th align="" scope="col" colspan="2">상품명/옵션정보</th>
-						<th align="" scope="col">수량</th>
-						<th align="" scope="col">판매가</th>
-						<th align="" scope="col">할인금액</th>
-						<th align="" scope="col">최종구매가</th>
-						<th align="" scope="col">배송비</th>
-						<th align="" scope="col">주문관리</th>
-					</tr>
-				</thead>
-	<c:forEach var="cart" items="${cartItemList }" varStatus="cartNum">
+               <tr>
+                  <th align="" scope="col">
+                     <div class="checkbox checkbox__one">
+                        <input type="hidden" class="cartDlvTypeCd" value="10">
+                  <!--       <input type="checkbox" name="chk-a-all" id="checkCart10" checked="" class="check__all"> -->
+                        <label for="checkCart10"></label>
+                     </div>
+                  </th>
+                  <th align="" scope="col" colspan="2">상품명/옵션정보</th>
+                  <th align="" scope="col">수량</th>
+                  <th align="" scope="col">판매가</th>
+                  <th align="" scope="col">할인금액</th>
+                  <th align="" scope="col">최종구매가</th>
+                  <th align="" scope="col">배송비</th>
+                  <th align="" scope="col">주문관리</th>
+               </tr>
+            </thead>
+   <c:forEach var="cart" items="${cartItemList }" varStatus="cartNum">
         <tbody class="cart_list_items">
           <tr class="bundle-delivery" id="${cart.p_id }">
             <td align class="item-checkbox cart_info_td" >
@@ -88,8 +88,8 @@
                   id=${cart.p_id } value=${cart.p_id }
                   data-salestop="N" data-polcsn="DP20000632" checked data-cpnsupigoodsyn="N"> -->
                   
-                  <input type="checkbox" class="checkCart10 " name="price"
-                  id="${cart.p_id }" value="${cart.p_id }" checked>
+  <!--                <input type="checkbox" class="checkCart10 " name="price"
+                  id="${cart.p_id }" value="${cart.p_id }" checked>   -->
                 
                 
                   <label for="${cart.p_id }"></label>
@@ -211,9 +211,9 @@
 
         <td align="">
           <div class="section-contents-item__simple">
-              <div class="section-contents-item__simple--button">
-                    <button type="button" class="button is-danger buyCartOne">바로구매</button>
-              </div>
+            <!--   <div class="section-contents-item__simple--button">
+                    <button type="button" class="button is-danger buyCartOne">바로구매</button>   
+              </div>   -->
               
             <ul class="section-contents-item is-flex simple-button">
               <!-- 삭제하기 버튼 -->
@@ -227,46 +227,46 @@
           </div>
         </td>
         </tbody>
-	</c:forEach>   
+   </c:forEach>   
          
       </table>
 
       <!-- 총 주문 금액-->
      <div class="total-amount">
-				<ul class="is-flex">
-					<li class="order">
-						<span class="tit sr-only">총 주문금액</span>
-						<span class="number">
-							<em class="num viewPrcSum">
-							<span class="original_price"></span>
-							</em>원
-						</span>
-					</li>
-					<li class="discount">
-						<span class="tit sr-only">할인금액</span>
-						<span class="number">
-							<em class="num viewDscntSum">
-							<span class="discount_price"></span>
-							</em>원
-						</span>
-					</li>
-					<li class="delivery">
-						<span class="tit sr-only">배송비</span>
-						<span class="number">
-							<em class="num viewDlvPrcSum">
-							<span class="deliveryfee"></span>
-							</em>원</span>
-					</li>
-					<li class="pay">
-						<span class="tit sr-only">결제예정금액</span>
-						<span class="number pay_price">
-							<em class="num viewPayPrcSum">
-							<span class="total_price"></span>
-							</em>원
-						</span>
-					</li>
-				</ul>
-			</div> 
+            <ul class="is-flex">
+               <li class="order">
+                  <span class="tit sr-only">총 주문금액</span>
+                  <span class="number">
+                     <em class="num viewPrcSum">
+                     <span class="original_price"></span>
+                     </em>원
+                  </span>
+               </li>
+               <li class="discount">
+                  <span class="tit sr-only">할인금액</span>
+                  <span class="number">
+                     <em class="num viewDscntSum">
+                     <span class="discount_price"></span>
+                     </em>원
+                  </span>
+               </li>
+               <li class="delivery">
+                  <span class="tit sr-only">배송비</span>
+                  <span class="number">
+                     <em class="num viewDlvPrcSum">
+                     <span class="deliveryfee"></span>
+                     </em>원</span>
+               </li>
+               <li class="pay">
+                  <span class="tit sr-only">결제예정금액</span>
+                  <span class="number pay_price">
+                     <em class="num viewPayPrcSum">
+                     <span class="total_price"></span>
+                     </em>원
+                  </span>
+               </li>
+            </ul>
+         </div> 
     </section>
 
     <!-- 장바구니 총
@@ -307,7 +307,7 @@
       </div>
        
  
-	</c:when>
+   </c:when>
 
     <c:when test="${empty cartList }">
     <!-- 장바구니가 비어있을 경우-->
@@ -345,34 +345,34 @@
  
   
 <!-- 수량 조정 form -->
-			<form action="/livart/cart2/update" method="post" class="quantity_update_form">
-				<input type="hidden" name="productId" class="update_productId">
-				<input type="hidden" name="productCount" class="update_product_quantity">
-			</form>
-			
+         <form action="/livart/cart2/update" method="post" class="quantity_update_form">
+            <input type="hidden" name="productId" class="update_productId">
+            <input type="hidden" name="productCount" class="update_product_quantity">
+         </form>
+         
 <!-- 삭제 form -->
-			<form action="/livart/cart2/delete" method="post" class="quantity_delete_form">
-				<input type="hidden" name="productId" class="delete_productId">
-			</form>
+         <form action="/livart/cart2/delete" method="post" class="quantity_delete_form">
+            <input type="hidden" name="productId" class="delete_productId">
+         </form>
  
-			
+         
 <!-- 장바구니 물건 구매내역으로 넘기기 -->
-			<form action="/livart/order" method="post" class="send_product_list">
-				<input type="hidden" name="userId" class="send_user_id">
-			</form>
-	  
+         <form action="/livart/order" method="post" class="send_product_list">
+            <input type="hidden" name="userId" class="send_user_id">
+         </form>
+     
   <script>
   
   /* 장바구니 삭제 버튼 */
-	  $(".removeCartOne").on("click", function(e){
-	 e.preventDefault();
-	 const productId=$(this).data("productid");
-	 $(".delete_productId").val(productId);
-	 $(".quantity_delete_form").submit();
-	 }); 
+     $(".removeCartOne").on("click", function(e){
+    e.preventDefault();
+    const productId=$(this).data("productid");
+    $(".delete_productId").val(productId);
+    $(".quantity_delete_form").submit();
+    }); 
 
-	
-										
+   
+                              
   
 </script>
 
@@ -382,62 +382,62 @@
   
   /* 장바구니 전체 상품 구매 페이지로 이동  */
   $(".buyCartAll").on("click", function() {
-	let userId = $(this).data("userid");
-	
-	console.log(userId);
-	$(".send_user_id").val(userId);
-	$(".send_product_list").submit();
-	  
-	  
-//	  let index = 0;
-//	  let transfer_data = "";
-/*	  let buy_product_list = [];
-	  
-	  $(".cart_info_td").each(function(index, element){
-		  
-		  let productId = $(element).find(".product_id").val();
-		  let productPrice = $(element).find(".only_price").val();
-		  let quantity = $(element).find(".quantity").val();
-		  console.log(productId);
-		  console.log(productPrice);
-		  console.log(quantity);
-		  buy_product_list.push({
-			  p_id: productId,
-			  p_price: productPrice,
-			  qty: quantity
-		  });
-	*/
-		  /*
-		  let productIdArr = "<input type='hidden' name='prodcutId[" + index + "]' value='" + productId + "'>";
-		  transfer_data += productIdArr;
-		  
-		  let productPriceArr = "<input type='hidden' name='productPrice[" + index + "]' value='" + productPrice + "'>";
-		  transfer_data += productPriceArr;
-		  
-		  let total_quantity = "<input type='hidden' name='quantity[" + index + "]' value='" + quantity + "'>";
-		  transfer_data += total_quantity;
-		  
-		  console.log(transfer_data);
-		  
-		  index += 1;
-		  */
-//	  })
-	  
-//	  console.log(buy_product_list);
-//	  $(".product_obj_to_order").val(buy_product_list);
-//	  $(".send_product_list").submit();
-		//  $(".send_product_list").html(transfer_data);
-		//  $(".send_product_list").submit();
+   let userId = $(this).data("userid");
+   
+   console.log(userId);
+   $(".send_user_id").val(userId);
+   $(".send_product_list").submit();
+     
+     
+//     let index = 0;
+//     let transfer_data = "";
+/*     let buy_product_list = [];
+     
+     $(".cart_info_td").each(function(index, element){
+        
+        let productId = $(element).find(".product_id").val();
+        let productPrice = $(element).find(".only_price").val();
+        let quantity = $(element).find(".quantity").val();
+        console.log(productId);
+        console.log(productPrice);
+        console.log(quantity);
+        buy_product_list.push({
+           p_id: productId,
+           p_price: productPrice,
+           qty: quantity
+        });
+   */
+        /*
+        let productIdArr = "<input type='hidden' name='prodcutId[" + index + "]' value='" + productId + "'>";
+        transfer_data += productIdArr;
+        
+        let productPriceArr = "<input type='hidden' name='productPrice[" + index + "]' value='" + productPrice + "'>";
+        transfer_data += productPriceArr;
+        
+        let total_quantity = "<input type='hidden' name='quantity[" + index + "]' value='" + quantity + "'>";
+        transfer_data += total_quantity;
+        
+        console.log(transfer_data);
+        
+        index += 1;
+        */
+//     })
+     
+//     console.log(buy_product_list);
+//     $(".product_obj_to_order").val(buy_product_list);
+//     $(".send_product_list").submit();
+      //  $(".send_product_list").html(transfer_data);
+      //  $(".send_product_list").submit();
   });
  
   
   $(document).ready(function(){
-	  total_price_calc();
+     total_price_calc();
   });
   
   
   $(".checkCart10").on("change", function(){
-	  total_price_calc($(".cart_info_td"));
+     total_price_calc($(".cart_info_td"));
   })
   
   
@@ -446,63 +446,63 @@
   <script type="text/javascript">
  
   function total_price_calc(){
-	  	  
-	  /* 종합 정보 섹션 정보 삽입 */
-	  let final_price = 0 // 최종적으로 결제해야하는 가격
-	  let og_price = 0; // 상품 정가
-	  let ogdc_price =0; // 할인된 가격
-	  let deliveryfee = 0; // 배송비
-	  let dc_price = 0; // 할인 해준 금액
-		
-		$(".cart_info_td").each(function(index, element){
-			
-			// 총 가격
-			if($(element).find(".checkCart10").is(":checked") === true) {
-			og_price += parseInt($(element).find(".og_price").val());
-			ogdc_price += parseInt($(element).find(".ogdc_price").val())
-			deliveryfee += parseInt($(element).find(".deliveryfee").val());
-			dc_price += parseInt($(element).find(".dc_price").val());
-			}
-		});	
-	  		
-		/* 최종 가격 */
-		final_price = ogdc_price + deliveryfee;
+          
+     /* 종합 정보 섹션 정보 삽입 */
+     let final_price = 0 // 최종적으로 결제해야하는 가격
+     let og_price = 0; // 상품 정가
+     let ogdc_price =0; // 할인된 가격
+     let deliveryfee = 0; // 배송비
+     let dc_price = 0; // 할인 해준 금액
+      
+      $(".cart_info_td").each(function(index, element){
+         
+         // 총 가격
+      //   if($(element).find(".checkCart10").is(":checked") === true) {
+         og_price += parseInt($(element).find(".og_price").val());
+         ogdc_price += parseInt($(element).find(".ogdc_price").val())
+         deliveryfee += parseInt($(element).find(".deliveryfee").val());
+         dc_price += parseInt($(element).find(".dc_price").val());
+      //   }
+      });   
+           
+      /* 최종 가격 */
+      final_price = ogdc_price + deliveryfee;
 
-		// 총 가격
-		$(".original_price").text(og_price.toLocaleString());
-		$(".discount_price").text(dc_price.toLocaleString());
-		$(".deliveryfee").text(deliveryfee.toLocaleString());
-		$(".total_price").text(final_price.toLocaleString());
-		
-		console.log(final_price);
-	  
+      // 총 가격
+      $(".original_price").text(og_price.toLocaleString());
+      $(".discount_price").text(dc_price.toLocaleString());
+      $(".deliveryfee").text(deliveryfee.toLocaleString());
+      $(".total_price").text(final_price.toLocaleString());
+      
+      console.log(final_price);
+     
   }
   
   /* 수량버튼 */
   $(".addQty").on("click", function(){
-  	let quantity = $(this).parent("div").find("input").val();
-  	$(this).parent("div").find("input").val(++quantity);
-  	
-  	let productId = $(this).data("productid");
-  	$(".update_productId").val(productId);
-	$(".update_product_quantity").val(quantity);
-	$(".quantity_update_form").submit();
+     let quantity = $(this).parent("div").find("input").val();
+     $(this).parent("div").find("input").val(++quantity);
+     
+     let productId = $(this).data("productid");
+     $(".update_productId").val(productId);
+   $(".update_product_quantity").val(quantity);
+   $(".quantity_update_form").submit();
   });
   $(".decQty").on("click", function(){
-  	let quantity = $(this).parent("div").find("input").val();
-  	if(quantity > 1){
-  		$(this).parent("div").find("input").val(--quantity);
-  	  	let productId = $(this).data("productid");
-  	  	$(".update_productId").val(productId);
-  		$(".update_product_quantity").val(quantity);
-  		$(".quantity_update_form").submit();
-  	}
+     let quantity = $(this).parent("div").find("input").val();
+     if(quantity > 1){
+        $(this).parent("div").find("input").val(--quantity);
+          let productId = $(this).data("productid");
+          $(".update_productId").val(productId);
+        $(".update_product_quantity").val(quantity);
+        $(".quantity_update_form").submit();
+     }
   });
   
 
   
   </script>
       
-	
+   
 </body>
 </html>
