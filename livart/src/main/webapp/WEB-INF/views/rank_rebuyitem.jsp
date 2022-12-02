@@ -415,103 +415,12 @@ img.circle-img.circle-img--small {
                      class="icon-gnb_mem3"></i><span>장바구니</span></a></li>
                <li><a class="header-member-menu__btn icon i-gnb_mem4"><i
                      class="icon-gnb_mem4"></i><span>매장찾기</span></a></li>
-               <li><a class="header-member-menu__btn icon i-gnb_mem7"><i
-                     class="icon-gnb_mem7"></i><span>방문상담예약</span></a></li>
+               <li><a class="header-member-menu__btn icon i-gnb_mem7" href="/livart/productdetail?p_id=P100025656"><i
+                     class="icon-gnb_mem7"></i><span>최근 본 상품</span></a></li>
                <li><a class="header-member-menu__btn icon i-gnb_mem5"><i
                      class="icon-gnb_mem5"></i><span>고객센터</span></a></li>
             </ul>
-            <div class="header-search-wrap">
-               <form action="/search/search" name="searchForm">
-                  <input type="hidden" id="recommUrl"> <input type="hidden"
-                     id="linkedUrl">
-                  <fieldset>
-                     <legend>통합검색</legend>
-                     <div class="header-search">
-                        <div class="header-search__input-wrap">
-                           <input type="text" id="searchKeyword" name="kwd"
-                              autocomplete="off" class="header-search__input"
-                              placeholder="검색어를 입력하세요" title="검색어">
-                        </div>
-                        <button type="submit" class="header-search__submit icon"
-                           id="searchKwdBtn">
-                           <i class="ico-search"></i><span class="sr-only">검색</span>
-                        </button>
-                     </div>
-                  </fieldset>
-               </form>
-               <!-- S : 최근검색어/인기검색어 -->
-               <div class="header-search-content" id="headerSearchContent">
-                  <div class="header-search-content__header">
-                     <ul>
-                        <li class="is-active">
-                           <button id="tab-search1" class="tab" role="tab"
-                              aria-controls="tabpanel-search1">
-                              <span>최근 검색어</span>
-                           </button>
-                        </li>
-                        <li>
-                           <button id="tab-search2" class="tab" role="tab"
-                              aria-controls="tabpanel-search2">
-                              <span>인기 검색어</span>
-                           </button>
-                        </li>
-                     </ul>
-                  </div>
-                  <!-- 최근 검색어 -->
-                  <div id="tabpanel-search1" class="tabpanel is-active"
-                     role="tabpanel" aria-labelledby="tab-search1">
-                     <div class="header-search-content__body lately-complete">
-                        <ul>
-                        </ul>
-                     </div>
-                     <div class="header-search-content__footer clear">
-                        <div class="fl">
-                           <button class="button-search-all__del">검색기록 전체삭제</button>
-                        </div>
-                        <div class="fr">
-                           <button class="button-search-content__close">
-                              닫기 <i class="icon-del-small"></i>
-                           </button>
-                        </div>
-                     </div>
-                  </div>
-                  <!-- //최근 검색어 -->
-                  <!-- 인기검색어 -->
-                  <div id="tabpanel-search2" class="tabpanel is-active"
-                     role="tabpanel" aria-labelledby="tab-search2" hidden="">
-                     <div class="header-search-content__body">
-                        <ol class="header-search-content__popular">
-                        </ol>
-                     </div>
-                     <div class="header-search-content__footer">
-                        <div class="fl"></div>
-                        <div class="fr">
-                           <button class="button-search-content__close">
-                              닫기 <i class="icon-del-small"></i>
-                           </button>
-                        </div>
-                     </div>
-                  </div>
-                  <!-- //인기검색어 -->
-               </div>
-               <!-- E : 최근검색어/인기검색어 -->
-               <!-- S : 자동완성 -->
-               <div class="header-search-content" id="headerSearchKeyword">
-                  <div class="header-search-content__header" id="cateKwdAuto">
-                  </div>
-                  <div class="header-search-content__body">
-                     <ul id="goodsKwdAuto">
-                        <li></li>
-                     </ul>
-                  </div>
-                  <div class="header-search-content__footer">
-                     <ul class="header-search-content__footer--hash" id="evtKwdAuto">
-                     </ul>
-                  </div>
-               </div>
-               <!-- E : 자동완성 -->
-            </div>
-         </div>
+           
       </div>
       <!-- //header logo -->
       <!-- s : #gnb -->
@@ -532,7 +441,7 @@ img.circle-img.circle-img--small {
                         <li class=""><a>브랜드마켓</a></li>
                         <li class=""><a>아울렛</a></li>
                         <li class=""><a>신상</a></li>
-                        <li class=""><a>카탈로그</a></li>
+                        <li class=""><a>재구매 높은 상품</a></li>
                      </ul>
                   </nav>
                </div>

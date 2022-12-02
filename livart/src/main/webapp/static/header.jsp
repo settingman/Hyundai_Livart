@@ -442,7 +442,7 @@ to {
 								<li class=""><a>브랜드마켓</a></li>
 								<li class=""><a>아울렛</a></li>
 								<li class=""><a>신상</a></li>
-								<li class=""><a>카탈로그</a></li>
+								<li class=""><a href="/livart/rebuy">재구매 높은 상품</a></li>
 							</ul>
 						</nav>
 					</div>

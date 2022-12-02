@@ -312,8 +312,7 @@
 			<!-- S : 콘텐츠 헤더 -->
 			<div class="comm-edt__item">
 				<div class="comm-contents__content content">
-					본문 영역 불러오기 <br> <br> 132 123<br> 123<br> 123<br>
-					123<br> test<br> tets<br>
+					${realReviewVO.review_content}
 				</div>
 			</div>
 		</section>
