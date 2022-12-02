@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.CartDAO;
 import dto.CartItemVO;
@@ -17,12 +18,17 @@ public class PreOrdersAction implements ControllerLivart {
 	public MyView process(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 	
-		String userId = request.getParameter("userId");
+		//String userId = request.getParameter("userId");
 		
-		CartDAO cartDAO = new CartDAO();
+		HttpSession session = request.getSession();
+	    String user_id = (String) session.getAttribute("loginUserid");
+	    
+		CartDAO cartDAO = 		CartDAO.getInstance();
 		System.out.println("preorder 들어옴");
-		ArrayList<CartItemVO> buyCartItemList = cartDAO.selectCartBuyItemList(userId);
-		PreOrdersVO preOrderInfo = cartDAO.selectPreOrderInfo();
+		ArrayList<CartItemVO> buyCartItemList = cartDAO.selectCartBuyItemList(user_id);
+		PreOrdersVO preOrderInfo = cartDAO.selectPreOrderInfo(user_id);
+		
+		System.out.println(preOrderInfo.getOrderer());
 		
 		request.setAttribute("buyCartItemList", buyCartItemList);
 		request.setAttribute("preOrderInfo", preOrderInfo);

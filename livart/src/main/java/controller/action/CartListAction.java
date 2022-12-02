@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.CartDAO;
+import dao.ProductDAO;
 import dto.CartItemVO;
 
 
@@ -18,7 +19,7 @@ public class CartListAction implements ControllerLivart{
 	public MyView process(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		
-		CartDAO cartDAO = new CartDAO();		
+		CartDAO cartDAO = 		CartDAO.getInstance();
 		String pid = request.getParameter("pid").trim();
 		String uid = request.getParameter("uid").trim();
 		int qty = Integer.parseInt(request.getParameter("qty").trim());
@@ -26,6 +27,8 @@ public class CartListAction implements ControllerLivart{
 		
 		HttpSession session = request.getSession();
 	    String user_id = (String) session.getAttribute("loginUserid");
+	    
+	    System.out.println("user_id값: " + user_id);
 		
 		ArrayList<CartItemVO> cartItemList = cartDAO.selectCartBuyItemList(user_id);
 		request.setAttribute("cartItemList", cartItemList);

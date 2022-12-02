@@ -15,27 +15,23 @@ import util.DBManager;
 
 public class CartDAO {
 
+	private CartDAO() {
+	}
+
 	private static CartDAO instance = new CartDAO();
 
 	public static CartDAO getInstance() {
 		return instance;
 	}
-
-	Connection conn = null;
-
-	public CartDAO() {
-		try {
-			conn = DBManager.getConnection();
-			System.out.println("db success");
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+	
+	
+	
 
 	public ArrayList<CartItemVO> selectCartItemList() {
 		ArrayList<CartItemVO> cartItemList = new ArrayList<>();
 		CallableStatement callableStatement = null;
+		Connection conn = null;
+		ResultSet rs = null;
 
 		try {
 
@@ -45,7 +41,7 @@ public class CartDAO {
 			callableStatement.registerOutParameter(2, OracleTypes.CURSOR);
 
 			callableStatement.execute();
-			ResultSet rs = (ResultSet) callableStatement.getObject(2);
+			rs = (ResultSet) callableStatement.getObject(2);
 
 			while (rs.next()) {
 				String img_url = rs.getString(1);
@@ -73,19 +69,21 @@ public class CartDAO {
 
 				cartItemList.add(cartItemVO);
 			}
-			rs.close();
+			
 
 		} catch (SQLException e) {
 			System.out.println("프로시저에서 에러 발생!");
 			e.printStackTrace();
 		} finally {
-			DBManager.close(conn, callableStatement);
+			DBManager.close(conn, callableStatement,rs);
 		}
 		return cartItemList;
 	}
 
-	public ArrayList<CartItemVO> changeQty(String productId, int quantity) {
+	public ArrayList<CartItemVO> changeQty(String productId, int quantity, String user_id) {
 		ArrayList<CartItemVO> cartItemList = null;
+		Connection conn = null;
+		conn = DBManager.getConnection();
 		CallableStatement callableStatement = null;
 		try {
 			String query = "{call update_product_quantity(?,?)}";
@@ -94,7 +92,7 @@ public class CartDAO {
 			callableStatement.setInt(2, quantity);
 			int update_cnt = callableStatement.executeUpdate();
 
-			cartItemList = selectCartItemList();
+			cartItemList = selectCartBuyItemList(user_id);
 
 			System.out.println("수정 하러 옴");
 
@@ -106,9 +104,11 @@ public class CartDAO {
 		return cartItemList;
 	}
 
-	public ArrayList<CartItemVO> deleteProduct(String productId) {
+	public ArrayList<CartItemVO> deleteProduct(String productId, String user_id) {
 		ArrayList<CartItemVO> cartItemList = null;
 		CallableStatement callableStatement = null;
+		Connection conn = null;
+		conn = DBManager.getConnection();
 
 		try {
 			String query = "{call delete_product(?)}";
@@ -120,7 +120,7 @@ public class CartDAO {
 			if (delete_cnt == 1) {
 
 				System.out.println("삭제완료");
-				cartItemList = selectCartItemList();
+				cartItemList = selectCartBuyItemList(user_id);
 			}
 		} catch (Exception e) {
 
@@ -131,8 +131,12 @@ public class CartDAO {
 	}
 
 	public ArrayList<CartItemVO> selectCartBuyItemList(String userId) {
+		
+		Connection conn = null;
+		conn = DBManager.getConnection();
 		ArrayList<CartItemVO> cartItemList = new ArrayList<>();
 		CallableStatement callableStatement = null;
+		ResultSet rs=null;
 		System.out.println("userId값 가지고 들어옴");
 		try {
 
@@ -142,7 +146,7 @@ public class CartDAO {
 			callableStatement.registerOutParameter(2, OracleTypes.CURSOR);
 
 			callableStatement.execute();
-			ResultSet rs = (ResultSet) callableStatement.getObject(2);
+			rs = (ResultSet) callableStatement.getObject(2);
 
 			while (rs.next()) {
 				String img_url = rs.getString(1);
@@ -168,27 +172,29 @@ public class CartDAO {
 				cartItemVO.setUser_id(user_id);
 
 				cartItemList.add(cartItemVO);
+				
 			}
-			rs.close();
 
 		} catch (SQLException e) {
 			System.out.println("프로시저에서 에러 발생!");
 			e.printStackTrace();
 		}finally {
-			DBManager.close(conn, callableStatement);
+			DBManager.close(conn, callableStatement,rs);
 		}
 		return cartItemList;
 	}
 
-	public PreOrdersVO selectPreOrderInfo() {
+	public PreOrdersVO selectPreOrderInfo(String user_id) {
 
 		PreOrdersVO preOrdersInfo = new PreOrdersVO();
 		CallableStatement callableStatement = null;
+		Connection conn = null;
+		conn = DBManager.getConnection();
 		try {
 
 			String query = "call pre_order_info(?,?,?)";
 			callableStatement = conn.prepareCall(query);
-			callableStatement.setString(1, "kibeom5118");
+			callableStatement.setString(1, user_id);
 			callableStatement.registerOutParameter(2, java.sql.Types.VARCHAR);
 			callableStatement.registerOutParameter(3, java.sql.Types.VARCHAR);
 
@@ -210,7 +216,7 @@ public class CartDAO {
 
 	public void insertCartItem(int qty, String pid, String joinid) {
 		String runSP = "{call insertInCart(?, ?, ?)}";
-		conn = null;
+		Connection conn = null;
 		CallableStatement cs = null;
 		ResultSet rs = null;
 		try {
@@ -235,6 +241,7 @@ public class CartDAO {
 	public int insertOrder(int cart_id, String odr, String odr_phone, String adr, String rcv, String rcv_phone, String msg, String user_id) {
 		
 		CallableStatement callableStatement = null;
+		Connection conn = null;
 		int order_id = 0;
 		
 		try {
@@ -273,6 +280,7 @@ public class CartDAO {
 	public void insertOrderItem(int order_id, String p_id, int quantity, int cart_id) {
 		
 		CallableStatement callableStatement = null;
+		Connection conn = null;
 		
 		try {
 			conn = DBManager.getConnection();

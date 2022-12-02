@@ -26,7 +26,7 @@
     <!-- 장바구니에 상품이 들어있을 경우-->
     <section class="section-contents-table is-interval cartListSection">
       <div class="section-contents-table__button--wrap is-liner is-flex">
-        <button class="button is-primary is-outlined is-small removeCartAll">전체삭제</button>
+<!--         <button class="button is-primary is-outlined is-small removeCartAll">전체삭제</button>  -->
  <!--       <button class="button is-small removeCartChecked">선택삭제</button>   -->
       </div>
 
@@ -88,8 +88,8 @@
                   id=${cart.p_id } value=${cart.p_id }
                   data-salestop="N" data-polcsn="DP20000632" checked data-cpnsupigoodsyn="N"> -->
                   
-                  <input type="checkbox" class="checkCart10 " name="price"
-                  id="${cart.p_id }" value="${cart.p_id }" checked>
+  <!--                <input type="checkbox" class="checkCart10 " name="price"
+                  id="${cart.p_id }" value="${cart.p_id }" checked>   -->
                 
                 
                   <label for="${cart.p_id }"></label>
@@ -211,9 +211,9 @@
 
         <td align="">
           <div class="section-contents-item__simple">
-              <div class="section-contents-item__simple--button">
-                    <button type="button" class="button is-danger buyCartOne">바로구매</button>
-              </div>
+            <!--   <div class="section-contents-item__simple--button">
+                    <button type="button" class="button is-danger buyCartOne">바로구매</button>   
+              </div>   -->
               
             <ul class="section-contents-item is-flex simple-button">
               <!-- 삭제하기 버튼 -->
@@ -457,12 +457,12 @@
 		$(".cart_info_td").each(function(index, element){
 			
 			// 총 가격
-			if($(element).find(".checkCart10").is(":checked") === true) {
+		//	if($(element).find(".checkCart10").is(":checked") === true) {
 			og_price += parseInt($(element).find(".og_price").val());
 			ogdc_price += parseInt($(element).find(".ogdc_price").val())
 			deliveryfee += parseInt($(element).find(".deliveryfee").val());
 			dc_price += parseInt($(element).find(".dc_price").val());
-			}
+		//	}
 		});	
 	  		
 		/* 최종 가격 */
