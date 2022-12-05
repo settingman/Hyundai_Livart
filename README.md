@@ -1,9 +1,4 @@
 # Hyundai
-# Hyundai FirstProject 
-  <img height="135" width="392" src="./Image/livart_logo.png">
- 
- 
- 팀페이지 주소 : -
   
   
 ## 1. 프로젝트 소개 
@@ -38,14 +33,6 @@
  * 
  * 
  * E-mail: 95parksh@naver.com
- ```
-
-- 박은지 
- 
- ```
- * 
- * 역할: 
- * E-mail: nutgun@naver.com
  ```
 
 - 이진후
