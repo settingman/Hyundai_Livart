@@ -21,29 +21,24 @@ import dao.RealReviewDAO;
 import dto.ImageVO;
 import dto.RealReviewVO;
 
-
+// 박성환
+// 리얼 리뷰 저장, 사진 저장
 public class RealReviewSave implements ControllerLivart {
 
 	@Override
 	public MyView process(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		System.out.println("리얼리뷰세이브 진입");
-		
-		
+		System.out.println("리얼리뷰세이브 진입");		
 		HttpSession session = request.getSession();
-		String user_id = (String) session.getAttribute("loginUserid");
-		
-		
+		String user_id = (String) session.getAttribute("loginUserid");				
 		
 		MultipartRequest multi = null;
 		int maxSize = 10 * 1024 * 1024; 
 		String savePath = request.getSession().getServletContext().getRealPath("/images/review");
 		
 		try {
-			System.out.println("12312312312 왜안됨");
 			multi = new MultipartRequest(request, savePath, maxSize, "UTF-8", new DefaultFileRenamePolicy());
-			System.out.println("12312312312 왜안됨");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -53,18 +48,10 @@ public class RealReviewSave implements ControllerLivart {
 		String  photo_url = test + fileName;
 		
 		System.out.println(photo_url);
-		
-		
-	
-		
-		
-		PrintWriter out = response.getWriter();		
-			
-		
+				
+		PrintWriter out = response.getWriter();				
 		String review_title =  multi.getParameter("titl");
-		String review_content = multi.getParameter("blbTplts[].txt");
-		
-		
+		String review_content = multi.getParameter("blbTplts[].txt");		
 		
 		
 

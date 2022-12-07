@@ -33,17 +33,13 @@ public class ReBuyDAO {
 		ResultSet rs = null;
 	
 		try {
-			conn = DBManager.getConnection();
-		
-			cs = conn.prepareCall(runSP);
-		
-			cs.registerOutParameter(1, OracleTypes.CURSOR);
-			
+			conn = DBManager.getConnection();		
+			cs = conn.prepareCall(runSP);		
+			cs.registerOutParameter(1, OracleTypes.CURSOR);			
 			cs.execute();
 		
 			 rs = (ResultSet)cs.getObject(1);
-			while(rs.next()) {
-				
+			while(rs.next()) {				
 				
 				ReBuyVO rebuyVO = new ReBuyVO();
 				System.out.println(rs.getString(8));

@@ -16,22 +16,16 @@ import dto.MemberVO;
 import dto.ProductVO;
 
 
-
+// 박성환
+// 로그인 확인
 
 public class MemberLoginConfrim implements ControllerLivart {
 
 	@Override
 	public MyView process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { 
 		
-		
-		
-		
-		
 		HttpSession session = request.getSession();
 		MemberDAO memberDAO = MemberDAO.getInstance();
-		
-		
-		
 		PrintWriter out = response.getWriter();
 		
 		String login_id = request.getParameter("login_id");
@@ -39,15 +33,9 @@ public class MemberLoginConfrim implements ControllerLivart {
 		
 		System.out.println("id: " + login_id+", pwd: "+login_pwd);
 		
-		System.out.println("123");
 		MemberVO memberVO = memberDAO.getMember(login_id);
-		System.out.println("123");
 		System.out.println(memberVO.getPwd());
-		
-		
-				
 		System.out.println("로그인 시도.");
-		
 		
 		if(memberVO!=null) {
 			if(memberVO.getPwd().equals(login_pwd)) {
