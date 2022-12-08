@@ -70,6 +70,7 @@ public void insertImage(ImageVO imageVO) {
 		ArrayList<ImageVO> imageList = new ArrayList<ImageVO>();
 		
 		String runSP ="{call product_pack.SP_PRODUCT_SELECT_REVIEW_IMAGE(?,?)}";
+		//특정 상품에 대한 리얼리뷰의 사진들을 조회하는 프로시저
 			Connection conn = null;
 			CallableStatement cs = null;
 			ResultSet rs = null;
@@ -77,17 +78,18 @@ public void insertImage(ImageVO imageVO) {
 			 conn = DBManager.getConnection();
 			 cs = conn.prepareCall(runSP);
 			 cs.setString(1, pid);
-			 cs.registerOutParameter(2, OracleTypes.CURSOR);
+			 cs.registerOutParameter(2, OracleTypes.CURSOR); 
+			 //커서타입으로 반환 
 			 cs.execute();
 			 rs = (ResultSet)cs.getObject(2);
 			 
 			 while(rs.next()) {
 				 ImageVO image = new ImageVO();
-				 image.setPhoto_id(rs.getInt(1));
-				 image.setClassification(rs.getString(2));
-				 image.setProduct_p_id(rs.getString(3));
-				 image.setReview_review_id(rs.getInt(4));
-				 image.setPhoto_url(rs.getString(5));
+				 image.setPhoto_id(rs.getInt(1));// 상품 아이디 
+				 image.setClassification(rs.getString(2));// 상품 분류
+				 image.setProduct_p_id(rs.getString(3));// 상품 아이디
+				 image.setReview_review_id(rs.getInt(4));//상품 리뷰 아이디
+				 image.setPhoto_url(rs.getString(5));//상품 리얼리뷰 사진 url
 				
 				 imageList.add(image);
 			 }
@@ -109,21 +111,22 @@ public void insertImage(ImageVO imageVO) {
 		ArrayList<ImageVO> imageList = new ArrayList<ImageVO>();
 		
 		String runSP ="{call product_pack.SP_PRODUCT_SELECT_PRODUCT_DETAIL_IMAGE(?,?)}";
+		//상품에 대한 상세 정보 사진들을 조회하는 프로시저
 			Connection conn = null;
 			CallableStatement cs = null;
 			ResultSet rs = null;
 		try {
 			 conn = DBManager.getConnection();
 			 cs = conn.prepareCall(runSP);
-			 cs.setString(1, pid);
-			 cs.registerOutParameter(2, OracleTypes.CURSOR);
+			 cs.setString(1, pid);// 상품id를 프로시저에 넘기고
+			 cs.registerOutParameter(2, OracleTypes.CURSOR);// 커서 타입으로 여러행 받아온다
 			 cs.execute();
 			 rs = (ResultSet)cs.getObject(2);
 			 
 			 while(rs.next()) {
 				 ImageVO image = new ImageVO();
-				 image.setPhoto_url(rs.getString(1));
-				 imageList.add(image);
+				 image.setPhoto_url(rs.getString(1));//상세 정보 사진 url
+				 imageList.add(image);//이미지 리스트 담아준다
 			 }
 			 
 		} catch (SQLException e) {
@@ -140,6 +143,7 @@ public void insertImage(ImageVO imageVO) {
 	public int countOfReviewImage(String category) {
 		int count = 0;
 		String runSP ="{call product_pack.SP_REVIEW_IMAGE_SELECT_COUNT(?,?)}";
+		//상품 상세 페이지에서 특정 상품에대한 리뷰 개수를 반환하는 프로시저
 			Connection conn = null;
 			CallableStatement cs = null;
 			ResultSet rs = null;
@@ -147,8 +151,9 @@ public void insertImage(ImageVO imageVO) {
 			try {
 				 conn = DBManager.getConnection();
 				 cs = conn.prepareCall(runSP);
-				 cs.setString(1, category);
+				 cs.setString(1, category);// 특정 상품 아이디를 프로시저로 넘겨준다
 				 cs.registerOutParameter(2,Types.INTEGER );
+				 //특정 상품에 해당하는 리뷰
 				 cs.execute();
 				 count = cs.getInt(2);
 				 

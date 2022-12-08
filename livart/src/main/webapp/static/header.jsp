@@ -574,6 +574,8 @@ to {
 								<ul role="tablist" aria-label="Tabs">
 									<li class="is-active"><a
 										href="/livart/product?command=clothes"> <span>드레스룸</span>
+										 <!-- 카테고리별 URL 다르게 호출
+										  -->
 									</a></li>
 									<li class=""><a id="tab-1-1" class="tab" role="gnbtab"
 										tabindex="-1" hidden="hidden" aria-controls="tabpanel-1-1">
@@ -721,6 +723,8 @@ to {
 										</a></li>
 										<li>
 										 <a href="/livart/product?command=living"> <span>200cm이상</span>
+										 <!-- 카테고리별 URL 다르게 호출
+										  -->
 										</a> 
                 
 										</li>
