@@ -49,7 +49,7 @@ public class RealReviewDAO {
 				realReviewVO.setReview_content(rs.getString(3));
 				realReviewVO.setReview_date(rs.getString(4));
 				realReviewVO.setInterest(rs.getString(5));
-				realReviewVO.setReview_order(rs.getString(6));
+				realReviewVO.setReview_order(rs.getInt(6));
 				realReviewVO.setDwelling(rs.getString(7));
 				realReviewVO.setPlace(rs.getString(8));
 				realReviewVO.setReview_size(rs.getString(9));
@@ -127,7 +127,7 @@ public class RealReviewDAO {
 			cs.setString(2, realReviewVO.getReview_content());
 			cs.setString(3, realReviewVO.getReview_date());
 			cs.setString(4, realReviewVO.getInterest());
-			cs.setString(5, realReviewVO.getReview_order());
+			cs.setInt(5, realReviewVO.getReview_order());
 			cs.setString(6, realReviewVO.getDwelling());
 			cs.setString(7, realReviewVO.getPlace());
 			cs.setString(8, realReviewVO.getReview_size());

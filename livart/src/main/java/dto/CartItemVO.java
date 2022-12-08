@@ -12,7 +12,7 @@ public class CartItemVO {
 	private String p_name;
 	private int cart_id;
 	private int p_price;
-	private int d_price;
+	private int d_price;	
 	private int p_deliveryfee;
 	private int quantity;
 	private String user_id;

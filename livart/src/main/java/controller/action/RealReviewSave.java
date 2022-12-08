@@ -61,7 +61,8 @@ public class RealReviewSave implements ControllerLivart {
 
 		String interest = multi.getParameter("filterVO.filtCd1");
 
-		String review_order = "test";
+//		String review_order = "test";
+		int review_order = Integer.parseInt(multi.getParameter("o_id")); //기범 추가
 
 		String dwelling = multi.getParameter("filterVO.filtCd2");
 
@@ -83,6 +84,8 @@ public class RealReviewSave implements ControllerLivart {
 		String product_p_id = multi.getParameter("p_id").trim();
 		
 		System.out.println("프로턱트 아이디는" + product_p_id);
+		
+		System.out.println("오더 아이디는" + review_order);
 		
 		
 		int review_id = 0;
