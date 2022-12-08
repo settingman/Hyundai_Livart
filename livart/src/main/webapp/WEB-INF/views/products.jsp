@@ -12,6 +12,8 @@ request.setCharacterEncoding("UTF-8");
 <%
 String color = (String) session.getAttribute("color");
 %>
+
+<!-- 작성자 : 이진후 -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -234,38 +236,19 @@ String color = (String) session.getAttribute("color");
 															<img class="image" id="P100025656"
 															alt="무드 모던 2400 거실장 (4색)" src="${mem.photo_url }">
 
-
-
 														</a>
 													</div>
-
-
 													<div class="product-item-content">
 														<div class="product-item-header">
-
-
-
 															<span class="product-item-header__brand">리바트온라인</span> <a
 																href="/livart/productdetail?&p_id=${mem.p_id }"
 																class="product-item-header__name">${mem.p_name }</a>
-
-															
-
-
 														</div>
 														<span class="product-item-price">
-
 															<div class="product-item-price__discount">
-
-
 																${mem.p_discount }<span class="unit">%</span>
-
-
-
 															</div>
-												
-															
-																									<div class="product-item-price__price--wrap">
+															<div class="product-item-price__price--wrap">
 
 
 
@@ -369,14 +352,14 @@ String color = (String) session.getAttribute("color");
 			$
 					.ajax({
 						type : 'get',
-						url : "/livart/sort?p_id=living&command=date",
+						url : "/livart/sort?p_id=living&command=date",//최신순 호출 url
 						data : "",
 
 						contentType : "application/x-www-form-urlencoded; charset=UTF-8",
 						success : function(data) {
 							/* console.log(data);
 							$('.ajaxex').html(data); */
-							$('.ajaxex')
+							$('.ajaxex')// 태그중 ajaxex 클래스에만 결과 조회 로드
 									.load(
 											"/livart/sort?p_id=living&command=date .ajaxex");
 						},
@@ -391,14 +374,14 @@ String color = (String) session.getAttribute("color");
 			$
 					.ajax({
 						type : 'get',
-						url : "/livart/sort?p_id=living&command=low",
+						url : "/livart/sort?p_id=living&command=low",//낮은 가격순 호출 url
 						data : "",
 
 						contentType : "application/x-www-form-urlencoded; charset=UTF-8",
 						success : function(data) {
 							/* console.log(data);
 							$('.ajaxex').html(data); */
-							$('.ajaxex')
+							$('.ajaxex')// 태그중 ajaxex 클래스에만 결과 조회 로드
 									.load(
 											"/livart/sort?p_id=living&command=low .ajaxex");
 
@@ -414,14 +397,14 @@ String color = (String) session.getAttribute("color");
 			$
 					.ajax({
 						type : 'get',
-						url : "/livart/sort?p_id=living&command=high",
+						url : "/livart/sort?p_id=living&command=high",//높은 가격순 호출 url
 						data : "",
 
 						contentType : "application/x-www-form-urlencoded; charset=UTF-8",
 						success : function(data) {
 							/* console.log(data);
 							$('.ajaxex').html(data); */
-							$('.ajaxex')
+							$('.ajaxex')// 태그중 ajaxex 클래스에만 결과 조회 로드
 									.load(
 											"/livart/sort?p_id=living&command=high .ajaxex");
 						},

@@ -9,7 +9,9 @@ import java.util.ArrayList;
 import dto.ReBuyVO;
 import oracle.jdbc.OracleTypes;
 import util.DBManager;
-
+/* 
+ * 
+ * 작성자 : 이진후*/
 public class ReBuyDAO {
 
 	

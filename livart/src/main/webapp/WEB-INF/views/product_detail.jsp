@@ -3,6 +3,8 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath }" />
+
+<!-- 작성자 : 이진후 -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -275,70 +277,70 @@
        })
     </script>
 
-    						<c:choose>
-    						<c:when test="${empty sessionScope.loginUserid}">
-    						
-								<div class="pitem-header-floating-wrap">
-									<div class="pitem-header-floating"
-										style="position: relative; top: initial;">
-										<header class="pitem-header-card-header">
-											<div class="pitem-header-btns">
-												<div class="pitem-header-btns__full">
-													<button type="button" class="button is-primary is-large"
-														 onclick="location.href='/livart/login';">장바구니(로그인 필요)</button>
-													<button type="button" class="button is-danger is-large">구매하기(로그인 필요)</button>
+                      <c:choose>
+                      <c:when test="${empty sessionScope.loginUserid}">
+                      
+                        <div class="pitem-header-floating-wrap">
+                           <div class="pitem-header-floating"
+                              style="position: relative; top: initial;">
+                              <header class="pitem-header-card-header">
+                                 <div class="pitem-header-btns">
+                                    <div class="pitem-header-btns__full">
+                                       <button type="button" class="button is-primary is-large"
+                                           onclick="location.href='/livart/login';">장바구니(로그인 필요)</button>
+                                       <button type="button" class="button is-danger is-large">구매하기(로그인 필요)</button>
 
-												</div>
+                                    </div>
 
-											</div>
-										</header>
+                                 </div>
+                              </header>
 
-									</div>
-								</div>
-								</c:when>
-    							<c:otherwise>
-    							
-								<div class="pitem-header-floating-wrap">
-									<div class="pitem-header-floating"
-										style="position: relative; top: initial;">
-										<header class="pitem-header-card-header">
-											<div class="pitem-header-btns">
-												<div class="pitem-header-btns__full">
-													<button type="button" class="button is-primary is-large"
-														id="btn_cart" >장바구니</button>
-													<button type="button" class="button is-danger is-large">구매하기</button>
+                           </div>
+                        </div>
+                        </c:when>
+                         <c:otherwise>
+                         
+                        <div class="pitem-header-floating-wrap">
+                           <div class="pitem-header-floating"
+                              style="position: relative; top: initial;">
+                              <header class="pitem-header-card-header">
+                                 <div class="pitem-header-btns">
+                                    <div class="pitem-header-btns__full">
+                                       <button type="button" class="button is-primary is-large"
+                                          id="btn_cart" >장바구니</button>
+                                       <button type="button" class="button is-danger is-large">구매하기</button>
 
-												</div>
+                                    </div>
 
-											</div>
-										</header>
+                                 </div>
+                              </header>
 
-									</div>
-								</div>
-    							
-    							
-    							</c:otherwise>
-    						</c:choose>
-							</div>
+                           </div>
+                        </div>
+                         
+                         
+                         </c:otherwise>
+                      </c:choose>
+                     </div>
 
-						</div>
-					</section>
-				</c:when>
-			</c:choose>
+                  </div>
+               </section>
+            </c:when>
+         </c:choose>
 
-		</div>
-		<!--아래상품정보 s-->
-		<section class="pitem-section pt0">
-			<div class="container">
+      </div>
+      <!--아래상품정보 s-->
+      <section class="pitem-section pt0">
+         <div class="container">
 
-				<section class="pitem-section" id="pitem-detail-1">
-					<div class="container">
-						<div class="pitem-section-header">
-							<h3 class="pitem-section-header__title">리얼한 리뷰(${count }개
-								리뷰)</h3>
-						</div>
-						<div class="swiper mySwiper">
-							<div class="slideshow-container">
+            <section class="pitem-section" id="pitem-detail-1">
+               <div class="container">
+                  <div class="pitem-section-header">
+                     <h3 class="pitem-section-header__title">리얼한 리뷰(${count }개
+                        리뷰)</h3>
+                  </div>
+                  <div class="swiper mySwiper">
+                     <div class="slideshow-container">
 
 
                         <!-- Full-width images with number and caption text -->
@@ -346,9 +348,10 @@
                         <c:forEach var="img" items="${imageList }">
                            <div class="mySlides fade">
 
-                              <img onclick="javascript:location.href='/livart/realreview?command=${img.review_review_id}&p_id=${productVO.p_id }';" style="cursor:pointer" src="${img.photo_url }" style="width:100%">
+                              <img onclick="javascript:location.href='/livart/realreview?command=${img.review_review_id}&p_id=${productVO.p_id }';" 
+                              style="cursor:pointer" src="${img.photo_url }" style="width:100%">
                             
-                              <!-- 성환이형페이지로 넘겨야함 나중에 onclick url 을 여기에있는 /livart/review/command=${img.review_review_id} 서블릿으로 변경 예정 -->
+                              <!-- 리얼리뷰 썸네일-->
                            </div>
 
 

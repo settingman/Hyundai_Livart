@@ -15,7 +15,9 @@ import dto.ProductVO;
 
 
 
-
+/*
+ * 작성자 : 이진후
+ * */
 public class IndexAction implements ControllerLivart {
 
 	@Override
@@ -23,10 +25,11 @@ public class IndexAction implements ControllerLivart {
 		
 		
 		ProductDAO productDAO = ProductDAO.getInstance();
-		String c = request.getParameter("command");
+		String c = request.getParameter("command"); //url 커맨드에해당하는 값 = 카테고리
 		System.out.println(c);
-		ArrayList<ProductVO> productList = productDAO.listKindProduct(c);
-		int count = productDAO.countOfProduct(c);
+		ArrayList<ProductVO> productList = productDAO.listKindProduct(c); 
+		// 카테고리를 파라매터로 넘기고 함수호출
+		int count = productDAO.countOfProduct(c); //카테고리별 상품 개수
 		request.setAttribute("productList", productList);
 		request.setAttribute("count", count);
 		
