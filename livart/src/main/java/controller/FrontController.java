@@ -24,6 +24,7 @@ import controller.action.MemberLoginView;
 import controller.action.MemberLogout;
 import controller.action.MemberSave;
 import controller.action.MyView;
+import controller.action.OrderListAction;
 import controller.action.OrdersAction;
 import controller.action.PreOrdersAction;
 import controller.action.ProductDetailAction;
@@ -38,9 +39,7 @@ import controller.action.mainPage;
 
 
 
-
-
-//성환
+// 박성환
 // 모든 요청 처리 (fronController, return MyView : my view 에서 랜더링)
 
 
@@ -53,7 +52,7 @@ public class FrontController extends HttpServlet{
 	public FrontController() {
 
         controllerMap.put("/livart/product", new IndexAction());
-        controllerMap.put("/livart/memberjoin", new MemberJoinAction());
+        controllerMap.put("/livart/memberjoin", new MemberJoinAction()); // 회원 가입 페이지 이동
         controllerMap.put("/livart/membersave", new MemberSave());
         controllerMap.put("/livart/productdetail", new ProductDetailAction());
         controllerMap.put("/livart/sort", new ProductSortAction());
@@ -62,8 +61,11 @@ public class FrontController extends HttpServlet{
         controllerMap.put("/livart/logout", new MemberLogout());
         controllerMap.put("/livart/check", new MemberIdCheck());
         controllerMap.put("/livart/cart2", new CartListAction());
+        
         controllerMap.put("/livart/cart2/delete", new CartDeleteAction());
+        
         controllerMap.put("/livart/cart2/update", new ChangeQuantityAction());
+        
         controllerMap.put("/livart/order", new PreOrdersAction());
         controllerMap.put("/livart/realreview", new RealReviewAction());
         controllerMap.put("/livart/review", new RealReviewListAction());
@@ -72,9 +74,12 @@ public class FrontController extends HttpServlet{
         
         controllerMap.put("/livart/rebuy", new ReBuyAction());
         controllerMap.put("/livart/main", new mainPage());
+        
         controllerMap.put("/livart/order/save", new OrdersAction());
+        
         controllerMap.put("/livart/rebuy", new ReBuyAction());
         
+        controllerMap.put("/livart/orderlist", new OrderListAction());
 
     }
 

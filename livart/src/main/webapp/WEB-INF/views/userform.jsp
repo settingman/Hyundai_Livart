@@ -14,14 +14,6 @@
 	content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
 
 <title>리바트</title>
-<meta property="og:title" content="현대 리바트 통합 쇼핑몰">
-<meta property="og:site_name" content="리바트몰">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://www.hyundailivart.co.kr">
-<meta property="og:description"
-	content="현대 리바트 가구 쇼핑몰, 온라인, 매장가구, 리모델링, 사무가구, 윌리엄스 소노마, 포터리반 키즈, 포터리반, 웨스트엘름 등 종합 브랜드 통합 쇼핑몰">
-<meta property="og:image"
-	content="https://static.hyundailivart.co.kr/assets/images/common/livart.svg">
 
 <link rel="shortcut icon" type="image/x-icon"
 	href="https://static.hyundailivart.co.kr/assets/images/favicon/livart.ico">
@@ -100,9 +92,7 @@ joinid = joinid == null ? "" : joinid;
 						</div>
 						<p class="help idMsg"></p>
 					</div>
-
-
-					<!-- 일반회원/간편회원 -->
+				
 					<div class="field input-wrap member-input__cnts">
 						<label for="name" class="label required"><em
 							class="sr-only">필수입력</em>비밀번호</label>
@@ -148,9 +138,6 @@ joinid = joinid == null ? "" : joinid;
 					</div>
 
 
-
-
-
 				</fieldset>
 
 
@@ -173,9 +160,10 @@ joinid = joinid == null ? "" : joinid;
 			if (password.value != confirm_password.value) { // 만일 두 인풋 필드값이 같지 않을 경우
 				// setCustomValidity의 값을 지정해 무조건 경고 표시가 나게 하고
 				confirm_password.setCustomValidity("비밀번호가 다릅니다.");
-			} else { // 만일 두 인풋 필드값이 같을 경우
-				// 오류가 없으면 메시지를 빈 문자열로 설정해야한다. 오류 메시지가 비어 있지 않은 한 양식은 유효성 검사를 통과하지 않고 제출되지 않는다.
-				// 따라서 빈값을 주어 submit 처리되게 한다
+			} else { /*  만일 두 인풋 필드값이 같을 경우
+				 오류가 없으면 메시지를 빈 문자열로 설정해야한다.
+				 오류 메시지가 비어 있지 않은 한 양식은 유효성 검사를 통과하지 않고 제출되지 않는다.
+				 따라서 빈값을 주어 submit 처리되게 한다 */
 				confirm_password.setCustomValidity('');
 			}
 		}

@@ -314,7 +314,7 @@ to {
 							</li>
 
 
-							<li><a href="https://www.hyundailivart.co.kr/mypage/main"
+							<li><a href="/livart/orderlist?command=list"
 								class="header-member-menu__btn icon i-gnb_mem1"><i
 									class="icon-gnb_mem1"></i><span>마이페이지</span></a></li>
 						</c:otherwise>

@@ -11,7 +11,7 @@ import dto.ProductVO;
 import oracle.jdbc.OracleTypes;
 import util.DBManager;
 
-//성환 : memberDAO
+// 박성환 : memberDAO
 public class MemberDAO {
 	
 	
@@ -30,7 +30,7 @@ public class MemberDAO {
 		PreparedStatement ps =null;
 
 
-		String runSP = "{call SP_MEMBER_INSERT(?,?,?,?,?)}";
+		String runSP = "{call SP_MEMBER_INSERT(?,?,?,?,?)}"; // 회원저장
 		
 
 		try {
@@ -54,38 +54,7 @@ public class MemberDAO {
 
 		}
 
-	}
-	
-	
-	// 로그인
-//	public void loginMember(String user_id, String pwd) {
-//		MemberVO memberVO = null;
-//		String runSP = "{call sp_member_login(?,?)}";
-//		
-//		try {
-//			conn = DBManager.getConnection();
-//			cs = conn.prepareCall(runSP);
-//			
-//			cs.setString(1, user_id);
-//			cs.setString(2,pwd);
-//			
-//			
-//
-//			cs.execute();
-//		} catch (SQLException e) {
-//			System.out.println("프로시저에서 에러 발생!");
-//			System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		} finally {
-//			DBManager.close(conn, cs);
-//
-//		}
-//		
-//		
-//		
-//	}
-	
+	}	
 	
 	// 로그인, 회원정보 불러오기.
 	public MemberVO getMember(String mem_id) {
@@ -139,7 +108,7 @@ public class MemberDAO {
 		
 	}
 	
-	
+	// 아이디 중복확인
 	public int confirmID(String user_id) {
 		
 		Connection conn = null;

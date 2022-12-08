@@ -13,39 +13,27 @@ import dto.CartItemVO;
 import dto.CartToOrderItemVO;
 import dto.PreOrdersVO;
 
+//기범
 public class PreOrdersAction implements ControllerLivart {
 
    public MyView process(HttpServletRequest request, HttpServletResponse response) 
          throws ServletException, IOException {
-   
-      //String userId = request.getParameter("userId");
       
       HttpSession session = request.getSession();
        String user_id = (String) session.getAttribute("loginUserid");
        
-      CartDAO cartDAO =       CartDAO.getInstance();
-      System.out.println("preorder 들어옴");
-      ArrayList<CartItemVO> buyCartItemList = cartDAO.selectCartBuyItemList(user_id);
-      PreOrdersVO preOrderInfo = cartDAO.selectPreOrderInfo(user_id);
+      CartDAO cartDAO = CartDAO.getInstance();
+      ArrayList<CartItemVO> buyCartItemList = cartDAO.selectCartBuyItemList(user_id); 
+      // 로그인한 회원의 장바구니에 담긴 상품을 Arraylist에 저장
       
-      System.out.println(preOrderInfo.getOrderer());
+      PreOrdersVO preOrderInfo = cartDAO.selectPreOrderInfo(user_id); // 주문자 정보를 미리 불러오기
       
-      request.setAttribute("buyCartItemList", buyCartItemList);
-      request.setAttribute("preOrderInfo", preOrderInfo);
+      request.setAttribute("buyCartItemList", buyCartItemList); // 장바구니에 담긴 상품 order.jsp에 전달하기위해 저장
+      request.setAttribute("preOrderInfo", preOrderInfo); // 주문자 정보를 order.jsp에 전달하기 위해 저장
       
-      return new MyView("/WEB-INF/views/orders.jsp"); 
-//      System.out.println("preordersaction에 들어옴");
-//      
-//      int index =0;
-//      String pid = "productId[";
-//      String price = "productPrice[";
-//      String qua = "quantity[";
-//      while(request.getParameter(pid+index+"]")!=null) {
-//         System.out.println(pid+index+"]");
-//         index++;
-//      }
-      
-//      return null;
+      return new MyView("/WEB-INF/views/orders.jsp"); // order.jsp로 forward 방식으로 전달
       
    }
 }
+
+

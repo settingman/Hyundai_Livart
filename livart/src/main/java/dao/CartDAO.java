@@ -13,6 +13,7 @@ import dto.PreOrdersVO;
 import oracle.jdbc.OracleTypes;
 import util.DBManager;
 
+//기범
 public class CartDAO {
 
 	private CartDAO() {
@@ -22,6 +23,58 @@ public class CartDAO {
 
 	public static CartDAO getInstance() {
 		return instance;
+	}
+	
+	   //기범
+	public ArrayList<CartItemVO> selectCartBuyItemList(String userId) {
+
+		Connection conn = null;
+		conn = DBManager.getConnection(); // db 연결
+		ArrayList<CartItemVO> cartItemList = new ArrayList<>(); // db에서 받아온 데이터를 저장하기 위한 변수
+		CallableStatement callableStatement = null; // CollabaleStatement 사용
+		ResultSet rs = null;
+		System.out.println("userId값 가지고 들어옴");
+		try {
+			String query = "{call all_cart_list(?,?)}";  // 호출할 프로시저 작성
+			callableStatement = conn.prepareCall(query);
+			callableStatement.setString(1, userId);  // 넘겨줄 인자 
+			callableStatement.registerOutParameter(2, OracleTypes.CURSOR); // 리턴값으로 받을 객체
+			callableStatement.execute(); // 프로시저 실행
+			rs = (ResultSet) callableStatement.getObject(2); // 리턴값으로 받은 객체를 rs에 저장
+
+			while (rs.next()) { // 리턴받은 객체를 끝까지 조회
+				String img_url = rs.getString(1); // 필요한 정보들 타입에 변수에 맞게 저장
+				String p_id = rs.getString(2);
+				String p_name = rs.getString(3);
+				int cart_id = rs.getInt(4);
+				int p_price = rs.getInt(5);
+				int d_price = rs.getInt(6);
+				int p_deliveryfee = rs.getInt(7);
+				int ci_quantity = rs.getInt(8);
+				String user_id = rs.getString(9);
+
+				System.out.println("p_name: " + p_name);
+				CartItemVO cartItemVO = new CartItemVO();  // db에서 받은 데이터를 java에서 사용할 수 있도록 VO 객체에 저장
+				cartItemVO.setImg_url(img_url);
+				cartItemVO.setP_id(p_id);
+				cartItemVO.setP_name(p_name);
+				cartItemVO.setCart_id(cart_id);
+				cartItemVO.setP_price(p_price);
+				cartItemVO.setD_price(d_price);
+				cartItemVO.setP_deliveryfee(p_deliveryfee);
+				cartItemVO.setQuantity(ci_quantity);
+				cartItemVO.setUser_id(user_id);
+
+				cartItemList.add(cartItemVO); // 한번 순회할때마다 필요한 정보가 모두 저장된 cartItemVO 객체가 배열에 추가
+			}
+
+		} catch (SQLException e) {
+			System.out.println("프로시저에서 에러 발생!");
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, callableStatement, rs); 
+		}
+		return cartItemList; // db에 접근하여 얻은 데이터들을 모두 저장한 arraylist 리턴
 	}
 
 	public ArrayList<CartItemVO> selectCartItemList() {
@@ -76,6 +129,7 @@ public class CartDAO {
 		return cartItemList;
 	}
 
+	//기범
 	  public ArrayList<CartItemVO> changeQty(String productId, int quantity, String user_id) {
 	      ArrayList<CartItemVO> cartItemList = null;
 	      Connection conn = null;
@@ -90,8 +144,6 @@ public class CartDAO {
 
 	         cartItemList = selectCartBuyItemList(user_id);
 
-	         System.out.println("수정 하러 옴");
-
 	      } catch (Exception e) {
 
 	      }finally {
@@ -100,6 +152,7 @@ public class CartDAO {
 	      return cartItemList;
 	   }
 
+	  //기범
 	   public ArrayList<CartItemVO> deleteProduct(String productId, String user_id) {
 		      ArrayList<CartItemVO> cartItemList = null;
 		      CallableStatement callableStatement = null;
@@ -126,60 +179,7 @@ public class CartDAO {
 		      return cartItemList;
 		   }
 
-	public ArrayList<CartItemVO> selectCartBuyItemList(String userId) {
-
-		Connection conn = null;
-		conn = DBManager.getConnection();
-		ArrayList<CartItemVO> cartItemList = new ArrayList<>();
-		CallableStatement callableStatement = null;
-		ResultSet rs = null;
-		System.out.println("userId값 가지고 들어옴");
-		try {
-
-			String query = "{call all_cart_list(?,?)}";
-			callableStatement = conn.prepareCall(query);
-			callableStatement.setString(1, userId);
-			callableStatement.registerOutParameter(2, OracleTypes.CURSOR);
-
-			callableStatement.execute();
-			rs = (ResultSet) callableStatement.getObject(2);
-
-			while (rs.next()) {
-				String img_url = rs.getString(1);
-				String p_id = rs.getString(2);
-				String p_name = rs.getString(3);
-				int cart_id = rs.getInt(4);
-				int p_price = rs.getInt(5);
-				int d_price = rs.getInt(6);
-				int p_deliveryfee = rs.getInt(7);
-				int ci_quantity = rs.getInt(8);
-				String user_id = rs.getString(9);
-
-				System.out.println("p_name: " + p_name);
-				CartItemVO cartItemVO = new CartItemVO();
-				cartItemVO.setImg_url(img_url);
-				cartItemVO.setP_id(p_id);
-				cartItemVO.setP_name(p_name);
-				cartItemVO.setCart_id(cart_id);
-				cartItemVO.setP_price(p_price);
-				cartItemVO.setD_price(d_price);
-				cartItemVO.setP_deliveryfee(p_deliveryfee);
-				cartItemVO.setQuantity(ci_quantity);
-				cartItemVO.setUser_id(user_id);
-
-				cartItemList.add(cartItemVO);
-
-			}
-
-		} catch (SQLException e) {
-			System.out.println("프로시저에서 에러 발생!");
-			e.printStackTrace();
-		} finally {
-			DBManager.close(conn, callableStatement, rs);
-		}
-		return cartItemList;
-	}
-
+	//기범
 	   public PreOrdersVO selectPreOrderInfo(String user_id) {
 
 		      PreOrdersVO preOrdersInfo = new PreOrdersVO();
@@ -189,6 +189,7 @@ public class CartDAO {
 		      try {
 
 		         String query = "call pre_order_info(?,?,?)";
+		         
 		         callableStatement = conn.prepareCall(query);
 		         callableStatement.setString(1, user_id);
 		         callableStatement.registerOutParameter(2, java.sql.Types.VARCHAR);
@@ -209,7 +210,9 @@ public class CartDAO {
 		      }
 		      return preOrdersInfo;
 		   }
-
+	   
+	   
+	   //진후
 	public void insertCartItem(int qty, String pid, String joinid) {
 		String runSP = "{call insertInCart(?, ?, ?)}";
 		Connection conn = null;
@@ -233,6 +236,7 @@ public class CartDAO {
 		}
 	}
 
+	//기범
 	public int insertOrder(int cart_id, String odr, String odr_phone, String adr, String rcv, String rcv_phone,
 			String msg, String user_id) {
 
@@ -244,7 +248,7 @@ public class CartDAO {
 			conn = DBManager.getConnection();
 
 //         String query = "{? = call f_insert_orders(?,?,?,?,?,?,?,?)}";
-			String query = "{call insert_orders2(?, ?, ?, ?, ?, ?, ?, ?, ?)}";
+			String query = "{call insert_orders(?, ?, ?, ?, ?, ?, ?, ?, ?)}";
 			callableStatement = conn.prepareCall(query);
 
 //         callableStatement.registerOutParameter(1, Types.INTEGER);
@@ -273,6 +277,7 @@ public class CartDAO {
 		return order_id;
 	}
 
+	//기범
 	public void insertOrderItem(int order_id, String p_id, int quantity, int cart_id) {
 
 		CallableStatement callableStatement = null;

@@ -11,6 +11,10 @@ import javax.swing.plaf.synth.SynthOptionPaneUI;
 import dao.CartDAO;
 import dao.MemberDAO;
 
+
+//박성환
+//회원가입 아이디 중복 체크
+
 public class MemberIdCheck implements ControllerLivart {
 
 	@Override
@@ -27,31 +31,17 @@ public class MemberIdCheck implements ControllerLivart {
 			return new MyView("ajax");
 		}
 		
-		
-		
 		MemberDAO memberDAO = MemberDAO.getInstance();
 		int temp = memberDAO.confirmID(check);
 		
 		
 		System.out.println("1은 중복있음 0은 중복없음: temp 값은 "+temp);
-		
-		
-	
 		out.print(temp);
-		
-		
 		
 		
 		System.out.println("아웃이되는가");
 		
 		return new MyView("ajax");
-		
-		
-		
-		
-		
-		
-		
 		
 		
 	}
