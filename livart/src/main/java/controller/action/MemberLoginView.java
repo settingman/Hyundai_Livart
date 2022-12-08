@@ -20,8 +20,7 @@ import dto.ProductVO;
 public class MemberLoginView implements ControllerLivart {
 
 	@Override
-	public MyView process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { 
-		
+	public MyView process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { 		
 		return new MyView("/WEB-INF/views/Login.jsp");
 		
 		

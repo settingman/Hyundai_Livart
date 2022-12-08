@@ -22,21 +22,17 @@ import dto.ProductVO;
 
 
 
-// 성환
+// 박성환
 // 회원가입 및 회원저장 
 
-
 public class MemberSave implements ControllerLivart {
-
     private MemberRepository memberRepository = MemberRepository.getInstance();
-
     @Override
     public MyView process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	
     	// 데이터 넘길때 한글 깨질때 사용
     	// frontcontroller에 선언 : 공통 적용
-    	//request.setCharacterEncoding("UTF-8");
-    	
+    	//request.setCharacterEncoding("UTF-8");    	
     	
     	HttpSession session = request.getSession();
     	
@@ -46,21 +42,16 @@ public class MemberSave implements ControllerLivart {
         String email = request.getParameter("email");
         String username = request.getParameter("username");
 
-        MemberVO member = new MemberVO(user_id,pwd,phone,email,username);
-                
+        MemberVO member = new MemberVO(user_id,pwd,phone,email,username);                
         
         session.setAttribute("user_id",request.getParameter("user_id"));
 
         //Model에 데이터를 보관한다.
-        request.setAttribute("member", member);
-        
+        request.setAttribute("member", member);        
         
         MemberDAO memberDAO = MemberDAO.getInstance();
         memberDAO.insertMember(member);
-        
-       
-        
-        
+                
 
        return new MyView("redirect::/livart/login");
     }

@@ -39,9 +39,7 @@ import controller.action.mainPage;
 
 
 
-
-
-//성환
+// 박성환
 // 모든 요청 처리 (fronController, return MyView : my view 에서 랜더링)
 
 
@@ -54,7 +52,7 @@ public class FrontController extends HttpServlet{
 	public FrontController() {
 
         controllerMap.put("/livart/product", new IndexAction());
-        controllerMap.put("/livart/memberjoin", new MemberJoinAction());
+        controllerMap.put("/livart/memberjoin", new MemberJoinAction()); // 회원 가입 페이지 이동
         controllerMap.put("/livart/membersave", new MemberSave());
         controllerMap.put("/livart/productdetail", new ProductDetailAction());
         controllerMap.put("/livart/sort", new ProductSortAction());

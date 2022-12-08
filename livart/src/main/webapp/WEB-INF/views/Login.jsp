@@ -119,8 +119,7 @@
 										type="hidden" name="type" id="type"> <input
 										type="hidden" name="returnUrl" id="returnUrl"
 										value="/community"--="">
-
-
+										
 									<div class="field">
 										<div class="control">
 											<input class="input" type="text" name="login_id"

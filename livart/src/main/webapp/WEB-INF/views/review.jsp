@@ -1506,9 +1506,7 @@
 				</div>
 				<div class="button-area text-center button-more">
 					<input type="hidden" value="1" class="" name="pageNo">
-					<button
-						class="button is-primary is-outlined button-mainmodule-more"
-						data-addmore="true" onclick="getMasterHouseList()">더보기</button>
+					
 				</div>
 				<!-- <div class="button-area text-center button-more">
         <a href="#" class="button is-primary is-outlined">더보기</a>

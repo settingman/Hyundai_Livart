@@ -14,6 +14,11 @@ import dao.RealReviewDAO;
 import dto.MemberVO;
 import dto.RealReviewVO;
 
+
+
+// 박성환
+// 리뷰 작성폼으로 이동
+
 public class ReviewForm implements ControllerLivart {
 
 	@Override

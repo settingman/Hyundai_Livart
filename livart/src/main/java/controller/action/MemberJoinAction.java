@@ -15,11 +15,13 @@ import dto.ProductVO;
 
 
 
-
+// 박성환
+// 회원가입 페이지 이동
 public class MemberJoinAction implements ControllerLivart {
 
 	@Override
-	public MyView process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { 
+	public MyView process(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException { 
 		
 		return new MyView("/WEB-INF/views/userform.jsp");
 		

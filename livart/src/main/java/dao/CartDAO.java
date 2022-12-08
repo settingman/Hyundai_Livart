@@ -189,6 +189,7 @@ public class CartDAO {
 		      try {
 
 		         String query = "call pre_order_info(?,?,?)";
+		         
 		         callableStatement = conn.prepareCall(query);
 		         callableStatement.setString(1, user_id);
 		         callableStatement.registerOutParameter(2, java.sql.Types.VARCHAR);

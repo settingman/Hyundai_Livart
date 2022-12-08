@@ -18,7 +18,7 @@
 <!-- 장바구니에 담겨있던 상품 가격 계산 -->
 <c:set var="total_price" value="0" />
 <c:forEach var="cartItem" items="${buyCartItemList }" varStatus="buyCartNum">
-	<c:set var="total_price" value="${total_price + (cartItem.d_price*cartItem.quantity) + cartItem.p_deliveryfee}"/>
+   <c:set var="total_price" value="${total_price + (cartItem.d_price*cartItem.quantity) + cartItem.p_deliveryfee}"/>
 </c:forEach>
 
 <div class="container">
@@ -445,11 +445,11 @@
 
 <script>
 function execute_address_api(){
-	 new daum.Postcode({
-	        oncomplete: function(data) {
-	            // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분입니다.
-	            
-	        	var addr = ''; // 주소 변수
+    new daum.Postcode({
+           oncomplete: function(data) {
+               // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분입니다.
+               
+              var addr = ''; // 주소 변수
                 var extraAddr = ''; // 참고항목 변수
  
                 //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
@@ -490,11 +490,11 @@ function execute_address_api(){
                 // 커서를 상세주소 필드로 이동한다.
                 $(".draddr2").attr("readonly", false);
                 $(".draddr2").focus();
-	            
-	 
-	        }
-	    }).open();    
-	
+               
+    
+           }
+       }).open();    
+   
 }
 
 
