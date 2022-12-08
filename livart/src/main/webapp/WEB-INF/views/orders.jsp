@@ -15,6 +15,7 @@
 <body>
 <%@ include file="../../static/header.jsp" %>
 
+<!-- 장바구니에 담겨있던 상품 가격 계산 -->
 <c:set var="total_price" value="0" />
 <c:forEach var="cartItem" items="${buyCartItemList }" varStatus="buyCartNum">
 	<c:set var="total_price" value="${total_price + (cartItem.d_price*cartItem.quantity) + cartItem.p_deliveryfee}"/>
@@ -310,18 +311,6 @@
               <dt class="title">판매가</dt>
               <dd class="price"><span class="num" id="pawDscntPrc"><fmt:formatNumber value="${total_price }" type="number"/></span>원</dd>
           </dl>
- <!--         <dl class="" style="display: none;">
-              <dt class="title">내림서비스</dt>
-              <dd class="price"><span class="num" id="addInslAmt">0</span>원</dd>
-          </dl>
-          <dl class="" style="display: none;">
-              <dt class="title">임직원 할인</dt>
-              <dd class="price"><span class="num" id="pawStaffDcAmt">0</span>원</dd>
-          </dl>
-          <dl class="" style="display: none;">
-              <dt class="title">웨딩회원 할인</dt>
-              <dd class="price"><span class="num" id="pawWeddDcAmt">0</span>원</dd>
-          </dl> -->
       </div>
   </div>
   <!--  

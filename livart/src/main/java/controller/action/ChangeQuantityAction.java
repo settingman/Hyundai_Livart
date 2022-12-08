@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 import dao.CartDAO;
 import dto.CartItemVO;
 
+//기범
 public class ChangeQuantityAction implements ControllerLivart {
 
    @Override
@@ -18,7 +19,7 @@ public class ChangeQuantityAction implements ControllerLivart {
          throws ServletException, IOException {
       
       HttpSession session = request.getSession();
-       String user_id = (String) session.getAttribute("loginUserid");
+      String user_id = (String) session.getAttribute("loginUserid");
       
       String product_id = request.getParameter("productId");
       int quantity = Integer.parseInt(request.getParameter("productCount"));

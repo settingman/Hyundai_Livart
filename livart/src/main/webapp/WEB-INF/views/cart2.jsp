@@ -82,15 +82,7 @@
                 <!-- 상품에 대한 정보들 들어가는 부분-->
 
                 <!-- 위에서 저장한 부분 -->
-                <div class="checkbox checkbox__one">                   
-<!--                    
-                  <input type="checkbox" class="checkCart10" name="price"
-                  id=${cart.p_id } value=${cart.p_id }
-                  data-salestop="N" data-polcsn="DP20000632" checked data-cpnsupigoodsyn="N"> -->
-                  
-  <!--                <input type="checkbox" class="checkCart10 " name="price"
-                  id="${cart.p_id }" value="${cart.p_id }" checked>   -->
-                
+                <div class="checkbox checkbox__one">                                  
                 
                   <label for="${cart.p_id }"></label>
                 </div>
@@ -343,7 +335,7 @@
       </ul>
       </div>
  
-  
+<!-- 기범 -->
 <!-- 수량 조정 form -->
 			<form action="/livart/cart2/update" method="post" class="quantity_update_form">
 				<input type="hidden" name="productId" class="update_productId">
@@ -363,6 +355,7 @@
 	  
   <script>
   
+
   /* 장바구니 삭제 버튼 */
 	  $(".removeCartOne").on("click", function(e){
 	 e.preventDefault();
@@ -371,9 +364,6 @@
 	 $(".quantity_delete_form").submit();
 	 }); 
 
-	
-										
-  
 </script>
 
 
@@ -382,52 +372,11 @@
   
   /* 장바구니 전체 상품 구매 페이지로 이동  */
   $(".buyCartAll").on("click", function() {
-	let userId = $(this).data("userid");
+	let userId = $(this).data("userid");  // 현재 로그인한 회원의 아이디값을 저장
 	
-	console.log(userId);
-	$(".send_user_id").val(userId);
-	$(".send_product_list").submit();
-	  
-	  
-//	  let index = 0;
-//	  let transfer_data = "";
-/*	  let buy_product_list = [];
-	  
-	  $(".cart_info_td").each(function(index, element){
-		  
-		  let productId = $(element).find(".product_id").val();
-		  let productPrice = $(element).find(".only_price").val();
-		  let quantity = $(element).find(".quantity").val();
-		  console.log(productId);
-		  console.log(productPrice);
-		  console.log(quantity);
-		  buy_product_list.push({
-			  p_id: productId,
-			  p_price: productPrice,
-			  qty: quantity
-		  });
-	*/
-		  /*
-		  let productIdArr = "<input type='hidden' name='prodcutId[" + index + "]' value='" + productId + "'>";
-		  transfer_data += productIdArr;
-		  
-		  let productPriceArr = "<input type='hidden' name='productPrice[" + index + "]' value='" + productPrice + "'>";
-		  transfer_data += productPriceArr;
-		  
-		  let total_quantity = "<input type='hidden' name='quantity[" + index + "]' value='" + quantity + "'>";
-		  transfer_data += total_quantity;
-		  
-		  console.log(transfer_data);
-		  
-		  index += 1;
-		  */
-//	  })
-	  
-//	  console.log(buy_product_list);
-//	  $(".product_obj_to_order").val(buy_product_list);
-//	  $(".send_product_list").submit();
-		//  $(".send_product_list").html(transfer_data);
-		//  $(".send_product_list").submit();
+	console.log(userId);  // 아이디 확인을 위한 출력
+	$(".send_user_id").val(userId); // form 태그에서 로그인한 아이디를 send_user_id 클래스의 value 값으로 전달
+	$(".send_product_list").submit(); // form 태그에 저장되어있는 값들을 submit할때 전달하기 위한 코드
   });
  
   

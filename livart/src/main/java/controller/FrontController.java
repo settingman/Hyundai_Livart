@@ -24,6 +24,7 @@ import controller.action.MemberLoginView;
 import controller.action.MemberLogout;
 import controller.action.MemberSave;
 import controller.action.MyView;
+import controller.action.OrderListAction;
 import controller.action.OrdersAction;
 import controller.action.PreOrdersAction;
 import controller.action.ProductDetailAction;
@@ -62,8 +63,11 @@ public class FrontController extends HttpServlet{
         controllerMap.put("/livart/logout", new MemberLogout());
         controllerMap.put("/livart/check", new MemberIdCheck());
         controllerMap.put("/livart/cart2", new CartListAction());
+        
         controllerMap.put("/livart/cart2/delete", new CartDeleteAction());
+        
         controllerMap.put("/livart/cart2/update", new ChangeQuantityAction());
+        
         controllerMap.put("/livart/order", new PreOrdersAction());
         controllerMap.put("/livart/realreview", new RealReviewAction());
         controllerMap.put("/livart/review", new RealReviewListAction());
@@ -72,9 +76,12 @@ public class FrontController extends HttpServlet{
         
         controllerMap.put("/livart/rebuy", new ReBuyAction());
         controllerMap.put("/livart/main", new mainPage());
+        
         controllerMap.put("/livart/order/save", new OrdersAction());
+        
         controllerMap.put("/livart/rebuy", new ReBuyAction());
         
+        controllerMap.put("/livart/orderlist", new OrderListAction());
 
     }
 

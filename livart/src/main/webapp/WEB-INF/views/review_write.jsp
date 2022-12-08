@@ -81,6 +81,8 @@
 
 
 		<input name="p_id" value="${p_id}" type="hidden">
+		<input name="o_id" value="${o_id}" type="hidden">
+		
 		<!-- #container -->
 
 		<section id="container" class="comm-editor-body" role="main"

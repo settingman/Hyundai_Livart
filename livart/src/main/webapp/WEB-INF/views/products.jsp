@@ -210,8 +210,6 @@ String color = (String) session.getAttribute("color");
 								</div>
 							</div>
 
-
-
 							<c:choose>
 								<c:when test="${empty productList }">
 									<tr>
