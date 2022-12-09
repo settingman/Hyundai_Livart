@@ -22,7 +22,7 @@ import dto.ImageVO;
 import dto.RealReviewVO;
 
 // 박성환
-// 리얼 리뷰 저장, 사진 저장
+// 리얼 리뷰 저장, 사진 저장 
 public class RealReviewSave implements ControllerLivart {
 
 	@Override
