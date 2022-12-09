@@ -30,23 +30,44 @@
 - 박성환(팀장)
  
  ```
- * 
- * 
+ * 역할: 회원관리, 게시판
  * E-mail: 95parksh@naver.com
  ```
 
-- 이진후
+- 정기범
 
  ```
- * 
- * 역할: 
+ * 역할: 장바구니, 결제
+ * E-mail: mjn9ine@gmail.com
+ ```
+
+- 이진후
+ 
+ ```
+ * 역할: 상품, 게시판   
  * E-mail: iiii666@naver.com
  ```
 
-- 정기범
- 
- ```
- * 학번: 
- * 역할:   
- * E-mail: mjn9ine@gmail.com
- ```
+## 4. 사용 기술 
+- IDE 이클립스 
+- Servlet, JSP, JSTL 이용
+- MVC2 패턴 사용
+- MVC2 Command 패턴 사용
+- 싱글턴 패턴 적용
+- DBCP 적용
+- CallableStatement 활용
+- 소스 작성자 표시 -> 공동 작성자 
+- 새로운 유저 생성
+- 정규화에 위배되지 않는 테이블 설계
+- 오라클 클라우드 사용
+- View 사용
+- Index 사용
+- Sequence 사용
+- Synonym 사용
+- PL/SQL Package 사용
+- PL/SQL Procedure 사용
+- PL/SQL Function 사용
+- PL/SQL Trigger 사용
+
+## 5. UI
+ - ![image](https://user-images.githubusercontent.com/65829111/206622331-b5be3cf1-fc5c-4159-a2d4-e9fae4dfe73a.png)
